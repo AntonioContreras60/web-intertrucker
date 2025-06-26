@@ -2,6 +2,13 @@
 session_start();
 include 'conexion.php'; // Conexión a la base de datos
 
+// ======================================================
+// CSRF: Generar token si no existe
+// ======================================================
+if (!isset($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -446,6 +453,7 @@ $num_tren = $res_tren->num_rows;
     </button>
     <div class="content">
       <form method="POST" action="tomar_multiple_companeros.php" onsubmit="return confirmarTomarMultiple();">
+        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         <?php if($num_no_ofrec>0): ?>
           <div style="margin-bottom:5px;">
             <label>
@@ -480,6 +488,7 @@ $num_tren = $res_tren->num_rows;
                 </a>
                 <form action="cambiar_titularidad_creados.php" method="POST" style="display:inline;">
                   <input type="hidden" name="porte_id" value="<?php echo $row['id']; ?>">
+                  <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                   <button style="background-color:#007bff;">Tomar</button>
                 </form>
               </div>
@@ -502,6 +511,7 @@ $num_tren = $res_tren->num_rows;
     </button>
     <div class="content">
       <form method="POST" action="tomar_multiple_companeros.php" onsubmit="return confirmarTomarMultiple();">
+        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         <?php if($num_ofrec>0): ?>
           <div style="margin-bottom:5px;">
             <label>
@@ -535,6 +545,7 @@ $num_tren = $res_tren->num_rows;
                 </a>
                 <form action="cambiar_titularidad_creados.php" method="POST" style="display:inline;">
                   <input type="hidden" name="porte_id" value="<?php echo $row['id']; ?>">
+                  <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                   <button style="background-color:#007bff;">Tomar</button>
                 </form>
               </div>
@@ -557,6 +568,7 @@ $num_tren = $res_tren->num_rows;
     </button>
     <div class="content">
       <form method="POST" action="tomar_multiple_companeros.php" onsubmit="return confirmarTomarMultiple();">
+        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         <?php if($num_asig>0): ?>
           <div style="margin-bottom:5px;">
             <label>
@@ -595,6 +607,7 @@ $num_tren = $res_tren->num_rows;
                 </a>
                 <form action="cambiar_titularidad_creados.php" method="POST" style="display:inline;">
                   <input type="hidden" name="porte_id" value="<?php echo $row['id']; ?>">
+                  <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                   <button style="background-color:#007bff;">Tomar</button>
                 </form>
               </div>
@@ -617,6 +630,7 @@ $num_tren = $res_tren->num_rows;
     </button>
     <div class="content">
       <form method="POST" action="tomar_multiple_companeros.php" onsubmit="return confirmarTomarMultiple();">
+        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         <?php if($num_tren>0): ?>
           <div style="margin-bottom:5px;">
             <label>
@@ -652,6 +666,7 @@ $num_tren = $res_tren->num_rows;
                 </a>
                 <form action="cambiar_titularidad_completo.php" method="POST" style="display:inline;">
                   <input type="hidden" name="porte_id" value="<?php echo $row['id']; ?>">
+                  <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                   <button style="background-color:#007bff;">Tomar</button>
                 </form>
               </div>
@@ -711,6 +726,7 @@ $num_tren = $res_tren->num_rows;
       </div>
 
       <form method="POST" action="tomar_multiple_companeros.php" onsubmit="return confirmarTomarMultiple();">
+        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         <table>
           <thead>
             <tr>
@@ -751,6 +767,7 @@ $num_tren = $res_tren->num_rows;
                 </a>
                 <form action="cambiar_titularidad_creados.php" method="POST" style="display:inline;">
                   <input type="hidden" name="porte_id" value="<?php echo $row['id']; ?>">
+                  <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                   <button class="btn-accion" style="background-color:#007bff;">Tomar</button>
                 </form>
               </td>
@@ -794,6 +811,7 @@ $num_tren = $res_tren->num_rows;
       </div>
 
       <form method="POST" action="tomar_multiple_companeros.php" onsubmit="return confirmarTomarMultiple();">
+        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         <table>
           <thead>
             <tr>
@@ -834,6 +852,7 @@ $num_tren = $res_tren->num_rows;
                 </a>
                 <form action="cambiar_titularidad_creados.php" method="POST" style="display:inline;">
                   <input type="hidden" name="porte_id" value="<?php echo $row['id']; ?>">
+                  <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                   <button class="btn-accion" style="background-color:#007bff;">Tomar</button>
                 </form>
               </td>
@@ -877,6 +896,7 @@ $num_tren = $res_tren->num_rows;
       </div>
 
       <form method="POST" action="tomar_multiple_companeros.php" onsubmit="return confirmarTomarMultiple();">
+        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         <table>
           <thead>
             <tr>
@@ -921,6 +941,7 @@ $num_tren = $res_tren->num_rows;
                 </a>
                 <form action="cambiar_titularidad_creados.php" method="POST" style="display:inline;">
                   <input type="hidden" name="porte_id" value="<?php echo $row['id']; ?>">
+                  <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                   <button class="btn-accion" style="background-color:#007bff;">Tomar</button>
                 </form>
               </td>
@@ -964,6 +985,7 @@ $num_tren = $res_tren->num_rows;
       </div>
 
       <form method="POST" action="tomar_multiple_companeros.php" onsubmit="return confirmarTomarMultiple();">
+        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         <table>
           <thead>
             <tr>
@@ -1010,6 +1032,7 @@ $num_tren = $res_tren->num_rows;
                 </a>
                 <form action="cambiar_titularidad_completo.php" method="POST" style="display:inline;">
                   <input type="hidden" name="porte_id" value="<?php echo $row['id']; ?>">
+                  <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                   <button class="btn-accion" style="background-color:#007bff;">Tomar</button>
                 </form>
               </td>
