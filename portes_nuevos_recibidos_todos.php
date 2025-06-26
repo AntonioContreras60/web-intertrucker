@@ -792,6 +792,7 @@ $num_tren = $res_tren->num_rows;
               <form action="cambiar_titularidad_completo.php" method="POST"
                     onsubmit="return confirm('¿Seguro de tomar este porte del tren?');">
                 <input type="hidden" name="porte_id" value="<?php echo htmlspecialchars($row['porte_id']); ?>">
+                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                 <button style="background-color:#007bff;">Tomar</button>
               </form>
               <a href="detalle_porte.php?id=<?php echo htmlspecialchars($row['porte_id']); ?>">
@@ -1214,6 +1215,7 @@ $num_tren = $res_tren->num_rows;
               <form action="cambiar_titularidad_completo.php" method="POST" style="display:inline;"
                     onsubmit="return confirm('¿Seguro de tomar este porte del tren?');">
                 <input type="hidden" name="porte_id" value="<?php echo htmlspecialchars($row['porte_id']); ?>">
+                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                 <button class="btn-accion" style="background-color:#007bff;">Tomar</button>
               </form>
               <a href="detalle_porte.php?id=<?php echo htmlspecialchars($row['porte_id']); ?>">
