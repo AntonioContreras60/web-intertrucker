@@ -1,0 +1,8 @@
+<svg id="cerrar_sesion" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Icono de Cerrar Sesión: Representa una puerta abierta con una flecha -->
+  <!-- Puerta -->
+  <path d="M3 3h12v18H3V3z" fill="none" stroke="currentColor"></path>
+  <!-- Flecha hacia la derecha -->
+  <line x1="13" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="3"></line>
+  <polyline points="18 9 21 12 18 15" fill="none" stroke="currentColor" stroke-width="3"></polyline>
+</svg>

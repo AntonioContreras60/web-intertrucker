@@ -1,0 +1,292 @@
+/* ==============================
+   VARIABLES GLOBALES
+============================== */
+:root {
+    --color-bg: #f4f4f4;
+    --color-text: #333;
+    --color-primary: #007bff;
+    --color-primary-hover: #0056b3;
+    --color-dark-blue: #001C80;
+    --color-white: #fff;
+    --color-light: #eee;
+    --color-border: #ccc;
+
+    --spacing-small: 5px;
+    --spacing-base: 10px;
+    --spacing-medium: 15px;
+    --spacing-large: 20px;
+}
+
+/* ==============================
+   RESETEO & CONFIG INICIAL
+============================== */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    box-sizing: border-box;
+}
+
+/* 
+   BODY como FLEX
+   min-height: 100vh para llenar toda la pantalla
+   flex-direction: column para apilar header, main, footer
+*/
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ==============================
+   MAIN: ocupa el espacio sobrante
+============================== */
+main {
+    flex: 1; /* Para empujar el footer al fondo si hay poco contenido */
+    padding: var(--spacing-base);
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==============================
+   BOTONES GENERALES (BASE)
+============================== */
+button,
+.button-primary,
+.aceptar-oferta-button,
+button.collapsible,
+.btn-toggle {
+    background-color: var(--color-primary);
+    color: var(--color-white) !important;
+    padding: 12px 20px;
+    margin-top: var(--spacing-base);
+    border: none;
+    border-radius: 10px; 
+    font-size: 1.2em;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+    border: 2px solid var(--color-white);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: box-shadow 0.3s ease, filter 0.3s ease, background-color 0.3s ease;
+}
+
+button:hover,
+.collapsible:hover,
+.button-primary:hover,
+.aceptar-oferta-button:hover,
+.btn-toggle:hover {
+    filter: brightness(90%);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+button {
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.collapsible.active,
+.btn-toggle.active {
+    background-color: var(--color-primary-hover);
+}
+
+.btn-small {
+  background-color: var(--color-primary) !important;
+  color: var(--color-white) !important;
+  padding: 6px 10px !important;
+  font-size: 0.9em !important;
+  width: auto !important;
+  max-width: none !important;
+  margin: var(--spacing-small) 0 !important;
+  border: 2px solid var(--color-white) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
+  cursor: pointer !important;
+  transition: box-shadow 0.3s ease, filter 0.3s ease !important;
+}
+
+.btn-small:hover {
+  filter: brightness(90%);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+/* ==============================
+   BOTONES ESPECÍFICOS
+============================== */
+button[type="submit"] {
+    font-size: 1.2em;
+    background-color: var(--color-primary);
+}
+
+.aceptar-oferta-button {
+    padding: 15px 30px;
+    font-size: 1.3em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button-primary {
+    /* Usa los estilos base + alguna variación si deseas */
+}
+
+button.return {
+    background-color: var(--color-primary);
+    font-size: 1.2em;
+    padding: 10px 20px;
+    width: auto;
+    color: black !important; 
+}
+
+/* ==============================
+   BOTONES COLAPSABLES 
+============================== */
+.collapsible {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    margin: var(--spacing-base) 0;
+    text-align: left;
+    outline: none;
+}
+.collapsible + .content {
+    display: none;
+    overflow: hidden;
+    padding: 0 var(--spacing-base);
+    background-color: #f1f1f1;
+    margin-top: var(--spacing-base);
+    border-radius: 5px;
+}
+
+/* ==============================
+   MENÚ, ENCABEZADO Y NAVEGACIÓN
+============================== */
+header nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-base);
+    position: relative;
+    z-index: 12;
+}
+nav ul li a {
+    padding: 10px 15px !important;
+    font-size: 1em !important;
+    border-radius: 5px !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: box-shadow 0.3s ease;
+    color: var(--color-text);
+    text-decoration: none;
+}
+nav ul li a:hover {
+    box-shadow: 0 4px 6px rgba(0,0,0,0.25);
+}
+
+/* ==============================
+   RESPONSIVE
+============================== */
+@media screen and (max-width: 768px) {
+    .collapsible {
+        font-size: 1.3em;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        font-size: 1.1em;
+    }
+
+    li {
+        font-size: 1.1em;
+    }
+}
+
+/* ==============================
+   FORMULARIOS
+============================== */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: var(--spacing-large);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 90%;
+    max-width: 400px;
+    padding: 10px;
+    margin: var(--spacing-base) 0;
+    font-size: 1.2em;
+    border: 1px solid var(--color-border);
+    border-radius: 5px;
+}
+
+/* ==============================
+   CONTENEDORES Y TARJETAS
+============================== */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--color-white);
+    padding: var(--spacing-medium);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: box-shadow 0.3s ease;
+}
+.container:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.card,
+.content {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    padding: var(--spacing-medium);
+    background-color: var(--color-white);
+    transition: box-shadow 0.3s ease;
+}
+.card:hover,
+.content:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* ==============================
+   TITULOS
+============================== */
+h1, h2, h3 {
+    color: var(--color-primary-hover);
+    margin-top: var(--spacing-base);
+    margin-bottom: var(--spacing-base);
+}
+main h1 {
+    margin-top: var(--spacing-base);
+    margin-bottom: var(--spacing-base);
+}
+main nav {
+    margin-top: var(--spacing-small);
+    margin-bottom: var(--spacing-base);
+}
+
+/* ==============================
+   PIE DE PÁGINA (FLEX)
+============================== */
+.bottom-footer {
+    background-color: #001C80; /* Mismo color que usabas */
+    color: var(--color-white);
+    text-align: center;
+    padding: 20px; 
+    margin-top: auto; /* Empuja el footer al fondo si hay poco contenido */
+}

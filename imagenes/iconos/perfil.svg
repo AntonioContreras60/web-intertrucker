@@ -1,0 +1,10 @@
+<svg id="mis_conductores" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Icono de Mis Contactos: Representa dos personas, una delante y otra detrás a la derecha -->
+  <!-- Persona principal (delante) -->
+  <!-- Cabeza de la persona -->
+  <circle cx="12" cy="6" r="3" fill="currentColor" stroke="currentColor"></circle>
+  <!-- Cuerpo de la persona -->
+  <path d="M6 14c0-2 3-3 6-3s6 1 6 3v4H6v-4z" fill="currentColor" stroke="currentColor"></path>
+  <!-- Volante al lado del individuo -->
+  
+</svg>

@@ -1,0 +1,105 @@
+/* =============================================================
+   Hoja de estilos – Panel Super-Admin  (InterTrucker)
+   Fecha: 2025-05-12
+   ============================================================= */
+
+/* --- hereda fuente y resets globales --- */
+@import "../styles.css";
+
+/* ---------- 1 · Encabezado / Navegación ---------- */
+.sa-header   {background:#001C80;color:#fff;padding:10px 20px;
+              display:flex;justify-content:space-between;align-items:center}
+.sa-header h2{margin:0;font-size:1.2rem}
+.sa-header nav a{color:#fff;margin-left:15px;text-decoration:none;font-weight:bold}
+
+/* ---------- 2 · Banner observador (impersonación) ---------- */
+.banner-observer{background:#ffc107;padding:8px;text-align:center}
+
+/* ---------- 3 · Tarjetas resumen ---------- */
+.cards            {display:flex;gap:15px;margin:15px 0}
+.cards article    {flex:1;background:#007bff;color:#fff;border-radius:8px;
+                   padding:18px;text-align:center}
+
+/* ---------- 4 · Tablas ---------- */
+table        {width:100%;border-collapse:collapse;margin-top:10px}
+td,th        {padding:8px;border:1px solid #ccc;text-align:left;font-size:.9rem}
+tbody tr:hover{background:#f6f8ff}
+
+/* ---------- 5 · Login ---------- */
+.error       {color:#c00}
+.login-page  {display:flex;flex-direction:column;align-items:center;
+              justify-content:center;height:100vh}
+.login-form  {background:#fff;padding:30px;border-radius:10px;
+              box-shadow:0 2px 8px rgba(0,0,0,.2)}
+
+/* ---------- 6 · Footer ---------- */
+.sa-footer   {text-align:center;padding:10px;font-size:.85rem;color:#777}
+
+/* ---------- 7 · Tabla empresas con árbol desplegable ---------- */
+table.listado                {width:100%;border-collapse:collapse}
+table.listado th,
+table.listado td             {border:1px solid #ccc;padding:6px 8px;font-size:.9rem}
+table.listado tr.empresa     {background:#f0f4ff;font-weight:bold}
+table.listado td.toggle      {cursor:pointer;width:18px;text-align:center}
+table.listado tr.detalle.hidden {display:none}
+table.listado tr.detalle ul  {margin:4px 0 0 1em;padding:0}
+
+/* =================================================================
+   8 · NUEVO — Acordeón País / Región   (paises_panel.php)
+   ================================================================= */
+.accordion .btn-pais{
+  display:block;
+  width:100%;
+  padding:10px 15px;
+  margin:2px 0;
+  border:none;
+  background:#e9eefc;
+  text-align:left;
+  font-weight:600;
+  cursor:pointer;
+  transition:background .2s;
+}
+.accordion .btn-pais.active{
+  background:#c9dbff;
+}
+.accordion .panel{
+  display:none;
+  background:#f7f9ff;
+  padding:0 15px 10px 25px;
+}
+.accordion .panel ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.accordion .panel li{
+  margin:4px 0;
+}
+/* ================================================================= */
+/* === CONTRASTE ALTO – Botones País / Región ================= */
+.accordion .btn-pais{
+  background:#0052cc;          /* azul intenso */
+  color:#ffffff;               /* texto blanco */
+  border-radius:6px;
+}
+
+.accordion .btn-pais.active{
+  background:#003a99;          /* aún más oscuro al abrir */
+  color:#ffffff;
+}
+
+.accordion .panel{             /* caja regiones */
+  display:none;
+  background:#f2f6ff;          /* blanco azulado muy claro */
+  padding:0 15px 10px 25px;
+}
+
+.accordion .panel a{           /* enlaces región */
+  color:#0052cc;
+  font-weight:600;
+  text-decoration:none;
+}
+.accordion .panel a:hover{
+  text-decoration:underline;
+}
+

@@ -1,0 +1,1146 @@
+Jun 23 17:36:42 10.71.57.0 u117490621 Connection from 10.71.57.0 port 27622 on 82.165.90.28 port 22 rdomain ""
+Jun 23 17:36:42 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 27622 ssh2
+Jun 23 17:36:42 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 27622 id 0
+Jun 23 17:36:42 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 23 17:37:32 10.71.57.0 u117490621 Connection from 10.71.57.0 port 14552 on 82.165.90.28 port 22 rdomain ""
+Jun 23 17:37:33 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 14552 ssh2
+Jun 23 17:37:33 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 14552 id 0
+Jun 23 17:37:33 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 23 17:37:33 10.71.57.0 u117490621 open "/index.php" flags READ mode 0666
+Jun 23 17:37:33 10.71.57.0 u117490621 close "/index.php" bytes read 4896 written 0
+Jun 23 17:37:33 10.71.57.0 u117490621 [10.71.57.0|get|0|4896|0|0|0|2f696e6465782e706870|]
+Jun 23 17:38:32 10.71.57.0 u117490621 open "/index.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 23 17:38:32 10.71.57.0 u117490621 close "/index.php" bytes read 0 written 4933
+Jun 23 17:38:32 10.71.57.0 u117490621 [10.71.57.0|put|0|4933|0|0|0|2f696e6465782e706870|]
+Jun 23 17:39:32 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 23 17:39:32 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 14552
+Jun 23 17:40:04 10.71.57.0 u117490621 Connection from 10.71.57.0 port 17496 on 82.165.90.28 port 22 rdomain ""
+Jun 23 17:40:04 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 17496 ssh2
+Jun 23 17:40:04 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 17496 id 0
+Jun 23 17:40:04 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 23 17:40:05 10.71.57.0 u117490621 open "/index.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 23 17:40:05 10.71.57.0 u117490621 close "/index.php" bytes read 0 written 4937
+Jun 23 17:40:05 10.71.57.0 u117490621 [10.71.57.0|put|0|4937|0|0|0|2f696e6465782e706870|]
+Jun 23 17:41:05 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 23 17:41:05 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 17496
+Jun 23 17:41:35 10.71.57.0 u117490621 Connection from 10.71.57.0 port 63948 on 82.165.90.28 port 22 rdomain ""
+Jun 23 17:41:35 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 63948 ssh2
+Jun 23 17:41:36 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 63948 id 0
+Jun 23 17:41:36 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 23 17:41:36 10.71.57.0 u117490621 open "/index.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 23 17:41:36 10.71.57.0 u117490621 close "/index.php" bytes read 0 written 4950
+Jun 23 17:41:36 10.71.57.0 u117490621 [10.71.57.0|put|0|4950|0|0|0|2f696e6465782e706870|]
+Jun 23 17:42:36 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 63948
+Jun 23 17:42:36 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 23 17:45:19 10.71.57.0 u117490621 Connection from 10.71.57.0 port 54468 on 82.165.90.28 port 22 rdomain ""
+Jun 23 17:45:19 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 54468 ssh2
+Jun 23 17:45:19 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 54468 id 0
+Jun 23 17:45:19 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 23 17:45:19 10.71.57.0 u117490621 open "/index.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 23 17:45:19 10.71.57.0 u117490621 close "/index.php" bytes read 0 written 4794
+Jun 23 17:45:19 10.71.57.0 u117490621 [10.71.57.0|put|0|4794|0|0|0|2f696e6465782e706870|]
+Jun 23 17:46:19 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 54468
+Jun 23 17:46:19 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 23 17:53:21 10.71.57.0 u117490621 Connection from 10.71.57.0 port 23492 on 82.165.90.28 port 22 rdomain ""
+Jun 23 17:53:22 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 23492 ssh2
+Jun 23 17:53:22 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 23492 id 0
+Jun 23 17:53:22 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 23 17:53:22 10.71.57.0 u117490621 open "/index.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 23 17:53:22 10.71.57.0 u117490621 close "/index.php" bytes read 0 written 5096
+Jun 23 17:53:22 10.71.57.0 u117490621 [10.71.57.0|put|0|5096|0|0|0|2f696e6465782e706870|]
+Jun 23 17:54:22 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 23 17:54:22 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 23492
+Jun 23 17:57:04 10.71.57.0 u117490621 Connection from 10.71.57.0 port 62930 on 82.165.90.28 port 22 rdomain ""
+Jun 23 17:57:05 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 62930 ssh2
+Jun 23 17:57:05 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 62930 id 0
+Jun 23 17:57:05 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 23 17:57:05 10.71.57.0 u117490621 open "/index.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 23 17:57:05 10.71.57.0 u117490621 close "/index.php" bytes read 0 written 5132
+Jun 23 17:57:05 10.71.57.0 u117490621 [10.71.57.0|put|0|5132|0|0|0|2f696e6465782e706870|]
+Jun 23 17:58:05 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 62930
+Jun 23 17:58:05 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 23 17:58:07 10.71.57.0 u117490621 Connection from 10.71.57.0 port 33822 on 82.165.90.28 port 22 rdomain ""
+Jun 23 17:58:07 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 33822 ssh2
+Jun 23 17:58:07 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 33822 id 0
+Jun 23 17:58:07 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 23 17:58:07 10.71.57.0 u117490621 open "/index.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 23 17:58:08 10.71.57.0 u117490621 close "/index.php" bytes read 0 written 4983
+Jun 23 17:58:08 10.71.57.0 u117490621 [10.71.57.0|put|1|4983|0|0|0|2f696e6465782e706870|]
+Jun 23 17:59:08 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 23 17:59:08 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 33822
+Jun 23 17:59:10 10.71.57.0 u117490621 Connection from 10.71.57.0 port 35352 on 82.165.90.28 port 22 rdomain ""
+Jun 23 17:59:10 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 35352 ssh2
+Jun 23 17:59:10 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 35352 id 0
+Jun 23 17:59:10 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 23 17:59:10 10.71.57.0 u117490621 open "/index.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 23 17:59:10 10.71.57.0 u117490621 close "/index.php" bytes read 0 written 4997
+Jun 23 17:59:10 10.71.57.0 u117490621 [10.71.57.0|put|0|4997|0|0|0|2f696e6465782e706870|]
+Jun 23 18:00:11 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 23 18:00:11 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 35352
+Jun 23 18:02:21 10.71.57.0 u117490621 Connection from 10.71.57.0 port 57954 on 82.165.90.28 port 22 rdomain ""
+Jun 23 18:02:21 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 57954 ssh2
+Jun 23 18:02:21 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 57954 id 0
+Jun 23 18:02:21 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 23 18:02:21 10.71.57.0 u117490621 open "/index.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 23 18:02:22 10.71.57.0 u117490621 close "/index.php" bytes read 0 written 5000
+Jun 23 18:02:22 10.71.57.0 u117490621 [10.71.57.0|put|1|5000|0|0|0|2f696e6465782e706870|]
+Jun 23 18:03:22 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 23 18:03:22 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 57954
+Jun 23 18:04:12 10.71.57.0 u117490621 Connection from 10.71.57.0 port 39394 on 82.165.90.28 port 22 rdomain ""
+Jun 23 18:04:12 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 39394 ssh2
+Jun 23 18:04:12 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 39394 id 0
+Jun 23 18:04:12 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 23 18:04:12 10.71.57.0 u117490621 open "/index.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 23 18:04:12 10.71.57.0 u117490621 close "/index.php" bytes read 0 written 5069
+Jun 23 18:04:12 10.71.57.0 u117490621 [10.71.57.0|put|0|5069|0|0|0|2f696e6465782e706870|]
+Jun 23 18:04:38 10.71.57.0 u117490621 open "/index.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 23 18:04:38 10.71.57.0 u117490621 close "/index.php" bytes read 0 written 5070
+Jun 23 18:04:38 10.71.57.0 u117490621 [10.71.57.0|put|0|5070|0|0|0|2f696e6465782e706870|]
+Jun 23 18:05:38 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 23 18:05:38 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 39394
+Jun 23 18:27:37 10.71.57.0 u117490621 Connection from 10.71.57.0 port 13804 on 82.165.90.28 port 22 rdomain ""
+Jun 23 18:27:38 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 13804 ssh2
+Jun 23 18:27:38 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 13804 id 0
+Jun 23 18:27:38 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 23 18:27:38 10.71.57.0 u117490621 open "/Perfil/procesar_registro.php" flags READ mode 0666
+Jun 23 18:27:38 10.71.57.0 u117490621 close "/Perfil/procesar_registro.php" bytes read 7645 written 0
+Jun 23 18:27:38 10.71.57.0 u117490621 [10.71.57.0|get|0|7645|0|0|0|2f50657266696c2f70726f63657361725f726567697374726f2e706870|]
+Jun 23 18:28:38 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 13804
+Jun 23 18:28:38 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 23 18:33:59 10.71.57.0 u117490621 Connection from 10.71.57.0 port 15326 on 82.165.90.28 port 22 rdomain ""
+Jun 23 18:34:00 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 15326 ssh2
+Jun 23 18:34:00 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 15326 id 0
+Jun 23 18:34:00 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 23 18:34:00 10.71.57.0 u117490621 open "/Perfil/procesar_registro.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 23 18:34:00 10.71.57.0 u117490621 close "/Perfil/procesar_registro.php" bytes read 0 written 7916
+Jun 23 18:34:00 10.71.57.0 u117490621 [10.71.57.0|put|0|7916|0|0|0|2f50657266696c2f70726f63657361725f726567697374726f2e706870|]
+Jun 23 18:35:00 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 23 18:35:00 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 15326
+Jun 23 18:36:45 10.71.57.0 u117490621 Connection from 10.71.57.0 port 20234 on 82.165.90.28 port 22 rdomain ""
+Jun 23 18:36:46 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 20234 ssh2
+Jun 23 18:36:46 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 20234 id 0
+Jun 23 18:36:46 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 23 18:36:46 10.71.57.0 u117490621 open "/Perfil/procesar_registro.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 23 18:36:46 10.71.57.0 u117490621 close "/Perfil/procesar_registro.php" bytes read 0 written 7916
+Jun 23 18:36:46 10.71.57.0 u117490621 [10.71.57.0|put|0|7916|0|0|0|2f50657266696c2f70726f63657361725f726567697374726f2e706870|]
+Jun 23 18:37:46 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 23 18:37:46 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 20234
+Jun 23 18:41:36 10.71.57.0 u117490621 Connection from 10.71.57.0 port 50286 on 82.165.90.28 port 22 rdomain ""
+Jun 23 18:41:36 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 50286 ssh2
+Jun 23 18:41:36 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 50286 id 0
+Jun 23 18:41:36 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 23 18:41:43 10.71.57.0 u117490621 open "/portes_nuevos_recibidos.php" flags READ mode 0666
+Jun 23 18:41:43 10.71.57.0 u117490621 close "/portes_nuevos_recibidos.php" bytes read 50914 written 0
+Jun 23 18:41:43 10.71.57.0 u117490621 [10.71.57.0|get|0|50914|0|0|0|2f706f727465735f6e7565766f735f726563696269646f732e706870|]
+Jun 23 18:42:43 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 23 18:42:43 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 50286
+Jun 23 19:01:57 10.71.57.0 u117490621 Connection from 10.71.57.0 port 53276 on 82.165.90.28 port 22 rdomain ""
+Jun 23 19:01:57 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 53276 ssh2
+Jun 23 19:01:57 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 53276 id 0
+Jun 23 19:01:57 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 23 19:01:58 10.71.57.0 u117490621 open "/Perfil/registro.php" flags READ mode 0666
+Jun 23 19:01:58 10.71.57.0 u117490621 close "/Perfil/registro.php" bytes read 8449 written 0
+Jun 23 19:01:58 10.71.57.0 u117490621 [10.71.57.0|get|1|8449|0|0|0|2f50657266696c2f726567697374726f2e706870|]
+Jun 23 19:02:58 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 23 19:02:58 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 53276
+Jun 23 19:03:39 10.71.57.0 u117490621 Connection from 10.71.57.0 port 56610 on 82.165.90.28 port 22 rdomain ""
+Jun 23 19:03:39 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 56610 ssh2
+Jun 23 19:03:39 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 56610 id 0
+Jun 23 19:03:39 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 23 19:03:40 10.71.57.0 u117490621 open "/Perfil/registro.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 23 19:03:40 10.71.57.0 u117490621 close "/Perfil/registro.php" bytes read 0 written 8680
+Jun 23 19:03:40 10.71.57.0 u117490621 [10.71.57.0|put|0|8680|0|0|0|2f50657266696c2f726567697374726f2e706870|]
+Jun 23 19:04:22 10.71.57.0 u117490621 open "/Perfil/registro.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 23 19:04:22 10.71.57.0 u117490621 close "/Perfil/registro.php" bytes read 0 written 8680
+Jun 23 19:04:22 10.71.57.0 u117490621 [10.71.57.0|put|0|8680|0|0|0|2f50657266696c2f726567697374726f2e706870|]
+Jun 23 19:05:22 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 56610
+Jun 23 19:05:22 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 23 19:18:01 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 27622
+Jun 23 19:18:01 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 23 21:59:57 10.71.57.0 u117490621 Connection from 10.71.57.0 port 22892 on 82.165.90.28 port 22 rdomain ""
+Jun 23 21:59:57 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 22892 ssh2
+Jun 23 21:59:57 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 22892 id 0
+Jun 23 21:59:57 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 23 21:59:57 10.71.57.0 u117490621 open "/Perfil/registro.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 23 21:59:57 10.71.57.0 u117490621 close "/Perfil/registro.php" bytes read 0 written 8899
+Jun 23 21:59:57 10.71.57.0 u117490621 [10.71.57.0|put|0|8899|0|0|0|2f50657266696c2f726567697374726f2e706870|]
+Jun 23 22:00:57 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 22892
+Jun 23 22:00:57 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 13:10:32 10.71.57.0 u117490621 Connection from 10.71.57.0 port 15154 on 82.165.90.28 port 22 rdomain ""
+Jun 24 13:10:32 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 15154 ssh2
+Jun 24 13:10:32 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 15154 id 0
+Jun 24 13:10:32 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 13:10:52 10.71.57.0 u117490621 Connection from 10.71.57.0 port 59522 on 82.165.90.28 port 22 rdomain ""
+Jun 24 13:10:52 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 59522 ssh2
+Jun 24 13:10:52 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 59522 id 0
+Jun 24 13:10:52 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 13:10:52 10.71.57.0 u117490621 open "/facturas.php" flags READ mode 0666
+Jun 24 13:10:53 10.71.57.0 u117490621 close "/facturas.php" bytes read 8921 written 0
+Jun 24 13:10:53 10.71.57.0 u117490621 [10.71.57.0|get|1|8921|0|0|0|2f66616374757261732e706870|]
+Jun 24 13:11:53 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 59522
+Jun 24 13:11:53 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 13:17:21 10.71.57.0 u117490621 Connection from 10.71.57.0 port 30354 on 82.165.90.28 port 22 rdomain ""
+Jun 24 13:17:22 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 30354 ssh2
+Jun 24 13:17:22 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 30354 id 0
+Jun 24 13:17:22 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 13:17:22 10.71.57.0 u117490621 open "/facturas.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 13:17:22 10.71.57.0 u117490621 close "/facturas.php" bytes read 0 written 7523
+Jun 24 13:17:22 10.71.57.0 u117490621 [10.71.57.0|put|0|7523|0|0|0|2f66616374757261732e706870|]
+Jun 24 13:18:22 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 13:18:22 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 30354
+Jun 24 13:20:00 10.71.57.0 u117490621 Connection from 10.71.57.0 port 30392 on 82.165.90.28 port 22 rdomain ""
+Jun 24 13:20:00 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 30392 ssh2
+Jun 24 13:20:01 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 30392 id 0
+Jun 24 13:20:01 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 13:20:01 10.71.57.0 u117490621 open "/facturas.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 13:20:01 10.71.57.0 u117490621 close "/facturas.php" bytes read 0 written 7523
+Jun 24 13:20:01 10.71.57.0 u117490621 [10.71.57.0|put|0|7523|0|0|0|2f66616374757261732e706870|]
+Jun 24 13:21:01 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 30392
+Jun 24 13:21:01 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 13:30:19 10.71.57.0 u117490621 Connection from 10.71.57.0 port 27092 on 82.165.90.28 port 22 rdomain ""
+Jun 24 13:30:20 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 27092 ssh2
+Jun 24 13:30:20 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 27092 id 0
+Jun 24 13:30:20 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 13:30:20 10.71.57.0 u117490621 open "/facturas.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 13:30:20 10.71.57.0 u117490621 close "/facturas.php" bytes read 0 written 6702
+Jun 24 13:30:20 10.71.57.0 u117490621 [10.71.57.0|put|0|6702|0|0|0|2f66616374757261732e706870|]
+Jun 24 13:31:21 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 13:31:21 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 27092
+Jun 24 13:37:04 10.71.57.0 u117490621 Connection from 10.71.57.0 port 65356 on 82.165.90.28 port 22 rdomain ""
+Jun 24 13:37:05 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 65356 ssh2
+Jun 24 13:37:05 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 65356 id 0
+Jun 24 13:37:05 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 13:37:05 10.71.57.0 u117490621 open "/facturas.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 13:37:05 10.71.57.0 u117490621 close "/facturas.php" bytes read 0 written 5835
+Jun 24 13:37:05 10.71.57.0 u117490621 [10.71.57.0|put|0|5835|0|0|0|2f66616374757261732e706870|]
+Jun 24 13:38:05 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 13:38:05 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 65356
+Jun 24 13:56:38 10.71.57.0 u117490621 Connection from 10.71.57.0 port 50638 on 82.165.90.28 port 22 rdomain ""
+Jun 24 13:56:38 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 50638 ssh2
+Jun 24 13:56:39 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 50638 id 0
+Jun 24 13:56:39 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 13:56:39 10.71.57.0 u117490621 open "/facturas.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 13:56:39 10.71.57.0 u117490621 close "/facturas.php" bytes read 0 written 5640
+Jun 24 13:56:39 10.71.57.0 u117490621 [10.71.57.0|put|0|5640|0|0|0|2f66616374757261732e706870|]
+Jun 24 13:57:39 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 13:57:39 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 50638
+Jun 24 14:14:50 10.71.57.0 u117490621 Connection from 10.71.57.0 port 12634 on 82.165.90.28 port 22 rdomain ""
+Jun 24 14:14:50 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 12634 ssh2
+Jun 24 14:14:51 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 12634 id 0
+Jun 24 14:14:51 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 14:14:51 10.71.57.0 u117490621 open "/my_network.php" flags READ mode 0666
+Jun 24 14:14:51 10.71.57.0 u117490621 close "/my_network.php" bytes read 12084 written 0
+Jun 24 14:14:51 10.71.57.0 u117490621 [10.71.57.0|get|0|12084|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 14:15:51 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 14:15:51 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 12634
+Jun 24 14:18:33 10.71.57.0 u117490621 Connection from 10.71.57.0 port 46764 on 82.165.90.28 port 22 rdomain ""
+Jun 24 14:18:33 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 46764 ssh2
+Jun 24 14:18:33 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 46764 id 0
+Jun 24 14:18:33 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 14:18:33 10.71.57.0 u117490621 open "/my_network.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 14:18:33 10.71.57.0 u117490621 close "/my_network.php" bytes read 0 written 12110
+Jun 24 14:18:33 10.71.57.0 u117490621 [10.71.57.0|put|0|12110|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 14:19:33 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 14:19:33 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 46764
+Jun 24 14:19:55 10.71.57.0 u117490621 Connection from 10.71.57.0 port 51042 on 82.165.90.28 port 22 rdomain ""
+Jun 24 14:19:55 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 51042 ssh2
+Jun 24 14:19:55 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 51042 id 0
+Jun 24 14:19:55 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 14:19:56 10.71.57.0 u117490621 open "/my_network.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 14:19:56 10.71.57.0 u117490621 close "/my_network.php" bytes read 0 written 12128
+Jun 24 14:19:56 10.71.57.0 u117490621 [10.71.57.0|put|0|12128|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 14:20:56 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 14:20:56 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 51042
+Jun 24 14:24:37 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 15154
+Jun 24 14:24:37 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 18:29:27 10.71.57.0 u117490621 Connection from 10.71.57.0 port 33230 on 82.165.90.28 port 22 rdomain ""
+Jun 24 18:29:28 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 33230 ssh2
+Jun 24 18:29:28 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 33230 id 0
+Jun 24 18:29:28 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 18:30:24 10.71.57.0 u117490621 Connection from 10.71.57.0 port 49006 on 82.165.90.28 port 22 rdomain ""
+Jun 24 18:30:25 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 49006 ssh2
+Jun 24 18:30:25 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 49006 id 0
+Jun 24 18:30:25 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 18:30:25 10.71.57.0 u117490621 open "/my_network.php" flags READ mode 0666
+Jun 24 18:30:25 10.71.57.0 u117490621 close "/my_network.php" bytes read 12128 written 0
+Jun 24 18:30:25 10.71.57.0 u117490621 [10.71.57.0|get|0|12128|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 18:31:25 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 18:31:25 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 49006
+Jun 24 18:54:39 10.71.57.0 u117490621 Connection from 10.71.57.0 port 24340 on 82.165.90.28 port 22 rdomain ""
+Jun 24 18:54:39 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 24340 ssh2
+Jun 24 18:54:39 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 24340 id 0
+Jun 24 18:54:39 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 18:54:39 10.71.57.0 u117490621 open "/my_network.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 18:54:39 10.71.57.0 u117490621 close "/my_network.php" bytes read 0 written 7991
+Jun 24 18:54:39 10.71.57.0 u117490621 [10.71.57.0|put|0|7991|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 18:55:39 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 18:55:39 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 24340
+Jun 24 18:57:59 10.71.57.0 u117490621 Connection from 10.71.57.0 port 58490 on 82.165.90.28 port 22 rdomain ""
+Jun 24 18:57:59 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 58490 ssh2
+Jun 24 18:57:59 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 58490 id 0
+Jun 24 18:57:59 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 18:58:00 10.71.57.0 u117490621 open "/my_network.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 18:58:00 10.71.57.0 u117490621 close "/my_network.php" bytes read 0 written 8022
+Jun 24 18:58:00 10.71.57.0 u117490621 [10.71.57.0|put|0|8022|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 18:59:00 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 58490
+Jun 24 18:59:00 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 19:06:32 10.71.57.0 u117490621 Connection from 10.71.57.0 port 60374 on 82.165.90.28 port 22 rdomain ""
+Jun 24 19:06:32 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 60374 ssh2
+Jun 24 19:06:32 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 60374 id 0
+Jun 24 19:06:32 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 19:06:32 10.71.57.0 u117490621 open "/my_network.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 19:06:32 10.71.57.0 u117490621 close "/my_network.php" bytes read 0 written 7611
+Jun 24 19:06:32 10.71.57.0 u117490621 [10.71.57.0|put|0|7611|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 19:07:32 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 60374
+Jun 24 19:07:32 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 19:08:41 10.71.57.0 u117490621 Connection from 10.71.57.0 port 60898 on 82.165.90.28 port 22 rdomain ""
+Jun 24 19:08:41 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 60898 ssh2
+Jun 24 19:08:41 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 60898 id 0
+Jun 24 19:08:41 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 19:08:42 10.71.57.0 u117490621 open "/header.php" flags READ mode 0666
+Jun 24 19:08:42 10.71.57.0 u117490621 close "/header.php" bytes read 12404 written 0
+Jun 24 19:08:42 10.71.57.0 u117490621 [10.71.57.0|get|0|12404|0|0|0|2f6865616465722e706870|]
+Jun 24 19:09:32 10.71.57.0 u117490621 open "/footer.php" flags READ mode 0666
+Jun 24 19:09:32 10.71.57.0 u117490621 close "/footer.php" bytes read 113 written 0
+Jun 24 19:09:32 10.71.57.0 u117490621 [10.71.57.0|get|0|113|0|0|0|2f666f6f7465722e706870|]
+Jun 24 19:10:32 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 60898
+Jun 24 19:10:32 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 19:13:53 10.71.57.0 u117490621 Connection from 10.71.57.0 port 41604 on 82.165.90.28 port 22 rdomain ""
+Jun 24 19:13:53 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 41604 ssh2
+Jun 24 19:13:53 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 41604 id 0
+Jun 24 19:13:53 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 19:13:53 10.71.57.0 u117490621 open "/header.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 19:13:54 10.71.57.0 u117490621 close "/header.php" bytes read 0 written 8067
+Jun 24 19:13:54 10.71.57.0 u117490621 [10.71.57.0|put|1|8067|0|0|0|2f6865616465722e706870|]
+Jun 24 19:14:41 10.71.57.0 u117490621 open "/footer.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 19:14:41 10.71.57.0 u117490621 close "/footer.php" bytes read 0 written 162
+Jun 24 19:14:41 10.71.57.0 u117490621 [10.71.57.0|put|0|162|0|0|0|2f666f6f7465722e706870|]
+Jun 24 19:15:41 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 19:15:41 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 41604
+Jun 24 19:24:54 10.71.57.0 u117490621 Connection from 10.71.57.0 port 13836 on 82.165.90.28 port 22 rdomain ""
+Jun 24 19:24:54 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 13836 ssh2
+Jun 24 19:24:54 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 13836 id 0
+Jun 24 19:24:54 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 19:24:54 10.71.57.0 u117490621 open "/my_network.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 19:24:55 10.71.57.0 u117490621 close "/my_network.php" bytes read 0 written 10578
+Jun 24 19:24:55 10.71.57.0 u117490621 [10.71.57.0|put|1|10578|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 19:25:55 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 19:25:55 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 13836
+Jun 24 19:27:11 10.71.57.0 u117490621 Connection from 10.71.57.0 port 47458 on 82.165.90.28 port 22 rdomain ""
+Jun 24 19:27:12 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 47458 ssh2
+Jun 24 19:27:12 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 47458 id 0
+Jun 24 19:27:12 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 19:27:12 10.71.57.0 u117490621 open "/ver_grupo.php" flags READ mode 0666
+Jun 24 19:27:12 10.71.57.0 u117490621 close "/ver_grupo.php" bytes read 9086 written 0
+Jun 24 19:27:12 10.71.57.0 u117490621 [10.71.57.0|get|0|9086|0|0|0|2f7665725f677275706f2e706870|]
+Jun 24 19:28:12 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 19:28:12 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 47458
+Jun 24 19:29:00 10.71.57.0 u117490621 Connection from 10.71.57.0 port 37446 on 82.165.90.28 port 22 rdomain ""
+Jun 24 19:29:00 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 37446 ssh2
+Jun 24 19:29:00 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 37446 id 0
+Jun 24 19:29:00 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 19:29:00 10.71.57.0 u117490621 open "/my_network.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 19:29:01 10.71.57.0 u117490621 close "/my_network.php" bytes read 0 written 7611
+Jun 24 19:29:01 10.71.57.0 u117490621 [10.71.57.0|put|1|7611|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 19:30:01 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 19:30:01 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 37446
+Jun 24 19:37:15 10.71.57.0 u117490621 Connection from 10.71.57.0 port 27096 on 82.165.90.28 port 22 rdomain ""
+Jun 24 19:37:16 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 27096 ssh2
+Jun 24 19:37:16 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 27096 id 0
+Jun 24 19:37:16 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 19:37:16 10.71.57.0 u117490621 open "/my_network.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 19:37:16 10.71.57.0 u117490621 close "/my_network.php" bytes read 0 written 8482
+Jun 24 19:37:16 10.71.57.0 u117490621 [10.71.57.0|put|0|8482|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 19:38:16 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 27096
+Jun 24 19:38:16 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 19:41:30 10.71.57.0 u117490621 Connection from 10.71.57.0 port 50532 on 82.165.90.28 port 22 rdomain ""
+Jun 24 19:41:30 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 50532 ssh2
+Jun 24 19:41:30 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 50532 id 0
+Jun 24 19:41:30 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 19:41:31 10.71.57.0 u117490621 open "/my_network.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 19:41:31 10.71.57.0 u117490621 close "/my_network.php" bytes read 0 written 7611
+Jun 24 19:41:31 10.71.57.0 u117490621 [10.71.57.0|put|0|7611|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 19:41:54 10.71.57.0 u117490621 open "/my_network.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 19:41:54 10.71.57.0 u117490621 close "/my_network.php" bytes read 0 written 8022
+Jun 24 19:41:54 10.71.57.0 u117490621 [10.71.57.0|put|0|8022|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 19:42:19 10.71.57.0 u117490621 open "/my_network.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 19:42:19 10.71.57.0 u117490621 close "/my_network.php" bytes read 0 written 12128
+Jun 24 19:42:19 10.71.57.0 u117490621 [10.71.57.0|put|0|12128|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 19:42:49 10.71.57.0 u117490621 open "/my_network.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 19:42:49 10.71.57.0 u117490621 close "/my_network.php" bytes read 0 written 9934
+Jun 24 19:42:49 10.71.57.0 u117490621 [10.71.57.0|put|0|9934|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 19:43:49 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 19:43:49 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 50532
+Jun 24 19:47:58 10.71.57.0 u117490621 Connection from 10.71.57.0 port 50796 on 82.165.90.28 port 22 rdomain ""
+Jun 24 19:47:59 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 50796 ssh2
+Jun 24 19:47:59 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 50796 id 0
+Jun 24 19:47:59 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 19:47:59 10.71.57.0 u117490621 open "/header.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 19:47:59 10.71.57.0 u117490621 close "/header.php" bytes read 0 written 12404
+Jun 24 19:47:59 10.71.57.0 u117490621 [10.71.57.0|put|0|12404|0|0|0|2f6865616465722e706870|]
+Jun 24 19:48:07 10.71.57.0 u117490621 open "/footer.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 19:48:08 10.71.57.0 u117490621 close "/footer.php" bytes read 0 written 113
+Jun 24 19:48:08 10.71.57.0 u117490621 [10.71.57.0|put|1|113|0|0|0|2f666f6f7465722e706870|]
+Jun 24 19:49:08 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 50796
+Jun 24 19:49:08 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 19:50:46 10.71.57.0 u117490621 Connection from 10.71.57.0 port 28644 on 82.165.90.28 port 22 rdomain ""
+Jun 24 19:50:46 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 28644 ssh2
+Jun 24 19:50:46 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 28644 id 0
+Jun 24 19:50:46 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 19:50:47 10.71.57.0 u117490621 open "/my_network.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 19:50:47 10.71.57.0 u117490621 close "/my_network.php" bytes read 0 written 8990
+Jun 24 19:50:47 10.71.57.0 u117490621 [10.71.57.0|put|0|8990|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 19:51:47 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 19:51:47 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 28644
+Jun 24 19:53:31 10.71.57.0 u117490621 Connection from 10.71.57.0 port 38640 on 82.165.90.28 port 22 rdomain ""
+Jun 24 19:53:31 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 38640 ssh2
+Jun 24 19:53:31 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 38640 id 0
+Jun 24 19:53:31 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 19:53:32 10.71.57.0 u117490621 open "/my_network.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 19:53:32 10.71.57.0 u117490621 close "/my_network.php" bytes read 0 written 8980
+Jun 24 19:53:32 10.71.57.0 u117490621 [10.71.57.0|put|0|8980|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 19:53:50 10.71.57.0 u117490621 open "/my_network.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 19:53:50 10.71.57.0 u117490621 close "/my_network.php" bytes read 0 written 8980
+Jun 24 19:53:50 10.71.57.0 u117490621 [10.71.57.0|put|0|8980|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 19:54:50 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 19:54:50 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 38640
+Jun 24 20:01:20 10.71.57.0 u117490621 Connection from 10.71.57.0 port 47110 on 82.165.90.28 port 22 rdomain ""
+Jun 24 20:01:20 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 47110 ssh2
+Jun 24 20:01:20 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 47110 id 0
+Jun 24 20:01:20 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 20:01:21 10.71.57.0 u117490621 open "/my_network.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 20:01:21 10.71.57.0 u117490621 close "/my_network.php" bytes read 0 written 8686
+Jun 24 20:01:21 10.71.57.0 u117490621 [10.71.57.0|put|0|8686|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 20:02:21 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 47110
+Jun 24 20:02:21 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 20:05:52 10.71.57.0 u117490621 Connection from 10.71.57.0 port 25614 on 82.165.90.28 port 22 rdomain ""
+Jun 24 20:05:52 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 25614 ssh2
+Jun 24 20:05:52 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 25614 id 0
+Jun 24 20:05:52 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 20:05:52 10.71.57.0 u117490621 open "/my_network.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 20:05:52 10.71.57.0 u117490621 close "/my_network.php" bytes read 0 written 8697
+Jun 24 20:05:52 10.71.57.0 u117490621 [10.71.57.0|put|0|8697|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 20:06:53 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 20:06:53 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 25614
+Jun 24 20:07:57 10.71.57.0 u117490621 Connection from 10.71.57.0 port 19836 on 82.165.90.28 port 22 rdomain ""
+Jun 24 20:07:57 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 19836 ssh2
+Jun 24 20:07:57 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 19836 id 0
+Jun 24 20:07:57 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 20:07:57 10.71.57.0 u117490621 open "/my_network.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 20:07:57 10.71.57.0 u117490621 close "/my_network.php" bytes read 0 written 8718
+Jun 24 20:07:57 10.71.57.0 u117490621 [10.71.57.0|put|0|8718|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 20:08:57 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 20:08:57 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 19836
+Jun 24 20:15:28 10.71.57.0 u117490621 Connection from 10.71.57.0 port 54114 on 82.165.90.28 port 22 rdomain ""
+Jun 24 20:15:28 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 54114 ssh2
+Jun 24 20:15:28 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 54114 id 0
+Jun 24 20:15:28 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 20:15:28 10.71.57.0 u117490621 open "/my_network.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 20:15:28 10.71.57.0 u117490621 close "/my_network.php" bytes read 0 written 8860
+Jun 24 20:15:28 10.71.57.0 u117490621 [10.71.57.0|put|0|8860|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 20:16:09 10.71.57.0 u117490621 open "/my_network.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 20:16:09 10.71.57.0 u117490621 close "/my_network.php" bytes read 0 written 8860
+Jun 24 20:16:09 10.71.57.0 u117490621 [10.71.57.0|put|0|8860|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 20:16:45 10.71.57.0 u117490621 open "/my_network.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 20:16:45 10.71.57.0 u117490621 close "/my_network.php" bytes read 0 written 8860
+Jun 24 20:16:45 10.71.57.0 u117490621 [10.71.57.0|put|0|8860|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 20:17:45 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 20:17:45 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 54114
+Jun 24 20:18:08 10.71.57.0 u117490621 Connection from 10.71.57.0 port 21732 on 82.165.90.28 port 22 rdomain ""
+Jun 24 20:18:08 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 21732 ssh2
+Jun 24 20:18:08 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 21732 id 0
+Jun 24 20:18:08 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 20:18:09 10.71.57.0 u117490621 open "/my_network.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 20:18:09 10.71.57.0 u117490621 close "/my_network.php" bytes read 0 written 8718
+Jun 24 20:18:09 10.71.57.0 u117490621 [10.71.57.0|put|0|8718|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 20:19:09 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 21732
+Jun 24 20:19:09 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 20:21:20 10.71.57.0 u117490621 Connection from 10.71.57.0 port 18522 on 82.165.90.28 port 22 rdomain ""
+Jun 24 20:21:21 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 18522 ssh2
+Jun 24 20:21:21 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 18522 id 0
+Jun 24 20:21:21 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 20:21:21 10.71.57.0 u117490621 open "/my_network.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 20:21:21 10.71.57.0 u117490621 close "/my_network.php" bytes read 0 written 7141
+Jun 24 20:21:21 10.71.57.0 u117490621 [10.71.57.0|put|0|7141|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 20:22:21 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 18522
+Jun 24 20:22:21 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 20:23:46 10.71.57.0 u117490621 Connection from 10.71.57.0 port 58710 on 82.165.90.28 port 22 rdomain ""
+Jun 24 20:23:46 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 58710 ssh2
+Jun 24 20:23:46 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 58710 id 0
+Jun 24 20:23:46 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 20:23:46 10.71.57.0 u117490621 open "/my_network.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 20:23:46 10.71.57.0 u117490621 close "/my_network.php" bytes read 0 written 8697
+Jun 24 20:23:46 10.71.57.0 u117490621 [10.71.57.0|put|0|8697|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 20:24:07 10.71.57.0 u117490621 open "/my_network.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 20:24:07 10.71.57.0 u117490621 close "/my_network.php" bytes read 0 written 8980
+Jun 24 20:24:07 10.71.57.0 u117490621 [10.71.57.0|put|0|8980|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 20:25:08 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 58710
+Jun 24 20:25:08 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 20:26:14 10.71.57.0 u117490621 Connection from 10.71.57.0 port 24666 on 82.165.90.28 port 22 rdomain ""
+Jun 24 20:26:14 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 24666 ssh2
+Jun 24 20:26:14 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 24666 id 0
+Jun 24 20:26:14 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 20:26:14 10.71.57.0 u117490621 open "/my_network.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 20:26:14 10.71.57.0 u117490621 close "/my_network.php" bytes read 0 written 8848
+Jun 24 20:26:14 10.71.57.0 u117490621 [10.71.57.0|put|0|8848|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 20:27:15 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 20:27:15 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 24666
+Jun 24 20:27:26 10.71.57.0 u117490621 Connection from 10.71.57.0 port 46232 on 82.165.90.28 port 22 rdomain ""
+Jun 24 20:27:26 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 46232 ssh2
+Jun 24 20:27:26 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 46232 id 0
+Jun 24 20:27:26 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 20:27:26 10.71.57.0 u117490621 open "/my_network.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 20:27:26 10.71.57.0 u117490621 close "/my_network.php" bytes read 0 written 8881
+Jun 24 20:27:26 10.71.57.0 u117490621 [10.71.57.0|put|0|8881|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 20:28:11 10.71.57.0 u117490621 open "/my_network.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 20:28:11 10.71.57.0 u117490621 close "/my_network.php" bytes read 0 written 8882
+Jun 24 20:28:11 10.71.57.0 u117490621 [10.71.57.0|put|0|8882|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 20:29:11 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 46232
+Jun 24 20:29:11 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 20:29:23 10.71.57.0 u117490621 Connection from 10.71.57.0 port 49386 on 82.165.90.28 port 22 rdomain ""
+Jun 24 20:29:23 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 49386 ssh2
+Jun 24 20:29:23 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 49386 id 0
+Jun 24 20:29:23 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 20:29:23 10.71.57.0 u117490621 open "/my_network.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 24 20:29:23 10.71.57.0 u117490621 close "/my_network.php" bytes read 0 written 7175
+Jun 24 20:29:23 10.71.57.0 u117490621 [10.71.57.0|put|0|7175|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 24 20:30:23 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 20:30:23 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 49386
+Jun 24 20:34:00 10.71.57.0 u117490621 Connection from 10.71.57.0 port 63720 on 82.165.90.28 port 22 rdomain ""
+Jun 24 20:34:00 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 63720 ssh2
+Jun 24 20:34:00 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 63720 id 0
+Jun 24 20:34:00 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 24 20:34:05 10.71.57.0 u117490621 open "/ver_contacto.php" flags READ mode 0666
+Jun 24 20:34:05 10.71.57.0 u117490621 close "/ver_contacto.php" bytes read 3872 written 0
+Jun 24 20:34:05 10.71.57.0 u117490621 [10.71.57.0|get|0|3872|0|0|0|2f7665725f636f6e746163746f2e706870|]
+Jun 24 20:35:05 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 24 20:35:05 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 63720
+Jun 24 21:39:14 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 33230
+Jun 24 21:39:14 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 25 08:42:22 10.71.57.0 u117490621 Connection from 10.71.57.0 port 43432 on 82.165.90.28 port 22 rdomain ""
+Jun 25 08:42:22 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 43432 ssh2
+Jun 25 08:42:22 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 43432 id 0
+Jun 25 08:42:22 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 25 08:42:37 10.71.57.0 u117490621 Connection from 10.71.57.0 port 57312 on 82.165.90.28 port 22 rdomain ""
+Jun 25 08:42:37 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 57312 ssh2
+Jun 25 08:42:37 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 57312 id 0
+Jun 25 08:42:37 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 25 08:42:38 10.71.57.0 u117490621 open "/hacer_oferta.php" flags READ mode 0666
+Jun 25 08:42:38 10.71.57.0 u117490621 close "/hacer_oferta.php" bytes read 20964 written 0
+Jun 25 08:42:38 10.71.57.0 u117490621 [10.71.57.0|get|0|20964|0|0|0|2f68616365725f6f66657274612e706870|]
+Jun 25 08:43:38 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 25 08:43:38 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 57312
+Jun 25 09:01:02 10.71.57.0 u117490621 Connection from 10.71.57.0 port 19800 on 82.165.90.28 port 22 rdomain ""
+Jun 25 09:01:02 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 19800 ssh2
+Jun 25 09:01:02 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 19800 id 0
+Jun 25 09:01:02 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 25 09:01:03 10.71.57.0 u117490621 open "/hacer_oferta.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 25 09:01:03 10.71.57.0 u117490621 close "/hacer_oferta.php" bytes read 0 written 21815
+Jun 25 09:01:03 10.71.57.0 u117490621 [10.71.57.0|put|0|21815|0|0|0|2f68616365725f6f66657274612e706870|]
+Jun 25 09:01:07 10.71.57.0 u117490621 open "/hacer_oferta.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 25 09:01:08 10.71.57.0 u117490621 close "/hacer_oferta.php" bytes read 0 written 21815
+Jun 25 09:01:08 10.71.57.0 u117490621 [10.71.57.0|put|1|21815|0|0|0|2f68616365725f6f66657274612e706870|]
+Jun 25 09:01:50 10.71.57.0 u117490621 open "/aceptar_oferta.php" flags READ mode 0666
+Jun 25 09:01:50 10.71.57.0 u117490621 close "/aceptar_oferta.php" bytes read 3267 written 0
+Jun 25 09:01:50 10.71.57.0 u117490621 [10.71.57.0|get|0|3267|0|0|0|2f616365707461725f6f66657274612e706870|]
+Jun 25 09:02:50 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 19800
+Jun 25 09:02:50 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 25 09:10:45 10.71.57.0 u117490621 Connection from 10.71.57.0 port 19594 on 82.165.90.28 port 22 rdomain ""
+Jun 25 09:10:45 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 19594 ssh2
+Jun 25 09:10:45 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 19594 id 0
+Jun 25 09:10:45 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 25 09:10:46 10.71.57.0 u117490621 open "/aceptar_oferta_externa.php" flags READ mode 0666
+Jun 25 09:10:46 10.71.57.0 u117490621 close "/aceptar_oferta_externa.php" bytes read 2124 written 0
+Jun 25 09:10:46 10.71.57.0 u117490621 [10.71.57.0|get|0|2124|0|0|0|2f616365707461725f6f66657274615f65787465726e612e706870|]
+Jun 25 09:10:56 10.71.57.0 u117490621 open "/aceptar_oferta.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 25 09:10:56 10.71.57.0 u117490621 close "/aceptar_oferta.php" bytes read 0 written 4386
+Jun 25 09:10:56 10.71.57.0 u117490621 [10.71.57.0|put|0|4386|0|0|0|2f616365707461725f6f66657274612e706870|]
+Jun 25 09:11:56 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 25 09:11:56 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 19594
+Jun 25 09:16:21 10.71.57.0 u117490621 Connection from 10.71.57.0 port 13462 on 82.165.90.28 port 22 rdomain ""
+Jun 25 09:16:22 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 13462 ssh2
+Jun 25 09:16:22 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 13462 id 0
+Jun 25 09:16:22 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 25 09:16:22 10.71.57.0 u117490621 open "/aceptar_oferta_externa.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 25 09:16:22 10.71.57.0 u117490621 close "/aceptar_oferta_externa.php" bytes read 0 written 3276
+Jun 25 09:16:22 10.71.57.0 u117490621 [10.71.57.0|put|0|3276|0|0|0|2f616365707461725f6f66657274615f65787465726e612e706870|]
+Jun 25 09:16:28 10.71.57.0 u117490621 open "/aceptar_oferta_externa.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 25 09:16:28 10.71.57.0 u117490621 close "/aceptar_oferta_externa.php" bytes read 0 written 3276
+Jun 25 09:16:28 10.71.57.0 u117490621 [10.71.57.0|put|0|3276|0|0|0|2f616365707461725f6f66657274615f65787465726e612e706870|]
+Jun 25 09:17:28 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 13462
+Jun 25 09:17:28 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 25 09:34:21 10.71.57.0 u117490621 Connection from 10.71.57.0 port 45564 on 82.165.90.28 port 22 rdomain ""
+Jun 25 09:34:21 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 45564 ssh2
+Jun 25 09:34:22 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 45564 id 0
+Jun 25 09:34:22 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 25 09:34:22 10.71.57.0 u117490621 open "/ver_contacto.php" flags READ mode 0666
+Jun 25 09:34:22 10.71.57.0 u117490621 close "/ver_contacto.php" bytes read 3872 written 0
+Jun 25 09:34:22 10.71.57.0 u117490621 [10.71.57.0|get|0|3872|0|0|0|2f7665725f636f6e746163746f2e706870|]
+Jun 25 09:35:17 10.71.57.0 u117490621 open "/ver_contacto.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 25 09:35:17 10.71.57.0 u117490621 close "/ver_contacto.php" bytes read 0 written 2455
+Jun 25 09:35:17 10.71.57.0 u117490621 [10.71.57.0|put|0|2455|0|0|0|2f7665725f636f6e746163746f2e706870|]
+Jun 25 09:35:46 10.71.57.0 u117490621 open "/ver_contacto.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 25 09:35:46 10.71.57.0 u117490621 close "/ver_contacto.php" bytes read 0 written 3872
+Jun 25 09:35:46 10.71.57.0 u117490621 [10.71.57.0|put|0|3872|0|0|0|2f7665725f636f6e746163746f2e706870|]
+Jun 25 09:36:46 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 45564
+Jun 25 09:36:46 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 25 09:40:56 10.71.57.0 u117490621 Connection from 10.71.57.0 port 54122 on 82.165.90.28 port 22 rdomain ""
+Jun 25 09:40:56 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 54122 ssh2
+Jun 25 09:40:56 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 54122 id 0
+Jun 25 09:40:56 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 25 09:40:57 10.71.57.0 u117490621 open "/ver_contacto.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 25 09:40:57 10.71.57.0 u117490621 close "/ver_contacto.php" bytes read 0 written 5141
+Jun 25 09:40:57 10.71.57.0 u117490621 [10.71.57.0|put|0|5141|0|0|0|2f7665725f636f6e746163746f2e706870|]
+Jun 25 09:41:57 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 25 09:41:57 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 54122
+Jun 25 09:43:11 10.71.57.0 u117490621 Connection from 10.71.57.0 port 38816 on 82.165.90.28 port 22 rdomain ""
+Jun 25 09:43:11 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 38816 ssh2
+Jun 25 09:43:11 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 38816 id 0
+Jun 25 09:43:11 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 25 09:43:12 10.71.57.0 u117490621 open "/my_network.php" flags READ mode 0666
+Jun 25 09:43:12 10.71.57.0 u117490621 close "/my_network.php" bytes read 7175 written 0
+Jun 25 09:43:12 10.71.57.0 u117490621 [10.71.57.0|get|0|7175|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 25 09:44:12 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 38816
+Jun 25 09:44:12 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 25 10:18:32 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 43432
+Jun 25 10:18:32 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 25 10:25:35 10.71.57.0 u117490621 Connection from 10.71.57.0 port 19012 on 82.165.90.28 port 22 rdomain ""
+Jun 25 10:25:35 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 19012 ssh2
+Jun 25 10:25:35 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 19012 id 0
+Jun 25 10:25:35 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 25 10:25:36 10.71.57.0 u117490621 open "/my_network.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 25 10:25:36 10.71.57.0 u117490621 close "/my_network.php" bytes read 0 written 7644
+Jun 25 10:25:36 10.71.57.0 u117490621 [10.71.57.0|put|0|7644|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 25 10:26:36 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 25 10:26:36 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 19012
+Jun 25 10:31:13 10.71.57.0 u117490621 Connection from 10.71.57.0 port 31280 on 82.165.90.28 port 22 rdomain ""
+Jun 25 10:31:13 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 31280 ssh2
+Jun 25 10:31:13 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 31280 id 0
+Jun 25 10:31:13 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 25 10:31:14 10.71.57.0 u117490621 open "/ver_contacto.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 25 10:31:14 10.71.57.0 u117490621 close "/ver_contacto.php" bytes read 0 written 4669
+Jun 25 10:31:14 10.71.57.0 u117490621 [10.71.57.0|put|0|4669|0|0|0|2f7665725f636f6e746163746f2e706870|]
+Jun 25 10:32:14 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 25 10:32:14 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 31280
+Jun 25 10:33:01 10.71.57.0 u117490621 Connection from 10.71.57.0 port 10450 on 82.165.90.28 port 22 rdomain ""
+Jun 25 10:33:02 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 10450 ssh2
+Jun 25 10:33:02 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 10450 id 0
+Jun 25 10:33:02 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 25 10:33:02 10.71.57.0 u117490621 open "/ver_contacto.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 25 10:33:02 10.71.57.0 u117490621 close "/ver_contacto.php" bytes read 0 written 4669
+Jun 25 10:33:02 10.71.57.0 u117490621 [10.71.57.0|put|0|4669|0|0|0|2f7665725f636f6e746163746f2e706870|]
+Jun 25 10:34:03 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 10450
+Jun 25 10:34:03 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 25 10:35:43 10.71.57.0 u117490621 Connection from 10.71.57.0 port 28824 on 82.165.90.28 port 22 rdomain ""
+Jun 25 10:35:43 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 28824 ssh2
+Jun 25 10:35:43 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 28824 id 0
+Jun 25 10:35:43 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 25 10:35:43 10.71.57.0 u117490621 open "/ver_contacto.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 25 10:35:43 10.71.57.0 u117490621 close "/ver_contacto.php" bytes read 0 written 4550
+Jun 25 10:35:43 10.71.57.0 u117490621 [10.71.57.0|put|0|4550|0|0|0|2f7665725f636f6e746163746f2e706870|]
+Jun 25 10:36:44 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 28824
+Jun 25 10:36:44 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 25 10:41:43 10.71.57.0 u117490621 Connection from 10.71.57.0 port 13884 on 82.165.90.28 port 22 rdomain ""
+Jun 25 10:41:44 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 13884 ssh2
+Jun 25 10:41:44 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 13884 id 0
+Jun 25 10:41:44 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 25 10:41:44 10.71.57.0 u117490621 open "/ver_contacto.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 25 10:41:44 10.71.57.0 u117490621 close "/ver_contacto.php" bytes read 0 written 5198
+Jun 25 10:41:44 10.71.57.0 u117490621 [10.71.57.0|put|0|5198|0|0|0|2f7665725f636f6e746163746f2e706870|]
+Jun 25 10:42:44 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 13884
+Jun 25 10:42:44 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 25 10:48:19 10.71.57.0 u117490621 Connection from 10.71.57.0 port 47546 on 82.165.90.28 port 22 rdomain ""
+Jun 25 10:48:19 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 47546 ssh2
+Jun 25 10:48:20 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 47546 id 0
+Jun 25 10:48:20 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 25 10:48:20 10.71.57.0 u117490621 open "/ver_contacto.php" flags WRITE,CREATE,TRUNCATE mode 0666
+Jun 25 10:48:20 10.71.57.0 u117490621 close "/ver_contacto.php" bytes read 0 written 5267
+Jun 25 10:48:20 10.71.57.0 u117490621 [10.71.57.0|put|0|5267|0|0|0|2f7665725f636f6e746163746f2e706870|]
+Jun 25 10:49:20 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 25 10:49:20 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 47546
+Jun 25 17:49:48 10.71.57.0 u117490621 Connection from 10.71.57.0 port 58750 on 82.165.90.28 port 22 rdomain ""
+Jun 25 17:49:48 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 58750 ssh2
+Jun 25 17:49:48 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 58750 id 0
+Jun 25 17:49:48 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 25 17:50:16 10.71.57.0 u117490621 Connection from 10.71.57.0 port 41220 on 82.165.90.28 port 22 rdomain ""
+Jun 25 17:50:16 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 41220 ssh2
+Jun 25 17:50:16 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 41220 id 0
+Jun 25 17:50:16 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 25 17:50:17 10.71.57.0 u117490621 open "/cambiar_titularidad_creados.php" flags READ mode 0666
+Jun 25 17:50:17 10.71.57.0 u117490621 close "/cambiar_titularidad_creados.php" bytes read 8113 written 0
+Jun 25 17:50:17 10.71.57.0 u117490621 [10.71.57.0|get|0|8113|0|0|0|2f63616d626961725f746974756c6172696461645f63726561646f732e706870|]
+Jun 25 17:51:17 10.71.57.0 u117490621 Connection closed by 10.71.57.0 port 41220
+Jun 25 17:51:17 10.71.57.0 u117490621 session closed for local user u117490621 from [10.71.57.0]
+Jun 25 18:15:08 10.71.57.0 u117490621 Connection from 10.71.57.0 port 41328 on 82.165.90.28 port 22 rdomain ""
+Jun 25 18:15:08 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 41328 ssh2
+Jun 25 18:15:08 10.71.57.0 u117490621 Connection from 10.71.57.0 port 41330 on 82.165.90.28 port 22 rdomain ""
+Jun 25 18:15:08 10.71.57.0 u117490621 Accepted password for u117490621 from 10.71.57.0 port 41330 ssh2
+Jun 25 18:15:08 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 41328 id 0
+Jun 25 18:15:08 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 25 18:15:08 10.71.57.0 u117490621 Starting session: subsystem 'sftp' for u117490621 from 10.71.57.0 port 41330 id 0
+Jun 25 18:15:08 10.71.57.0 u117490621 session opened for local user u117490621 from [10.71.57.0]
+Jun 25 18:15:08 10.71.57.0 u117490621 open "/my_network.php" flags READ mode 0666
+Jun 25 18:15:08 10.71.57.0 u117490621 sent status No such file
+Jun 25 18:15:08 10.71.57.0 u117490621 open "/ver_contacto.php" flags READ mode 0666
+Jun 25 18:15:08 10.71.57.0 u117490621 close "/my_network.php" bytes read 7644 written 0
+Jun 25 18:15:08 10.71.57.0 u117490621 [10.71.57.0|get|0|7644|0|0|0|2f6d795f6e6574776f726b2e706870|]
+Jun 25 18:15:08 10.71.57.0 u117490621 close "/ver_contacto.php" bytes read 5267 written 0
+Jun 25 18:15:08 10.71.57.0 u117490621 [10.71.57.0|get|0|5267|0|0|0|2f7665725f636f6e746163746f2e706870|]
+Jun 25 18:15:09 10.71.57.0 u117490621 open "/aceptar_oferta_externa.php" flags READ mode 0666
+Jun 25 18:15:09 10.71.57.0 u117490621 open "/aceptar_oferta.php" flags READ mode 0666
+Jun 25 18:15:09 10.71.57.0 u117490621 close "/aceptar_oferta_externa.php" bytes read 3276 written 0
+Jun 25 18:15:09 10.71.57.0 u117490621 [10.71.57.0|get|0|3276|0|0|0|2f616365707461725f6f66657274615f65787465726e612e706870|]
+Jun 25 18:15:09 10.71.57.0 u117490621 close "/aceptar_oferta.php" bytes read 4386 written 0
+Jun 25 18:15:09 10.71.57.0 u117490621 [10.71.57.0|get|0|4386|0|0|0|2f616365707461725f6f66657274612e706870|]
+Jun 25 18:15:09 10.71.57.0 u117490621 open "/hacer_oferta.php" flags READ mode 0666
+Jun 25 18:15:09 10.71.57.0 u117490621 open "/footer.php" flags READ mode 0666
+Jun 25 18:15:09 10.71.57.0 u117490621 close "/hacer_oferta.php" bytes read 21815 written 0
+Jun 25 18:15:09 10.71.57.0 u117490621 [10.71.57.0|get|0|21815|0|0|0|2f68616365725f6f66657274612e706870|]
+Jun 25 18:15:09 10.71.57.0 u117490621 close "/footer.php" bytes read 113 written 0
+Jun 25 18:15:09 10.71.57.0 u117490621 [10.71.57.0|get|0|113|0|0|0|2f666f6f7465722e706870|]
+Jun 25 18:15:09 10.71.57.0 u117490621 open "/header.php" flags READ mode 0666
+Jun 25 18:15:09 10.71.57.0 u117490621 open "/facturas.php" flags READ mode 0666
+Jun 25 18:15:09 10.71.57.0 u117490621 close "/header.php" bytes read 12404 written 0
+Jun 25 18:15:09 10.71.57.0 u117490621 [10.71.57.0|get|0|12404|0|0|0|2f6865616465722e706870|]
+Jun 25 18:15:09 10.71.57.0 u117490621 close "/facturas.php" bytes read 5640 written 0
+Jun 25 18:15:09 10.71.57.0 u117490621 [10.71.57.0|get|0|5640|0|0|0|2f66616374757261732e706870|]
+Jun 25 18:15:09 10.71.57.0 u117490621 open "/index.php" flags READ mode 0666
+Jun 25 18:15:09 10.71.57.0 u117490621 open "/eventos_porte.php" flags READ mode 0666
+Jun 25 18:15:09 10.71.57.0 u117490621 close "/index.php" bytes read 5070 written 0
+Jun 25 18:15:09 10.71.57.0 u117490621 [10.71.57.0|get|0|5070|0|0|0|2f696e6465782e706870|]
+Jun 25 18:15:09 10.71.57.0 u117490621 close "/eventos_porte.php" bytes read 2809 written 0
+Jun 25 18:15:09 10.71.57.0 u117490621 [10.71.57.0|get|0|2809|0|0|0|2f6576656e746f735f706f7274652e706870|]
+Jun 25 18:15:10 10.71.57.0 u117490621 open "/agregar_gestor.php" flags READ mode 0666
+Jun 25 18:15:10 10.71.57.0 u117490621 open "/detalles_colaborador.php" flags READ mode 0666
+Jun 25 18:15:10 10.71.57.0 u117490621 close "/agregar_gestor.php" bytes read 6503 written 0
+Jun 25 18:15:10 10.71.57.0 u117490621 [10.71.57.0|get|0|6503|0|0|0|2f616772656761725f676573746f722e706870|]
+Jun 25 18:15:10 10.71.57.0 u117490621 close "/detalles_colaborador.php" bytes read 7592 written 0
+Jun 25 18:15:10 10.71.57.0 u117490621 [10.71.57.0|get|0|7592|0|0|0|2f646574616c6c65735f636f6c61626f7261646f722e706870|]
+Jun 25 18:15:10 10.71.57.0 u117490621 open "/portes_nuevos_recibidos.php" flags READ mode 0666
+Jun 25 18:15:10 10.71.57.0 u117490621 open "/buscador_general.php" flags READ mode 0666
+Jun 25 18:15:10 10.71.57.0 u117490621 close "/portes_nuevos_recibidos.php" bytes read 50914 written 0
+Jun 25 18:15:10 10.71.57.0 u117490621 [10.71.57.0|get|0|50914|0|0|0|2f706f727465735f6e7565766f735f726563696269646f732e706870|]
+Jun 25 18:15:10 10.71.57.0 u117490621 close "/buscador_general.php" bytes read 8010 written 0
+Jun 25 18:15:10 10.71.57.0 u117490621 [10.71.57.0|get|0|8010|0|0|0|2f6275736361646f725f67656e6572616c2e706870|]
+Jun 25 18:15:10 10.71.57.0 u117490621 open "/portes_nuevos_propios.php" flags READ mode 0666
+Jun 25 18:15:10 10.71.57.0 u117490621 open "/portes_nuevos_propios_todos.php" flags READ mode 0666
+Jun 25 18:15:10 10.71.57.0 u117490621 close "/portes_nuevos_propios.php" bytes read 38256 written 0
+Jun 25 18:15:10 10.71.57.0 u117490621 [10.71.57.0|get|0|38256|0|0|0|2f706f727465735f6e7565766f735f70726f70696f732e706870|]
+Jun 25 18:15:10 10.71.57.0 u117490621 close "/portes_nuevos_propios_todos.php" bytes read 42988 written 0
+Jun 25 18:15:10 10.71.57.0 u117490621 [10.71.57.0|get|0|42988|0|0|0|2f706f727465735f6e7565766f735f70726f70696f735f746f646f732e706870|]
+Jun 25 18:15:10 10.71.57.0 u117490621 open "/portes_nuevos_recibidos_todos.php" flags READ mode 0666
+Jun 25 18:15:10 10.71.57.0 u117490621 open "/portes_trucks.php" flags READ mode 0666
+Jun 25 18:15:10 10.71.57.0 u117490621 close "/portes_nuevos_recibidos_todos.php" bytes read 45412 written 0
+Jun 25 18:15:10 10.71.57.0 u117490621 [10.71.57.0|get|0|45412|0|0|0|2f706f727465735f6e7565766f735f726563696269646f735f746f646f732e706870|]
+Jun 25 18:15:11 10.71.57.0 u117490621 close "/portes_trucks.php" bytes read 5341 written 0
+Jun 25 18:15:11 10.71.57.0 u117490621 [10.71.57.0|get|1|5341|0|0|0|2f706f727465735f747275636b732e706870|]
+Jun 25 18:15:11 10.71.57.0 u117490621 open "/portes_cedidos_empresa.php" flags READ mode 0666
+Jun 25 18:15:11 10.71.57.0 u117490621 open "/portes_cedidos.php" flags READ mode 0666
+Jun 25 18:15:11 10.71.57.0 u117490621 close "/portes_cedidos_empresa.php" bytes read 6662 written 0
+Jun 25 18:15:11 10.71.57.0 u117490621 [10.71.57.0|get|0|6662|0|0|0|2f706f727465735f63656469646f735f656d70726573612e706870|]
+Jun 25 18:15:11 10.71.57.0 u117490621 close "/portes_cedidos.php" bytes read 3838 written 0
+Jun 25 18:15:11 10.71.57.0 u117490621 [10.71.57.0|get|0|3838|0|0|0|2f706f727465735f63656469646f732e706870|]
+Jun 25 18:15:11 10.71.57.0 u117490621 open "/importar_portes.php" flags READ mode 0666
+Jun 25 18:15:11 10.71.57.0 u117490621 open "/guardar_entrega.php" flags READ mode 0666
+Jun 25 18:15:11 10.71.57.0 u117490621 close "/importar_portes.php" bytes read 18370 written 0
+Jun 25 18:15:11 10.71.57.0 u117490621 [10.71.57.0|get|0|18370|0|0|0|2f696d706f727461725f706f727465732e706870|]
+Jun 25 18:15:11 10.71.57.0 u117490621 close "/guardar_entrega.php" bytes read 3336 written 0
+Jun 25 18:15:11 10.71.57.0 u117490621 [10.71.57.0|get|0|3336|0|0|0|2f677561726461725f656e74726567612e706870|]
+Jun 25 18:15:11 10.71.57.0 u117490621 open "/a\303\261adir_direccion_entidad.php" flags READ mode 0666
+Jun 25 18:15:11 10.71.57.0 u117490621 open "/guardar_hacer_porte_multiple.php" flags READ mode 0666
+Jun 25 18:15:11 10.71.57.0 u117490621 close "/a\303\261adir_direccion_entidad.php" bytes read 4909 written 0
+Jun 25 18:15:11 10.71.57.0 u117490621 [10.71.57.0|get|0|4909|0|0|0|2f61c3b1616469725f646972656363696f6e5f656e74696461642e706870|]
+Jun 25 18:15:11 10.71.57.0 u117490621 close "/guardar_hacer_porte_multiple.php" bytes read 7588 written 0
+Jun 25 18:15:11 10.71.57.0 u117490621 [10.71.57.0|get|0|7588|0|0|0|2f677561726461725f68616365725f706f7274655f6d756c7469706c652e706870|]
+Jun 25 18:15:11 10.71.57.0 u117490621 open "/hacer_porte_multiple.php" flags READ mode 0666
+Jun 25 18:15:11 10.71.57.0 u117490621 open "/hacerse_cargo.php" flags READ mode 0666
+Jun 25 18:15:12 10.71.57.0 u117490621 close "/hacer_porte_multiple.php" bytes read 14978 written 0
+Jun 25 18:15:12 10.71.57.0 u117490621 [10.71.57.0|get|1|14978|0|0|0|2f68616365725f706f7274655f6d756c7469706c652e706870|]
+Jun 25 18:15:12 10.71.57.0 u117490621 close "/hacerse_cargo.php" bytes read 3132 written 0
+Jun 25 18:15:12 10.71.57.0 u117490621 [10.71.57.0|get|1|3132|0|0|0|2f686163657273655f636172676f2e706870|]
+Jun 25 18:15:12 10.71.57.0 u117490621 open "/editar_camionero.php" flags READ mode 0666
+Jun 25 18:15:12 10.71.57.0 u117490621 open "/cambiar_titularidad_completo.php" flags READ mode 0666
+Jun 25 18:15:12 10.71.57.0 u117490621 close "/editar_camionero.php" bytes read 12326 written 0
+Jun 25 18:15:12 10.71.57.0 u117490621 [10.71.57.0|get|0|12326|0|0|0|2f6564697461725f63616d696f6e65726f2e706870|]
+Jun 25 18:15:12 10.71.57.0 u117490621 close "/cambiar_titularidad_completo.php" bytes read 8000 written 0
+Jun 25 18:15:12 10.71.57.0 u117490621 [10.71.57.0|get|0|8000|0|0|0|2f63616d626961725f746974756c6172696461645f636f6d706c65746f2e706870|]
+Jun 25 18:15:12 10.71.57.0 u117490621 open "/cambiar_titularidadyseleccionado.php" flags READ mode 0666
+Jun 25 18:15:12 10.71.57.0 u117490621 open "/cambiar_titularidad_creados.php" flags READ mode 0666
+Jun 25 18:15:12 10.71.57.0 u117490621 close "/cambiar_titularidadyseleccionado.php" bytes read 3015 written 0
+Jun 25 18:15:12 10.71.57.0 u117490621 [10.71.57.0|get|0|3015|0|0|0|2f63616d626961725f746974756c6172696461647973656c656363696f6e61646f2e706870|]
+Jun 25 18:15:12 10.71.57.0 u117490621 close "/cambiar_titularidad_creados.php" bytes read 8113 written 0
+Jun 25 18:15:12 10.71.57.0 u117490621 [10.71.57.0|get|0|8113|0|0|0|2f63616d626961725f746974756c6172696461645f63726561646f732e706870|]
+Jun 25 18:15:12 10.71.57.0 u117490621 open "/cambiar_titularidad_creados_completo.php" flags READ mode 0666
+Jun 25 18:15:12 10.71.57.0 u117490621 open "/vehiculo_asociado.php" flags READ mode 0666
+Jun 25 18:15:12 10.71.57.0 u117490621 close "/cambiar_titularidad_creados_completo.php" bytes read 7727 written 0
+Jun 25 18:15:12 10.71.57.0 u117490621 [10.71.57.0|get|0|7727|0|0|0|2f63616d626961725f746974756c6172696461645f63726561646f735f636f6d706c65746f2e706870|]
+Jun 25 18:15:12 10.71.57.0 u117490621 close "/vehiculo_asociado.php" bytes read 15921 written 0
+Jun 25 18:15:12 10.71.57.0 u117490621 [10.71.57.0|get|0|15921|0|0|0|2f7665686963756c6f5f61736f636961646f2e706870|]
+Jun 25 18:15:12 10.71.57.0 u117490621 open "/mis_asociados.php" flags READ mode 0666
+Jun 25 18:15:13 10.71.57.0 u117490621 open "/gestinar_colaboradores.php" flags READ mode 0666
+Jun 25 18:15:13 10.71.57.0 u117490621 close "/mis_asociados.php" bytes read 4541 written 0
+Jun 25 18:15:13 10.71.57.0 u117490621 [10.71.57.0|get|1|4541|0|0|0|2f6d69735f61736f636961646f732e706870|]
+Jun 25 18:15:13 10.71.57.0 u117490621 close "/gestinar_colaboradores.php" bytes read 2568 written 0
+Jun 25 18:15:13 10.71.57.0 u117490621 [10.71.57.0|get|0|2568|0|0|0|2f67657374696e61725f636f6c61626f7261646f7265732e706870|]
+Jun 25 18:15:13 10.71.57.0 u117490621 open "/listado_destinatario.php" flags READ mode 0666
+Jun 25 18:15:13 10.71.57.0 u117490621 open "/listado_expedidor.php" flags READ mode 0666
+Jun 25 18:15:13 10.71.57.0 u117490621 close "/listado_destinatario.php" bytes read 4305 written 0
+Jun 25 18:15:13 10.71.57.0 u117490621 [10.71.57.0|get|0|4305|0|0|0|2f6c69737461646f5f64657374696e61746172696f2e706870|]
+Jun 25 18:15:13 10.71.57.0 u117490621 close "/listado_expedidor.php" bytes read 4364 written 0
+Jun 25 18:15:13 10.71.57.0 u117490621 [10.71.57.0|get|0|4364|0|0|0|2f6c69737461646f5f657870656469646f722e706870|]
+Jun 25 18:15:13 10.71.57.0 u117490621 open "/styles.css" flags READ mode 0666
+Jun 25 18:15:13 10.71.57.0 u117490621 open "/ver_detalles_vehiculo.php" flags READ mode 0666
+Jun 25 18:15:13 10.71.57.0 u117490621 close "/styles.css" bytes read 6684 written 0
+Jun 25 18:15:13 10.71.57.0 u117490621 [10.71.57.0|get|0|6684|0|0|0|2f7374796c65732e637373|]
+Jun 25 18:15:13 10.71.57.0 u117490621 close "/ver_detalles_vehiculo.php" bytes read 4995 written 0
+Jun 25 18:15:13 10.71.57.0 u117490621 [10.71.57.0|get|0|4995|0|0|0|2f7665725f646574616c6c65735f7665686963756c6f2e706870|]
+Jun 25 18:15:13 10.71.57.0 u117490621 open "/agregar_vehiculo_asociado.php" flags READ mode 0666
+Jun 25 18:15:13 10.71.57.0 u117490621 open "/agregar_asociado.php" flags READ mode 0666
+Jun 25 18:15:13 10.71.57.0 u117490621 close "/agregar_vehiculo_asociado.php" bytes read 18811 written 0
+Jun 25 18:15:13 10.71.57.0 u117490621 [10.71.57.0|get|0|18811|0|0|0|2f616772656761725f7665686963756c6f5f61736f636961646f2e706870|]
+Jun 25 18:15:13 10.71.57.0 u117490621 close "/agregar_asociado.php" bytes read 10701 written 0
+Jun 25 18:15:13 10.71.57.0 u117490621 [10.71.57.0|get|0|10701|0|0|0|2f616772656761725f61736f636961646f2e706870|]
+Jun 25 18:15:13 10.71.57.0 u117490621 open "/agregar_camionero.php" flags READ mode 0666
+Jun 25 18:15:14 10.71.57.0 u117490621 open "/my_truckers.php" flags READ mode 0666
+Jun 25 18:15:14 10.71.57.0 u117490621 close "/agregar_camionero.php" bytes read 8965 written 0
+Jun 25 18:15:14 10.71.57.0 u117490621 [10.71.57.0|get|1|8965|0|0|0|2f616772656761725f63616d696f6e65726f2e706870|]
+Jun 25 18:15:14 10.71.57.0 u117490621 close "/my_truckers.php" bytes read 6714 written 0
+Jun 25 18:15:14 10.71.57.0 u117490621 [10.71.57.0|get|0|6714|0|0|0|2f6d795f747275636b6572732e706870|]
+Jun 25 18:15:14 10.71.57.0 u117490621 open "/my_trucks.php" flags READ mode 0666
+Jun 25 18:15:14 10.71.57.0 u117490621 open "/tren_portes.php" flags READ mode 0666
+Jun 25 18:15:14 10.71.57.0 u117490621 close "/my_trucks.php" bytes read 19510 written 0
+Jun 25 18:15:14 10.71.57.0 u117490621 [10.71.57.0|get|0|19510|0|0|0|2f6d795f747275636b732e706870|]
+Jun 25 18:15:14 10.71.57.0 u117490621 close "/tren_portes.php" bytes read 15432 written 0
+Jun 25 18:15:14 10.71.57.0 u117490621 [10.71.57.0|get|0|15432|0|0|0|2f7472656e5f706f727465732e706870|]
+Jun 25 18:15:14 10.71.57.0 u117490621 open "/portes_enviados_propios.php" flags READ mode 0666
+Jun 25 18:15:14 10.71.57.0 u117490621 open "/gestionar_tren_camionero.php" flags READ mode 0666
+Jun 25 18:15:14 10.71.57.0 u117490621 close "/portes_enviados_propios.php" bytes read 13147 written 0
+Jun 25 18:15:14 10.71.57.0 u117490621 [10.71.57.0|get|0|13147|0|0|0|2f706f727465735f656e766961646f735f70726f70696f732e706870|]
+Jun 25 18:15:14 10.71.57.0 u117490621 close "/gestionar_tren_camionero.php" bytes read 16557 written 0
+Jun 25 18:15:14 10.71.57.0 u117490621 [10.71.57.0|get|0|16557|0|0|0|2f67657374696f6e61725f7472656e5f63616d696f6e65726f2e706870|]
+Jun 25 18:15:14 10.71.57.0 u117490621 open "/guardar_hacer_porte.php" flags READ mode 0666
+Jun 25 18:15:14 10.71.57.0 u117490621 open "/error_handler.php" flags READ mode 0666
+Jun 25 18:15:14 10.71.57.0 u117490621 close "/guardar_hacer_porte.php" bytes read 16532 written 0
+Jun 25 18:15:14 10.71.57.0 u117490621 [10.71.57.0|get|0|16532|0|0|0|2f677561726461725f68616365725f706f7274652e706870|]
+Jun 25 18:15:14 10.71.57.0 u117490621 close "/error_handler.php" bytes read 5882 written 0
+Jun 25 18:15:14 10.71.57.0 u117490621 [10.71.57.0|get|0|5882|0|0|0|2f6572726f725f68616e646c65722e706870|]
+Jun 25 18:15:14 10.71.57.0 u117490621 open "/guardar_porte.php" flags READ mode 0666
+Jun 25 18:15:15 10.71.57.0 u117490621 open "/buscar_entidad.php" flags READ mode 0666
+Jun 25 18:15:15 10.71.57.0 u117490621 close "/guardar_porte.php" bytes read 14859 written 0
+Jun 25 18:15:15 10.71.57.0 u117490621 [10.71.57.0|get|1|14859|0|0|0|2f677561726461725f706f7274652e706870|]
+Jun 25 18:15:15 10.71.57.0 u117490621 close "/buscar_entidad.php" bytes read 10830 written 0
+Jun 25 18:15:15 10.71.57.0 u117490621 [10.71.57.0|get|0|10830|0|0|0|2f6275736361725f656e74696461642e706870|]
+Jun 25 18:15:15 10.71.57.0 u117490621 open "/crear_porte.php" flags READ mode 0666
+Jun 25 18:15:15 10.71.57.0 u117490621 open "/hacer_porte.php" flags READ mode 0666
+Jun 25 18:15:15 10.71.57.0 u117490621 close "/crear_porte.php" bytes read 15681 written 0
+Jun 25 18:15:15 10.71.57.0 u117490621 [10.71.57.0|get|0|15681|0|0|0|2f63726561725f706f7274652e706870|]
+Jun 25 18:15:15 10.71.57.0 u117490621 close "/hacer_porte.php" bytes read 19427 written 0
+Jun 25 18:15:15 10.71.57.0 u117490621 [10.71.57.0|get|0|19427|0|0|0|2f68616365725f706f7274652e706870|]
+Jun 25 18:15:15 10.71.57.0 u117490621 open "/detalle_porte.php" flags READ mode 0666
+Jun 25 18:15:15 10.71.57.0 u117490621 open "/login_directo.php" flags READ mode 0666
+Jun 25 18:15:15 10.71.57.0 u117490621 close "/detalle_porte.php" bytes read 10519 written 0
+Jun 25 18:15:15 10.71.57.0 u117490621 [10.71.57.0|get|0|10519|0|0|0|2f646574616c6c655f706f7274652e706870|]
+Jun 25 18:15:15 10.71.57.0 u117490621 close "/login_directo.php" bytes read 1597 written 0
+Jun 25 18:15:15 10.71.57.0 u117490621 [10.71.57.0|get|0|1597|0|0|0|2f6c6f67696e5f6469726563746f2e706870|]
+Jun 25 18:15:15 10.71.57.0 u117490621 open "/recogida_entrega_vista.php" flags READ mode 0666
+Jun 25 18:15:15 10.71.57.0 u117490621 open "/recogida_entrega.php" flags READ mode 0666
+Jun 25 18:15:15 10.71.57.0 u117490621 close "/recogida_entrega_vista.php" bytes read 8063 written 0
+Jun 25 18:15:15 10.71.57.0 u117490621 [10.71.57.0|get|0|8063|0|0|0|2f7265636f676964615f656e74726567615f76697374612e706870|]
+Jun 25 18:15:16 10.71.57.0 u117490621 close "/recogida_entrega.php" bytes read 30073 written 0
+Jun 25 18:15:16 10.71.57.0 u117490621 [10.71.57.0|get|0|30073|0|0|0|2f7265636f676964615f656e74726567612e706870|]
+Jun 25 18:15:16 10.71.57.0 u117490621 open "/facturas_camionero.php" flags READ mode 0666
+Jun 25 18:15:16 10.71.57.0 u117490621 open "/cambiar_titularidad.php" flags READ mode 0666
+Jun 25 18:15:16 10.71.57.0 u117490621 close "/facturas_camionero.php" bytes read 7749 written 0
+Jun 25 18:15:16 10.71.57.0 u117490621 [10.71.57.0|get|0|7749|0|0|0|2f66616374757261735f63616d696f6e65726f2e706870|]
+Jun 25 18:15:16 10.71.57.0 u117490621 close "/cambiar_titularidad.php" bytes read 7791 written 0
+Jun 25 18:15:16 10.71.57.0 u117490621 [10.71.57.0|get|0|7791|0|0|0|2f63616d626961725f746974756c6172696461642e706870|]
+Jun 25 18:15:16 10.71.57.0 u117490621 open "/tren_portes_camionero.php" flags READ mode 0666
+Jun 25 18:15:16 10.71.57.0 u117490621 open "/registro_nueva_factura.php" flags READ mode 0666
+Jun 25 18:15:16 10.71.57.0 u117490621 close "/tren_portes_camionero.php" bytes read 6078 written 0
+Jun 25 18:15:16 10.71.57.0 u117490621 [10.71.57.0|get|0|6078|0|0|0|2f7472656e5f706f727465735f63616d696f6e65726f2e706870|]
+Jun 25 18:15:16 10.71.57.0 u117490621 close "/registro_nueva_factura.php" bytes read 7070 written 0
+Jun 25 18:15:16 10.71.57.0 u117490621 [10.71.57.0|get|0|7070|0|0|0|2f726567697374726f5f6e756576615f666163747572612e706870|]
+Jun 25 18:15:16 10.71.57.0 u117490621 open "/eventos_porte_listar.php" flags READ mode 0666
+Jun 25 18:15:16 10.71.57.0 u117490621 open "/.htaccess" flags READ mode 0666
+Jun 25 18:15:16 10.71.57.0 u117490621 close "/eventos_porte_listar.php" bytes read 2400 written 0
+Jun 25 18:15:16 10.71.57.0 u117490621 [10.71.57.0|get|0|2400|0|0|0|2f6576656e746f735f706f7274655f6c69737461722e706870|]
+Jun 25 18:15:16 10.71.57.0 u117490621 close "/.htaccess" bytes read 228 written 0
+Jun 25 18:15:16 10.71.57.0 u117490621 [10.71.57.0|get|0|228|0|0|0|2f2e6874616363657373|]
+Jun 25 18:15:16 10.71.57.0 u117490621 open "/conexion.php" flags READ mode 0666
+Jun 25 18:15:16 10.71.57.0 u117490621 open "/ping.php" flags READ mode 0666
+Jun 25 18:15:16 10.71.57.0 u117490621 close "/conexion.php" bytes read 1259 written 0
+Jun 25 18:15:16 10.71.57.0 u117490621 [10.71.57.0|get|0|1259|0|0|0|2f636f6e6578696f6e2e706870|]
+Jun 25 18:15:16 10.71.57.0 u117490621 close "/ping.php" bytes read 312 written 0
+Jun 25 18:15:16 10.71.57.0 u117490621 [10.71.57.0|get|0|312|0|0|0|2f70696e672e706870|]
+Jun 25 18:15:17 10.71.57.0 u117490621 open "/error.php" flags READ mode 0666
+Jun 25 18:15:17 10.71.57.0 u117490621 open "/buscar_camionero.php" flags READ mode 0666
+Jun 25 18:15:17 10.71.57.0 u117490621 close "/error.php" bytes read 2424 written 0
+Jun 25 18:15:17 10.71.57.0 u117490621 [10.71.57.0|get|0|2424|0|0|0|2f6572726f722e706870|]
+Jun 25 18:15:17 10.71.57.0 u117490621 close "/buscar_camionero.php" bytes read 3857 written 0
+Jun 25 18:15:17 10.71.57.0 u117490621 [10.71.57.0|get|0|3857|0|0|0|2f6275736361725f63616d696f6e65726f2e706870|]
+Jun 25 18:15:17 10.71.57.0 u117490621 open "/camionero_detalles.php" flags READ mode 0666
+Jun 25 18:15:17 10.71.57.0 u117490621 open "/actualizar_camionero.php" flags READ mode 0666
+Jun 25 18:15:17 10.71.57.0 u117490621 close "/camionero_detalles.php" bytes read 4471 written 0
+Jun 25 18:15:17 10.71.57.0 u117490621 [10.71.57.0|get|0|4471|0|0|0|2f63616d696f6e65726f5f646574616c6c65732e706870|]
+Jun 25 18:15:17 10.71.57.0 u117490621 close "/actualizar_camionero.php" bytes read 2979 written 0
+Jun 25 18:15:17 10.71.57.0 u117490621 [10.71.57.0|get|0|2979|0|0|0|2f61637475616c697a61725f63616d696f6e65726f2e706870|]
+Jun 25 18:15:17 10.71.57.0 u117490621 open "/actualizar_usuario.php" flags READ mode 0666
+Jun 25 18:15:17 10.71.57.0 u117490621 open "/cambiar_estado_colaborador.php" flags READ mode 0666
+Jun 25 18:15:17 10.71.57.0 u117490621 close "/actualizar_usuario.php" bytes read 2075 written 0
+Jun 25 18:15:17 10.71.57.0 u117490621 [10.71.57.0|get|0|2075|0|0|0|2f61637475616c697a61725f7573756172696f2e706870|]
+Jun 25 18:15:17 10.71.57.0 u117490621 close "/cambiar_estado_colaborador.php" bytes read 971 written 0
+Jun 25 18:15:17 10.71.57.0 u117490621 [10.71.57.0|get|0|971|0|0|0|2f63616d626961725f65737461646f5f636f6c61626f7261646f722e706870|]
+Jun 25 18:15:17 10.71.57.0 u117490621 open "/convertir_camionero.php" flags READ mode 0666
+Jun 25 18:15:17 10.71.57.0 u117490621 open "/header_camionero.php" flags READ mode 0666
+Jun 25 18:15:17 10.71.57.0 u117490621 close "/convertir_camionero.php" bytes read 988 written 0
+Jun 25 18:15:17 10.71.57.0 u117490621 [10.71.57.0|get|0|988|0|0|0|2f636f6e7665727469725f63616d696f6e65726f2e706870|]
+Jun 25 18:15:17 10.71.57.0 u117490621 close "/header_camionero.php" bytes read 2740 written 0
+Jun 25 18:15:17 10.71.57.0 u117490621 [10.71.57.0|get|0|2740|0|0|0|2f6865616465725f63616d696f6e65726f2e706870|]
+Jun 25 18:15:18 10.71.57.0 u117490621 open "/descargar_facturas.php" flags READ mode 0666
+Jun 25 18:15:18 10.71.57.0 u117490621 open "/tren_detalles.php" flags READ mode 0666
+Jun 25 18:15:18 10.71.57.0 u117490621 close "/descargar_facturas.php" bytes read 3499 written 0
+Jun 25 18:15:18 10.71.57.0 u117490621 [10.71.57.0|get|0|3499|0|0|0|2f6465736361726761725f66616374757261732e706870|]
+Jun 25 18:15:18 10.71.57.0 u117490621 close "/tren_detalles.php" bytes read 4794 written 0
+Jun 25 18:15:18 10.71.57.0 u117490621 [10.71.57.0|get|0|4794|0|0|0|2f7472656e5f646574616c6c65732e706870|]
+Jun 25 18:15:18 10.71.57.0 u117490621 open "/registro_camionero.php" flags READ mode 0666
+Jun 25 18:15:18 10.71.57.0 u117490621 open "/guardar_factura.php" flags READ mode 0666
+Jun 25 18:15:18 10.71.57.0 u117490621 close "/registro_camionero.php" bytes read 2712 written 0
+Jun 25 18:15:18 10.71.57.0 u117490621 [10.71.57.0|get|0|2712|0|0|0|2f726567697374726f5f63616d696f6e65726f2e706870|]
+Jun 25 18:15:18 10.71.57.0 u117490621 close "/guardar_factura.php" bytes read 2775 written 0
+Jun 25 18:15:18 10.71.57.0 u117490621 [10.71.57.0|get|0|2775|0|0|0|2f677561726461725f666163747572612e706870|]
+Jun 25 18:15:18 10.71.57.0 u117490621 open "/crear_asignacion.php" flags READ mode 0666
+Jun 25 18:15:18 10.71.57.0 u117490621 open "/finalizar_tren.php" flags READ mode 0666
+Jun 25 18:15:18 10.71.57.0 u117490621 close "/crear_asignacion.php" bytes read 6714 written 0
+Jun 25 18:15:18 10.71.57.0 u117490621 [10.71.57.0|get|0|6714|0|0|0|2f63726561725f617369676e6163696f6e2e706870|]
+Jun 25 18:15:18 10.71.57.0 u117490621 close "/finalizar_tren.php" bytes read 857 written 0
+Jun 25 18:15:18 10.71.57.0 u117490621 [10.71.57.0|get|0|857|0|0|0|2f66696e616c697a61725f7472656e2e706870|]
+Jun 25 18:15:18 10.71.57.0 u117490621 open "/enviar_oferta.php" flags READ mode 0666
+Jun 25 18:15:18 10.71.57.0 u117490621 open "/buscar_monedas.php" flags READ mode 0666
+Jun 25 18:15:18 10.71.57.0 u117490621 close "/enviar_oferta.php" bytes read 3797 written 0
+Jun 25 18:15:18 10.71.57.0 u117490621 [10.71.57.0|get|0|3797|0|0|0|2f656e766961725f6f66657274612e706870|]
+Jun 25 18:15:19 10.71.57.0 u117490621 close "/buscar_monedas.php" bytes read 491 written 0
+Jun 25 18:15:19 10.71.57.0 u117490621 [10.71.57.0|get|1|491|0|0|0|2f6275736361725f6d6f6e656461732e706870|]
+Jun 25 18:15:19 10.71.57.0 u117490621 open "/rechazar_oferta.php" flags READ mode 0666
+Jun 25 18:15:19 10.71.57.0 u117490621 open "/registro_colaborador.php" flags READ mode 0666
+Jun 25 18:15:19 10.71.57.0 u117490621 close "/rechazar_oferta.php" bytes read 1725 written 0
+Jun 25 18:15:19 10.71.57.0 u117490621 [10.71.57.0|get|0|1725|0|0|0|2f72656368617a61725f6f66657274612e706870|]
+Jun 25 18:15:19 10.71.57.0 u117490621 close "/registro_colaborador.php" bytes read 4595 written 0
+Jun 25 18:15:19 10.71.57.0 u117490621 [10.71.57.0|get|0|4595|0|0|0|2f726567697374726f5f636f6c61626f7261646f722e706870|]
+Jun 25 18:15:19 10.71.57.0 u117490621 open "/procesar_registro_colaborador.php" flags READ mode 0666
+Jun 25 18:15:19 10.71.57.0 u117490621 open "/oferta_externa.php" flags READ mode 0666
+Jun 25 18:15:19 10.71.57.0 u117490621 close "/procesar_registro_colaborador.php" bytes read 3382 written 0
+Jun 25 18:15:19 10.71.57.0 u117490621 [10.71.57.0|get|0|3382|0|0|0|2f70726f63657361725f726567697374726f5f636f6c61626f7261646f722e706870|]
+Jun 25 18:15:19 10.71.57.0 u117490621 close "/oferta_externa.php" bytes read 2242 written 0
+Jun 25 18:15:19 10.71.57.0 u117490621 [10.71.57.0|get|0|2242|0|0|0|2f6f66657274615f65787465726e612e706870|]
+Jun 25 18:15:19 10.71.57.0 u117490621 open "/ver_grupo.php" flags READ mode 0666
+Jun 25 18:15:19 10.71.57.0 u117490621 open "/invitar_colaborador.php" flags READ mode 0666
+Jun 25 18:15:19 10.71.57.0 u117490621 close "/ver_grupo.php" bytes read 9086 written 0
+Jun 25 18:15:19 10.71.57.0 u117490621 [10.71.57.0|get|0|9086|0|0|0|2f7665725f677275706f2e706870|]
+Jun 25 18:15:19 10.71.57.0 u117490621 close "/invitar_colaborador.php" bytes read 2974 written 0
+Jun 25 18:15:19 10.71.57.0 u117490621 [10.71.57.0|get|0|2974|0|0|0|2f696e76697461725f636f6c61626f7261646f722e706870|]
+Jun 25 18:15:19 10.71.57.0 u117490621 open "/verificar_email.php" flags READ mode 0666
+Jun 25 18:15:19 10.71.57.0 u117490621 open "/confirmacion_oferta.php" flags READ mode 0666
+Jun 25 18:15:19 10.71.57.0 u117490621 close "/verificar_email.php" bytes read 6720 written 0
+Jun 25 18:15:19 10.71.57.0 u117490621 [10.71.57.0|get|0|6720|0|0|0|2f7665726966696361725f656d61696c2e706870|]
+Jun 25 18:15:20 10.71.57.0 u117490621 close "/confirmacion_oferta.php" bytes read 441 written 0
+Jun 25 18:15:20 10.71.57.0 u117490621 [10.71.57.0|get|1|441|0|0|0|2f636f6e6669726d6163696f6e5f6f66657274612e706870|]
+Jun 25 18:15:20 10.71.57.0 u117490621 open "/todos_contactos.php" flags READ mode 0666
+Jun 25 18:15:20 10.71.57.0 u117490621 open "/eliminar_colaborador.php" flags READ mode 0666
+Jun 25 18:15:20 10.71.57.0 u117490621 close "/todos_contactos.php" bytes read 3890 written 0
+Jun 25 18:15:20 10.71.57.0 u117490621 [10.71.57.0|get|0|3890|0|0|0|2f746f646f735f636f6e746163746f732e706870|]
+Jun 25 18:15:20 10.71.57.0 u117490621 close "/eliminar_colaborador.php" bytes read 426 written 0
+Jun 25 18:15:20 10.71.57.0 u117490621 [10.71.57.0|get|0|426|0|0|0|2f656c696d696e61725f636f6c61626f7261646f722e706870|]
+Jun 25 18:15:20 10.71.57.0 u117490621 open "/seleccionar_oferta.php" flags READ mode 0666
+Jun 25 18:15:20 10.71.57.0 u117490621 open "/hacer_oferta.js" flags READ mode 0666
+Jun 25 18:15:20 10.71.57.0 u117490621 close "/seleccionar_oferta.php" bytes read 3523 written 0
+Jun 25 18:15:20 10.71.57.0 u117490621 [10.71.57.0|get|0|3523|0|0|0|2f73656c656363696f6e61725f6f66657274612e706870|]
+Jun 25 18:15:20 10.71.57.0 u117490621 close "/hacer_oferta.js" bytes read 2572 written 0
+Jun 25 18:15:20 10.71.57.0 u117490621 [10.71.57.0|get|0|2572|0|0|0|2f68616365725f6f66657274612e6a73|]
+Jun 25 18:15:20 10.71.57.0 u117490621 open "/obtener_miembros_grupo.php" flags READ mode 0666
+Jun 25 18:15:20 10.71.57.0 u117490621 open "/buscar_usuarios_oferta.php" flags READ mode 0666
+Jun 25 18:15:20 10.71.57.0 u117490621 close "/obtener_miembros_grupo.php" bytes read 766 written 0
+Jun 25 18:15:20 10.71.57.0 u117490621 [10.71.57.0|get|0|766|0|0|0|2f6f6274656e65725f6d69656d62726f735f677275706f2e706870|]
+Jun 25 18:15:20 10.71.57.0 u117490621 close "/buscar_usuarios_oferta.php" bytes read 1648 written 0
+Jun 25 18:15:20 10.71.57.0 u117490621 [10.71.57.0|get|0|1648|0|0|0|2f6275736361725f7573756172696f735f6f66657274612e706870|]
+Jun 25 18:15:20 10.71.57.0 u117490621 open "/guardar_modificar_tren.php" flags READ mode 0666
+Jun 25 18:15:20 10.71.57.0 u117490621 open "/detalle_factura.php" flags READ mode 0666
+Jun 25 18:15:20 10.71.57.0 u117490621 close "/guardar_modificar_tren.php" bytes read 5945 written 0
+Jun 25 18:15:20 10.71.57.0 u117490621 [10.71.57.0|get|0|5945|0|0|0|2f677561726461725f6d6f646966696361725f7472656e2e706870|]
+Jun 25 18:15:21 10.71.57.0 u117490621 close "/detalle_factura.php" bytes read 2335 written 0
+Jun 25 18:15:21 10.71.57.0 u117490621 [10.71.57.0|get|1|2335|0|0|0|2f646574616c6c655f666163747572612e706870|]
+Jun 25 18:15:21 10.71.57.0 u117490621 open "/modificar_tren.php" flags READ mode 0666
+Jun 25 18:15:21 10.71.57.0 u117490621 open "/inter_trucker.php" flags READ mode 0666
+Jun 25 18:15:21 10.71.57.0 u117490621 close "/modificar_tren.php" bytes read 17407 written 0
+Jun 25 18:15:21 10.71.57.0 u117490621 [10.71.57.0|get|0|17407|0|0|0|2f6d6f646966696361725f7472656e2e706870|]
+Jun 25 18:15:21 10.71.57.0 u117490621 close "/inter_trucker.php" bytes read 1953 written 0
+Jun 25 18:15:21 10.71.57.0 u117490621 [10.71.57.0|get|0|1953|0|0|0|2f696e7465725f747275636b65722e706870|]
+Jun 25 18:15:21 10.71.57.0 u117490621 open "/agregar_contacto_grupo.php" flags READ mode 0666
+Jun 25 18:15:21 10.71.57.0 u117490621 open "/buscar_contactos.php" flags READ mode 0666
+Jun 25 18:15:21 10.71.57.0 u117490621 close "/agregar_contacto_grupo.php" bytes read 2188 written 0
+Jun 25 18:15:21 10.71.57.0 u117490621 [10.71.57.0|get|0|2188|0|0|0|2f616772656761725f636f6e746163746f5f677275706f2e706870|]
+Jun 25 18:15:21 10.71.57.0 u117490621 close "/buscar_contactos.php" bytes read 2765 written 0
+Jun 25 18:15:21 10.71.57.0 u117490621 [10.71.57.0|get|0|2765|0|0|0|2f6275736361725f636f6e746163746f732e706870|]
+Jun 25 18:15:21 10.71.57.0 u117490621 open "/crear_grupo.php" flags READ mode 0666
+Jun 25 18:15:21 10.71.57.0 u117490621 open "/agregar_contacto.php" flags READ mode 0666
+Jun 25 18:15:21 10.71.57.0 u117490621 close "/crear_grupo.php" bytes read 2404 written 0
+Jun 25 18:15:21 10.71.57.0 u117490621 [10.71.57.0|get|0|2404|0|0|0|2f63726561725f677275706f2e706870|]
+Jun 25 18:15:21 10.71.57.0 u117490621 close "/agregar_contacto.php" bytes read 981 written 0
+Jun 25 18:15:21 10.71.57.0 u117490621 [10.71.57.0|get|0|981|0|0|0|2f616772656761725f636f6e746163746f2e706870|]
+Jun 25 18:15:21 10.71.57.0 u117490621 open "/crear_contacto.php" flags READ mode 0666
+Jun 25 18:15:21 10.71.57.0 u117490621 open "/funciones_hacer_porte.php" flags READ mode 0666
+Jun 25 18:15:21 10.71.57.0 u117490621 close "/crear_contacto.php" bytes read 1804 written 0
+Jun 25 18:15:21 10.71.57.0 u117490621 [10.71.57.0|get|0|1804|0|0|0|2f63726561725f636f6e746163746f2e706870|]
+Jun 25 18:15:22 10.71.57.0 u117490621 close "/funciones_hacer_porte.php" bytes read 2374 written 0
+Jun 25 18:15:22 10.71.57.0 u117490621 [10.71.57.0|get|1|2374|0|0|0|2f66756e63696f6e65735f68616365725f706f7274652e706870|]
+Jun 25 18:15:22 10.71.57.0 u117490621 open "/recogida.php" flags READ mode 0666
+Jun 25 18:15:22 10.71.57.0 u117490621 open "/llegadas_salidas.php" flags READ mode 0666
+Jun 25 18:15:22 10.71.57.0 u117490621 close "/recogida.php" bytes read 4347 written 0
+Jun 25 18:15:22 10.71.57.0 u117490621 [10.71.57.0|get|0|4347|0|0|0|2f7265636f676964612e706870|]
+Jun 25 18:15:22 10.71.57.0 u117490621 close "/llegadas_salidas.php" bytes read 13814 written 0
+Jun 25 18:15:22 10.71.57.0 u117490621 [10.71.57.0|get|0|13814|0|0|0|2f6c6c6567616461735f73616c696461732e706870|]
+Jun 25 18:15:22 10.71.57.0 u117490621 open "/eventos_procesar.php" flags READ mode 0666
+Jun 25 18:15:22 10.71.57.0 u117490621 open "/guardar_firma_evento.php" flags READ mode 0666
+Jun 25 18:15:22 10.71.57.0 u117490621 close "/eventos_procesar.php" bytes read 6936 written 0
+Jun 25 18:15:22 10.71.57.0 u117490621 [10.71.57.0|get|0|6936|0|0|0|2f6576656e746f735f70726f63657361722e706870|]
+Jun 25 18:15:22 10.71.57.0 u117490621 close "/guardar_firma_evento.php" bytes read 1904 written 0
+Jun 25 18:15:22 10.71.57.0 u117490621 [10.71.57.0|get|0|1904|0|0|0|2f677561726461725f6669726d615f6576656e746f2e706870|]
+Jun 25 18:15:22 10.71.57.0 u117490621 open "/guardar_estado_mercancia.php" flags READ mode 0666
+Jun 25 18:15:22 10.71.57.0 u117490621 open "/subir_archivo.php" flags READ mode 0666
+Jun 25 18:15:22 10.71.57.0 u117490621 close "/guardar_estado_mercancia.php" bytes read 1264 written 0
+Jun 25 18:15:22 10.71.57.0 u117490621 [10.71.57.0|get|0|1264|0|0|0|2f677561726461725f65737461646f5f6d657263616e6369612e706870|]
+Jun 25 18:15:22 10.71.57.0 u117490621 close "/subir_archivo.php" bytes read 2188 written 0
+Jun 25 18:15:22 10.71.57.0 u117490621 [10.71.57.0|get|0|2188|0|0|0|2f73756269725f6172636869766f2e706870|]
+Jun 25 18:15:22 10.71.57.0 u117490621 open "/entrega_recibidos.php" flags READ mode 0666
+Jun 25 18:15:22 10.71.57.0 u117490621 open "/Recogida1.php" flags READ mode 0666
+Jun 25 18:15:22 10.71.57.0 u117490621 close "/entrega_recibidos.php" bytes read 33758 written 0
+Jun 25 18:15:22 10.71.57.0 u117490621 [10.71.57.0|get|0|33758|0|0|0|2f656e74726567615f726563696269646f732e706870|]
+Jun 25 18:15:23 10.71.57.0 u117490621 close "/Recogida1.php" bytes read 7949 written 0
+Jun 25 18:15:23 10.71.57.0 u117490621 [10.71.57.0|get|1|7949|0|0|0|2f5265636f67696461312e706870|]
+Jun 25 18:15:23 10.71.57.0 u117490621 open "/eventos_procesar1.php" flags READ mode 0666
+Jun 25 18:15:23 10.71.57.0 u117490621 open "/Recogida_llegada_salida" flags READ mode 0666
+Jun 25 18:15:23 10.71.57.0 u117490621 close "/eventos_procesar1.php" bytes read 6207 written 0
+Jun 25 18:15:23 10.71.57.0 u117490621 [10.71.57.0|get|0|6207|0|0|0|2f6576656e746f735f70726f6365736172312e706870|]
+Jun 25 18:15:23 10.71.57.0 u117490621 close "/Recogida_llegada_salida" bytes read 12127 written 0
+Jun 25 18:15:23 10.71.57.0 u117490621 [10.71.57.0|get|0|12127|0|0|0|2f5265636f676964615f6c6c65676164615f73616c696461|]
+Jun 25 18:15:23 10.71.57.0 u117490621 open "/editar_porte.php" flags READ mode 0666
+Jun 25 18:15:23 10.71.57.0 u117490621 open "/.user.ini" flags READ mode 0666
+Jun 25 18:15:23 10.71.57.0 u117490621 close "/editar_porte.php" bytes read 3979 written 0
+Jun 25 18:15:23 10.71.57.0 u117490621 [10.71.57.0|get|0|3979|0|0|0|2f6564697461725f706f7274652e706870|]
+Jun 25 18:15:23 10.71.57.0 u117490621 close "/.user.ini" bytes read 114 written 0
+Jun 25 18:15:23 10.71.57.0 u117490621 [10.71.57.0|get|0|114|0|0|0|2f2e757365722e696e69|]
+Jun 25 18:15:23 10.71.57.0 u117490621 open "/info.php" flags READ mode 0666
+Jun 25 18:15:23 10.71.57.0 u117490621 open "/datos_multimedia_recogida_entrega.php" flags READ mode 0666
+Jun 25 18:15:23 10.71.57.0 u117490621 close "/info.php" bytes read 21 written 0
+Jun 25 18:15:23 10.71.57.0 u117490621 [10.71.57.0|get|0|21|0|0|0|2f696e666f2e706870|]
+Jun 25 18:15:23 10.71.57.0 u117490621 close "/datos_multimedia_recogida_entrega.php" bytes read 2481 written 0
+Jun 25 18:15:23 10.71.57.0 u117490621 [10.71.57.0|get|0|2481|0|0|0|2f6461746f735f6d756c74696d656469615f7265636f676964615f656e74726567612e706870|]
+Jun 25 18:15:23 10.71.57.0 u117490621 open "/insertar_prueba.php" flags READ mode 0666
+Jun 25 18:15:23 10.71.57.0 u117490621 open "/agregar_vehiculo.php" flags READ mode 0666
+Jun 25 18:15:24 10.71.57.0 u117490621 close "/insertar_prueba.php" bytes read 1118 written 0
+Jun 25 18:15:24 10.71.57.0 u117490621 [10.71.57.0|get|1|1118|0|0|0|2f696e7365727461725f7072756562612e706870|]
+Jun 25 18:15:24 10.71.57.0 u117490621 close "/agregar_vehiculo.php" bytes read 3384 written 0
+Jun 25 18:15:24 10.71.57.0 u117490621 [10.71.57.0|get|1|3384|0|0|0|2f616772656761725f7665686963756c6f2e706870|]
+Jun 25 18:15:24 10.71.57.0 u117490621 open "/insertar_vehiculo_prueba.php" flags READ mode 0666
+Jun 25 18:15:24 10.71.57.0 u117490621 open "/cambiar_estado_vehiculo.php" flags READ mode 0666
+Jun 25 18:15:24 10.71.57.0 u117490621 close "/insertar_vehiculo_prueba.php" bytes read 5171 written 0
+Jun 25 18:15:24 10.71.57.0 u117490621 [10.71.57.0|get|0|5171|0|0|0|2f696e7365727461725f7665686963756c6f5f7072756562612e706870|]
+Jun 25 18:15:24 10.71.57.0 u117490621 close "/cambiar_estado_vehiculo.php" bytes read 786 written 0
+Jun 25 18:15:24 10.71.57.0 u117490621 [10.71.57.0|get|0|786|0|0|0|2f63616d626961725f65737461646f5f7665686963756c6f2e706870|]
+Jun 25 18:15:24 10.71.57.0 u117490621 open "/actualizar_vehiculo.php" flags READ mode 0666
+Jun 25 18:15:24 10.71.57.0 u117490621 open "/buscar_grupos.php" flags READ mode 0666
+Jun 25 18:15:24 10.71.57.0 u117490621 close "/actualizar_vehiculo.php" bytes read 790 written 0
+Jun 25 18:15:24 10.71.57.0 u117490621 [10.71.57.0|get|0|790|0|0|0|2f61637475616c697a61725f7665686963756c6f2e706870|]
+Jun 25 18:15:24 10.71.57.0 u117490621 close "/buscar_grupos.php" bytes read 2288 written 0
+Jun 25 18:15:24 10.71.57.0 u117490621 [10.71.57.0|get|0|2288|0|0|0|2f6275736361725f677275706f732e706870|]
+Jun 25 18:15:24 10.71.57.0 u117490621 open "/ver_entidad.php" flags READ mode 0666
+Jun 25 18:15:24 10.71.57.0 u117490621 open "/crear_entidad.php" flags READ mode 0666
+Jun 25 18:15:24 10.71.57.0 u117490621 close "/ver_entidad.php" bytes read 4713 written 0
+Jun 25 18:15:24 10.71.57.0 u117490621 [10.71.57.0|get|0|4713|0|0|0|2f7665725f656e74696461642e706870|]
+Jun 25 18:15:24 10.71.57.0 u117490621 close "/crear_entidad.php" bytes read 1581 written 0
+Jun 25 18:15:24 10.71.57.0 u117490621 [10.71.57.0|get|0|1581|0|0|0|2f63726561725f656e74696461642e706870|]
+Jun 25 18:15:24 10.71.57.0 u117490621 open "/detalle_oferta.php" flags READ mode 0666
+Jun 25 18:15:24 10.71.57.0 u117490621 open "/asignar_porte.php" flags READ mode 0666
+Jun 25 18:15:24 10.71.57.0 u117490621 close "/detalle_oferta.php" bytes read 3744 written 0
+Jun 25 18:15:24 10.71.57.0 u117490621 [10.71.57.0|get|0|3744|0|0|0|2f646574616c6c655f6f66657274612e706870|]
+Jun 25 18:15:25 10.71.57.0 u117490621 close "/asignar_porte.php" bytes read 708 written 0
+Jun 25 18:15:25 10.71.57.0 u117490621 [10.71.57.0|get|1|708|0|0|0|2f617369676e61725f706f7274652e706870|]
+Jun 25 18:15:25 10.71.57.0 u117490621 open "/confirmar_seleccion.php" flags READ mode 0666
+Jun 25 18:15:25 10.71.57.0 u117490621 open "/historial_portes.php" flags READ mode 0666
+Jun 25 18:15:25 10.71.57.0 u117490621 close "/confirmar_seleccion.php" bytes read 1309 written 0
+Jun 25 18:15:25 10.71.57.0 u117490621 [10.71.57.0|get|0|1309|0|0|0|2f636f6e6669726d61725f73656c656363696f6e2e706870|]
+Jun 25 18:15:25 10.71.57.0 u117490621 close "/historial_portes.php" bytes read 5696 written 0
+Jun 25 18:15:25 10.71.57.0 u117490621 [10.71.57.0|get|0|5696|0|0|0|2f686973746f7269616c5f706f727465732e706870|]
+Jun 25 18:15:25 10.71.57.0 u117490621 open "/ver_aceptantes.php" flags READ mode 0666
+Jun 25 18:15:25 10.71.57.0 u117490621 open "/guardar_recogida.php" flags READ mode 0666
+Jun 25 18:15:25 10.71.57.0 u117490621 close "/ver_aceptantes.php" bytes read 1499 written 0
+Jun 25 18:15:25 10.71.57.0 u117490621 [10.71.57.0|get|0|1499|0|0|0|2f7665725f6163657074616e7465732e706870|]
+Jun 25 18:15:25 10.71.57.0 u117490621 close "/guardar_recogida.php" bytes read 2414 written 0
+Jun 25 18:15:25 10.71.57.0 u117490621 [10.71.57.0|get|0|2414|0|0|0|2f677561726461725f7265636f676964612e706870|]
+Jun 25 18:15:25 10.71.57.0 u117490621 open "/editar_camion.php" flags READ mode 0666
+Jun 25 18:15:25 10.71.57.0 u117490621 open "/guardar_contacto_grupo.php" flags READ mode 0666
+Jun 25 18:15:25 10.71.57.0 u117490621 close "/editar_camion.php" bytes read 2638 written 0
+Jun 25 18:15:25 10.71.57.0 u117490621 [10.71.57.0|get|0|2638|0|0|0|2f6564697461725f63616d696f6e2e706870|]
+Jun 25 18:15:25 10.71.57.0 u117490621 close "/guardar_contacto_grupo.php" bytes read 949 written 0
+Jun 25 18:15:25 10.71.57.0 u117490621 [10.71.57.0|get|0|949|0|0|0|2f677561726461725f636f6e746163746f5f677275706f2e706870|]
+Jun 25 18:15:25 10.71.57.0 u117490621 open "/eliminar_contacto_grupo.php" flags READ mode 0666
+Jun 25 18:15:25 10.71.57.0 u117490621 open "/guardar_contactos_grupo.php" flags READ mode 0666
+Jun 25 18:15:26 10.71.57.0 u117490621 close "/eliminar_contacto_grupo.php" bytes read 701 written 0
+Jun 25 18:15:26 10.71.57.0 u117490621 [10.71.57.0|get|1|701|0|0|0|2f656c696d696e61725f636f6e746163746f5f677275706f2e706870|]
+Jun 25 18:15:26 10.71.57.0 u117490621 close "/guardar_contactos_grupo.php" bytes read 651 written 0
+Jun 25 18:15:26 10.71.57.0 u117490621 [10.71.57.0|get|1|651|0|0|0|2f677561726461725f636f6e746163746f735f677275706f2e706870|]
+Jun 25 18:15:26 10.71.57.0 u117490621 open "/historial_facturas.php" flags READ mode 0666
+Jun 25 18:15:26 10.71.57.0 u117490621 open "/index_backup" flags READ mode 0666
+Jun 25 18:15:26 10.71.57.0 u117490621 close "/historial_facturas.php" bytes read 984 written 0
+Jun 25 18:15:26 10.71.57.0 u117490621 [10.71.57.0|get|0|984|0|0|0|2f686973746f7269616c5f66616374757261732e706870|]
+Jun 25 18:15:26 10.71.57.0 u117490621 close "/index_backup" bytes read 1915 written 0
+Jun 25 18:15:26 10.71.57.0 u117490621 [10.71.57.0|get|0|1915|0|0|0|2f696e6465785f6261636b7570|]
+Jun 25 18:15:26 10.71.57.0 u117490621 open "/logs/access.log.25.6.gz" flags READ mode 0666
+Jun 25 18:15:26 10.71.57.0 u117490621 open "/logs/access.log.25.3.gz" flags READ mode 0666
+Jun 25 18:15:26 10.71.57.0 u117490621 close "/logs/access.log.25.6.gz" bytes read 2729 written 0
+Jun 25 18:15:26 10.71.57.0 u117490621 [10.71.57.0|get|0|2729|0|0|0|2f6c6f67732f6163636573732e6c6f672e32352e362e677a|]
+Jun 25 18:15:26 10.71.57.0 u117490621 close "/logs/access.log.25.3.gz" bytes read 5285 written 0
+Jun 25 18:15:26 10.71.57.0 u117490621 [10.71.57.0|get|0|5285|0|0|0|2f6c6f67732f6163636573732e6c6f672e32352e332e677a|]
+Jun 25 18:15:26 10.71.57.0 u117490621 open "/logs/access.log.25.1.gz" flags READ mode 0666
+Jun 25 18:15:26 10.71.57.0 u117490621 open "/logs/access.log.23.gz" flags READ mode 0666
+Jun 25 18:15:26 10.71.57.0 u117490621 close "/logs/access.log.25.1.gz" bytes read 2228 written 0
+Jun 25 18:15:26 10.71.57.0 u117490621 [10.71.57.0|get|0|2228|0|0|0|2f6c6f67732f6163636573732e6c6f672e32352e312e677a|]
+Jun 25 18:15:27 10.71.57.0 u117490621 close "/logs/access.log.23.gz" bytes read 28873 written 0
+Jun 25 18:15:27 10.71.57.0 u117490621 [10.71.57.0|get|1|28873|0|0|0|2f6c6f67732f6163636573732e6c6f672e32332e677a|]
+Jun 25 18:15:27 10.71.57.0 u117490621 open "/logs/sftp.log.24.gz" flags READ mode 0666
+Jun 25 18:15:27 10.71.57.0 u117490621 open "/logs/access.log.26.2.gz" flags READ mode 0666
+Jun 25 18:15:27 10.71.57.0 u117490621 close "/logs/sftp.log.24.gz" bytes read 855 written 0
+Jun 25 18:15:27 10.71.57.0 u117490621 [10.71.57.0|get|0|855|0|0|0|2f6c6f67732f736674702e6c6f672e32342e677a|]
+Jun 25 18:15:27 10.71.57.0 u117490621 close "/logs/access.log.26.2.gz" bytes read 6962 written 0
+Jun 25 18:15:27 10.71.57.0 u117490621 [10.71.57.0|get|0|6962|0|0|0|2f6c6f67732f6163636573732e6c6f672e32362e322e677a|]
+Jun 25 18:15:27 10.71.57.0 u117490621 open "/logs/access.log.18.gz" flags READ mode 0666
+Jun 25 18:15:27 10.71.57.0 u117490621 open "/logs/sftp.log.18.gz" flags READ mode 0666
+Jun 25 18:15:27 10.71.57.0 u117490621 close "/logs/access.log.18.gz" bytes read 36813 written 0
+Jun 25 18:15:27 10.71.57.0 u117490621 [10.71.57.0|get|0|36813|0|0|0|2f6c6f67732f6163636573732e6c6f672e31382e677a|]
+Jun 25 18:15:27 10.71.57.0 u117490621 close "/logs/sftp.log.18.gz" bytes read 2532 written 0
+Jun 25 18:15:27 10.71.57.0 u117490621 [10.71.57.0|get|0|2532|0|0|0|2f6c6f67732f736674702e6c6f672e31382e677a|]
+Jun 25 18:15:27 10.71.57.0 u117490621 open "/logs/access.log.25.4.gz" flags READ mode 0666
+Jun 25 18:15:27 10.71.57.0 u117490621 open "/logs/access.log.25.2.gz" flags READ mode 0666
+Jun 25 18:15:27 10.71.57.0 u117490621 close "/logs/access.log.25.4.gz" bytes read 3834 written 0
+Jun 25 18:15:27 10.71.57.0 u117490621 [10.71.57.0|get|0|3834|0|0|0|2f6c6f67732f6163636573732e6c6f672e32352e342e677a|]
+Jun 25 18:15:27 10.71.57.0 u117490621 close "/logs/access.log.25.2.gz" bytes read 7370 written 0
+Jun 25 18:15:27 10.71.57.0 u117490621 [10.71.57.0|get|0|7370|0|0|0|2f6c6f67732f6163636573732e6c6f672e32352e322e677a|]
+Jun 25 18:15:27 10.71.57.0 u117490621 open "/logs/access.log.22.gz" flags READ mode 0666
+Jun 25 18:15:27 10.71.57.0 u117490621 open "/logs/sftp.log.22.gz" flags READ mode 0666
+Jun 25 18:15:27 10.71.57.0 u117490621 close "/logs/access.log.22.gz" bytes read 28578 written 0
+Jun 25 18:15:27 10.71.57.0 u117490621 [10.71.57.0|get|0|28578|0|0|0|2f6c6f67732f6163636573732e6c6f672e32322e677a|]
+Jun 25 18:15:28 10.71.57.0 u117490621 close "/logs/sftp.log.22.gz" bytes read 2417 written 0
+Jun 25 18:15:28 10.71.57.0 u117490621 [10.71.57.0|get|1|2417|0|0|0|2f6c6f67732f736674702e6c6f672e32322e677a|]
+Jun 25 18:15:28 10.71.57.0 u117490621 open "/logs/access.log.25.7.gz" flags READ mode 0666
+Jun 25 18:15:28 10.71.57.0 u117490621 open "/logs/access.log.21.gz" flags READ mode 0666
+Jun 25 18:15:28 10.71.57.0 u117490621 close "/logs/access.log.25.7.gz" bytes read 3237 written 0
+Jun 25 18:15:28 10.71.57.0 u117490621 [10.71.57.0|get|0|3237|0|0|0|2f6c6f67732f6163636573732e6c6f672e32352e372e677a|]
+Jun 25 18:15:28 10.71.57.0 u117490621 close "/logs/access.log.21.gz" bytes read 30421 written 0
+Jun 25 18:15:28 10.71.57.0 u117490621 [10.71.57.0|get|0|30421|0|0|0|2f6c6f67732f6163636573732e6c6f672e32312e677a|]
+Jun 25 18:15:28 10.71.57.0 u117490621 open "/logs/sftp.log.19.gz" flags READ mode 0666
+Jun 25 18:15:28 10.71.57.0 u117490621 open "/logs/access.log.26.3" flags READ mode 0666
+Jun 25 18:15:28 10.71.57.0 u117490621 close "/logs/access.log.26.3" bytes read 239563 written 0
+Jun 25 18:15:28 10.71.57.0 u117490621 [10.71.57.0|get|0|239563|0|0|0|2f6c6f67732f6163636573732e6c6f672e32362e33|]
+Jun 25 18:15:28 10.71.57.0 u117490621 close "/logs/sftp.log.19.gz" bytes read 48760 written 0
+Jun 25 18:15:28 10.71.57.0 u117490621 [10.71.57.0|get|0|48760|0|0|0|2f6c6f67732f736674702e6c6f672e31392e677a|]
+Jun 25 18:15:28 10.71.57.0 u117490621 open "/logs/access.log.26.1.gz" flags READ mode 0666
+Jun 25 18:15:28 10.71.57.0 u117490621 open "/logs/sftp.log" flags READ mode 0666

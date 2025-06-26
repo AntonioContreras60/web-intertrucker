@@ -1,0 +1,18 @@
+<svg id="facturas" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Rectángulo para representar la factura -->
+  <rect x="8" y="4" width="48" height="56" fill="none" stroke="currentColor" stroke-width="2" rx="4" ry="4"></rect>
+  <!-- Líneas horizontales para simular texto en la factura -->
+  <line x1="12" y1="10" x2="52" y2="10" stroke="currentColor" stroke-width="2"></line>
+  <line x1="12" y1="16" x2="52" y2="16" stroke="currentColor" stroke-width="2"></line>
+  <line x1="12" y1="22" x2="52" y2="22" stroke="currentColor" stroke-width="2"></line>
+  <!-- Dos semicírculos uno encima del otro para formar una 'S' regular más grande -->
+  <path d="M28 40a6 6 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="2"></path>
+  <path d="M28 38a6 6 0 0 0 0 12" fill="none" stroke="currentColor" stroke-width="2" transform="translate(0, -10)"></path>
+  <!-- Cuartos de círculo en los extremos para completar la 'S' más grande -->
+  <path d="M29 28a4 4 0 0 1 4 4" fill="none" stroke="currentColor" stroke-width="2"></path>
+  <path d="M22 48a4 4 0 0 0 4 4" fill="none" stroke="currentColor" stroke-width="2"></path>
+  <!-- Barras verticales para el símbolo del dólar más grandes -->
+  <line x1="26" y1="26" x2="26" y2="54" stroke="currentColor" stroke-width="2"></line>
+  <line x1="30" y1="26" x2="30" y2="54" stroke="currentColor" stroke-width="2"></line>
+</svg>
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InterTrucker - Inicio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <img src="logo.png" alt="InterTrucker Logo">
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html">InterTrucker</a></li>
+                    <li><a href="perfil.html">PERFIL</a></li>
+                    <li><a href="crear_porte.html">Nuevos</a></li>
+                    <li><a href="my_truck.html">My Truck</a></li>
+                    <li class="dropdown">
+                        <a href="#">INTER ▼</a>
+                        <ul class="dropdown-content">
+                            <li><a href="enviados.html">Enviados</a></li>
+                            <li><a href="recibidos.html">Recibidos</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">Facturas ▼</a>
+                        <ul class="dropdown-content">
+                            <li><a href="facturas.html">Listado de Facturas</a></li>
+                            <li><a href="registro_nueva_factura.html">Registro Nueva Factura</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <h1>Bienvenido a InterTrucker</h1>
+        <p>InterTrucker conecta a transportistas con clientes a nivel mundial, facilitando la gestión de portes, facturas, y mucho más.</p>
+        <a href="crear_porte.html">Crear un Nuevo Porte</a>
+    </main>
+    
+    <footer>
+        <p>© 2024 InterTrucker. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
+

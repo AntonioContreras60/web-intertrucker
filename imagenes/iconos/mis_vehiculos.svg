@@ -1,0 +1,15 @@
+<svg id="portes_camiones" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Icono de Portes a Camiones: Representa un camión con más detalles mirando hacia la derecha -->
+  <!-- Cabina del camión -->
+  <rect x="16" y="8" width="7" height="7" fill="none" stroke="currentColor"></rect>
+  <!-- Plataforma del camión (en vez de la caja) -->
+  <line x1="3" y1="16" x2="16" y2="16" stroke="currentColor"></line>
+  <!-- Ventana de la cabina -->
+  <rect x="19" y="9" width="4" height="3" fill="none" stroke="currentColor"></rect>
+  <!-- Parachoques delantero -->
+  <line x1="23" y1="14" x2="23" y2="17" stroke="currentColor"></line>
+  <!-- Ruedas del camión -->
+  <circle cx="5" cy="18" r="2" fill="none" stroke="currentColor"></circle>
+  <circle cx="10" cy="18" r="2" fill="none" stroke="currentColor"></circle>
+  <circle cx="19" cy="18" r="2" fill="none" stroke="currentColor"></circle>
+</svg>

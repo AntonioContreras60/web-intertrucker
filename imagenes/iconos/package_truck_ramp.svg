@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <!-- Camion con lado derecho abierto para dar sensación de continuidad -->
+  <path d="M150 10 H80 V110 H150" fill="none" stroke="black" stroke-width="15" />
+  <!-- Rueda del camión -->
+  <circle cx="115" cy="125" r="15" fill="none" stroke="black" stroke-width="15" />
+  <!-- Rampa -->
+  <line x1="80" y1="110" x2="30" y2="150" stroke="black" stroke-width="8" />
+  <!-- Paquete agrandado -->
+  <rect x="5" y="80" width="45" height="50" fill="none" stroke="black" stroke-width="10" />
+</svg>

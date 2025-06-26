@@ -1,0 +1,9 @@
+<svg id="transferidos" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Icono de Portes Transferidos: Representa dos flechas en direcciones opuestas -->
+  <!-- Flecha hacia la derecha -->
+  <line x1="4" y1="8" x2="20" y2="8" stroke="currentColor"></line>
+  <polyline points="16 4 20 8 16 12" fill="none" stroke="currentColor"></polyline>
+  <!-- Flecha hacia la izquierda -->
+  <line x1="20" y1="16" x2="4" y2="16" stroke="currentColor"></line>
+  <polyline points="8 12 4 16 8 20" fill="none" stroke="currentColor"></polyline>
+</svg>

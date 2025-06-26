@@ -1,0 +1,9 @@
+<svg id="paquete" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Dibujo de un cubo simple en perspectiva -->
+  <!-- Parte frontal del cubo -->
+  <polygon points="4,10 4,20 14,20 14,10" fill="none" stroke="currentColor"></polygon>
+  <!-- Parte superior del cubo -->
+  <polygon points="4,10 9,4 19,4 14,10" fill="none" stroke="currentColor"></polygon>
+  <!-- Parte lateral del cubo -->
+  <polygon points="14,10 19,4 19,14 14,20" fill="none" stroke="currentColor"></polygon>
+</svg>
