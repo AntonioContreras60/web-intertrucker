@@ -97,9 +97,9 @@ h1{color:#004d94;margin-top:0} label{font-weight:600}
 <p><strong>Email : </strong><?= htmlspecialchars($contacto['email'])  ?></p>
 
 <?php if ($contacto['visibilidad']==='completo'): ?>
-  <p><strong>Teléfono : </strong><?= htmlspecialchars($contacto['telefono'] ?: '—') ?></p>
-  <p><strong>CIF      : </strong><?= htmlspecialchars($contacto['cif']      ?: '—') ?></p>
-  <p><strong>Dirección: </strong><?= htmlspecialchars($contacto['direccion'] ?: '—') ?></p>
+  <p><strong>Teléfono : </strong><?= htmlspecialchars($contacto['telefono'] ?: 'No disponible') ?></p>
+  <p><strong>CIF      : </strong><?= htmlspecialchars($contacto['cif']      ?: 'No disponible') ?></p>
+  <p><strong>Dirección: </strong><?= htmlspecialchars($contacto['direccion'] ?: 'No disponible') ?></p>
 <?php endif; ?>
 
 <h2>Observaciones</h2>
