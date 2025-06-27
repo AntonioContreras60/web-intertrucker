@@ -849,7 +849,8 @@ $num_tren = $res_tren->num_rows;
       </div>
 
       <!-- MULTISELECT => Tomar varios -->
-      <form method="POST" action="tomar_multiple_todos.php" onsubmit="return confirmarTomarMultiple();">
+      <form method="POST" action="tomar_multiple_companeros.php" onsubmit="return confirmarTomarMultiple();">
+        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         <table>
           <thead>
             <tr>
@@ -941,7 +942,8 @@ $num_tren = $res_tren->num_rows;
         </form>
       </div>
 
-      <form method="POST" action="tomar_multiple_todos.php" onsubmit="return confirmarTomarMultiple();">
+      <form method="POST" action="tomar_multiple_companeros.php" onsubmit="return confirmarTomarMultiple();">
+        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         <table>
           <thead>
             <tr>
