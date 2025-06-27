@@ -2,6 +2,10 @@
 session_start();
 include 'conexion.php';
 
+if (!isset($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
 if (!isset($_SESSION['admin_id']) || !isset($_SESSION['usuario_id'])) {
     die("Error: Falta admin_id o usuario_id en la sesión.");
 }
