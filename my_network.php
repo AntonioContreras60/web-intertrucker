@@ -86,10 +86,13 @@ if (isset($_POST['crear_entidad'])) {
 
 /* ---------- 7) Contactos actuales ---------- */
 $stmt = $conn->prepare("
-    SELECT u.id,u.nombre_usuario,u.email
+    SELECT c.id AS contacto_id,
+           u.id AS usuario_id,
+           u.nombre_usuario,
+           u.email
     FROM contactos c
-    JOIN usuarios u ON u.id=c.contacto_usuario_id
-    WHERE c.usuario_id=?");
+    JOIN usuarios u ON u.id = c.contacto_usuario_id
+    WHERE c.usuario_id = ?");
 $stmt->bind_param('i', $admin_id);
 $stmt->execute();
 $resultado_contactos = $stmt->get_result();
@@ -202,7 +205,7 @@ $stmt->close();
           <?= htmlspecialchars($u['nombre_usuario']) ?>
           (<?= htmlspecialchars($u['email']) ?>)
           –
-          <a href="ver_contacto.php?contacto_id=<?= $u['id'] ?>"
+          <a href="ver_contacto.php?contacto_id=<?= $u['contacto_id'] ?>"
              target="_blank"
              class="btn"
              style="padding:3px 10px;">
