@@ -27,7 +27,7 @@ $sql = "
  JOIN usuarios u         ON u.id = c.contacto_usuario_id
  LEFT JOIN direcciones d ON d.usuario_id = u.id
                         AND d.tipo_direccion = 'fiscal'
- WHERE c.usuario_id = ? AND u.id = ? LIMIT 1";
+ WHERE c.usuario_id = ? AND c.id = ? LIMIT 1";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param('ii', $usuario_id, $contacto_id);
 $stmt->execute();
@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD']==='POST'
     $upd = $conn->prepare("
         UPDATE contactos
            SET observaciones = ?
-         WHERE usuario_id = ? AND contacto_usuario_id = ?");
+         WHERE usuario_id = ? AND id = ?");
     $upd->bind_param('sii', $_POST['observaciones'], $usuario_id, $contacto_id);
     $upd->execute();
     $upd->close();
@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD']==='POST'
 if (isset($_GET['eliminar_contacto']) && $contacto['visibilidad']!=='basico') {
     $del = $conn->prepare("
         DELETE FROM contactos
-         WHERE usuario_id=? AND contacto_usuario_id=?");
+         WHERE usuario_id=? AND id=?");
     $del->bind_param('ii', $usuario_id, $contacto_id);
     $del->execute();
     $del->close();
