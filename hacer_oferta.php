@@ -239,14 +239,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if ($stmt->execute()) {
             /* === NUEVO: dar visibilidad COMPLETA al destinatario === */
-            $upd = $conn->prepare("
-                INSERT INTO contactos (usuario_id, contacto_usuario_id, visibilidad)
-                VALUES (?, ?, 'completo')
-                ON DUPLICATE KEY UPDATE visibilidad = 'completo'
-            ");
+            $upd = $conn->prepare(
+                "UPDATE contactos SET visibilidad = 'completo'\n                 WHERE usuario_id = ? AND contacto_usuario_id = ?"
+            );
             if ($upd) {
                 $upd->bind_param('ii', $destinatario_admin_id, $usuario_id);
                 $upd->execute();
+                if ($upd->affected_rows === 0) {
+                    $ins = $conn->prepare(
+                        "INSERT INTO contactos (usuario_id, contacto_usuario_id, visibilidad)\n                         VALUES (?, ?, 'completo')"
+                    );
+                    if ($ins) {
+                        $ins->bind_param('ii', $destinatario_admin_id, $usuario_id);
+                        $ins->execute();
+                        $ins->close();
+                    }
+                }
                 $upd->close();
             }
             /* ------------------------------------------------------- */
