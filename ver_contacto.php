@@ -13,29 +13,41 @@ $contacto_id = intval($_GET['contacto_id'] ?? 0);
 if ($contacto_id <= 0) { exit('ID de contacto no válido.'); }
 
 /* ───────── CONSULTA PRINCIPAL (contactos) ───────── */
-$sql = "
- SELECT  u.nombre_usuario AS nombre,
-         u.email,
-         u.telefono,
-         u.cif,
-         c.visibilidad,
-         c.observaciones,
-         CONCAT_WS(', ',
-           d.nombre_via,d.numero,d.complemento,
-           d.codigo_postal,d.ciudad,d.pais)     AS direccion
- FROM contactos c
- JOIN usuarios u         ON u.id = c.contacto_usuario_id
- LEFT JOIN direcciones d ON d.usuario_id = u.id
-                        AND d.tipo_direccion = 'fiscal'
- WHERE c.usuario_id = ? AND c.id = ? LIMIT 1";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param('ii', $usuario_id, $contacto_id);
-$stmt->execute();
-$contacto = $stmt->get_result()->fetch_assoc();
-$stmt->close();
 
-/* ───────── PLAN B: NO ESTÁ EN CONTACTOS ───────── */
-if (!$contacto) {
+// Buscar el registro de contactos para sacar contacto_usuario_id, visibilidad y observaciones
+$stmt0 = $conn->prepare("SELECT contacto_usuario_id, visibilidad, observaciones FROM contactos WHERE id = ? LIMIT 1");
+$stmt0->bind_param('i', $contacto_id);
+$stmt0->execute();
+$row0 = $stmt0->get_result()->fetch_assoc();
+$stmt0->close();
+
+if ($row0) {
+    $contacto_usuario_id = $row0['contacto_usuario_id'];
+    $visibilidad = $row0['visibilidad'];
+    $observaciones = $row0['observaciones'];
+
+    // Ahora obtenemos los datos del usuario correspondiente
+    $sql = "
+     SELECT  u.nombre_usuario AS nombre,
+             u.email,
+             u.telefono,
+             u.cif,
+             ? AS visibilidad,
+             ? AS observaciones,
+             CONCAT_WS(', ',
+               d.nombre_via,d.numero,d.complemento,
+               d.codigo_postal,d.ciudad,d.pais)     AS direccion
+     FROM usuarios u
+     LEFT JOIN direcciones d ON d.usuario_id = u.id
+                            AND d.tipo_direccion = 'fiscal'
+     WHERE u.id = ? LIMIT 1";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param('ssi', $visibilidad, $observaciones, $contacto_usuario_id);
+    $stmt->execute();
+    $contacto = $stmt->get_result()->fetch_assoc();
+    $stmt->close();
+} else {
+    // Si no hay en contactos, busca en usuarios directamente (solo básico)
     $stmt = $conn->prepare("
         SELECT nombre_usuario AS nombre,
                email,
@@ -49,34 +61,33 @@ if (!$contacto) {
     $stmt->close();
 
     if (!$contacto) { exit('Contacto no encontrado.'); }
-    // sólo básico
     $contacto['visibilidad']  = 'basico';
     $contacto['observaciones'] = null;
     $contacto['direccion']     = null;
 }
 
-/* ─────── GUARDAR OBSERVACIONES (sólo si existe fila en contactos) ─────── */
+/* ─────── GUARDAR OBSERVACIONES (solo si existe fila en contactos) ─────── */
 if ($_SERVER['REQUEST_METHOD']==='POST'
     && isset($_POST['observaciones'])
-    && $contacto['visibilidad']!=='basico'   /* seguridad extra */ ) {
+    && $contacto['visibilidad']!=='basico' ) {
 
     $upd = $conn->prepare("
         UPDATE contactos
            SET observaciones = ?
-         WHERE usuario_id = ? AND id = ?");
-    $upd->bind_param('sii', $_POST['observaciones'], $usuario_id, $contacto_id);
+         WHERE id = ?");
+    $upd->bind_param('si', $_POST['observaciones'], $contacto_id);
     $upd->execute();
     $upd->close();
     header("Location: ver_contacto.php?contacto_id=$contacto_id&guardado=1");
     exit;
 }
 
-/* ─────── ELIMINAR (sólo si existe en contactos) ─────── */
+/* ─────── ELIMINAR (solo si existe en contactos) ─────── */
 if (isset($_GET['eliminar_contacto']) && $contacto['visibilidad']!=='basico') {
     $del = $conn->prepare("
         DELETE FROM contactos
-         WHERE usuario_id=? AND id=?");
-    $del->bind_param('ii', $usuario_id, $contacto_id);
+         WHERE id=?");
+    $del->bind_param('i', $contacto_id);
     $del->execute();
     $del->close();
     header('Location: my_network.php'); exit;
@@ -133,9 +144,9 @@ function copiar(){
  let txt  = `Nombre: <?= addslashes($contacto['nombre']) ?>\n`;
  txt     += `Email : <?= addslashes($contacto['email']) ?>`;
  <?php if ($contacto['visibilidad']==='completo'): ?>
- txt += `\nTeléfono : <?= addslashes($contacto['telefono']) ?>`;
- txt += `\nCIF      : <?= addslashes($contacto['cif']) ?>`;
- txt += `\nDirección: <?= addslashes($contacto['direccion']) ?>`;
+ txt += `\nTeléfono : <?= addslashes($contacto['telefono'] ?: 'No disponible') ?>`;
+ txt += `\nCIF      : <?= addslashes($contacto['cif'] ?: 'No disponible') ?>`;
+ txt += `\nDirección: <?= addslashes($contacto['direccion'] ?: 'No disponible') ?>`;
  <?php endif; ?>
  navigator.clipboard.writeText(txt).then(()=>alert('Información copiada'));
 }
