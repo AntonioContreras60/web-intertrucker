@@ -63,6 +63,21 @@ if (!$porte) {
     die("Error: No se encontró el porte.<br><a href='inicio.php'><button>Volver al inicio</button></a>");
 }
 
+// ==== determinar publicador y empresa destino ====
+$publicador_id = (int)$porte['usuario_creador_id'];
+$sql_dest_admin = "SELECT COALESCE(admin_id, id) AS admin_dest_id FROM usuarios WHERE id = ?";
+$stmt_dest_admin = $conn->prepare($sql_dest_admin);
+if ($stmt_dest_admin === false) {
+    die("Error en la preparación de la consulta del destinatario: " . $conn->error);
+}
+$stmt_dest_admin->bind_param('i', $publicador_id);
+$stmt_dest_admin->execute();
+$res_dest_admin = $stmt_dest_admin->get_result();
+$destinatario_admin_id = $res_dest_admin->num_rows > 0
+    ? (int)$res_dest_admin->fetch_assoc()['admin_dest_id']
+    : $publicador_id;
+$stmt_dest_admin->close();
+
 // Procesar la búsqueda de destinatarios si se envía el formulario
 if (isset($_POST['buscar_destinatarios'])) {
     $busqueda_destinatarios = '%' . $_POST['busqueda_destinatarios'] . '%';
@@ -216,9 +231,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         $stmt->bind_param("iisids",
                           $porte_id,
-                          $destinatario_id,   // B (quien publicó el porte)
+                          $destinatario_admin_id, // B (empresa del publicador)
                           $deadline,
-                          $usuario_id,        // A (ofertante actual)
+                          $usuario_id,          // A (ofertante actual)
                           $precio,
                           $moneda);
 
@@ -230,7 +245,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ON DUPLICATE KEY UPDATE visibilidad = 'completo'
             ");
             if ($upd) {
-                $upd->bind_param('ii', $destinatario_id, $usuario_id);
+                $upd->bind_param('ii', $destinatario_admin_id, $usuario_id);
                 $upd->execute();
                 $upd->close();
             }
