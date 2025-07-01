@@ -705,8 +705,7 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
       </div>
 
       <!-- MULTISELECT => hacer_porte_multiple.php -->
-      <form method="POST" action="hacer_porte_multiple.php" onsubmit="return confirmarHacerMultiple();">
-        <table>
+      <table>
           <thead>
             <tr>
               <th><input type="checkbox" onclick="toggleTodos(this,'porte_id_creados')"></th>
@@ -725,7 +724,7 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
           ?>
             <tr>
               <td>
-                <input type="checkbox" name="porte_id_creados[]" value="<?php echo $row['id']; ?>">
+                <input type="checkbox" name="porte_id_creados[]" value="<?php echo $row['id']; ?>" form="form-multiple">
               </td>
               <td>#<?php echo htmlspecialchars($row['id']); ?></td>
               <td><?php echo htmlspecialchars($row['mercancia_descripcion']); ?></td>
@@ -758,7 +757,7 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
           </tbody>
         </table>
 
-        <!-- Botón masivo => Hacer (seleccionados) -->
+      <form id="form-multiple" method="POST" action="hacer_porte_multiple.php" onsubmit="return confirmarHacerMultiple();">
         <?php if($num_rows_no_ofrecidos>0): ?>
           <br>
           <button type="submit" name="accion_global" value="hacer_creados_multiple"
