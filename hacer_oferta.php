@@ -209,8 +209,9 @@ $stmt_ofertas_contactos->close();
 
 
 
-// Verificar si el formulario ha sido enviado
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+// Verificar si el formulario ha sido enviado y los datos requeridos están presentes
+if ($_SERVER['REQUEST_METHOD'] === 'POST' &&
+    isset($_POST['precio'], $_POST['moneda_seleccionada'])) {
     // Capturar y validar los datos enviados por el formulario
     $precio = $_POST['precio'] ?? null;
     $moneda = $_POST['moneda_seleccionada'] ?? null;
