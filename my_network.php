@@ -30,6 +30,7 @@ if (!empty($_POST['busqueda_contacto'])) {
     $sql = "SELECT u.id,
                    u.nombre_usuario,
                    u.email,
+                   c.id AS contacto_id,
                    CASE WHEN c.contacto_usuario_id IS NULL THEN 'No' ELSE 'Sí' END AS es_contacto
             FROM usuarios u
             LEFT JOIN contactos c
@@ -132,6 +133,8 @@ $stmt->close();
 
 <h1>Mi red</h1>
 
+<a href="agregar_contacto.php" class="btn" style="margin-bottom:8px;">Añadir nuevo contacto</a>
+
 <!-- BUSCAR CONTACTO -->
 <h2>Buscar contacto (usuarios administradores):</h2>
 <form method="post">
@@ -146,9 +149,13 @@ $stmt->close();
             <li style="font-size:1.1em;">
               <?=htmlspecialchars($c['nombre_usuario'])?>
               (<?=htmlspecialchars($c['email'])?>)
-              – <?= $c['es_contacto']==='Sí'
-                    ? 'Ya es contacto'
-                    : '<a class="btn" href="?añadir_contacto='.$c['id'].'">Añadir</a>'?>
+              –
+              <?php if ($c['es_contacto'] === 'Sí'): ?>
+                Ya es contacto
+                <a class="btn" href="ver_contacto.php?contacto_id=<?= $c['contacto_id'] ?>" style="padding:3px 10px;">Ver</a>
+              <?php else: ?>
+                <a class="btn" href="?añadir_contacto=<?= $c['id'] ?>">Añadir</a>
+              <?php endif; ?>
             </li>
         <?php endwhile; ?>
         </ul>
