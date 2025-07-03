@@ -17,6 +17,53 @@ if (!isset($_GET['vehiculo_id'])) {
 }
 $vehiculo_id = intval($_GET['vehiculo_id']);
 
+// Ruta para documentos
+$uploadDirVeh = __DIR__ . '/uploads/vehiculos/';
+if (!is_dir($uploadDirVeh)) {
+    mkdir($uploadDirVeh, 0777, true);
+}
+
+function procesarArchivoVehiculo($fileData, $vehiculoId, $conn) {
+    global $uploadDirVeh;
+    if ($fileData['error'] === UPLOAD_ERR_OK) {
+        $tmpName      = $fileData['tmp_name'];
+        $originalName = basename($fileData['name']);
+        $uniqueName   = time() . '_' . $originalName;
+        $destPath     = $uploadDirVeh . $uniqueName;
+
+        if (move_uploaded_file($tmpName, $destPath)) {
+            $rutaBD   = 'uploads/vehiculos/' . $uniqueName;
+            $tipoMime = $fileData['type'];
+            $tamKB    = round(filesize($destPath) / 1024);
+
+            $sqlD = "INSERT INTO documentos_vehiculos (vehiculo_id, nombre_archivo, ruta_archivo, tipo_mime, tamano_kb) VALUES (?, ?, ?, ?, ?)";
+            $stmtD = $conn->prepare($sqlD);
+            if ($stmtD) {
+                $stmtD->bind_param('isssi', $vehiculoId, $originalName, $rutaBD, $tipoMime, $tamKB);
+                $stmtD->execute();
+                $stmtD->close();
+            }
+        }
+    }
+}
+
+// Procesar subida de nuevos documentos
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_FILES['nuevos_docs']['name'][0])) {
+    $docs = $_FILES['nuevos_docs'];
+    for ($i = 0; $i < count($docs['name']); $i++) {
+        if ($docs['error'][$i] === UPLOAD_ERR_OK) {
+            $f = [
+                'name'     => $docs['name'][$i],
+                'type'     => $docs['type'][$i],
+                'tmp_name' => $docs['tmp_name'][$i],
+                'error'    => $docs['error'][$i],
+                'size'     => $docs['size'][$i]
+            ];
+            procesarArchivoVehiculo($f, $vehiculo_id, $conn);
+        }
+    }
+}
+
 // Consulta para obtener los datos del vehículo
 $sql = "SELECT * FROM vehiculos WHERE id = ?";
 $stmt = $conn->prepare($sql);
@@ -47,7 +94,6 @@ $vehiculo = $res->fetch_assoc();
 
 <h1>Detalles del Vehículo (ID: <?= htmlspecialchars($vehiculo_id) ?>)</h1>
 
-<!-- Mostramos la información principal -->
 <table style="width: 100%; max-width: 700px; border-collapse: collapse; margin-bottom: 30px;">
     <tbody>
         <tr><td><strong>Matrícula:</strong></td><td><?= htmlspecialchars($vehiculo['matricula']) ?></td></tr>
@@ -84,34 +130,50 @@ $vehiculo = $res->fetch_assoc();
 </table>
 
 
-<!-- Ejemplo: Si también guardas documentos en documentos_vehiculos, puedes listarlos -->
-<!--
 <?php
-/*
-$sqlDocs = "SELECT * FROM documentos_vehiculos WHERE vehiculo_id = ?";
+$sqlDocs = "SELECT id, nombre_archivo, ruta_archivo, fecha_subida FROM documentos_vehiculos WHERE vehiculo_id = ? ORDER BY fecha_subida DESC";
 $stmt_docs = $conn->prepare($sqlDocs);
 $stmt_docs->bind_param("i", $vehiculo_id);
 $stmt_docs->execute();
 $res_docs = $stmt_docs->get_result();
-if ($res_docs->num_rows > 0) {
-    echo "<h2>Documentos del Vehículo</h2>";
-    while ($doc = $res_docs->fetch_assoc()) {
-        echo "<p>";
-        echo "Archivo: " . htmlspecialchars($doc['nombre_archivo']) . "<br>";
-        echo "<a href='" . htmlspecialchars($doc['ruta_archivo']) . "' target='_blank'>Ver / Descargar</a>";
-        echo "</p>";
-    }
-} else {
-    echo "<p>No hay documentos asociados a este vehículo.</p>";
-}
-*/
+$documentos = $res_docs->fetch_all(MYSQLI_ASSOC);
 ?>
--->
 
-<!-- Botón Volver -->
+<h2>Documentos del Vehículo</h2>
+<?php if (!empty($documentos)): ?>
+<table style="width:100%; max-width:700px; border-collapse: collapse;">
+    <thead>
+        <tr>
+            <th>Archivo</th>
+            <th>Fecha</th>
+            <th>Descargar</th>
+        </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($documentos as $doc): ?>
+        <tr>
+            <td><?= htmlspecialchars($doc['nombre_archivo']) ?></td>
+            <td><?= htmlspecialchars($doc['fecha_subida']) ?></td>
+            <td><a href="<?= htmlspecialchars($doc['ruta_archivo']) ?>" target="_blank">Ver / Descargar</a></td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>
+<?php else: ?>
+<p>No hay documentos asociados a este vehículo.</p>
+<?php endif; ?>
+
+<h3>Subir nuevos documentos</h3>
+<form method="POST" enctype="multipart/form-data">
+    <input type="file" name="nuevos_docs[]" multiple accept="image/*,application/pdf">
+    <button type="submit">Subir</button>
+</form>
+
 <br>
 <button onclick="history.back()">Volver</button>
 
 <?php include 'footer.php'; ?>
 </body>
 </html>
+
+
