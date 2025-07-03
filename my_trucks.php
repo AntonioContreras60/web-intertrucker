@@ -107,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['vehiculo_id'], $_POST
     <button id="toggleFormBtn">Añadir camión</button>
     <div id="addVehicleForm" class="hidden" style="margin-top: 20px;">
         <h2>Añadir Vehículo</h2>
-        <form method="POST" action="agregar_vehiculo.php">
+        <form method="POST" action="agregar_vehiculo.php" enctype="multipart/form-data">
             <select name="nivel_1" id="nivel_1" required>
                 <option value=""><b>Seleccione Tipo Principal</b></option>
                 <option value="camion_rigido"><b>Camión Rígido</b></option>
@@ -172,6 +172,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['vehiculo_id'], $_POST
 
             <input type="text" name="telefono" placeholder="Teléfono de Contacto"><br><br>
             <textarea name="observaciones" placeholder="Observaciones (Opcional)" rows="4" cols="50"></textarea><br><br>
+            <label>Documentos del Vehículo:</label>
+            <input type="file" name="documentosVehiculo[]" multiple accept="image/*,application/pdf"><br><br>
             <button type="submit">Guardar Vehículo</button>
             <br>
         </form>
