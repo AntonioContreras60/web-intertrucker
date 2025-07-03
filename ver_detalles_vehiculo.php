@@ -129,6 +129,75 @@ $vehiculo = $res->fetch_assoc();
     </tbody>
 </table>
 
+<h2>Editar Vehículo</h2>
+<form method="POST" action="actualizar_vehiculo.php">
+    <input type="hidden" name="vehiculo_id" value="<?= $vehiculo_id ?>">
+    <label>Matrícula:</label>
+    <input type="text" name="matricula" value="<?= htmlspecialchars($vehiculo['matricula']) ?>" required><br>
+
+    <label>Marca:</label>
+    <input type="text" name="marca" value="<?= htmlspecialchars($vehiculo['marca']) ?>" required><br>
+
+    <label>Modelo:</label>
+    <input type="text" name="modelo" value="<?= htmlspecialchars($vehiculo['modelo']) ?>" required><br>
+
+    <label>Año de Fabricación:</label>
+    <input type="number" name="ano_fabricacion" value="<?= htmlspecialchars($vehiculo['ano_fabricacion']) ?>"><br>
+
+    <label>Tipo Principal:</label>
+    <input type="text" name="nivel_1" value="<?= htmlspecialchars($vehiculo['nivel_1']) ?>" required><br>
+
+    <label>Subcategoría:</label>
+    <input type="text" name="nivel_2" value="<?= htmlspecialchars($vehiculo['nivel_2']) ?>" required><br>
+
+    <label>Especificación:</label>
+    <input type="text" name="nivel_3" value="<?= htmlspecialchars($vehiculo['nivel_3']) ?>"><br>
+
+    <label>Capacidad (Ton):</label>
+    <input type="number" step="0.1" name="capacidad" value="<?= htmlspecialchars($vehiculo['capacidad']) ?>"><br>
+
+    <label>Volumen (m³):</label>
+    <input type="number" step="0.1" name="volumen" value="<?= htmlspecialchars($vehiculo['volumen']) ?>"><br>
+
+    <label>Cap. Arrastre (Ton):</label>
+    <input type="number" step="0.1" name="capacidad_arrastre" value="<?= htmlspecialchars($vehiculo['capacidad_arrastre']) ?>"><br>
+
+    <label>Número de Ejes:</label>
+    <input type="number" name="numero_ejes" value="<?= htmlspecialchars($vehiculo['numero_ejes']) ?>"><br>
+
+    <label>Temperatura Controlada:</label>
+    <input type="checkbox" name="temperatura_controlada" value="1" <?= $vehiculo['temperatura_controlada'] ? 'checked' : '' ?>><br>
+
+    <label>Forma de Carga - Lateral:</label>
+    <input type="checkbox" name="forma_carga_lateral" value="1" <?= $vehiculo['forma_carga_lateral'] ? 'checked' : '' ?>><br>
+
+    <label>Forma de Carga - Detrás:</label>
+    <input type="checkbox" name="forma_carga_detras" value="1" <?= $vehiculo['forma_carga_detras'] ? 'checked' : '' ?>><br>
+
+    <label>Forma de Carga - Arriba:</label>
+    <input type="checkbox" name="forma_carga_arriba" value="1" <?= $vehiculo['forma_carga_arriba'] ? 'checked' : '' ?>><br>
+
+    <label>ADR:</label>
+    <input type="checkbox" name="adr" value="1" <?= $vehiculo['adr'] ? 'checked' : '' ?>><br>
+
+    <label>Doble Conductor:</label>
+    <input type="checkbox" name="doble_conductor" value="1" <?= $vehiculo['doble_conductor'] ? 'checked' : '' ?>><br>
+
+    <label>Plataforma Elevadora:</label>
+    <input type="checkbox" name="plataforma_elevadora" value="1" <?= $vehiculo['plataforma_elevadora'] ? 'checked' : '' ?>><br>
+
+    <label>Teléfono:</label>
+    <input type="text" name="telefono" value="<?= htmlspecialchars($vehiculo['telefono']) ?>"><br>
+
+    <label>Observaciones:</label>
+    <textarea name="observaciones" rows="4" cols="50"><?= htmlspecialchars($vehiculo['observaciones']) ?></textarea><br>
+
+    <label>Activo:</label>
+    <input type="checkbox" name="activo" value="1" <?= $vehiculo['activo'] ? 'checked' : '' ?>><br><br>
+
+    <button type="submit">Guardar Cambios</button>
+</form>
+
 
 <?php
 $sqlDocs = "SELECT id, nombre_archivo, ruta_archivo, fecha_subida FROM documentos_vehiculos WHERE vehiculo_id = ? ORDER BY fecha_subida DESC";
