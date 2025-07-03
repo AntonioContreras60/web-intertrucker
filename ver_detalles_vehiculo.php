@@ -88,6 +88,7 @@ $vehiculo = $res->fetch_assoc();
     <meta charset="UTF-8">
     <title>Detalles del Vehículo</title>
     <link rel="stylesheet" href="styles.css">
+    <style>.hidden{display:none}</style>
 </head>
 <body>
 <?php include 'header.php'; ?>
@@ -129,6 +130,8 @@ $vehiculo = $res->fetch_assoc();
     </tbody>
 </table>
 
+<button id="toggleEditFormBtn">Editar camión</button>
+<div id="editVehicleForm" class="hidden" style="margin-top:20px;">
 <h2>Editar Vehículo</h2>
 <form method="POST" action="actualizar_vehiculo.php">
     <input type="hidden" name="vehiculo_id" value="<?= $vehiculo_id ?>">
@@ -197,6 +200,7 @@ $vehiculo = $res->fetch_assoc();
 
     <button type="submit">Guardar Cambios</button>
 </form>
+</div>
 
 
 <?php
@@ -240,6 +244,14 @@ $documentos = $res_docs->fetch_all(MYSQLI_ASSOC);
 
 <br>
 <button onclick="history.back()">Volver</button>
+
+<script>
+const toggleBtn=document.getElementById('toggleEditFormBtn');
+const editForm=document.getElementById('editVehicleForm');
+toggleBtn.addEventListener('click',()=>{
+    editForm.classList.toggle('hidden');
+});
+</script>
 
 <?php include 'footer.php'; ?>
 </body>
