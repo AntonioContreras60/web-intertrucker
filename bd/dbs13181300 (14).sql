@@ -164,11 +164,13 @@ CREATE TABLE `documentos_usuarios` (
 CREATE TABLE `documentos_vehiculos` (
   `id` int(11) NOT NULL,
   `vehiculo_id` int(11) NOT NULL,
+  `tipo_documento` varchar(50) DEFAULT NULL,
   `nombre_archivo` varchar(255) NOT NULL,
   `ruta_archivo` text NOT NULL,
   `tipo_mime` varchar(100) DEFAULT NULL,
   `tamano_kb` int(11) DEFAULT NULL,
-  `fecha_subida` datetime DEFAULT current_timestamp()
+  `fecha_subida` datetime DEFAULT current_timestamp(),
+  `fecha_vencimiento` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
 
 -- --------------------------------------------------------
