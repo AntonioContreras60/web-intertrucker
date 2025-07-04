@@ -11,7 +11,7 @@ session_start();
 </head>
 <body>
     <!-- Incluir el header con el menú de navegación -->
-    <?php include 'header.php'; ?>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
 
     <!-- Contenido principal con los botones alineados verticalmente -->
 <main style="max-width: 300px; margin: 20px auto;">

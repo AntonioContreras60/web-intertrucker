@@ -397,7 +397,7 @@ $num_tren = $res_tren->num_rows;
   </script>
 </head>
 <body>
-<?php include 'header.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
 
 <main>
   <h1>PORTES NUEVOS</h1>

@@ -100,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['vehiculo_id'], $_POST
     </style>
 </head>
 <body>
-    <?php include 'header.php'; ?>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
     <h1>Gestión de Vehículos</h1>
 
     <!-- Botón para desplegar/ocultar formulario "Añadir Vehículo" -->

@@ -232,7 +232,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminar_vehiculo']))
     </script>
 </head>
 <body>
-<?php include 'header.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
 
 <h1>Vehículos del Asociado (ID: <?= htmlspecialchars($asociado_id) ?>)</h1>
 

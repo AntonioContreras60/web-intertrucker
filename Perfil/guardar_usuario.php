@@ -11,7 +11,7 @@ session_start();
 <body>
 <?php
 include 'conexion.php';
-include 'header.php'; // Incluir el encabezado con el menú, si procede
+require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; // Incluir el encabezado con el menú, si procede
 
 // Obtener datos del formulario de registro
 $nombre_usuario = $_POST['nombre'];

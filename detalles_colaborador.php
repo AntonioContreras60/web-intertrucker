@@ -85,7 +85,7 @@ function toggleCamioneroFields(){
 }
 </script>
 </head><body>
-<?php include 'header.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
 <h1>Detalles del Gestor</h1>
 
 <!-- ------------- Formulario de DATOS ---------------- -->

@@ -130,7 +130,7 @@ $nombre_camionero = $camionero ? $camionero['nombre'] . " " . $camionero['apelli
     </style>
 </head>
 <body>
-    <?php include 'header.php'; ?>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
 
     <h1>Listado de Portes del Tren</h1>
     <h2>Nombre del Tren: <?php echo htmlspecialchars($nombre_tren); ?></h2>
