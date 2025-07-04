@@ -668,7 +668,7 @@ $num_portes_en_tren = count($portesEnTren);
   </script>
 </head>
 <body>
-<?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
+<?php include 'header.php'; ?>
 
 <main>
   <h1>PORTES NUEVOS</h1>

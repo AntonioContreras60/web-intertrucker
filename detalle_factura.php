@@ -39,7 +39,7 @@ $conn->close();
 </head>
 <body>
     <!-- Incluir el menú de navegación -->
-    <?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
+    <?php include 'header.php'; ?>
 
     <main>
         <h1>Detalles de la Factura</h1>

@@ -102,7 +102,7 @@ $resultado = $stmt->get_result();
     </style>
 </head>
 <body>
-<?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
+<?php include 'header.php'; ?>
 
 <h1>Asociados</h1>
 <br>

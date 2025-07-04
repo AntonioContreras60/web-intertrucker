@@ -287,7 +287,7 @@ $num_creados = count($portesCreados);
   </script>
 </head>
 <body>
-<?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
+<?php include 'header.php'; ?>
 
 <main style="padding:16px;">
   <h1>Portes Transferidos</h1>

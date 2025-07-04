@@ -12,7 +12,7 @@ session_start();
 <body>
     <?php
     include 'conexion.php';
-    require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; // Incluir el encabezado con el menú
+    include 'header.php'; // Incluir el encabezado con el menú
 
     $usuario_id = $_SESSION['usuario_id'];
 

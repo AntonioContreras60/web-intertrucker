@@ -91,7 +91,7 @@ $result_listado_trenes = $stmt_listado_trenes->get_result();
     </style>
 </head>
 <body>
-    <?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
+    <?php include 'header.php'; ?>
 <form method="POST" action="crear_asignacion.php">
 
         <h1>Tren - Condutor</h1>

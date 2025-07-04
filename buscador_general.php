@@ -121,7 +121,7 @@ th,td{border:1px solid #ccc;padding:6px} th{background:#f2f2f2}
 .paginacion{text-align:center;margin:15px 0}
 .paginacion a{margin:0 5px;text-decoration:none}
 </style></head><body>
-<?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
+<?php include 'header.php'; ?>
 
 <h1>Buscador de Portes</h1>
 

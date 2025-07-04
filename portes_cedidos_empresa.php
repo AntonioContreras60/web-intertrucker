@@ -98,7 +98,7 @@ $stmt->close();
 </head>
 <body>
 
-<?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
+<?php include 'header.php'; ?>
 
 <h1>Portes asignados a <?php echo htmlspecialchars($nombreEmpresa); ?></h1>
 

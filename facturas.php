@@ -91,7 +91,7 @@ $result_facturas = $stmt->get_result();
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
+<?php include 'header.php'; ?>
 <main>
   <h1>Facturas</h1>
   <a href="registro_nueva_factura.php" class="button">Registrar Nueva Factura</a>

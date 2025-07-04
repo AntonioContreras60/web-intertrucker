@@ -168,7 +168,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'
     </style>
 </head>
 <body>
-<?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
+<?php include 'header.php'; ?>
 
 <h1>Añadir Vehículo (Asociado ID: <?= htmlspecialchars($asociado_id) ?>)</h1>
 

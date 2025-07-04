@@ -76,7 +76,7 @@ $result = $stmt->get_result();
 </head>
 <body>
 
-<?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
+<?php include 'header.php'; ?>
 
 <h1 style="text-align:center;">Salida-Entrada Almacen</h1>
 <div style="text-align:center; margin-bottom:20px;">

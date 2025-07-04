@@ -148,7 +148,7 @@ if (isset($_GET['toggle_id']) && isset($_GET['estado'])) {
     </style>
 </head>
 <body>
-    <?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
+    <?php include 'header.php'; ?>
 
     <h1>Gestionar Camioneros</h1>
 

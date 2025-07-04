@@ -118,7 +118,7 @@ $stmt_admin->close();
     </style>
 </head>
 <body>
-<?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
+<?php include 'header.php'; ?>
 
 <main>
     <h1>Hacer Porte</h1>

@@ -106,7 +106,7 @@ $stmt->close();
 <body>
 
 <!-- Header -->
-<?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
+<?php include 'header.php'; ?>
 
 <h1>Portes Transferidos a Empresas</h1>
 

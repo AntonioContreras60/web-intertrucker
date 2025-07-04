@@ -98,7 +98,7 @@ $row = $result->fetch_assoc();
     <link rel="stylesheet" href="styles.css"> <!-- Enlace a tus estilos -->
 </head>
 <body>
-    <?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?> <!-- Incluir el menú de navegación -->
+    <?php include 'header.php'; ?> <!-- Incluir el menú de navegación -->
 
     <h1>Detalles del Camionero</h1>
     <h2>Tren: <?php echo htmlspecialchars($row['tren_nombre']); ?></h2>

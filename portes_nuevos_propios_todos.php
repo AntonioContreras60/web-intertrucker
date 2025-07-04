@@ -1,6 +1,9 @@
 <?php
 session_start();
 include 'conexion.php'; // Conexión a la base de datos
+if (!isset($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
 
 // ======================================================
 // CSRF: Generar token si no existe
@@ -397,7 +400,7 @@ $num_tren = $res_tren->num_rows;
   </script>
 </head>
 <body>
-<?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
+<?php include 'header.php'; ?>
 
 <main>
   <h1>PORTES NUEVOS</h1>

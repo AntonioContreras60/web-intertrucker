@@ -188,7 +188,7 @@ $stmt->close();
   </script>
 </head>
 <body>
-<?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
+<?php include 'header.php'; ?>
 
 <div class="container">
   <h1>Hacer Porte - Varios Portes</h1>

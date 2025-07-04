@@ -26,29 +26,6 @@ $precio = $_POST['precio'];
 $moneda = $_POST['moneda_seleccionada'];
 $deadline_mysql = str_replace('T', ' ', $_POST['deadline']); // Convertir formato para MySQL
 
-// ==== determinar publicador y empresa destino ====
-$sql_porte = "SELECT usuario_creador_id FROM portes WHERE id = ?";
-$stmt_porte = $conn->prepare($sql_porte);
-if ($stmt_porte === false) {
-    die("Error en la preparación de la consulta del porte: " . $conn->error);
-}
-$stmt_porte->bind_param('i', $porte_id);
-$stmt_porte->execute();
-$res_porte = $stmt_porte->get_result();
-$publicador_id = $res_porte->num_rows > 0 ? (int)$res_porte->fetch_assoc()['usuario_creador_id'] : 0;
-$stmt_porte->close();
-
-$sql_dest_admin = "SELECT COALESCE(admin_id, id) AS admin_dest_id FROM usuarios WHERE id = ?";
-$stmt_dest_admin = $conn->prepare($sql_dest_admin);
-if ($stmt_dest_admin === false) {
-    die("Error en la preparación de la consulta del destinatario: " . $conn->error);
-}
-$stmt_dest_admin->bind_param('i', $publicador_id);
-$stmt_dest_admin->execute();
-$res_dest_admin = $stmt_dest_admin->get_result();
-$admin_destino = $res_dest_admin->num_rows > 0 ? (int)$res_dest_admin->fetch_assoc()['admin_dest_id'] : $publicador_id;
-$stmt_dest_admin->close();
-
 // Decodificar los destinatarios seleccionados
 $destinatarios = json_decode($_POST['destinatarios_seleccionados'], true);
 if ($destinatarios === null || empty($destinatarios)) {
@@ -74,26 +51,7 @@ foreach ($destinatarios as $destinatario) {
             continue;
         }
         $stmt->bind_param("iiisss", $porte_id, $destinatario['id'], $usuario_id, $precio, $deadline_mysql, $moneda);
-        if ($stmt->execute()) {
-            $upd = $conn->prepare(
-                "UPDATE contactos SET visibilidad = 'completo'\n                 WHERE usuario_id = ? AND contacto_usuario_id = ?"
-            );
-            if ($upd) {
-                $upd->bind_param('ii', $admin_destino, $usuario_id);
-                $upd->execute();
-                if ($upd->affected_rows === 0) {
-                    $ins = $conn->prepare(
-                        "INSERT INTO contactos (usuario_id, contacto_usuario_id, visibilidad)\n                         VALUES (?, ?, 'completo')"
-                    );
-                    if ($ins) {
-                        $ins->bind_param('ii', $admin_destino, $usuario_id);
-                        $ins->execute();
-                        $ins->close();
-                    }
-                }
-                $upd->close();
-            }
-        } else {
+        if (!$stmt->execute()) {
             $errores[] = "Error al insertar contacto " . htmlspecialchars($destinatario['id']) . ": " . $stmt->error;
         }
         $stmt->close();
@@ -110,26 +68,7 @@ foreach ($destinatarios as $destinatario) {
             continue;
         }
         $stmt->bind_param("iississ", $porte_id, $destinatario['id'], $token, $enlace, $usuario_id, $precio, $deadline_mysql);
-        if ($stmt->execute()) {
-            $upd = $conn->prepare(
-                "UPDATE contactos SET visibilidad = 'completo'\n                 WHERE usuario_id = ? AND contacto_usuario_id = ?"
-            );
-            if ($upd) {
-                $upd->bind_param('ii', $admin_destino, $usuario_id);
-                $upd->execute();
-                if ($upd->affected_rows === 0) {
-                    $ins = $conn->prepare(
-                        "INSERT INTO contactos (usuario_id, contacto_usuario_id, visibilidad)\n                         VALUES (?, ?, 'completo')"
-                    );
-                    if ($ins) {
-                        $ins->bind_param('ii', $admin_destino, $usuario_id);
-                        $ins->execute();
-                        $ins->close();
-                    }
-                }
-                $upd->close();
-            }
-        } else {
+        if (!$stmt->execute()) {
             $errores[] = "Error al insertar entidad " . htmlspecialchars($destinatario['id']) . ": " . $stmt->error;
         }
         $stmt->close();
