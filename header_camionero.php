@@ -39,9 +39,4 @@ $nombre_camionero = $nombre_camionero_header ?? "Desconocido";
     <div style="flex-grow: 1;"></div>
 </header>
 
-<script>
-function toggleDropdown(id) {
-    const dropdown = document.getElementById(id);
-    dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
-}
-</script>
+<script src="/assets/js/header.js"></script>

@@ -290,12 +290,7 @@ if (!empty($_SESSION['impersonador_id'])) {
 </header>
 
 <!-- ========= SCRIPT para MENÚ DESPLEGABLE (mantenemos solo esto) ========= -->
-<script>
-function toggleDropdown(id) {
-    const d = document.getElementById(id);
-    d.style.display = (d.style.display === 'block') ? 'none' : 'block';
-}
-</script>
+<script src="/assets/js/header.js"></script>
 
 </body>
 </html>
