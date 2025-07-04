@@ -10,7 +10,6 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol']!=='superadmin') {
 }
 
 include '../conexion.php';
-require_once $_SERVER['DOCUMENT_ROOT'].'/header.php';
 
 /* ───────────────────────── 1 · Filtros recibidos ───────────────────────── */
 $paisSel   = isset($_GET['pais'])   ? $_GET['pais']   : '';
@@ -113,6 +112,16 @@ foreach ($empresas as $e) {
     $totalMem  += (float) $e['memoria_gb'];
 }
 ?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Empresas</title>
+  <link rel="stylesheet" href="/header.css">
+  <script src="/header.js"></script>
+</head>
+<body>
+<?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
 
 <h2>Empresas registradas</h2>
 
