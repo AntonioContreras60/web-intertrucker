@@ -7,6 +7,7 @@ if (session_status() === PHP_SESSION_NONE) {
 // Inicializar variable para el nombre del camionero
 $nombre_camionero = $nombre_camionero_header ?? "Desconocido";
 ?>
+<link rel="stylesheet" href="/assets/css/header.css">
 
 <header style="background-color:#001c7d; display: flex; align-items: center; justify-content: space-between; padding: 0px 10px;">
     <nav style="display: flex; align-items: center; flex-wrap: wrap;">
