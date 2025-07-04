@@ -167,71 +167,69 @@ if (!empty($_SESSION['impersonador_id'])) {
                                 margin-right: 12px;">
                     Facturas
                 </a>
-                <a href="/my_network.php" 
-                   style="display: block; 
-                          padding: 16px 24px; 
-                          color: black; 
-                          font-size: 1em; 
+                <a href="/my_network.php"
+                   style="display: block;
+                          padding: 16px 24px;
+                          color: black;
+                          font-size: 1em;
                           text-decoration: none;">
-                    <img src="/imagenes/iconos/mis_contactos.svg" alt="Mis contactos" 
-                         style="width: 24px; 
-                                height: 24px; 
-                                vertical-align: middle; 
+                    <img src="/imagenes/iconos/mis_contactos.svg" alt="Mis contactos"
+                         style="width: 24px;
+                                height: 24px;
+                                vertical-align: middle;
                                 margin-right: 12px;">
                     Mis contactos
                 </a>
-                <a href="/my_trucks.php" 
-                   style="display: block; 
-                          padding: 16px 24px; 
-                          color: black; 
-                          font-size: 1em; 
-                          text-decoration: none;">
-                    <img src="/imagenes/iconos/mis_vehiculos.svg" alt="Mis Vehículos" 
-                         style="width: 24px; 
-                                height: 24px; 
-                                vertical-align: middle; 
-                                margin-right: 12px;">
-                    Mis Vehículos
-                </a>
-                <a href="/my_truckers.php" 
-                   style="display: block; 
-                          padding: 16px 24px; 
-                          color: black; 
-                          font-size: 1em; 
-                          text-decoration: none;">
-                    <img src="/imagenes/iconos/mis_conductores.svg" alt="Mis Conductores" 
-                         style="width: 24px; 
-                                height: 24px; 
-                                vertical-align: middle; 
-                                margin-right: 12px;">
-                    Mis Conductores
-                </a>
-                <a href="/gestionar_colaboradores.php" 
-                   style="display: block; 
-                          padding: 16px 24px; 
-                          color: black; 
-                          font-size: 1em; 
-                          text-decoration: none;">
-                    <img src="/imagenes/iconos/icono_computador.svg" alt="Gestores" 
-                         style="width: 24px; 
-                                height: 24px; 
-                                vertical-align: middle; 
-                                margin-right: 12px;">
-                    Mis Gestores
-                </a>
-                <a href="/mis_asociados.php" 
-                   style="display: block; 
-                          padding: 16px 24px; 
-                          color: black; 
-                          font-size: 1em; 
-                          text-decoration: none;">
-                    <img src="/imagenes/iconos/mis_conductores.svg" alt="Mis Conductores" 
-                         style="width: 24px; 
-                                height: 24px; 
-                                vertical-align: middle; 
-                                margin-right: 12px;">
-                    Mis Conductores Asociados
-                </a>
+
+                <button onclick="toggleDropdown('gestionInternaDropdown')"
+                        style="display: block;
+                               width: 100%;
+                               padding: 16px 24px;
+                               background: none;
+                               border: none;
+                               color: black;
+                               font-size: 1em;
+                               text-align: left;">
+                    Gestión Interna ▾
+                </button>
+                <div id="gestionInternaDropdown" style="display:none;">
+                    <a href="/my_truckers.php"
+                       style="display: block;
+                              padding: 16px 24px;
+                              padding-left: 40px;
+                              color: black;
+                              font-size: 1em;
+                              text-decoration: none;">
+                        Camioneros
+                    </a>
+                    <a href="/mis_asociados.php"
+                       style="display: block;
+                              padding: 16px 24px;
+                              padding-left: 40px;
+                              color: black;
+                              font-size: 1em;
+                              text-decoration: none;">
+                        Asociados
+                    </a>
+                    <a href="/my_trucks.php"
+                       style="display: block;
+                              padding: 16px 24px;
+                              padding-left: 40px;
+                              color: black;
+                              font-size: 1em;
+                              text-decoration: none;">
+                        Vehículos
+                    </a>
+                    <a href="/gestionar_colaboradores.php"
+                       style="display: block;
+                              padding: 16px 24px;
+                              padding-left: 40px;
+                              color: black;
+                              font-size: 1em;
+                              text-decoration: none;">
+                        Gestores
+                    </a>
+                </div>
                 <a href="https://intertrucker.net/Perfil/perfil_usuario.php" 
                 style="display: block; 
                           padding: 16px 24px; 
