@@ -158,7 +158,7 @@ $count_ultimos_portes = contarPortes($conn, $sql_count_ultimos_portes, $usuario_
 </head>
 <body>
     <!-- Incluir el menú de navegación -->
-    <?php include 'header.php'; ?>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
 
     <main>
         <h1>PORTES NUEVOS</h1>

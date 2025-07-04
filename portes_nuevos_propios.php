@@ -443,7 +443,7 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
 </head>
 <body>
 
-<?php include 'header.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
 
 <main>
   <h1>PORTES NUEVOS</h1>

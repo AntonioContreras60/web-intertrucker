@@ -10,7 +10,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol']!=='superadmin') {
 }
 
 include '../conexion.php';
-include 'header.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/header.php';
 
 /* ───────────────────────── 1 · Filtros recibidos ───────────────────────── */
 $paisSel   = isset($_GET['pais'])   ? $_GET['pais']   : '';

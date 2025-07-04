@@ -295,7 +295,7 @@ if ($stmt_precio_asignado) {
     <title>Hacer Oferta</title>
 </head>
 <body>
-    <?php include 'header.php'; ?>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
     
     <!-- Mostrar el mensaje guardado en la sesión si existe -->
     <?php

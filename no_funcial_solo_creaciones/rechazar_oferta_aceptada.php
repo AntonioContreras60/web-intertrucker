@@ -83,7 +83,7 @@ $resultado_ofertas_entidades = $stmt_ofertas_entidades->get_result();
     <title>Hacer Oferta</title>
 </head>
 <body>
-    <?php include 'header.php'; ?>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
 <h1>Hacer Oferta</h1>
 
 <!-- Mostrar información del porte -->

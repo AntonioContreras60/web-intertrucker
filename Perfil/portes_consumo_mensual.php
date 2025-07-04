@@ -102,7 +102,7 @@ function toggleMes(id){
 function stopBub(e){ e.stopPropagation(); }
 </script></head><body>
 
-<?php include '../header.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
 
 <a class="btn-back" href="perfil_usuario.php">← Volver a Gestión</a>
 <h1>Consumo mensual basado en la fecha de entrega</h1>

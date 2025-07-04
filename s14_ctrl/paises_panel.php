@@ -8,7 +8,7 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'superadmin') {
     header('Location: login.php'); exit();
 }
 include '../conexion.php';
-include 'header.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/header.php';
 
 /* ── Totales País & Región ───────────────────────── */
 $paises   = $conn->query("

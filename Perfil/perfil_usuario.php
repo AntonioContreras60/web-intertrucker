@@ -132,7 +132,7 @@ $stmt->close();
 </head>
 <body>
 
-<?php require_once dirname(__DIR__) . '/header.php'; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
 
 <main>
     <div class="card">

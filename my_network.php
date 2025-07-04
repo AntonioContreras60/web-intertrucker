@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'conexion.php';
-include 'header.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/header.php';
 
 /* ---------- 1) Seguridad ---------- */
 if (!isset($_SESSION['usuario_id'])) {

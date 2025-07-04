@@ -5,7 +5,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 include 'conexion.php'; // Conexión a la base de datos
-include 'header.php'; // Incluir el encabezado
+require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; // Incluir el encabezado
 
 // Verificar si el usuario está en sesión
 if (!isset($_SESSION['usuario_id'])) {

@@ -132,7 +132,7 @@ $result = $stmt->get_result();
     </style>
 </head>
 <body>
-    <?php include 'header.php'; ?>
+    <?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
 
     <h2>Listado de Trenes con Portes Asignados</h2>
 

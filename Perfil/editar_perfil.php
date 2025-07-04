@@ -22,7 +22,7 @@ session_start();
 <body>
     <?php
     include '../conexion.php';
-    include '../header.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/header.php';
 
     // Obtener el ID de usuario y rol de la sesión
     if (isset($_SESSION['usuario_id']) && isset($_SESSION['rol'])) {
