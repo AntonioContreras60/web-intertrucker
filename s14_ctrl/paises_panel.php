@@ -8,7 +8,6 @@ if (!isset($_SESSION['rol']) || $_SESSION['rol'] !== 'superadmin') {
     header('Location: login.php'); exit();
 }
 include '../conexion.php';
-require_once $_SERVER['DOCUMENT_ROOT'].'/header.php';
 
 /* ── Totales País & Región ───────────────────────── */
 $paises   = $conn->query("
@@ -27,6 +26,16 @@ $regiones = $conn->query("
 $map = [];
 foreach ($regiones as $r)  $map[$r['pais']][] = $r;
 ?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Países y Regiones</title>
+  <link rel="stylesheet" href="/header.css">
+  <script src="/header.js"></script>
+</head>
+<body>
+<?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
 <h2>Empresas · País / Región</h2>
 
 <p class="hint">Haz clic en un país para ver sus regiones. Selecciona una

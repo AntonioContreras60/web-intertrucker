@@ -1,7 +1,6 @@
 <?php
 session_start();
 include 'conexion.php';
-require_once $_SERVER['DOCUMENT_ROOT'].'/header.php';
 
 /* ---------- 1) Seguridad ---------- */
 if (!isset($_SESSION['usuario_id'])) {
@@ -128,8 +127,11 @@ $stmt->close();
 /* Para plegar / desplegar listas */
 .hide{display:none;}
 </style>
+<link rel="stylesheet" href="/header.css">
+<script src="/header.js"></script>
 </head>
 <body>
+<?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
 
 <h1>Mi red</h1>
 
