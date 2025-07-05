@@ -89,6 +89,8 @@ $result_listado_trenes = $stmt_listado_trenes->get_result();
             display: block;
         }
     </style>
+  <link rel="stylesheet" href="/header.css">
+  <script src="/header.js"></script>
 </head>
 <body>
     <?php include 'header.php'; ?>

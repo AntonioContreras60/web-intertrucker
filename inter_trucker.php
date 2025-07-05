@@ -8,6 +8,8 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>InterTrucker - Dashboard</title>
     <link rel="stylesheet" href="styles.css"> <!-- Mantén el enlace correcto al archivo CSS -->
+  <link rel="stylesheet" href="/header.css">
+  <script src="/header.js"></script>
 </head>
 <body>
     <!-- Incluir el header con el menú de navegación -->

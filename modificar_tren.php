@@ -77,6 +77,8 @@ if ($result_tren->num_rows > 0) {
             display: block;
         }
     </style>
+  <link rel="stylesheet" href="/header.css">
+  <script src="/header.js"></script>
 </head>
 <body>
     <?php include 'header.php'; ?>

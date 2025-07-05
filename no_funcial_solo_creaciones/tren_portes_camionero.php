@@ -128,6 +128,8 @@ $nombre_camionero = $camionero ? $camionero['nombre'] . " " . $camionero['apelli
             opacity: 0.9;
         }
     </style>
+  <link rel="stylesheet" href="/header.css">
+  <script src="/header.js"></script>
 </head>
 <body>
     <?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
