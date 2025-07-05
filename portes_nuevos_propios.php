@@ -440,10 +440,12 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
       return confirm("¿Estás seguro de HACER los portes seleccionados?");
     }
   </script>
+<link rel='stylesheet' href='/header.css'>
+<script src='/header.js'></script>
 </head>
 <body>
+<?php require_once $_SERVER["DOCUMENT_ROOT"]."/header.php"; ?>
 
-<?php include 'header.php'; ?>
 
 <main>
   <h1>PORTES NUEVOS</h1>

@@ -98,9 +98,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['vehiculo_id'], $_POST
             background-color: #f44336; /* Rojo suave para “No Activo” */
         }
     </style>
+<link rel='stylesheet' href='/header.css'>
+<script src='/header.js'></script>
 </head>
 <body>
-    <?php include 'header.php'; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"]."/header.php"; ?>
     <h1>Gestión de Vehículos</h1>
 
     <!-- Botón para desplegar/ocultar formulario "Añadir Vehículo" -->

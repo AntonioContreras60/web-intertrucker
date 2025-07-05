@@ -77,9 +77,11 @@ if ($result_tren->num_rows > 0) {
             display: block;
         }
     </style>
+<link rel='stylesheet' href='/header.css'>
+<script src='/header.js'></script>
 </head>
 <body>
-    <?php include 'header.php'; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"]."/header.php"; ?>
 
     <main>
         <h1>Modificar Tren</h1>

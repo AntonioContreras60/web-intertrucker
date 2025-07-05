@@ -293,9 +293,11 @@ if ($stmt_precio_asignado) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Hacer Oferta</title>
+<link rel='stylesheet' href='/header.css'>
+<script src='/header.js'></script>
 </head>
 <body>
-    <?php include 'header.php'; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"]."/header.php"; ?>
     
     <!-- Mostrar el mensaje guardado en la sesión si existe -->
     <?php

@@ -96,9 +96,11 @@ $row = $result->fetch_assoc();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalles del Camionero</title>
     <link rel="stylesheet" href="styles.css"> <!-- Enlace a tus estilos -->
+<link rel='stylesheet' href='/header.css'>
+<script src='/header.js'></script>
 </head>
 <body>
-    <?php include 'header.php'; ?> <!-- Incluir el menú de navegación -->
+<?php require_once $_SERVER["DOCUMENT_ROOT"]."/header.php"; ?>
 
     <h1>Detalles del Camionero</h1>
     <h2>Tren: <?php echo htmlspecialchars($row['tren_nombre']); ?></h2>
