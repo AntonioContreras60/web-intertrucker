@@ -100,9 +100,11 @@ function toggleMes(id){
   box.style.display = (box.style.display==='none'||box.style.display==='') ? 'block':'none';
 }
 function stopBub(e){ e.stopPropagation(); }
+<link rel='stylesheet' href='/header.css'>
+<script src='/header.js'></script>
 </script></head><body>
+<?php require_once $_SERVER["DOCUMENT_ROOT"]."/header.php"; ?>
 
-<?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
 
 <a class="btn-back" href="perfil_usuario.php">← Volver a Gestión</a>
 <h1>Consumo mensual basado en la fecha de entrega</h1>

@@ -81,9 +81,11 @@ $resultado_ofertas_entidades = $stmt_ofertas_entidades->get_result();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Hacer Oferta</title>
+<link rel='stylesheet' href='/header.css'>
+<script src='/header.js'></script>
 </head>
 <body>
-    <?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"]."/header.php"; ?>
 <h1>Hacer Oferta</h1>
 
 <!-- Mostrar información del porte -->
