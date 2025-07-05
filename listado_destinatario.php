@@ -73,6 +73,8 @@ $result = $stmt->get_result();
       opacity: 0.9;
     }
   </style>
+  <link rel="stylesheet" href="/header.css">
+  <script src="/header.js"></script>
 </head>
 <body>
 

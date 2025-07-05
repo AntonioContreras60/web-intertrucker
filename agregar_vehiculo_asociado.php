@@ -166,6 +166,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'
             border-radius: 5px;
         }
     </style>
+  <link rel="stylesheet" href="/header.css">
+  <script src="/header.js"></script>
 </head>
 <body>
 <?php include 'header.php'; ?>

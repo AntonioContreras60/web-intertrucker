@@ -18,6 +18,8 @@ session_start();
     <style>
         #camionero_fields { display: none; }
     </style>
+  <link rel="stylesheet" href="/header.css">
+  <script src="/header.js"></script>
 </head>
 <body>
     <?php

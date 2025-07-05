@@ -78,6 +78,8 @@ if ($resultado_entidades->num_rows === 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todos mis Contactos y Entidades</title>
     <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="/header.css">
+  <script src="/header.js"></script>
 </head>
 <body>
 

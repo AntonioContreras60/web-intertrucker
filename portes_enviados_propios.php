@@ -285,6 +285,8 @@ $num_creados = count($portesCreados);
       if(selContent) selContent.classList.add('active');
     }
   </script>
+  <link rel="stylesheet" href="/header.css">
+  <script src="/header.js"></script>
 </head>
 <body>
 <?php include 'header.php'; ?>

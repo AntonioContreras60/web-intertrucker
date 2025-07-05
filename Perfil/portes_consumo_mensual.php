@@ -100,7 +100,10 @@ function toggleMes(id){
   box.style.display = (box.style.display==='none'||box.style.display==='') ? 'block':'none';
 }
 function stopBub(e){ e.stopPropagation(); }
-</script></head><body>
+</script>
+  <link rel="stylesheet" href="/header.css">
+  <script src="/header.js"></script>
+</head><body>
 
 <?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
 

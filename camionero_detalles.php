@@ -96,6 +96,8 @@ $row = $result->fetch_assoc();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalles del Camionero</title>
     <link rel="stylesheet" href="styles.css"> <!-- Enlace a tus estilos -->
+  <link rel="stylesheet" href="/header.css">
+  <script src="/header.js"></script>
 </head>
 <body>
     <?php include 'header.php'; ?> <!-- Incluir el menú de navegación -->

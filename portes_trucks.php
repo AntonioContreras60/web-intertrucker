@@ -130,6 +130,8 @@ $result = $stmt->get_result();
             }
         }
     </style>
+  <link rel="stylesheet" href="/header.css">
+  <script src="/header.js"></script>
 </head>
 <body>
     <?php include 'header.php'; ?>

@@ -120,7 +120,10 @@ table{border-collapse:collapse;width:100%;margin-top:12px}
 th,td{border:1px solid #ccc;padding:6px} th{background:#f2f2f2}
 .paginacion{text-align:center;margin:15px 0}
 .paginacion a{margin:0 5px;text-decoration:none}
-</style></head><body>
+</style>
+  <link rel="stylesheet" href="/header.css">
+  <script src="/header.js"></script>
+</head><body>
 <?php include 'header.php'; ?>
 
 <h1>Buscador de Portes</h1>

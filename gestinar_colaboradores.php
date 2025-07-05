@@ -28,6 +28,8 @@ $result = $stmt->get_result();
     <meta charset="UTF-8">
     <title>Gestión de Gestores</title>
     <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="/header.css">
+  <script src="/header.js"></script>
 </head>
 <body>
     <?php include 'header.php'; ?>

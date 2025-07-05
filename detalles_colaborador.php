@@ -84,6 +84,8 @@ function toggleCamioneroFields(){
    document.getElementById('camionero_fields').style.display=cb.checked?'block':'none';
 }
 </script>
+  <link rel="stylesheet" href="/header.css">
+  <script src="/header.js"></script>
 </head><body>
 <?php include 'header.php'; ?>
 <h1>Detalles del Gestor</h1>
