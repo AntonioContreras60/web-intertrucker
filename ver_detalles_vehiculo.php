@@ -93,11 +93,9 @@ $vehiculo = $res->fetch_assoc();
             display: none;
         }
     </style>
-<link rel='stylesheet' href='/header.css'>
-<script src='/header.js'></script>
 </head>
 <body>
-<?php require_once $_SERVER["DOCUMENT_ROOT"]."/header.php"; ?>
+<?php include 'header.php'; ?>
 
 <h1>Detalles del Vehículo (ID: <?= htmlspecialchars($vehiculo_id) ?>)</h1>
 

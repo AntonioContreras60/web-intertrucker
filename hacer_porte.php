@@ -116,11 +116,9 @@ $stmt_admin->close();
         .info-section { display: none; }
         .info-section.active { display: block; }
     </style>
-<link rel='stylesheet' href='/header.css'>
-<script src='/header.js'></script>
 </head>
 <body>
-<?php require_once $_SERVER["DOCUMENT_ROOT"]."/header.php"; ?>
+<?php include 'header.php'; ?>
 
 <main>
     <h1>Hacer Porte</h1>

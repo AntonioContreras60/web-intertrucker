@@ -84,10 +84,8 @@ function toggleCamioneroFields(){
    document.getElementById('camionero_fields').style.display=cb.checked?'block':'none';
 }
 </script>
-<link rel='stylesheet' href='/header.css'>
-<script src='/header.js'></script>
 </head><body>
-<?php require_once $_SERVER["DOCUMENT_ROOT"]."/header.php"; ?>
+<?php include 'header.php'; ?>
 <h1>Detalles del Gestor</h1>
 
 <!-- ------------- Formulario de DATOS ---------------- -->

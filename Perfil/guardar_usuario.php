@@ -7,13 +7,11 @@ session_start();
     <meta charset="UTF-8">
     <title>Registro de Usuario</title>
     <link rel="stylesheet" href="styles.css"> <!-- Ajusta si tu CSS está en otro sitio -->
-<link rel='stylesheet' href='/header.css'>
-<script src='/header.js'></script>
 </head>
 <body>
-<?php require_once $_SERVER["DOCUMENT_ROOT"]."/header.php"; ?>
 <?php
 include 'conexion.php';
+require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; // Incluir el encabezado con el menú, si procede
 
 // Obtener datos del formulario de registro
 $nombre_usuario = $_POST['nombre'];

@@ -36,12 +36,10 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalles de la Factura - InterTrucker</title>
     <link rel="stylesheet" href="styles.css">
-<link rel='stylesheet' href='/header.css'>
-<script src='/header.js'></script>
 </head>
 <body>
-<?php require_once $_SERVER["DOCUMENT_ROOT"]."/header.php"; ?>
     <!-- Incluir el menú de navegación -->
+    <?php include 'header.php'; ?>
 
     <main>
         <h1>Detalles de la Factura</h1>

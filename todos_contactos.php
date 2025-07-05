@@ -5,6 +5,7 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 include 'conexion.php'; // Conexión a la base de datos
+include 'header.php'; // Incluir el encabezado
 
 // Verificar si el usuario está en sesión
 if (!isset($_SESSION['usuario_id'])) {
@@ -77,11 +78,8 @@ if ($resultado_entidades->num_rows === 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todos mis Contactos y Entidades</title>
     <link rel="stylesheet" href="styles.css">
-<link rel='stylesheet' href='/header.css'>
-<script src='/header.js'></script>
 </head>
 <body>
-<?php require_once $_SERVER["DOCUMENT_ROOT"]."/header.php"; ?>
 
     <h1>Todos mis Contactos</h1>
 

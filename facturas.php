@@ -89,11 +89,9 @@ $result_facturas = $stmt->get_result();
   <meta charset="UTF-8">
   <title>Listado de Facturas - InterTrucker</title>
   <link rel="stylesheet" href="styles.css">
-<link rel='stylesheet' href='/header.css'>
-<script src='/header.js'></script>
 </head>
 <body>
-<?php require_once $_SERVER["DOCUMENT_ROOT"]."/header.php"; ?>
+<?php include 'header.php'; ?>
 <main>
   <h1>Facturas</h1>
   <a href="registro_nueva_factura.php" class="button">Registrar Nueva Factura</a>

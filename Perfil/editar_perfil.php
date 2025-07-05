@@ -18,13 +18,11 @@ session_start();
     <style>
         #camionero_fields { display: none; }
     </style>
-<link rel='stylesheet' href='/header.css'>
-<script src='/header.js'></script>
 </head>
 <body>
-<?php require_once $_SERVER["DOCUMENT_ROOT"]."/header.php"; ?>
     <?php
     include '../conexion.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/header.php';
 
     // Obtener el ID de usuario y rol de la sesión
     if (isset($_SESSION['usuario_id']) && isset($_SESSION['rol'])) {

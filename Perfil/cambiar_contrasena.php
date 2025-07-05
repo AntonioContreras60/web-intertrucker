@@ -8,13 +8,11 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cambiar Contraseña</title>
     <link rel="stylesheet" href="../styles.css">
-<link rel='stylesheet' href='/header.css'>
-<script src='/header.js'></script>
 </head>
 <body>
-<?php require_once $_SERVER["DOCUMENT_ROOT"]."/header.php"; ?>
     <?php
     include 'conexion.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; // Incluir el encabezado con el menú
 
     $usuario_id = $_SESSION['usuario_id'];
     ?>

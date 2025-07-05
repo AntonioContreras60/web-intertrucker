@@ -121,7 +121,7 @@ foreach ($empresas as $e) {
   <script src="/header.js"></script>
 </head>
 <body>
-<?php require_once $_SERVER["DOCUMENT_ROOT"]."/header.php"; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
 
 <h2>Empresas registradas</h2>
 
