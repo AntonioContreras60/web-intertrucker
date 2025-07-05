@@ -129,10 +129,12 @@ $stmt->close();
             }
         }
     </style>
+<link rel='stylesheet' href='/header.css'>
+<script src='/header.js'></script>
 </head>
 <body>
+<?php require_once $_SERVER["DOCUMENT_ROOT"]."/header.php"; ?>
 
-<?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
 
 <main>
     <div class="card">

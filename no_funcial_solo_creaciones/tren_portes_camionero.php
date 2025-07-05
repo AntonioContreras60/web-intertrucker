@@ -128,9 +128,11 @@ $nombre_camionero = $camionero ? $camionero['nombre'] . " " . $camionero['apelli
             opacity: 0.9;
         }
     </style>
+<link rel='stylesheet' href='/header.css'>
+<script src='/header.js'></script>
 </head>
 <body>
-    <?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"]."/header.php"; ?>
 
     <h1>Listado de Portes del Tren</h1>
     <h2>Nombre del Tren: <?php echo htmlspecialchars($nombre_tren); ?></h2>

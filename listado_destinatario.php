@@ -73,10 +73,12 @@ $result = $stmt->get_result();
       opacity: 0.9;
     }
   </style>
+<link rel='stylesheet' href='/header.css'>
+<script src='/header.js'></script>
 </head>
 <body>
+<?php require_once $_SERVER["DOCUMENT_ROOT"]."/header.php"; ?>
 
-<?php include 'header.php'; ?>
 
 <h1 style="text-align:center;">Salida-Entrada Almacen</h1>
 <div style="text-align:center; margin-bottom:20px;">

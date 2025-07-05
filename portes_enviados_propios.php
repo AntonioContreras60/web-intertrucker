@@ -285,9 +285,11 @@ $num_creados = count($portesCreados);
       if(selContent) selContent.classList.add('active');
     }
   </script>
+<link rel='stylesheet' href='/header.css'>
+<script src='/header.js'></script>
 </head>
 <body>
-<?php include 'header.php'; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"]."/header.php"; ?>
 
 <main style="padding:16px;">
   <h1>Portes Transferidos</h1>

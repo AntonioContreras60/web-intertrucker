@@ -28,9 +28,11 @@ $result = $stmt->get_result();
     <meta charset="UTF-8">
     <title>Gestión de Gestores</title>
     <link rel="stylesheet" href="styles.css">
+<link rel='stylesheet' href='/header.css'>
+<script src='/header.js'></script>
 </head>
 <body>
-    <?php include 'header.php'; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"]."/header.php"; ?>
     <h1>Gestión de Gestores</h1>
     <p>Un gestor tiene las mismas funciones que un administrador, salvo la de administrar gestores.<br>
     Para diferenciar los portes gestionados por un gestor del resto de gestores dentro de la misma empresa, se creará un submenú en 'Portes Nuevos'.<br>

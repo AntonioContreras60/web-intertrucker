@@ -35,7 +35,7 @@ foreach ($regiones as $r)  $map[$r['pais']][] = $r;
   <script src="/header.js"></script>
 </head>
 <body>
-<?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
+<?php require_once $_SERVER["DOCUMENT_ROOT"]."/header.php"; ?>
 <h2>Empresas · País / Región</h2>
 
 <p class="hint">Haz clic en un país para ver sus regiones. Selecciona una
