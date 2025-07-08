@@ -132,7 +132,7 @@ $stmt->close();
 </head>
 <body>
 
-<?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
+<?php require_once dirname(__DIR__) . '/header.php'; ?>
 
 <main>
     <div class="card">
@@ -146,12 +146,13 @@ $stmt->close();
                 <strong>CIF:</strong>      <span><?= htmlspecialchars($usuario['cif']); ?></span>
             </div>
 
-            <h2 style="margin:0 0 1rem;font-size:1.25rem;">Gestión del Perfil</h2>
+            <h2 style="margin:0 0 1rem;font-size:1.25rem;">Gestión</h2>
             <nav class="botones-gestion">
                 <ul>
                     <li><a href="editar_perfil.php">Modificar perfil</a></li>
                     <li><a href="cambiar_contrasena.php">Cambiar contraseña</a></li>
                     <li><a href="gestionar_direcciones_usuario.php" target="_blank">Gestionar direcciones empresa</a></li>
+                    <!-- Botón "Consultar consumo mensual" eliminado -->
                 </ul>
             </nav>
         <?php else: ?>
