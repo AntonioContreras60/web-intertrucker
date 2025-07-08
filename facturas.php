@@ -93,7 +93,7 @@ $result_facturas = $stmt->get_result();
 <body>
 <?php include 'header.php'; ?>
 <main>
-  <h1>Facturas</h1>
+  <h1>Crear Facturas</h1>
   <a href="registro_nueva_factura.php" class="button">Registrar Nueva Factura</a>
 
   <!-- filtros -->
