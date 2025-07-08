@@ -104,7 +104,7 @@ function stopBub(e){ e.stopPropagation(); }
 
 <?php require_once $_SERVER['DOCUMENT_ROOT'].'/header.php'; ?>
 
-<a class="btn-back" href="perfil_usuario.php">← Volver a Gestión</a>
+<a class="btn-back" href="perfil_usuario.php">← Volver a Gestión Económica</a>
 <h1>Consumo mensual basado en la fecha de entrega</h1>
 
 <?php foreach($portes_mes as $mes=>$lista):
