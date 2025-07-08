@@ -287,77 +287,7 @@ $num_tren = $res_tren->num_rows;
   <meta charset="UTF-8">
   <title>Portes Nuevos (Compañeros)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body { margin:0; font-family:Arial,sans-serif; font-size:16px; }
-    h1,h2 { margin:16px; }
-    nav ul { list-style:none; padding:0; margin:0; display:flex; gap:20px; }
-
-    /* Collapsible => mobile */
-    .collapsible{
-      background-color:#e2e2e2; cursor:pointer;
-      padding:12px 15px; margin-bottom:5px;
-      border:none; outline:none; width:100%;
-      text-align:left; font-size:1em;
-    }
-    .collapsible.active{ background-color:#ccc;}
-    .content{
-      display:none; padding:10px; background-color:#f9f9f9; margin-bottom:15px;
-    }
-    .card {
-      border:1px solid #ccc; border-radius:5px; background-color:#fff;
-      padding:10px; margin-bottom:10px;
-    }
-    .card h3{ margin:0 0 8px; font-size:1em; font-weight:bold;}
-    .card p{ margin:4px 0; font-size:0.95em;}
-    .actions{ margin-top:8px; }
-    .actions form, .actions a{ display:inline-block; margin-right:5px; }
-    .actions button{
-      border:none; border-radius:3px; padding:6px 10px; cursor:pointer; color:#fff;
-    }
-
-    /* Tabs => desktop */
-    .tabs{
-      display:flex; gap:10px; list-style:none; margin:16px; padding:0;
-    }
-    .tabs li{
-      background-color:#007bff; color:#fff;
-      padding:10px 15px; border-radius:5px;
-      cursor:pointer; font-weight:bold; font-size:1em;
-    }
-    .tabs li:hover{ background-color:#0056b3; }
-    .tabs li.active{ background-color:#28a745;}
-    .tab-content{
-      display:none; padding:16px;
-    }
-    .tab-content.active{ display:block;}
-
-    @media (max-width:767px){
-      .desktop-only{ display:none;}
-    }
-    @media (min-width:768px){
-      .mobile-only{ display:none;}
-      .desktop-only{
-        max-width:1600px; margin:0 auto; font-size:14px;
-      }
-      table{
-        width:100%; border-collapse:collapse; margin-top:10px;
-      }
-      th,td{ border:1px solid #ccc; padding:6px 8px;}
-      th{ background:#f2f2f2;}
-      .btn-accion{
-        padding:5px 10px; border:none; border-radius:3px; cursor:pointer; margin-right:5px; color:#fff;
-        text-decoration:none;
-      }
-    }
-    .filtro-container {
-      background-color:#f2f2f2; padding:10px; border-radius:5px; margin-bottom:10px;
-    }
-    .filtro-container label{ margin-right:5px; }
-    .filtro-container input[type="text"],
-    .filtro-container input[type="date"] {
-      padding:5px; margin-right:10px;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
   <script>
     document.addEventListener('DOMContentLoaded',function(){
       // Collapsibles => mobile
@@ -404,42 +334,34 @@ $num_tren = $res_tren->num_rows;
 
 <main>
   <h1>PORTES NUEVOS</h1>
-  <nav style="margin-left:16px;">
-    <ul style="display:flex; gap:20px;">
+  <nav class="nav-margin">
+    <ul class="nav-list">
       <li>
         <a href="portes_nuevos_recibidos.php"
-           style="display:block; padding:15px 20px; text-decoration:none;
-                  background-color:#007bff; color:#fff; border-radius:5px;
-                  font-weight:bold; font-size:1.2em;">
+           class="nav-link-btn btn-blue">
           Recibidos
         </a>
       </li>
       <li>
         <a href="portes_nuevos_propios.php"
-           style="display:block; padding:15px 20px; text-decoration:underline;
-                  background-color:#28a745; color:#fff; border-radius:5px;
-                  font-weight:bold; font-size:1.2em;">
+           class="nav-link-btn btn-green">
           Creados
         </a>
       </li>
     </ul>
   </nav>
-  <h2 style="margin-left:16px;">Submenú:</h2>
-  <nav style="margin-left:16px;">
-    <ul style="display:flex; gap:20px;">
+  <h2 class="nav-margin">Submenú:</h2>
+  <nav class="nav-margin">
+    <ul class="nav-list">
       <li>
         <a href="portes_nuevos_propios.php"
-           style="display:block; padding:15px 20px; background-color:#007bff; 
-                  color:white; border-radius:5px; text-decoration:none; 
-                  font-weight:bold; font-size:1.2em;">
+           class="nav-link-btn btn-blue">
           Mios
         </a>
       </li>
       <li>
         <a href="portes_nuevos_propios_todos.php"
-           style="display:block; padding:15px 20px; background-color:#28a745; 
-                  color:white; border-radius:5px; text-decoration:underline; 
-                  font-weight:bold; font-size:1.2em;">
+           class="nav-link-btn btn-green active">
           Compañeros
         </a>
       </li>
@@ -448,7 +370,7 @@ $num_tren = $res_tren->num_rows;
   <br>
 
   <!-- ********* Versión MÓVIL => collapsibles + multi-check ********* -->
-  <div class="mobile-only" style="margin:16px;">
+  <div class="mobile-only m-16">
 
     <!-- (1) Portes no_ofrecidos -->
     <button class="collapsible">
@@ -487,19 +409,18 @@ $num_tren = $res_tren->num_rows;
               </p>
               <div class="actions">
                 <a href="detalle_porte.php?id=<?php echo $row['id']; ?>">
-                  <button style="background-color:#6c757d;">Detalles</button>
+                  <button class="btn-gray">Detalles</button>
                 </a>
                 <form action="cambiar_titularidad_creados.php" method="POST" style="display:inline;">
                   <input type="hidden" name="porte_id" value="<?php echo $row['id']; ?>">
                   <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
-                  <button style="background-color:#007bff;">Tomar</button>
+                  <button class="btn-blue">Tomar</button>
                 </form>
               </div>
             </div>
           <?php endwhile; ?>
           <br>
-          <button type="submit"
-                  style="background-color:#28a745; padding:8px 16px; border:none; border-radius:4px; cursor:pointer;">
+          <button type="submit" class="btn-accion btn-green">
             Tomar seleccionados
           </button>
         <?php else: ?>
@@ -544,19 +465,18 @@ $num_tren = $res_tren->num_rows;
               </p>
               <div class="actions">
                 <a href="detalle_porte.php?id=<?php echo $row['id']; ?>">
-                  <button style="background-color:#6c757d;">Detalles</button>
+                  <button class="btn-gray">Detalles</button>
                 </a>
                 <form action="cambiar_titularidad_creados.php" method="POST" style="display:inline;">
                   <input type="hidden" name="porte_id" value="<?php echo $row['id']; ?>">
                   <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
-                  <button style="background-color:#007bff;">Tomar</button>
+                  <button class="btn-blue">Tomar</button>
                 </form>
               </div>
             </div>
           <?php endwhile; ?>
           <br>
-          <button type="submit"
-                  style="background-color:#28a745; padding:8px 16px; border:none; border-radius:4px; cursor:pointer;">
+          <button type="submit" class="btn-accion btn-green">
             Tomar seleccionados
           </button>
         <?php else: ?>
@@ -606,19 +526,18 @@ $num_tren = $res_tren->num_rows;
               </p>
               <div class="actions">
                 <a href="detalle_porte.php?id=<?php echo $row['id']; ?>">
-                  <button style="background-color:#6c757d;">Detalles</button>
+                  <button class="btn-gray">Detalles</button>
                 </a>
                 <form action="cambiar_titularidad_creados.php" method="POST" style="display:inline;">
                   <input type="hidden" name="porte_id" value="<?php echo $row['id']; ?>">
                   <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
-                  <button style="background-color:#007bff;">Tomar</button>
+                  <button class="btn-blue">Tomar</button>
                 </form>
               </div>
             </div>
           <?php endwhile; ?>
           <br>
-          <button type="submit"
-                  style="background-color:#28a745; padding:8px 16px; border:none; border-radius:4px; cursor:pointer;">
+          <button type="submit" class="btn-accion btn-green">
             Tomar seleccionados
           </button>
         <?php else: ?>
@@ -665,19 +584,18 @@ $num_tren = $res_tren->num_rows;
               </p>
               <div class="actions">
                 <a href="detalle_porte.php?id=<?php echo $row['id']; ?>">
-                  <button style="background-color:#6c757d;">Detalles</button>
+                  <button class="btn-gray">Detalles</button>
                 </a>
                 <form action="cambiar_titularidad_completo.php" method="POST" style="display:inline;">
                   <input type="hidden" name="porte_id" value="<?php echo $row['id']; ?>">
                   <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
-                  <button style="background-color:#007bff;">Tomar</button>
+                  <button class="btn-blue">Tomar</button>
                 </form>
               </div>
             </div>
           <?php endwhile; ?>
           <br>
-          <button type="submit"
-                  style="background-color:#28a745; padding:8px 16px; border:none; border-radius:4px; cursor:pointer;">
+          <button type="submit" class="btn-accion btn-green">
             Tomar seleccionados
           </button>
         <?php else: ?>
@@ -718,10 +636,10 @@ $num_tren = $res_tren->num_rows;
           <input type="date" name="fecha_desde_no_ofrecidos" value="<?php echo htmlspecialchars($fd_no_ofrecidos); ?>">
           <label>Fecha hasta:</label>
           <input type="date" name="fecha_hasta_no_ofrecidos" value="<?php echo htmlspecialchars($fh_no_ofrecidos); ?>">
-          <button type="submit" class="btn-accion" style="background-color:#007bff;">
+          <button type="submit" class="btn-accion btn-blue">
             Filtrar
           </button>
-          <button type="button" class="btn-accion" style="background-color:#6c757d;"
+          <button type="button" class="btn-accion btn-gray"
                   onclick="window.location.href='portes_nuevos_propios_todos.php?tab=noOfrecidosTab';">
             Limpiar
           </button>
@@ -765,13 +683,13 @@ $num_tren = $res_tren->num_rows;
               <td><?php echo htmlspecialchars($row['creador_nombre']); ?></td>
               <td>
                 <a href="detalle_porte.php?id=<?php echo $row['id']; ?>"
-                   class="btn-accion" style="background-color:#6c757d;" target="_blank">
+                   class="btn-accion btn-gray" target="_blank">
                   Detalles
                 </a>
                 <form action="cambiar_titularidad_creados.php" method="POST" style="display:inline;">
                   <input type="hidden" name="porte_id" value="<?php echo $row['id']; ?>">
                   <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
-                  <button class="btn-accion" style="background-color:#007bff;">Tomar</button>
+                  <button class="btn-accion btn-blue">Tomar</button>
                 </form>
               </td>
             </tr>
@@ -784,7 +702,7 @@ $num_tren = $res_tren->num_rows;
         <?php if($num_no_ofrec>0): ?>
           <br>
           <button type="submit" name="accion_global" value="tomar_no_ofrecidos_multiple"
-                  class="btn-accion" style="background-color:#28a745;">
+                  class="btn-accion btn-green">
             Tomar seleccionados
           </button>
         <?php endif; ?>
@@ -803,10 +721,10 @@ $num_tren = $res_tren->num_rows;
           <input type="date" name="fecha_desde_ofrecidos" value="<?php echo htmlspecialchars($fd_ofrecidos); ?>">
           <label>Fecha hasta:</label>
           <input type="date" name="fecha_hasta_ofrecidos" value="<?php echo htmlspecialchars($fh_ofrecidos); ?>">
-          <button type="submit" class="btn-accion" style="background-color:#007bff;">
+          <button type="submit" class="btn-accion btn-blue">
             Filtrar
           </button>
-          <button type="button" class="btn-accion" style="background-color:#6c757d;"
+          <button type="button" class="btn-accion btn-gray"
                   onclick="window.location.href='portes_nuevos_propios_todos.php?tab=ofrecidosTab';">
             Limpiar
           </button>
@@ -850,13 +768,13 @@ $num_tren = $res_tren->num_rows;
               <td><?php echo htmlspecialchars($row['creador_nombre']); ?></td>
               <td>
                 <a href="detalle_porte.php?id=<?php echo $row['id']; ?>"
-                   class="btn-accion" style="background-color:#6c757d;" target="_blank">
+                   class="btn-accion btn-gray" target="_blank">
                   Detalles
                 </a>
                 <form action="cambiar_titularidad_creados.php" method="POST" style="display:inline;">
                   <input type="hidden" name="porte_id" value="<?php echo $row['id']; ?>">
                   <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
-                  <button class="btn-accion" style="background-color:#007bff;">Tomar</button>
+                  <button class="btn-accion btn-blue">Tomar</button>
                 </form>
               </td>
             </tr>
@@ -869,7 +787,7 @@ $num_tren = $res_tren->num_rows;
         <?php if($num_ofrec>0): ?>
           <br>
           <button type="submit" name="accion_global" value="tomar_ofrecidos_multiple"
-                  class="btn-accion" style="background-color:#28a745;">
+                  class="btn-accion btn-green">
             Tomar seleccionados
           </button>
         <?php endif; ?>
@@ -888,10 +806,10 @@ $num_tren = $res_tren->num_rows;
           <input type="date" name="fecha_desde_asignados" value="<?php echo htmlspecialchars($fd_asignados); ?>">
           <label>Fecha hasta:</label>
           <input type="date" name="fecha_hasta_asignados" value="<?php echo htmlspecialchars($fh_asignados); ?>">
-          <button type="submit" class="btn-accion" style="background-color:#007bff;">
+          <button type="submit" class="btn-accion btn-blue">
             Filtrar
           </button>
-          <button type="button" class="btn-accion" style="background-color:#6c757d;"
+          <button type="button" class="btn-accion btn-gray"
                   onclick="window.location.href='portes_nuevos_propios_todos.php?tab=asignadosTab';">
             Limpiar
           </button>
@@ -939,13 +857,13 @@ $num_tren = $res_tren->num_rows;
               <td><?php echo htmlspecialchars($asignado_a); ?></td>
               <td>
                 <a href="detalle_porte.php?id=<?php echo $row['id']; ?>"
-                   class="btn-accion" style="background-color:#6c757d;" target="_blank">
+                   class="btn-accion btn-gray" target="_blank">
                   Detalles
                 </a>
                 <form action="cambiar_titularidad_creados.php" method="POST" style="display:inline;">
                   <input type="hidden" name="porte_id" value="<?php echo $row['id']; ?>">
                   <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
-                  <button class="btn-accion" style="background-color:#007bff;">Tomar</button>
+                  <button class="btn-accion btn-blue">Tomar</button>
                 </form>
               </td>
             </tr>
@@ -958,7 +876,7 @@ $num_tren = $res_tren->num_rows;
         <?php if($num_asig>0): ?>
           <br>
           <button type="submit" name="accion_global" value="tomar_asignados_multiple"
-                  class="btn-accion" style="background-color:#28a745;">
+                  class="btn-accion btn-green">
             Tomar seleccionados
           </button>
         <?php endif; ?>
@@ -977,10 +895,10 @@ $num_tren = $res_tren->num_rows;
           <input type="date" name="fecha_desde_tren" value="<?php echo htmlspecialchars($fd_tren); ?>">
           <label>Fecha hasta:</label>
           <input type="date" name="fecha_hasta_tren" value="<?php echo htmlspecialchars($fh_tren); ?>">
-          <button type="submit" class="btn-accion" style="background-color:#007bff;">
+          <button type="submit" class="btn-accion btn-blue">
             Filtrar
           </button>
-          <button type="button" class="btn-accion" style="background-color:#6c757d;"
+          <button type="button" class="btn-accion btn-gray"
                   onclick="window.location.href='portes_nuevos_propios_todos.php?tab=trenTab';">
             Limpiar
           </button>
@@ -1030,13 +948,13 @@ $num_tren = $res_tren->num_rows;
               <td><?php echo htmlspecialchars($row['creador_nombre']); ?></td>
               <td>
                 <a href="detalle_porte.php?id=<?php echo $row['id']; ?>"
-                   class="btn-accion" style="background-color:#6c757d;" target="_blank">
+                   class="btn-accion btn-gray" target="_blank">
                   Detalles
                 </a>
                 <form action="cambiar_titularidad_completo.php" method="POST" style="display:inline;">
                   <input type="hidden" name="porte_id" value="<?php echo $row['id']; ?>">
                   <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
-                  <button class="btn-accion" style="background-color:#007bff;">Tomar</button>
+                  <button class="btn-accion btn-blue">Tomar</button>
                 </form>
               </td>
             </tr>
@@ -1048,7 +966,7 @@ $num_tren = $res_tren->num_rows;
         <?php if($num_tren>0): ?>
           <br>
           <button type="submit" name="accion_global" value="tomar_tren_multiple"
-                  class="btn-accion" style="background-color:#28a745;">
+                  class="btn-accion btn-green">
             Tomar seleccionados
           </button>
         <?php endif; ?>

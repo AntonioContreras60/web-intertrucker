@@ -320,85 +320,7 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
   <meta charset="UTF-8">
   <title>Portes Nuevos (Creados)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body { margin: 0; font-family: Arial, sans-serif; font-size: 16px; }
-    h1, h2 { margin: 16px; }
-    nav ul { list-style: none; padding: 0; margin: 0; display: flex; gap: 20px; }
-    .collapsible {
-      background-color: #e2e2e2; cursor: pointer;
-      padding: 12px 15px; margin-bottom: 5px;
-      border: none; outline: none; width: 100%;
-      text-align: left; font-size: 1em;
-    }
-    .collapsible.active { background-color: #ccc; }
-    .content {
-      display: none; padding: 10px; background-color: #f9f9f9; margin-bottom: 15px;
-    }
-    .card {
-      border: 1px solid #ccc; border-radius: 5px; background-color: #fff;
-      padding: 10px; margin-bottom: 10px;
-    }
-    .card h3 { margin: 0 0 8px; font-size: 1em; font-weight: bold; }
-    .card p { margin: 4px 0; font-size: 0.95em; }
-    .actions { margin-top: 8px; }
-    .actions form, .actions a {
-      /* Quitar display:inline; para cumplir requerimiento */
-      margin-right: 5px;
-    }
-    .actions button {
-      border: none; border-radius: 3px; padding: 6px 10px;
-      cursor: pointer; color: #fff;
-    }
-    .tabs {
-      display: flex; gap: 10px; list-style: none; margin: 16px; padding: 0;
-    }
-    .tabs li {
-      background-color: #007bff; color: #fff;
-      padding: 10px 15px; border-radius: 5px;
-      cursor: pointer; font-weight: bold; font-size: 1em;
-    }
-    .tabs li:hover { background-color: #0056b3; }
-    .tabs li.active { background-color: #28a745; }
-    .tab-content {
-      display: none; padding: 16px;
-    }
-    .tab-content.active { display: block; }
-
-    @media (max-width:767px){
-      .desktop-only { display: none; }
-    }
-    @media (min-width:768px){
-      .mobile-only { display: none; }
-      .desktop-only {
-        max-width: 1600px; margin: 0 auto; font-size: 14px;
-      }
-      table {
-        width: 100%; border-collapse: collapse; margin-top: 10px;
-      }
-      th, td {
-        border: 1px solid #ccc; padding: 6px 8px;
-      }
-      th { background: #f2f2f2; }
-      .btn-accion {
-        padding: 5px 10px; border: none; border-radius: 3px; cursor: pointer;
-        margin-right: 5px; color: #fff; text-decoration: none;
-      }
-      /* -------- NUEVO: organiza los botones dentro de la celda “Acciones” -------- */
-      td.acciones{
-        display:flex;
-        flex-wrap:wrap;
-        gap:5px;
-      }
-    }
-    .filtro-container {
-      background-color: #f2f2f2; padding: 10px; border-radius: 5px; margin-bottom: 10px;
-    }
-    .filtro-container label { margin-right: 5px; }
-    .filtro-container input[type="text"],
-    .filtro-container input[type="date"] {
-      padding: 5px; margin-right: 10px;
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       // Collapsibles => mobile
@@ -449,21 +371,17 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
   <h1>PORTES NUEVOS</h1>
 
   <!-- Menú principal (Recibidos / Creados) -->
-  <nav style="margin-left:16px;">
-    <ul style="list-style:none; display:flex; gap:20px;">
+  <nav class="nav-margin">
+    <ul class="nav-list">
       <li>
         <a href="portes_nuevos_recibidos.php"
-           style="display:block; padding:15px 20px; text-align:center;
-                  background-color:#007bff; color:#fff; border-radius:5px;
-                  text-decoration:none; font-weight:bold; font-size:1.2em;">
+           class="nav-link-btn btn-blue">
           Recibidos
         </a>
       </li>
       <li>
         <a href="portes_nuevos_propios.php"
-           style="display:block; padding:15px 20px; text-align:center;
-                  background-color:#28a745; color:#fff; border-radius:5px;
-                  text-decoration:underline; font-weight:bold; font-size:1.2em;">
+           class="nav-link-btn btn-green active">
           Creados
         </a>
       </li>
@@ -473,21 +391,17 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
   <!-- Submenú si hay gestores -->
   <?php if ($mostrar_submenu): ?>
     <h2>Submenú:</h2>
-    <nav style="margin-left:16px;">
-      <ul style="display:flex; gap:20px;">
+    <nav class="nav-margin">
+      <ul class="nav-list">
         <li>
           <a href="portes_nuevos_propios.php"
-             style="display:block; padding:15px 20px; background-color:#28a745;
-                    color:white; border-radius:5px; text-decoration:underline;
-                    font-weight:bold; font-size:1.2em;">
+             class="nav-link-btn btn-green active">
             Mios
           </a>
         </li>
         <li>
           <a href="portes_nuevos_propios_todos.php"
-             style="display:block; padding:15px 20px; background-color:#007bff;
-                    color:white; border-radius:5px; text-decoration:none;
-                    font-weight:bold; font-size:1.2em;">
+             class="nav-link-btn btn-blue">
             Compañeros
           </a>
         </li>
@@ -497,11 +411,9 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
   <?php endif; ?>
 
   <!-- Botón "Crear Porte" -->
-  <div style="text-align:left; margin:16px;">
+  <div class="m-16" style="text-align:left;">
     <a href="crear_porte.php"
-       style="display:inline-block; padding:15px 20px; text-decoration:none;
-              background-color:#007bff; color:white; border-radius:5px;
-              font-weight:bold; font-size:1.2em; margin-right:15px;">
+       class="nav-link-btn btn-blue" style="display:inline-block; margin-right:15px;">
       Crear Porte
     </a>
     <!--
@@ -515,7 +427,7 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
   </div>
 
   <!-- ********* Versión MÓVIL => collapsibles ********* -->
-  <div class="mobile-only" style="margin:16px;">
+  <div class="mobile-only m-16">
     <!-- A) Portes Creados (<?php echo $num_rows_no_ofrecidos; ?>) -->
     <button class="collapsible">
       Portes Creados (<?php echo $num_rows_no_ofrecidos; ?>)
@@ -535,15 +447,15 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
             </p>
             <div class="actions">
               <a href="detalle_porte.php?id=<?php echo $row['id']; ?>">
-                <button style="background-color:#6c757d;">Detalles</button>
+                <button class="btn-gray">Detalles</button>
               </a>
               <form action="hacer_oferta.php" method="POST">
                 <input type="hidden" name="porte_id" value="<?php echo $row['id']; ?>">
-                <button style="background-color:#007bff;">Ofrecer</button>
+                <button class="btn-blue">Ofrecer</button>
               </form>
               <form action="hacer_porte.php" method="POST">
                 <input type="hidden" name="porte_id" value="<?php echo $row['id']; ?>">
-                <button style="background-color:#28a745;">Hacer</button>
+                <button class="btn-green">Hacer</button>
               </form>
             </div>
           </div>
@@ -572,7 +484,7 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
             </p>
             <div class="actions">
               <a href="detalle_porte.php?id=<?php echo $row['id']; ?>">
-                <button style="background-color:#6c757d;">Detalles</button>
+                <button class="btn-gray">Detalles</button>
               </a>
               <!-- Sin formularios aquí -->
             </div>
@@ -603,13 +515,13 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
             <p><strong>Estado:</strong> <?php echo htmlspecialchars($row['estado_recogida_entrega']); ?></p>
             <div class="actions">
               <a href="detalle_porte.php?id=<?php echo $row['id']; ?>">
-                <button style="background-color:#6c757d;">Detalles</button>
+                <button class="btn-gray">Detalles</button>
               </a>
               <a href="recogida_entrega_vista.php?porte_id=<?php echo $row['id']; ?>&tipo_evento=recogida">
-                <button style="background-color:#ffc107;">Recogida</button>
+                <button class="btn-yellow">Recogida</button>
               </a>
               <a href="recogida_entrega_vista.php?porte_id=<?php echo $row['id']; ?>&tipo_evento=entrega">
-                <button style="background-color:#17a2b8;">Entrega</button>
+                <button class="btn-cyan">Entrega</button>
               </a>
             </div>
           </div>
@@ -642,13 +554,13 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
             <p><strong>Estado:</strong> <?php echo htmlspecialchars($row['estado_recogida_entrega']); ?></p>
             <div class="actions">
               <a href="detalle_porte.php?id=<?php echo $row['id']; ?>">
-                <button style="background-color:#6c757d;">Detalles</button>
+                <button class="btn-gray">Detalles</button>
               </a>
               <a href="recogida_entrega_vista.php?porte_id=<?php echo $row['id']; ?>&tipo_evento=recogida">
-                <button style="background-color:#ffc107;">Recogida</button>
+                <button class="btn-yellow">Recogida</button>
               </a>
               <a href="recogida_entrega_vista.php?porte_id=<?php echo $row['id']; ?>&tipo_evento=entrega">
-                <button style="background-color:#17a2b8;">Entrega</button>
+                <button class="btn-cyan">Entrega</button>
               </a>
             </div>
           </div>
@@ -694,10 +606,10 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
           <label>Fecha hasta:</label>
           <input type="date" name="fecha_hasta_creados" value="<?php echo htmlspecialchars($fh_creados); ?>">
 
-          <button type="submit" class="btn-accion" style="background-color:#007bff;">
+          <button type="submit" class="btn-accion btn-blue">
             Filtrar
           </button>
-          <button type="button" class="btn-accion" style="background-color:#6c757d;"
+          <button type="button" class="btn-accion btn-gray"
                   onclick="window.location.href='portes_nuevos_propios.php?tab=creadosTab';">
             Limpiar
           </button>
@@ -738,16 +650,16 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
               </td>
               <td class="acciones">
                 <a href="detalle_porte.php?id=<?php echo $row['id']; ?>"
-                   class="btn-accion" style="background-color:#6c757d;">
+                   class="btn-accion btn-gray">
                   Detalles
                 </a>
                 <form action="hacer_oferta.php" method="POST">
                   <input type="hidden" name="porte_id" value="<?php echo $row['id']; ?>">
-                  <button class="btn-accion" style="background-color:#007bff;">Ofrecer</button>
+                  <button class="btn-accion btn-blue">Ofrecer</button>
                 </form>
                 <form action="hacer_porte.php" method="POST">
                   <input type="hidden" name="porte_id" value="<?php echo $row['id']; ?>">
-                  <button class="btn-accion" style="background-color:#28a745;">Hacer</button>
+                  <button class="btn-accion btn-green">Hacer</button>
                 </form>
               </td>
             </tr>
@@ -761,7 +673,7 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
         <?php if($num_rows_no_ofrecidos>0): ?>
           <br>
           <button type="submit" name="accion_global" value="hacer_creados_multiple"
-                  class="btn-accion" style="background-color:#28a745;">
+                  class="btn-accion btn-green">
             Hacer (seleccionados)
           </button>
         <?php endif; ?>
@@ -785,10 +697,10 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
           <label>Fecha hasta:</label>
           <input type="date" name="fecha_hasta_ofrec" value="<?php echo htmlspecialchars($fh_ofrec); ?>">
 
-          <button type="submit" class="btn-accion" style="background-color:#007bff;">
+          <button type="submit" class="btn-accion btn-blue">
             Filtrar
           </button>
-          <button type="button" class="btn-accion" style="background-color:#6c757d;"
+          <button type="button" class="btn-accion btn-gray"
                   onclick="window.location.href='portes_nuevos_propios.php?tab=ofrecidosTab';">
             Limpiar
           </button>
@@ -825,7 +737,7 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
             </td>
             <td class="acciones">
               <a href="detalle_porte.php?id=<?php echo $row['id']; ?>"
-                 class="btn-accion" style="background-color:#6c757d;" target="_blank">
+                 class="btn-accion btn-gray" target="_blank">
                 Detalles
               </a>
             </td>
@@ -854,10 +766,10 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
           <label>Fecha hasta:</label>
           <input type="date" name="fecha_hasta_asig" value="<?php echo htmlspecialchars($fh_asig); ?>">
 
-          <button type="submit" class="btn-accion" style="background-color:#007bff;">
+          <button type="submit" class="btn-accion btn-blue">
             Filtrar
           </button>
-          <button type="button" class="btn-accion" style="background-color:#6c757d;"
+          <button type="button" class="btn-accion btn-gray"
                   onclick="window.location.href='portes_nuevos_propios.php?tab=asignadosTab';">
             Limpiar
           </button>
@@ -895,15 +807,15 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
             <td><?php echo htmlspecialchars($row['estado_recogida_entrega']); ?></td>
             <td class="acciones">
               <a href="detalle_porte.php?id=<?php echo $row['id']; ?>"
-                 class="btn-accion" style="background-color:#6c757d;" target="_blank">
+                 class="btn-accion btn-gray" target="_blank">
                 Detalles
               </a>
               <a href="recogida_entrega_vista.php?porte_id=<?php echo $row['id']; ?>&tipo_evento=recogida"
-                 class="btn-accion" style="background-color:#ffc107;" target="_blank">
+                 class="btn-accion" class="btn-yellow" target="_blank">
                 Recogida
               </a>
               <a href="recogida_entrega_vista.php?porte_id=<?php echo $row['id']; ?>&tipo_evento=entrega"
-                 class="btn-accion" style="background-color:#17a2b8;" target="_blank">
+                 class="btn-accion" class="btn-cyan" target="_blank">
                 Entrega
               </a>
             </td>
@@ -930,10 +842,10 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
           <label>Fecha hasta:</label>
           <input type="date" name="fecha_hasta_tren" value="<?php echo htmlspecialchars($fh_tren); ?>">
 
-          <button type="submit" class="btn-accion" style="background-color:#007bff;">
+          <button type="submit" class="btn-accion btn-blue">
             Filtrar
           </button>
-          <button type="button" class="btn-accion" style="background-color:#6c757d;"
+          <button type="button" class="btn-accion btn-gray"
                   onclick="window.location.href='portes_nuevos_propios.php?tab=trenesTab';">
             Limpiar
           </button>
@@ -977,15 +889,15 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
             <td><?php echo htmlspecialchars($row['estado_recogida_entrega']); ?></td>
             <td class="acciones">
               <a href="detalle_porte.php?id=<?php echo $row['id']; ?>"
-                 class="btn-accion" style="background-color:#6c757d;" target="_blank">
+                 class="btn-accion btn-gray" target="_blank">
                 Detalles
               </a>
               <a href="recogida_entrega_vista.php?porte_id=<?php echo $row['id']; ?>&tipo_evento=recogida"
-                 class="btn-accion" style="background-color:#ffc107;" target="_blank">
+                 class="btn-accion" class="btn-yellow" target="_blank">
                 Recogida
               </a>
               <a href="recogida_entrega_vista.php?porte_id=<?php echo $row['id']; ?>&tipo_evento=entrega"
-                 class="btn-accion" style="background-color:#17a2b8;" target="_blank">
+                 class="btn-accion" class="btn-cyan" target="_blank">
                 Entrega
               </a>
             </td>
