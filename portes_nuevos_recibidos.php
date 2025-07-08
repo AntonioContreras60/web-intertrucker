@@ -565,7 +565,7 @@ $num_portes_en_tren = count($portesEnTren);
   </nav>
 
   <?php if($mostrar_submenu): ?>
-    <h2>Submenú:</h2>
+    <h2 class="nav-subtitle">Submenú:</h2>
     <nav class="nav-margin">
       <ul class="nav-list">
         <li>
