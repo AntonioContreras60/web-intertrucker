@@ -242,6 +242,15 @@ if (!empty($_SESSION['impersonador_id'])) {
                     Gestión Económica ▾
                 </button>
                 <div id="gestionEconomicaDropdown" style="display:none;">
+                    <a href="/Perfil/portes_consumo_mensual.php"
+                       style="display: block;
+                              padding: 16px 24px;
+                              padding-left: 40px;
+                              color: black;
+                              font-size: 1em;
+                              text-decoration: none;">
+                        Consultar consumo mensual
+                    </a>
                     <a href="/facturas_intertrucker.php"
                        style="display: block;
                               padding: 16px 24px;

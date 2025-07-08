@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
   // Usa la función mail (o tu librería SMTP)
   mail($email,$asunto,$mensaje,$headers);
 
-  header("Location: gestionar_colaboradores.php?msg=Gestor+creado+correctamente");
+  header("Location: gestinar_colaboradores.php?msg=Gestor+creado+correctamente");
   exit();
 }
 ?>
