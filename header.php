@@ -165,7 +165,7 @@ if (!empty($_SESSION['impersonador_id'])) {
                                 height: 24px; 
                                 vertical-align: middle; 
                                 margin-right: 12px;">
-                    Facturas
+                    Crear Facturas
                 </a>
                 <a href="/my_network.php"
                    style="display: block;
@@ -251,7 +251,7 @@ if (!empty($_SESSION['impersonador_id'])) {
                               text-decoration: none;">
                         Consultar consumo mensual
                     </a>
-                    <a href="/facturas.php"
+                    <a href="/facturas_intertrucker.php"
                        style="display: block;
                               padding: 16px 24px;
                               padding-left: 40px;
