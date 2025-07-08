@@ -161,5 +161,5 @@ function toggleCamioneroFields(){
 </table>
 <?php endif; ?>
 
-<a href="gestinar_colaboradores.php" style="display:block;margin-top:20px">Volver a Gestión de Gestores</a>
+<a href="gestionar_colaboradores.php" style="display:block;margin-top:20px">Volver a Gestión de Gestores</a>
 </body></html>

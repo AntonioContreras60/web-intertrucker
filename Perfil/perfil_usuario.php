@@ -146,13 +146,12 @@ $stmt->close();
                 <strong>CIF:</strong>      <span><?= htmlspecialchars($usuario['cif']); ?></span>
             </div>
 
-            <h2 style="margin:0 0 1rem;font-size:1.25rem;">Gestión</h2>
+            <h2 style="margin:0 0 1rem;font-size:1.25rem;">Gestión del Perfil</h2>
             <nav class="botones-gestion">
                 <ul>
                     <li><a href="editar_perfil.php">Modificar perfil</a></li>
                     <li><a href="cambiar_contrasena.php">Cambiar contraseña</a></li>
                     <li><a href="gestionar_direcciones_usuario.php" target="_blank">Gestionar direcciones empresa</a></li>
-                    <li><a href="portes_consumo_mensual.php" target="_blank">Consultar consumo mensual</a></li>
                 </ul>
             </nav>
         <?php else: ?>

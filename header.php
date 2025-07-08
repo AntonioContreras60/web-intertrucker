@@ -230,18 +230,58 @@ if (!empty($_SESSION['impersonador_id'])) {
                         Gestores
                     </a>
                 </div>
-                <a href="https://intertrucker.net/Perfil/perfil_usuario.php" 
-                style="display: block; 
-                          padding: 16px 24px; 
-                          color: black; 
-                          font-size: 1em; 
+                <button onclick="toggleDropdown('gestionEconomicaDropdown')"
+                        style="display: block;
+                               width: 100%;
+                               padding: 16px 24px;
+                               background: none;
+                               border: none;
+                               color: black;
+                               font-size: 1em;
+                               text-align: left;">
+                    Gestión Económica ▾
+                </button>
+                <div id="gestionEconomicaDropdown" style="display:none;">
+                    <a href="/Perfil/portes_consumo_mensual.php"
+                       style="display: block;
+                              padding: 16px 24px;
+                              padding-left: 40px;
+                              color: black;
+                              font-size: 1em;
+                              text-decoration: none;">
+                        Consultar consumo mensual
+                    </a>
+                    <a href="/facturas.php"
+                       style="display: block;
+                              padding: 16px 24px;
+                              padding-left: 40px;
+                              color: black;
+                              font-size: 1em;
+                              text-decoration: none;">
+                        Facturas
+                    </a>
+                    <a href="/datos_facturacion.php"
+                       style="display: block;
+                              padding: 16px 24px;
+                              padding-left: 40px;
+                              color: black;
+                              font-size: 1em;
+                              text-decoration: none;">
+                        Datos de facturación
+                    </a>
+                </div>
+                <a href="https://intertrucker.net/Perfil/perfil_usuario.php"
+                style="display: block;
+                          padding: 16px 24px;
+                          color: black;
+                          font-size: 1em;
                           text-decoration: none;">
-                    <img src="/imagenes/iconos/perfil.svg" alt="Mi Perfil" 
-                         style="width: 24px; 
-                                height: 24px; 
-                                vertical-align: middle; 
+                    <img src="/imagenes/iconos/perfil.svg" alt="Mi Perfil"
+                         style="width: 24px;
+                                height: 24px;
+                                vertical-align: middle;
                                 margin-right: 12px;">
-                    Gestión
+                    Perfil
                 </a>
                 <a href="https://intertrucker.net/Perfil/logout.php" 
                    style="display: block; 
