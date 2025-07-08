@@ -7,6 +7,8 @@ session_start();
     <meta charset="UTF-8">
     <title>Registro de Usuario</title>
     <link rel="stylesheet" href="styles.css"> <!-- Ajusta si tu CSS está en otro sitio -->
+  <link rel="stylesheet" href="/header.css">
+  <script src="/header.js"></script>
 </head>
 <body>
 <?php

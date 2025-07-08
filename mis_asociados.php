@@ -100,6 +100,8 @@ $resultado = $stmt->get_result();
             background-color: #28a745;
         }
     </style>
+  <link rel="stylesheet" href="/header.css">
+  <script src="/header.js"></script>
 </head>
 <body>
 <?php include 'header.php'; ?>

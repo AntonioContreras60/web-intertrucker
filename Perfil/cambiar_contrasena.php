@@ -8,6 +8,8 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cambiar Contraseña</title>
     <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="/header.css">
+  <script src="/header.js"></script>
 </head>
 <body>
     <?php

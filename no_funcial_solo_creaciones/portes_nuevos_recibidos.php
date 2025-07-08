@@ -155,6 +155,8 @@ $count_ultimos_portes = contarPortes($conn, $sql_count_ultimos_portes, $usuario_
             });
         });
     </script>
+  <link rel="stylesheet" href="/header.css">
+  <script src="/header.js"></script>
 </head>
 <body>
     <!-- Incluir el menú de navegación -->

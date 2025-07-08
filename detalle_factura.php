@@ -36,6 +36,8 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalles de la Factura - InterTrucker</title>
     <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="/header.css">
+  <script src="/header.js"></script>
 </head>
 <body>
     <!-- Incluir el menú de navegación -->

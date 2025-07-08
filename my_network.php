@@ -128,6 +128,8 @@ $stmt->close();
 /* Para plegar / desplegar listas */
 .hide{display:none;}
 </style>
+  <link rel="stylesheet" href="/header.css">
+  <script src="/header.js"></script>
 </head>
 <body>
 

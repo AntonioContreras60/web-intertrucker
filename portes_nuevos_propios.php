@@ -362,6 +362,8 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
       return confirm("¿Estás seguro de HACER los portes seleccionados?");
     }
   </script>
+  <link rel="stylesheet" href="/header.css">
+  <script src="/header.js"></script>
 </head>
 <body>
 

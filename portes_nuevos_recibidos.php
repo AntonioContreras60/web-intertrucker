@@ -541,6 +541,8 @@ $num_portes_en_tren = count($portesEnTren);
       showSection(activeTab);
     });
   </script>
+  <link rel="stylesheet" href="/header.css">
+  <script src="/header.js"></script>
 </head>
 <body>
 <?php include 'header.php'; ?>
