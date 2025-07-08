@@ -350,7 +350,7 @@ $num_tren = $res_tren->num_rows;
       </li>
     </ul>
   </nav>
-  <h2 class="nav-margin">Submenú:</h2>
+  <h2 class="nav-margin nav-subtitle">Submenú:</h2>
   <nav class="nav-margin">
     <ul class="nav-list">
       <li>
@@ -625,7 +625,7 @@ $num_tren = $res_tren->num_rows;
 
     <!-- A) NO_OFRECIDOS -->
     <div id="noOfrecidosTab" class="tab-content">
-      <h2>Portes Creados (Compañeros) [No Ofrecidos]</h2>
+      <h2 class="nav-subtitle">Portes Creados (Compañeros) [No Ofrecidos]</h2>
 
       <div class="filtro-container">
         <form method="GET" action="portes_nuevos_propios_todos.php">
@@ -711,7 +711,7 @@ $num_tren = $res_tren->num_rows;
 
     <!-- B) OFRECIDOS -->
     <div id="ofrecidosTab" class="tab-content">
-      <h2>Portes Ofrecidos (Compañeros)</h2>
+      <h2 class="nav-subtitle">Portes Ofrecidos (Compañeros)</h2>
       <div class="filtro-container">
         <form method="GET" action="portes_nuevos_propios_todos.php">
           <input type="hidden" name="tab" value="ofrecidosTab">
@@ -796,7 +796,7 @@ $num_tren = $res_tren->num_rows;
 
     <!-- C) ASIGNADOS -->
     <div id="asignadosTab" class="tab-content">
-      <h2>Portes Asignados (Compañeros)</h2>
+      <h2 class="nav-subtitle">Portes Asignados (Compañeros)</h2>
       <div class="filtro-container">
         <form method="GET" action="portes_nuevos_propios_todos.php">
           <input type="hidden" name="tab" value="asignadosTab">
@@ -885,7 +885,7 @@ $num_tren = $res_tren->num_rows;
 
     <!-- D) TREN -->
     <div id="trenTab" class="tab-content">
-      <h2>Portes en Tren (Compañeros)</h2>
+      <h2 class="nav-subtitle">Portes en Tren (Compañeros)</h2>
       <div class="filtro-container">
         <form method="GET" action="portes_nuevos_propios_todos.php">
           <input type="hidden" name="tab" value="trenTab">
