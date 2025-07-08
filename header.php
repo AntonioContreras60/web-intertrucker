@@ -187,7 +187,7 @@ if (!empty($_SESSION['impersonador_id'])) {
                                padding: 16px 24px;
                                background: none;
                                border: none;
-                               color: black;
+                               color: black !important;
                                font-size: 1em;
                                text-align: left;">
                     Gestión Interna ▾
@@ -236,7 +236,7 @@ if (!empty($_SESSION['impersonador_id'])) {
                                padding: 16px 24px;
                                background: none;
                                border: none;
-                               color: black;
+                               color: black !important;
                                font-size: 1em;
                                text-align: left;">
                     Gestión Económica ▾
