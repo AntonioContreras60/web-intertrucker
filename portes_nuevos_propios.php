@@ -390,7 +390,7 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
 
   <!-- Submenú si hay gestores -->
   <?php if ($mostrar_submenu): ?>
-    <h2>Submenú:</h2>
+    <h2 class="nav-subtitle">Submenú:</h2>
     <nav class="nav-margin">
       <ul class="nav-list">
         <li>
@@ -413,7 +413,7 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
   <!-- Botón "Crear Porte" -->
   <div class="m-16" style="text-align:left;">
     <a href="crear_porte.php"
-       class="nav-link-btn btn-blue" style="display:inline-block; margin-right:15px;">
+       class="nav-link-btn btn-blue nav-button">
       Crear Porte
     </a>
     <!--
@@ -591,7 +591,7 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
 
     <!-- (A) Portes Creados => no_ofrecidosTab -->
     <div id="creadosTab" class="tab-content">
-      <h2>Portes Creados (No Ofrecidos)</h2>
+      <h2 class="nav-subtitle">Portes Creados (No Ofrecidos)</h2>
 
       <!-- Filtro Creados -->
       <div class="filtro-container">
@@ -682,7 +682,7 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
 
     <!-- (B) Portes Ofrecidos -->
     <div id="ofrecidosTab" class="tab-content">
-      <h2>Portes Ofrecidos</h2>
+      <h2 class="nav-subtitle">Portes Ofrecidos</h2>
 
       <!-- Filtro Ofrecidos -->
       <div class="filtro-container">
@@ -751,7 +751,7 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
 
     <!-- (C) Portes Asignados -->
     <div id="asignadosTab" class="tab-content">
-      <h2>Portes Asignados</h2>
+      <h2 class="nav-subtitle">Portes Asignados</h2>
 
       <!-- Filtro Asignados -->
       <div class="filtro-container">
@@ -829,7 +829,7 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
 
     <!-- (D) Portes en Trenes -->
     <div id="trenesTab" class="tab-content">
-      <h2>Portes en Trenes</h2>
+      <h2 class="nav-subtitle">Portes en Trenes</h2>
 
       <!-- Filtro Trenes -->
       <div class="filtro-container">

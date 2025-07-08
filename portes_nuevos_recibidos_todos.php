@@ -504,7 +504,7 @@ $num_tren = $res_tren->num_rows;
       </li>
     </ul>
   </nav>
-  <h2>Submenú:</h2>
+  <h2 class="nav-subtitle">Submenú:</h2>
   <nav class="nav-margin">
     <ul class="nav-list">
       <li>
@@ -706,7 +706,7 @@ $num_tren = $res_tren->num_rows;
 
     <!-- (B1) NUEVOS -->
     <div id="nuevosTab" class="tab-content">
-      <h2>Nuevos Recibidos</h2>
+      <h2 class="nav-subtitle">Nuevos Recibidos</h2>
 
       <!-- Filtro NUEVOS -->
       <div class="filtro-container">
@@ -800,7 +800,7 @@ $num_tren = $res_tren->num_rows;
 
     <!-- (B2) ACEPTADOS -->
     <div id="aceptadosTab" class="tab-content">
-      <h2>Aceptados</h2>
+      <h2 class="nav-subtitle">Aceptados</h2>
 
       <!-- Filtro ACEPTADOS -->
       <div class="filtro-container">
@@ -892,7 +892,7 @@ $num_tren = $res_tren->num_rows;
 
     <!-- (B3) REOFRECIDOS -->
     <div id="reofTab" class="tab-content">
-      <h2>Reofrecidos</h2>
+      <h2 class="nav-subtitle">Reofrecidos</h2>
 
       <!-- Filtro REOFRECIDOS -->
       <div class="filtro-container">
@@ -959,7 +959,7 @@ $num_tren = $res_tren->num_rows;
 
     <!-- (B4) REASIGNADOS -->
     <div id="reasignTab" class="tab-content">
-      <h2>Reasignados</h2>
+      <h2 class="nav-subtitle">Reasignados</h2>
 
       <!-- Filtro REASIGNADOS -->
       <div class="filtro-container">
@@ -1031,7 +1031,7 @@ $num_tren = $res_tren->num_rows;
 
     <!-- (B5) EN TREN -->
     <div id="trenTab" class="tab-content">
-      <h2>En Tren</h2>
+      <h2 class="nav-subtitle">En Tren</h2>
 
       <!-- Filtro TREN -->
       <div class="filtro-container">
