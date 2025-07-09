@@ -229,6 +229,15 @@ if (!empty($_SESSION['impersonador_id'])) {
                               text-decoration: none;">
                         Gestores
                     </a>
+                    <a href="/Perfil/gestionar_direcciones_usuario.php"
+                       style="display: block;
+                              padding: 16px 24px;
+                              padding-left: 40px;
+                              color: black;
+                              font-size: 1em;
+                              text-decoration: none;">
+                        Direcciones empresa
+                    </a>
                 </div>
                 <button onclick="toggleDropdown('gestionEconomicaDropdown')"
                         style="display: block;
