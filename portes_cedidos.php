@@ -1,151 +1,116 @@
 <?php
 session_start();
-include 'conexion.php'; // Ajusta el nombre de tu archivo de conexión
+include 'conexion.php';
+
+/* --- DEPURACIÓN (quítalo en producción) --- */
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Verificar que exista usuario_id en la sesión:
+/* --- SESIÓN --- */
 if (!isset($_SESSION['usuario_id'])) {
     die("Error: Falta usuario_id en la sesión.");
 }
-$usuarioSesion = $_SESSION['usuario_id'];
+$usuarioSesion = (int)$_SESSION['usuario_id'];
 
-// Construimos la query para extraer:
-// - empresa_id = so.usuario_id (a quién le asignaste el porte)
-// - u.nombre_empresa = nombre de la empresa
-// - la cuenta de portes (COUNT(*)) que tengan fecha_entrega >= hoy
+/* --- EMPRESAS CON PORTES SIN FINALIZAR --- */
 $sql = "
     SELECT 
-      so.usuario_id AS empresa_id,
-      u.nombre_empresa AS empresa_nombre,
-      COUNT(*) AS total_portes
+      so.usuario_id           AS empresa_id,
+      u.nombre_empresa        AS empresa_nombre,
+      COUNT(*)                AS total_portes
     FROM seleccionados_oferta so
-    JOIN portes p ON so.porte_id = p.id
-    JOIN usuarios u ON so.usuario_id = u.id
+    JOIN portes     p ON so.porte_id  = p.id
+    JOIN usuarios   u ON so.usuario_id = u.id
     WHERE so.ofertante_id = ?
       AND p.fecha_entrega >= CURDATE()
     GROUP BY so.usuario_id
     ORDER BY u.nombre_empresa ASC
 ";
-$stmt = $conn->prepare($sql);
-if (!$stmt) {
-    die('Error preparando la consulta: '.$conn->error);
-}
+$stmt = $conn->prepare($sql) or die('Error preparando la consulta: '.$conn->error);
 $stmt->bind_param("i", $usuarioSesion);
 $stmt->execute();
 $res = $stmt->get_result();
 
-$empresas = [];
-while ($row = $res->fetch_assoc()) {
-    $empresas[] = $row;
-}
+$empresas = $res->fetch_all(MYSQLI_ASSOC);
 $stmt->close();
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <!-- 1. META VIEWPORT PARA HACERLO RESPONSIVE -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Empresas Asignadas</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif; 
-      margin: 0;
-      padding: 16px;
-    }
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      margin-top: 16px;
-    }
-    th, td {
-      border: 1px solid #ccc; 
-      padding: 8px;
-    }
-    th {
-      background-color: #f2f2f2;
-    }
-    .btn {
-      display: inline-block;
-      padding: 8px 12px;
-      background: #007bff;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 4px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portes cedidos a empresas</title>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        /* ---------- Responsive table ---------- */
+        .tabla-responsive{overflow-x:auto}
+        table{border-collapse:collapse;width:100%}
+        th,td{border:1px solid #ccc;padding:.6rem}
+        th{background:#f5f7fa}
 
-    /* 3. MEDIA QUERY PARA MÓVILES */
-    @media (max-width: 600px) {
-      table, thead, tbody, th, td, tr {
-        display: block;
-      }
-      thead tr {
-        display: none;
-      }
-      td {
-        position: relative;
-        padding-left: 50%;
-        text-align: left;
-      }
-      td::before {
-        position: absolute;
-        top: 8px;
-        left: 8px;
-        white-space: nowrap;
-        font-weight: bold;
-      }
-      td:nth-of-type(1)::before { content: "ID"; }
-      td:nth-of-type(2)::before { content: "Empresa"; }
-      td:nth-of-type(3)::before { content: "Nº Portes sin finalizar"; }
-      td:nth-of-type(4)::before { content: "Acción"; }
-    }
-  </style>
+        @media (max-width:600px){
+            table,thead,tbody,th,td,tr{display:block}
+            thead{display:none}
+            tr{margin-bottom:1rem;border:1px solid #ccc;border-radius:6px;padding:.6rem}
+            td{border:none;border-bottom:1px solid #eee;position:relative;padding-left:50%}
+            td::before{
+                content:attr(data-label);
+                position:absolute;left:.6rem;top:.6rem;font-weight:600
+            }
+            td:last-child{border-bottom:none}
+        }
+
+        /* ---------- Botón primario ---------- */
+        .btn{
+            display:inline-block;padding:.5rem 1rem;
+            background:var(--it-primary,#0066cc);color:#fff;
+            border-radius:6px;font-weight:600;text-decoration:none;
+            transition:background .2s
+        }
+        .btn:hover{background:var(--it-primary-dark,#0052a8)}
+    </style>
 </head>
 <body>
 
-<!-- Header -->
 <?php include 'header.php'; ?>
 
-<h1>Portes Transferidos a Empresas</h1>
+<main style="max-width:960px;margin:auto;padding:2rem 1rem">
+    <h1 style="margin-top:0">Portes transferidos a empresas</h1>
 
-<?php if (count($empresas) > 0): ?>
+    <?php if ($empresas): ?>
+        <div class="tabla-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Empresa / Transportista</th>
+                        <th>Nº Portes sin finalizar</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php foreach ($empresas as $e): ?>
+                    <tr>
+                        <td data-label="ID"><?= htmlspecialchars($e['empresa_id']) ?></td>
+                        <td data-label="Empresa"><?= htmlspecialchars($e['empresa_nombre']) ?></td>
+                        <td data-label="Nº Portes"><?= htmlspecialchars($e['total_portes']) ?></td>
+                        <td data-label="Acción">
+                            <a class="btn"
+                               href="portes_cedidos_empresa.php?usuario_id=<?= $e['empresa_id'] ?>">
+                                Ver portes
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    <?php else: ?>
+        <p>No hay empresas con portes asignados que tengan fecha de entrega pendiente (≥ hoy).</p>
+    <?php endif; ?>
+</main>
 
-  <!-- 2. CONTENEDOR CON DESPLAZAMIENTO HORIZONTAL PARA PANTALLAS PEQUEÑAS -->
-  <div style="overflow-x:auto;">
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Empresa / Transportista</th>
-          <th>Nº Portes sin finalizar</th>
-          <th>Acción</th>
-        </tr>
-      </thead>
-      <tbody>
-        <?php foreach ($empresas as $e): ?>
-        <tr>
-          <td><?php echo htmlspecialchars($e['empresa_id']); ?></td>
-          <td><?php echo htmlspecialchars($e['empresa_nombre']); ?></td>
-          <td><?php echo htmlspecialchars($e['total_portes']); ?></td>
-          <td>
-            <a href="portes_cedidos_empresa.php?usuario_id=<?php echo $e['empresa_id']; ?>" 
-               class="btn">
-              Ver portes
-            </a>
-          </td>
-        </tr>
-        <?php endforeach; ?>
-      </tbody>
-    </table>
-  </div>
-
-<?php else: ?>
-  <p>No hay empresas con portes asignados que tengan fecha de entrega pendiente (>= hoy).</p>
-<?php endif; ?>
-
-<!-- Footer -->
-
+<?php $conn->close(); ?>
 </body>
 </html>

@@ -1,150 +1,117 @@
 <?php
+/* ---------- LISTADO DE PORTES – DESTINATARIO ---------- */
 session_start();
-include('conexion.php'); 
+include 'conexion.php';
 
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: login.php");
     exit();
 }
+$usuario_id = (int)$_SESSION['usuario_id'];
 
-// El usuario actual actúa como 'destinatario'
-$usuario_id = $_SESSION['usuario_id'];
-
-/*
-  Tablas asumidas:
-   - portes p (id, mercancia_descripcion, fecha_entrega, localizacion_entrega, destinatario_usuario_id, ...)
-   - porte_tren pt (porte_id, tren_id)
-   - tren t (id, tren_nombre)
-   - tren_camionero tc (tren_id, camionero_id)
-   - camioneros c (id, usuario_id)
-   - usuarios u (id, cif, nombre_usuario, etc.)
-*/
-
+/* --- Consulta --- */
 $sql = "
     SELECT
         p.id AS id_porte,
         p.mercancia_descripcion,
         p.fecha_entrega,
         p.localizacion_entrega,
-
         t.tren_nombre,
-
-        u.cif AS cif_camionero,
+        u.cif            AS cif_camionero,
         u.nombre_usuario AS nombre_camionero
-
     FROM portes p
-    LEFT JOIN porte_tren pt ON p.id = pt.porte_id
-    LEFT JOIN tren t ON pt.tren_id = t.id
+    LEFT JOIN porte_tren     pt ON p.id       = pt.porte_id
+    LEFT JOIN tren           t  ON pt.tren_id = t.id
     LEFT JOIN tren_camionero tc ON pt.tren_id = tc.tren_id
-    LEFT JOIN camioneros c ON tc.camionero_id = c.id
-    LEFT JOIN usuarios u ON c.usuario_id = u.id
-
+    LEFT JOIN camioneros     c  ON tc.camionero_id = c.id
+    LEFT JOIN usuarios       u  ON c.usuario_id    = u.id
     WHERE p.destinatario_usuario_id = ?
     ORDER BY p.fecha_entrega DESC
 ";
-
-$stmt = $conn->prepare($sql) or die("Error en prepare: " . $conn->error);
+$stmt = $conn->prepare($sql) or die($conn->error);
 $stmt->bind_param("i", $usuario_id);
 $stmt->execute();
 $result = $stmt->get_result();
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Listado de Portes (Destinatario)</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 20px; }
-    table { border-collapse: collapse; width: 100%; max-width: 1200px; margin: 0 auto; }
-    table, th, td { border: 1px solid #ccc; }
-    th, td { padding: 8px 12px; text-align: left; }
-    th { background: #f2f2f2; }
-    .acciones a {
-      display: inline-block;
-      margin: 4px 0;
-      padding: 6px 12px;
-      background: #007bff;
-      color: white;
-      text-decoration: none;
-      border-radius: 4px;
-    }
-    .acciones a:hover {
-      opacity: 0.9;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Salida-Entrada Almacén – Destinatario</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/styles.css">
+<style>
+main{max-width:100%;padding:var(--spacing-large);}
+.tabla-scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;margin-top:var(--spacing-base)}
+th,td{border:1px solid #ccc;padding:.6rem .5rem;text-align:left;font-size:15px}
+th{background:#f5f7fa}
+
+/* Botones coherentes */
+.btn{display:inline-block;padding:.55rem 1.1rem;border-radius:8px;font-weight:600;text-decoration:none;color:#fff}
+.btn-green{background:#28a745}.btn-green:hover{filter:brightness(92%)}
+.btn-blue {background:#007bff}.btn-blue:hover {filter:brightness(92%)}
+.btn-gray {background:#6c757d}.btn-gray:hover{filter:brightness(92%)}
+</style>
 </head>
 <body>
 
 <?php include 'header.php'; ?>
 
-<h1 style="text-align:center;">Salida-Entrada Almacen</h1>
-<div style="text-align:center; margin-bottom:20px;">
-  <a href="listado_expedidor.php" 
-     style="display:inline-block; margin-right:20px; padding:10px 20px; background-color:#007bff; color:#fff; text-decoration:none; border-radius:4px;">
-    Expedidor
-  </a>
-  <a href="listado_destinatario.php" 
-     style="display:inline-block; padding:10px 20px; background-color:#28a745; color:#fff; text-decoration:none; border-radius:4px;">
-    Destinatario
-  </a>
-</div>
+<main>
+  <h1 style="text-align:center;margin:0;">Salida-Entrada Almacén</h1>
 
-<h2 style="text-align:center;">Listado de Portes que Entran (Destinatario)</h2>
+  <!-- pestañas Expedidor / Destinatario -->
+  <div style="text-align:center;margin:var(--spacing-large) 0;">
+      <a href="listado_expedidor.php"    class="btn btn-blue"  style="margin-right:20px">Expedidor</a>
+      <a href="listado_destinatario.php" class="btn btn-green">Destinatario</a>
+  </div>
 
-<?php if ($result->num_rows > 0): ?>
-  <table>
-    <tr>
-      <th>Descripción</th>
-      <th>Fecha Entrega</th>
-      <th>Local. Entrega</th>
-      <th>Nombre del Tren</th>
-      <th>CIF Camionero</th>
-      <th>Nombre Camionero</th>
-      <th>Acciones</th>
-    </tr>
-    <?php while ($row = $result->fetch_assoc()): ?>
-      <tr>
-        <td><?php echo htmlspecialchars($row['mercancia_descripcion']); ?></td>
-        <td><?php echo htmlspecialchars($row['fecha_entrega']); ?></td>
-        <td><?php echo htmlspecialchars($row['localizacion_entrega']); ?></td>
-        <td>
-          <?php echo $row['tren_nombre']
-               ? htmlspecialchars($row['tren_nombre'])
-               : 'Sin Tren';
-          ?>
-        </td>
-        <td>
-          <?php echo $row['cif_camionero']
-               ? htmlspecialchars($row['cif_camionero'])
-               : 'Pendiente';
-          ?>
-        </td>
-        <td>
-          <?php echo $row['nombre_camionero']
-               ? htmlspecialchars($row['nombre_camionero'])
-               : 'Pendiente';
-          ?>
-        </td>
-        <td class="acciones">
-          <!-- Sólo "Ver Entrega" para el destinatario -->
-          <a href="recogida_entrega_vista.php?porte_id=<?php echo $row['id_porte']; ?>&tipo_evento=entrega">
-            Ver Entrega
-          </a>
-          <!-- Enlace a detalle_porte.php -->
-          <a href="detalle_porte.php?id=<?php echo $row['id_porte']; ?>">
-            Detalles
-          </a>
-        </td>
-      </tr>
-    <?php endwhile; ?>
-  </table>
-<?php else: ?>
-  <p style="text-align:center;">No tienes portes como destinatario.</p>
-<?php endif; ?>
+  <h2 style="text-align:center;margin-bottom:var(--spacing-base);">
+      Listado de Portes que Entran (Destinatario)
+  </h2>
+
+  <?php if ($result->num_rows > 0): ?>
+      <div class="tabla-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Descripción</th>
+              <th>Fecha Entrega</th>
+              <th>Local. Entrega</th>
+              <th>Tren</th>
+              <th>CIF Camionero</th>
+              <th>Nombre Camionero</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+          <?php while ($row = $result->fetch_assoc()): ?>
+            <tr>
+              <td><?= htmlspecialchars($row['mercancia_descripcion']) ?></td>
+              <td><?= htmlspecialchars($row['fecha_entrega']) ?></td>
+              <td><?= htmlspecialchars($row['localizacion_entrega']) ?></td>
+              <td><?= $row['tren_nombre'] ? htmlspecialchars($row['tren_nombre']) : 'Sin Tren' ?></td>
+              <td><?= $row['cif_camionero'] ? htmlspecialchars($row['cif_camionero']) : 'Pendiente' ?></td>
+              <td><?= $row['nombre_camionero'] ? htmlspecialchars($row['nombre_camionero']) : 'Pendiente' ?></td>
+              <td class="acciones">
+                <a href="recogida_entrega_vista.php?porte_id=<?= $row['id_porte'] ?>&tipo_evento=entrega" class="btn btn-gray">
+                  Ver Entrega
+                </a>
+                <a href="detalle_porte.php?id=<?= $row['id_porte'] ?>" class="btn btn-gray">
+                  Detalles
+                </a>
+              </td>
+            </tr>
+          <?php endwhile; ?>
+          </tbody>
+        </table>
+      </div>
+  <?php else: ?>
+      <p style="text-align:center;">No tienes portes como destinatario.</p>
+  <?php endif; ?>
+</main>
+
+<?php $conn->close(); ?>
 </body>
 </html>
-
-<?php
-$conn->close();
-?>

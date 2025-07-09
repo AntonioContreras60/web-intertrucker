@@ -1,247 +1,191 @@
 <?php
+/* -------- Mi red -------- */
 session_start();
 include 'conexion.php';
-include 'header.php';
 
-/* ---------- 1) Seguridad ---------- */
 if (!isset($_SESSION['usuario_id'])) {
-    header('Location:/Perfil/inicio_sesion.php');
-    exit();
+    header('Location:/Perfil/inicio_sesion.php'); exit();
 }
-$usuario_id = $_SESSION['usuario_id'];
+$usuario_id = (int)$_SESSION['usuario_id'];
 
-/* ---------- 2) Averiguar admin_id (gestores) ---------- */
+/* --- si empleado, trabajar con el admin_id --- */
 $stmt = $conn->prepare("SELECT admin_id FROM usuarios WHERE id=?");
-$stmt->bind_param('i', $usuario_id);
-$stmt->execute();
+$stmt->bind_param('i',$usuario_id); $stmt->execute();
 $admin_id = $stmt->get_result()->fetch_assoc()['admin_id'] ?? $usuario_id;
 $stmt->close();
 
-/* ---------- 3) Grupos ---------- */
+/* --- grupos --- */
 $stmt = $conn->prepare("SELECT id,nombre FROM grupos WHERE usuario_id=?");
-$stmt->bind_param('i', $admin_id);
-$stmt->execute();
-$resultado_grupos = $stmt->get_result();
-$stmt->close();
+$stmt->bind_param('i',$admin_id); $stmt->execute();
+$grupos = $stmt->get_result(); $stmt->close();
 
-/* ---------- 4) Buscar nuevos contactos (usuarios admin) ---------- */
+/* --- búsqueda de contactos (admins) --- */
 if (!empty($_POST['busqueda_contacto'])) {
-    $term = '%'.$_POST['busqueda_contacto'].'%';
-    $sql = "SELECT u.id,
-                   u.nombre_usuario,
-                   u.email,
-                   c.id AS contacto_id,
-                   CASE WHEN c.contacto_usuario_id IS NULL THEN 'No' ELSE 'Sí' END AS es_contacto
-            FROM usuarios u
-            LEFT JOIN contactos c
-              ON c.usuario_id=? AND c.contacto_usuario_id=u.id
-            WHERE (u.nombre_usuario LIKE ? OR u.email LIKE ?)
-              AND u.rol='administrador'";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param('iss', $admin_id, $term, $term);
-    $stmt->execute();
-    $resultado_busqueda = $stmt->get_result();
-    $stmt->close();
+    $term='%'.$_POST['busqueda_contacto'].'%';
+    $sql="SELECT u.id,u.nombre_usuario,u.email,
+                 c.id AS contacto_id,
+                 CASE WHEN c.contacto_usuario_id IS NULL THEN 'No' ELSE 'Sí' END es_contacto
+          FROM usuarios u
+          LEFT JOIN contactos c ON c.usuario_id=? AND c.contacto_usuario_id=u.id
+          WHERE (u.nombre_usuario LIKE ? OR u.email LIKE ?)
+            AND u.rol='administrador'";
+    $stmt=$conn->prepare($sql);
+    $stmt->bind_param('iss',$admin_id,$term,$term);
+    $stmt->execute(); $busqueda=$stmt->get_result(); $stmt->close();
 }
 
-/* ---------- 5) Añadir / eliminar contacto ---------- */
+/* --- alta / baja contacto --- */
 if (isset($_GET['añadir_contacto']) || isset($_GET['eliminar_contacto'])) {
-    $target = intval($_GET['añadir_contacto'] ?? $_GET['eliminar_contacto']);
-
-    if (isset($_GET['añadir_contacto'])) {
-        $ins = $conn->prepare("INSERT IGNORE INTO contactos (usuario_id, contacto_usuario_id) VALUES (?,?)");
-        $ins->bind_param('ii', $admin_id, $target);
-        $ins->execute();
-        $ins->close();
-    } else {
-        $del = $conn->prepare("DELETE FROM contactos WHERE usuario_id=? AND contacto_usuario_id=?");
-        $del->bind_param('ii', $admin_id, $target);
-        $del->execute();
-        $del->close();
+    $t=(int)($_GET['añadir_contacto']??$_GET['eliminar_contacto']);
+    if(isset($_GET['añadir_contacto'])){
+        $conn->prepare("INSERT IGNORE INTO contactos (usuario_id,contacto_usuario_id) VALUES (?,?)")
+             ->bind_param('ii',$admin_id,$t)->execute();
+    }else{
+        $conn->prepare("DELETE FROM contactos WHERE usuario_id=? AND contacto_usuario_id=?")
+             ->bind_param('ii',$admin_id,$t)->execute();
     }
-    header("Location: my_network.php");
-    exit();
+    header('Location: my_network.php'); exit();
 }
 
-/* ---------- 6) Crear entidad externa ---------- */
-if (isset($_POST['crear_entidad'])) {
-    $sql = "INSERT INTO entidades
-              (usuario_id,nombre,telefono,email,cif,observaciones)
-            VALUES (?,?,?,?,?,?)";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param(
-        'isssss',
-        $admin_id,
-        $_POST['nombre'],
-        $_POST['telefono'],
-        $_POST['email'],
-        $_POST['cif'],
-        $_POST['observaciones']
-    );
-    $stmt->execute();
-    $id_ent = $stmt->insert_id;
-    $stmt->close();
-    header("Location: gestionar_direcciones_entidad.php?entidad_id=$id_ent");
-    exit();
+/* --- nueva entidad externa --- */
+if(isset($_POST['crear_entidad'])){
+    $sql="INSERT INTO entidades (usuario_id,nombre,telefono,email,cif,observaciones)
+          VALUES (?,?,?,?,?,?)";
+    $stmt=$conn->prepare($sql);
+    $stmt->bind_param('isssss',$admin_id,
+        $_POST['nombre'],$_POST['telefono'],$_POST['email'],
+        $_POST['cif'],$_POST['observaciones']);
+    $stmt->execute(); $id=$stmt->insert_id; $stmt->close();
+    header("Location: gestionar_direcciones_entidad.php?entidad_id=$id"); exit();
 }
 
-/* ---------- 7) Contactos actuales ---------- */
-$stmt = $conn->prepare("
-    SELECT c.id AS contacto_id,
-           u.id AS usuario_id,
-           u.nombre_usuario,
-           u.email
-    FROM contactos c
-    JOIN usuarios u ON u.id = c.contacto_usuario_id
-    WHERE c.usuario_id = ?");
-$stmt->bind_param('i', $admin_id);
-$stmt->execute();
-$resultado_contactos = $stmt->get_result();
-$stmt->close();
+/* --- contactos actuales --- */
+$stmt=$conn->prepare("
+    SELECT c.id contacto_id,u.nombre_usuario,u.email
+    FROM contactos c JOIN usuarios u ON u.id=c.contacto_usuario_id
+    WHERE c.usuario_id=?");
+$stmt->bind_param('i',$admin_id); $stmt->execute();
+$contactos=$stmt->get_result(); $stmt->close();
 
-/* ---------- 8) Entidades externas (solo si NO existe usuario con mismo email) ---------- */
-$stmt = $conn->prepare("
-    SELECT e.id,e.nombre,e.email
+/* --- entidades externas --- */
+$stmt=$conn->prepare("
+    SELECT e.nombre,e.email
     FROM entidades e
-    LEFT JOIN usuarios u ON u.email = e.email
-    WHERE e.usuario_id = ?
-      AND u.id IS NULL");
-$stmt->bind_param('i', $admin_id);
-$stmt->execute();
-$resultado_entidades = $stmt->get_result();
-$stmt->close();
+    LEFT JOIN usuarios u ON u.email=e.email
+    WHERE e.usuario_id=? AND u.id IS NULL");
+$stmt->bind_param('i',$admin_id); $stmt->execute();
+$entidades=$stmt->get_result(); $stmt->close();
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Mi network</title>
+<title>Mi red</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="/styles.css">
 <style>
-/* -------- Botón blue reutilizable -------- */
-.btn{
-    display:inline-block;padding:7px 16px;margin:4px 0;
-    background:#007bff;color:#fff;border:none;border-radius:4px;
-    font-size:1rem;font-weight:600;text-decoration:none;cursor:pointer
-}
-.btn:hover{background:#0056b3}
-/* Para plegar / desplegar listas */
+/* Botón coherente con el primario global */
+.btn{display:inline-block;width:auto;max-width:260px;padding:.55rem 1.1rem;border-radius:8px;
+     background:var(--color-primary);color:#fff;font-weight:600;
+     text-decoration:none;border:none;cursor:pointer}
+.btn:hover{filter:brightness(92%);}
 .hide{display:none;}
 </style>
 </head>
 <body>
 
+<?php include 'header.php'; ?>
+
+<main style="padding:var(--spacing-large);">
 <h1>Mi red</h1>
 
-<a href="agregar_contacto.php" class="btn" style="margin-bottom:8px;">Añadir nuevo contacto</a>
-
-<!-- BUSCAR CONTACTO -->
-<h2>Buscar contacto (usuarios administradores):</h2>
-<form method="post">
+<!-- ========== Añadir contacto ========== -->
+<h2>Añadir contacto</h2>
+<form method="post" style="margin-bottom:var(--spacing-base);">
     <input type="text" name="busqueda_contacto" placeholder="Nombre o e-mail" required>
     <button class="btn">Buscar</button>
 </form>
 
-<?php if (isset($resultado_busqueda)): ?>
-    <?php if ($resultado_busqueda->num_rows): ?>
-        <ul>
-        <?php while($c=$resultado_busqueda->fetch_assoc()): ?>
-            <li style="font-size:1.1em;">
-              <?=htmlspecialchars($c['nombre_usuario'])?>
-              (<?=htmlspecialchars($c['email'])?>)
-              –
-              <?php if ($c['es_contacto'] === 'Sí'): ?>
-                Ya es contacto
-                <a class="btn" href="ver_contacto.php?contacto_id=<?= $c['contacto_id'] ?>" style="padding:3px 10px;">Ver</a>
-              <?php else: ?>
-                <a class="btn" href="?añadir_contacto=<?= $c['id'] ?>">Añadir</a>
-              <?php endif; ?>
-            </li>
-        <?php endwhile; ?>
-        </ul>
-    <?php else: ?><p>No se encontraron resultados.</p><?php endif; ?>
+<?php if(isset($busqueda)): ?>
+  <?php if($busqueda->num_rows): ?>
+    <ul>
+      <?php while($c=$busqueda->fetch_assoc()): ?>
+        <li>
+          <?= htmlspecialchars($c['nombre_usuario']) ?> (<?= htmlspecialchars($c['email']) ?>) –
+          <?php if($c['es_contacto']==='Sí'): ?>
+             Ya es contacto
+             <a class="btn" href="ver_contacto.php?contacto_id=<?= $c['contacto_id'] ?>" style="padding:3px 10px;">Ver</a>
+          <?php else: ?>
+             <a class="btn" href="?añadir_contacto=<?= $c['id'] ?>">Añadir</a>
+          <?php endif; ?>
+        </li>
+      <?php endwhile; ?>
+    </ul>
+  <?php else: ?><p>No se encontraron resultados.</p><?php endif; ?>
 <?php endif; ?>
 
-<!-- FORMULARIO ENTIDAD -->
-<h2>Crear contacto externo (no usuario):</h2>
+<!-- ========== Contacto externo ========== -->
+<h2>Crear contacto externo</h2>
 <button class="btn" onclick="document.getElementById('formExt').classList.toggle('hide')">
     Mostrar / Ocultar formulario
 </button>
 
-<div id="formExt" class="hide" style="margin-top:8px">
+<div id="formExt" class="hide" style="margin-top:var(--spacing-base);">
   <form method="post">
-    Nombre:<br><input name="nombre" required><br>
-    Teléfono:<br><input name="telefono" required><br>
-    Email:<br><input type="email" name="email" required><br>
-    CIF/NIF:<br><input name="cif" required><br>
-    Observaciones:<br><textarea name="observaciones"></textarea><br>
+    <p>Nombre:<br><input name="nombre" required></p>
+    <p>Teléfono:<br><input name="telefono" required></p>
+    <p>Email:<br><input type="email" name="email" required></p>
+    <p>CIF/NIF:<br><input name="cif" required></p>
+    <p>Observaciones:<br><textarea name="observaciones"></textarea></p>
     <button class="btn" name="crear_entidad">Crear externo</button>
   </form>
 </div>
 
-<!-- GRUPOS -->
-<h2>Grupos:</h2>
-<a href="crear_grupo.php" class="btn" style="margin-bottom:8px;">Crear grupo</a>
-<?php if ($resultado_grupos->num_rows): ?>
+<!-- ========== Grupos ========== -->
+<h2>Grupos</h2>
+<a href="crear_grupo.php" class="btn" style="margin-bottom:var(--spacing-base);">Crear grupo</a>
+<?php if($grupos->num_rows): ?>
   <ul>
-    <?php while($g=$resultado_grupos->fetch_assoc()): ?>
-      <li style="font-size:1.2em;">
-        <?=htmlspecialchars($g['nombre'])?> –
-        <a href="ver_grupo.php?grupo_id=<?=$g['id']?>" style="font-size:1.2em;">Ver</a>
+    <?php while($g=$grupos->fetch_assoc()): ?>
+      <li>
+        <?= htmlspecialchars($g['nombre']) ?> –
+        <a class="btn" style="padding:3px 10px;" href="ver_grupo.php?grupo_id=<?= $g['id'] ?>">Ver</a>
       </li>
     <?php endwhile; ?>
   </ul>
 <?php else: ?><p>No tienes grupos aún.</p><?php endif; ?>
 
-<!-- LISTAS -->
+<!-- ========== Mis contactos ========== -->
 <h2>Mis contactos</h2>
-<button class="btn"
-        onclick="document.getElementById('lista')
-                 .classList.toggle('hide')">
+<button class="btn" onclick="document.getElementById('lista').classList.toggle('hide')">
     Mostrar / Ocultar lista
 </button>
 
-<div id="lista" class="hide" style="margin-top:10px">
+<div id="lista" class="hide" style="margin-top:var(--spacing-base);">
 
-  <!-- ---------- CONTACTOS-USUARIO ---------- -->
   <strong>Contactos (usuarios)</strong>
-  <?php if ($resultado_contactos->num_rows): ?>
+  <?php if($contactos->num_rows): ?>
     <ul>
-      <?php while ($u = $resultado_contactos->fetch_assoc()): ?>
-        <li style="font-size:1.1em;">
-          <?= htmlspecialchars($u['nombre_usuario']) ?>
-          (<?= htmlspecialchars($u['email']) ?>)
-          –
-          <a href="ver_contacto.php?contacto_id=<?= $u['contacto_id'] ?>"
-             target="_blank"
-             class="btn"
-             style="padding:3px 10px;">
-             Ver
-          </a>
+      <?php while($u=$contactos->fetch_assoc()): ?>
+        <li>
+          <?= htmlspecialchars($u['nombre_usuario']) ?> (<?= htmlspecialchars($u['email']) ?>) –
+          <a class="btn" style="padding:3px 10px;" target="_blank"
+             href="ver_contacto.php?contacto_id=<?= $u['contacto_id'] ?>">Ver</a>
         </li>
       <?php endwhile; ?>
     </ul>
-  <?php else: ?>
-    <p>No hay contactos de usuarios.</p>
-  <?php endif; ?>
+  <?php else: ?><p>No hay contactos de usuarios.</p><?php endif; ?>
 
-  <!-- ---------- CONTACTOS-EXTERNOS ---------- -->
   <strong>Contactos externos</strong>
-  <?php if ($resultado_entidades->num_rows): ?>
+  <?php if($entidades->num_rows): ?>
     <ul>
-      <?php while ($e = $resultado_entidades->fetch_assoc()): ?>
-        <li style="font-size:1.1em;">
-          <?= htmlspecialchars($e['nombre']) ?>
-          (<?= htmlspecialchars($e['email']) ?>)
-        </li>
+      <?php while($e=$entidades->fetch_assoc()): ?>
+        <li><?= htmlspecialchars($e['nombre']) ?> (<?= htmlspecialchars($e['email']) ?>)</li>
       <?php endwhile; ?>
     </ul>
-  <?php else: ?>
-    <p>No hay contactos externos.</p>
-  <?php endif; ?>
-
+  <?php else: ?><p>No hay contactos externos.</p><?php endif; ?>
 </div>
-
+</main>
 
 <?php include 'footer.php'; ?>
 </body>

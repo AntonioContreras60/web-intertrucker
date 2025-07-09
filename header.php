@@ -234,7 +234,7 @@ if (!empty($_SESSION['impersonador_id'])) {
                               text-decoration: none;">
                         Gestores
                     </a>
-                    <a href="/Perfil/gestionar_direcciones_usuario.php"
+                    <a href="/Perfil/gestionar_direcciones_empresa.php"
                        style="display: block;
                               padding: 16px 24px;
                               padding-left: 40px;

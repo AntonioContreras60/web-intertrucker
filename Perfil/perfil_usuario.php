@@ -156,16 +156,22 @@ $stmtDir->close();
                 <strong>Teléfono:</strong> <span><?= htmlspecialchars($usuario['telefono']); ?></span>
                 <strong>CIF:</strong>      <span><?= htmlspecialchars($usuario['cif']); ?></span>
                 <?php if ($direcciones): ?>
-                    <strong>Direcciones:</strong>
-                    <span>
-                        <?php foreach ($direcciones as $dir): ?>
-                            <?= htmlspecialchars($dir['tipo_direccion'] === 'fiscal' ? 'Fiscal' : 'Recogida/Entrega'); ?>:
-                            <?= htmlspecialchars($dir['nombre_via']); ?> <?= htmlspecialchars($dir['numero']); ?>
-                            <?php if (!empty($dir['complemento'])): ?><?= ', ' . htmlspecialchars($dir['complemento']); ?><?php endif; ?>,
-                            <?= htmlspecialchars($dir['codigo_postal']); ?> <?= htmlspecialchars($dir['ciudad']); ?>, <?= htmlspecialchars($dir['pais']); ?>
-                            <br>
-                        <?php endforeach; ?>
-                    </span>
+                    <strong>Dirección:</strong>
+                        <span>
+                            <?php foreach ($direcciones as $dir): ?>
+                                <?php if ($dir['tipo_direccion'] === 'fiscal'): ?>
+                                    
+                                    <?= htmlspecialchars($dir['nombre_via']); ?> <?= htmlspecialchars($dir['numero']); ?>
+                                    <?php if (!empty($dir['complemento'])): ?>
+                                        <?= ', ' . htmlspecialchars($dir['complemento']); ?>
+                                    <?php endif; ?>,
+                                    <?= htmlspecialchars($dir['codigo_postal']); ?>
+                                    <?= htmlspecialchars($dir['ciudad']); ?>, <?= htmlspecialchars($dir['pais']); ?>
+                                    <br>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        </span>
+
                 <?php else: ?>
                     <strong>Dirección:</strong> <span>No disponible</span>
                 <?php endif; ?>
