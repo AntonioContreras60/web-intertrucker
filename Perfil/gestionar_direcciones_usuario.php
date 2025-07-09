@@ -38,7 +38,7 @@ $result_direcciones = $stmt->get_result();
     <title>Gestionar Direcciones</title>
 </head>
 <body>
-    <h1>Gestionar Direcciones de la Empresa</h1>
+    <h1>Gestionar mis Direcciones</h1>
 
     <?php if ($result_direcciones->num_rows > 0): ?>
         <ul>
