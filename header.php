@@ -190,6 +190,11 @@ if (!empty($_SESSION['impersonador_id'])) {
                                color: black !important;
                                font-size: 1em;
                                text-align: left;">
+                    <img src="/imagenes/iconos/gestion_interna.svg" alt="Gestión interna"
+                         style="width: 24px;
+                                height: 24px;
+                                vertical-align: middle;
+                                margin-right: 12px;">
                     Gestión Interna ▾
                 </button>
                 <div id="gestionInternaDropdown" style="display:none;">
@@ -248,6 +253,11 @@ if (!empty($_SESSION['impersonador_id'])) {
                                color: black !important;
                                font-size: 1em;
                                text-align: left;">
+                    <img src="/imagenes/iconos/gestion_economica.svg" alt="Gestión económica"
+                         style="width: 24px;
+                                height: 24px;
+                                vertical-align: middle;
+                                margin-right: 12px;">
                     Gestión Económica ▾
                 </button>
                 <div id="gestionEconomicaDropdown" style="display:none;">
