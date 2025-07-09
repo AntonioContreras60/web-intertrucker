@@ -38,6 +38,17 @@ $stmt->execute();
 $result  = $stmt->get_result();
 $usuario = $result ? $result->fetch_assoc() : null;
 $stmt->close();
+
+/*--- CONSULTA DE DIRECCIONES DEL USUARIO ---*/
+$sql_dir = 'SELECT nombre_via, numero, complemento, codigo_postal, ciudad, pais, tipo_direccion
+            FROM direcciones
+            WHERE usuario_id = ?';
+$stmtDir = $conn->prepare($sql_dir) or die("Error al preparar la consulta: " . $conn->error);
+$stmtDir->bind_param('i', $usuario_id);
+$stmtDir->execute();
+$resDir = $stmtDir->get_result();
+$direcciones = $resDir ? $resDir->fetch_all(MYSQLI_ASSOC) : [];
+$stmtDir->close();
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -144,6 +155,20 @@ $stmt->close();
                 <strong>Email:</strong>    <span><?= htmlspecialchars($usuario['email']); ?></span>
                 <strong>Teléfono:</strong> <span><?= htmlspecialchars($usuario['telefono']); ?></span>
                 <strong>CIF:</strong>      <span><?= htmlspecialchars($usuario['cif']); ?></span>
+                <?php if ($direcciones): ?>
+                    <strong>Direcciones:</strong>
+                    <span>
+                        <?php foreach ($direcciones as $dir): ?>
+                            <?= htmlspecialchars($dir['tipo_direccion'] === 'fiscal' ? 'Fiscal' : 'Recogida/Entrega'); ?>:
+                            <?= htmlspecialchars($dir['nombre_via']); ?> <?= htmlspecialchars($dir['numero']); ?>
+                            <?php if (!empty($dir['complemento'])): ?><?= ', ' . htmlspecialchars($dir['complemento']); ?><?php endif; ?>,
+                            <?= htmlspecialchars($dir['codigo_postal']); ?> <?= htmlspecialchars($dir['ciudad']); ?>, <?= htmlspecialchars($dir['pais']); ?>
+                            <br>
+                        <?php endforeach; ?>
+                    </span>
+                <?php else: ?>
+                    <strong>Dirección:</strong> <span>No disponible</span>
+                <?php endif; ?>
             </div>
 
             <h2 style="margin:0 0 1rem;font-size:1.25rem;">Gestión</h2>
@@ -151,8 +176,7 @@ $stmt->close();
                 <ul>
                     <li><a href="editar_perfil.php">Modificar perfil</a></li>
                     <li><a href="cambiar_contrasena.php">Cambiar contraseña</a></li>
-                    <li><a href="gestionar_direcciones_usuario.php" target="_blank">Gestionar direcciones empresa</a></li>
-                    <!-- Botón "Consultar consumo mensual" eliminado -->
+                    <!-- Botón "Gestionar direcciones empresa" eliminado -->
                 </ul>
             </nav>
         <?php else: ?>
