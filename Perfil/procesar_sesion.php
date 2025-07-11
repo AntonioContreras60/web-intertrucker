@@ -38,6 +38,16 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
 
     if (password_verify($contrasena, $row['contrasena'])) {
+        // Verificar que el rol sea uno de los permitidos para la web
+        $rolesPermitidos = ['administrador', 'gestor', 'superadmin'];
+        if (!in_array($row['rol'], $rolesPermitidos, true)) {
+            // Cerrar cualquier rastro de sesión y redirigir sin loguear
+            session_unset();
+            session_destroy();
+            header("Location: inicio_sesion.php?error=rol_no_autorizado");
+            exit;
+        }
+
         $_SESSION['usuario_id']     = $row['id'];
         $_SESSION['nombre_usuario'] = $row['nombre_usuario'];
         $_SESSION['rol']            = $row['rol'];

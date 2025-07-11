@@ -22,9 +22,9 @@ try {
     die("Error de conexión: " . $e->getMessage());
 }
 
-// 4) Buscar token_sesion, admin_id, y nombre_usuario en la tabla usuarios
+// 4) Buscar token_sesion, admin_id, nombre_usuario y rol en la tabla usuarios
 $stmt = $pdo->prepare("
-    SELECT token_sesion, admin_id, nombre_usuario
+    SELECT token_sesion, admin_id, nombre_usuario, rol
     FROM usuarios
     WHERE id = :uid
     LIMIT 1
@@ -39,6 +39,12 @@ if (!$row) {
 
 // 5) Comparar con el token que recibimos
 if ($row['token_sesion'] === $token_sesion) {
+    // Verificamos rol permitido antes de crear la sesión
+    $rolesPermitidos = ['administrador', 'gestor', 'superadmin'];
+    if (!in_array($row['rol'], $rolesPermitidos, true)) {
+        die('Solo administradores y gestores pueden acceder a la web.');
+    }
+
     // 6) Crear la sesión en PHP
     $_SESSION['usuario_id']     = $user_id;
     $_SESSION['admin_id']       = $row['admin_id'];       // si tu panel requiere admin_id

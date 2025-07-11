@@ -70,27 +70,35 @@ try {
     $stmt2 = $pdo->prepare($sqlUpdate);
     $stmt2->execute([$tokenId]);
 
-    // 5) Crear la sesión y asignar usuario_id
-    session_start();
-    $_SESSION['usuario_id'] = $usuarioId;
-
-    // 5a) Opcional: obtener admin_id, nombre_usuario, etc.
+    // 5) Cargar datos del usuario y validar rol antes de iniciar sesión
     try {
-        $sqlUsr = "SELECT admin_id, nombre_usuario 
-                   FROM usuarios 
-                   WHERE id=? 
+        $sqlUsr = "SELECT admin_id, nombre_usuario, rol
+                   FROM usuarios
+                   WHERE id=?
                    LIMIT 1";
         $stmtUsr = $pdo->prepare($sqlUsr);
         $stmtUsr->execute([$usuarioId]);
         $usrData = $stmtUsr->fetch(PDO::FETCH_ASSOC);
 
-        if ($usrData) {
-            // Ajusta estos campos según existan en la tabla 'usuarios'
-            $_SESSION['admin_id']        = (int)$usrData['admin_id'];
-            $_SESSION['nombre_usuario']  = $usrData['nombre_usuario'] ?? '';
+        if (!$usrData) {
+            echo 'Usuario no encontrado.';
+            exit;
         }
+
+        $rolesPermitidos = ['administrador', 'gestor', 'superadmin'];
+        if (!in_array($usrData['rol'], $rolesPermitidos, true)) {
+            echo 'Solo administradores y gestores pueden acceder a la web.';
+            exit;
+        }
+
+        session_start();
+        $_SESSION['usuario_id']    = $usuarioId;
+        $_SESSION['admin_id']      = (int)$usrData['admin_id'];
+        $_SESSION['nombre_usuario'] = $usrData['nombre_usuario'] ?? '';
+        $_SESSION['rol']           = $usrData['rol'];
+
     } catch (Exception $exUsr) {
-        echo "Error cargando admin_id / nombre_usuario => " . $exUsr->getMessage();
+        echo "Error cargando datos del usuario => " . $exUsr->getMessage();
         exit;
     }
 

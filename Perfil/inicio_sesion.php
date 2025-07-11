@@ -82,6 +82,7 @@
     </style>
 </head>
 
+<?php $error = $_GET['error'] ?? ''; ?>
 <body>
     <header>
         <div class="logo">
@@ -92,6 +93,9 @@
 
     <main>
         <h1>Iniciar Sesión</h1>
+        <?php if ($error === 'rol_no_autorizado'): ?>
+            <p style="color:red; text-align:center;">Solo administradores y gestores pueden acceder a la web.</p>
+        <?php endif; ?>
         
         <form action="procesar_sesion.php" method="post">
             <label for="email">Correo electrónico:</label>
