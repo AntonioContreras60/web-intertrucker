@@ -225,6 +225,7 @@ if (!empty($_SESSION['impersonador_id'])) {
                               text-decoration: none;">
                         Vehículos
                     </a>
+<?php if (!empty($_SESSION['rol']) && $_SESSION['rol'] === 'administrador'): ?>
                     <a href="/gestionar_colaboradores.php"
                        style="display: block;
                               padding: 16px 24px;
@@ -234,6 +235,7 @@ if (!empty($_SESSION['impersonador_id'])) {
                               text-decoration: none;">
                         Gestores
                     </a>
+<?php endif; ?>
                     <a href="/Perfil/gestionar_direcciones_empresa.php"
                        style="display: block;
                               padding: 16px 24px;
