@@ -1,57 +1,10 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Header InterTrucker</title>
-    <style>
-        /* Estilo general del header */
-        header {
-            background-color: #001c7d;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            /* Ajusta la altura mínima */
-            min-height: 70px;
-            /* Si deseas quitar cualquier límite de altura máxima, simplemente comenta o elimina esta línea */
-            /* max-height: 200px; */
-            /* Ajusta el padding para reducir o ampliar la distancia interior */
-            padding: 5px 20px;
-        }
-
-        /* Estilo del botón (Menú, etc.) */
-        button:hover {
-            color: #ffc107;
-        }
-
-        /* Media query para ocultar solo la imagen del logo en pantallas pequeñas (por debajo de 600px) */
-        @media (max-width: 600px) {
-            #logo img {
-                display: none;
-            }
-        }
-
-        /*
-         * NUEVA media query para ajustar el tamaño de letra en móviles
-         * Con !important para que sobrescriba los estilos en línea.
-         */
-        @media (max-width: 600px) {
-            button {
-                font-size: 1.2em !important;
-            }
-            #menuDropdown a {
-                font-size: 1.2em !important;
-            }
-        }
-    </style>
-</head>
-<body>
 <?php
-/* Arranca sesión solo si aún no lo han hecho */
+// Arranca sesión solo si aún no lo han hecho
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-/* Banner solo cuando vienes de impersonar */
+// Banner solo cuando vienes de impersonar
 if (!empty($_SESSION['impersonador_id'])) {
     echo '
     <div style="
@@ -349,14 +302,3 @@ if (!empty($_SESSION['impersonador_id'])) {
        🔍
     </a>
 </header>
-
-<!-- ========= SCRIPT para MENÚ DESPLEGABLE (mantenemos solo esto) ========= -->
-<script>
-function toggleDropdown(id) {
-    const d = document.getElementById(id);
-    d.style.display = (d.style.display === 'block') ? 'none' : 'block';
-}
-</script>
-
-</body>
-</html>

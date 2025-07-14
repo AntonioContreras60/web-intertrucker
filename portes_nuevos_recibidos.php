@@ -494,6 +494,8 @@ $num_portes_en_tren = count($portesEnTren);
   <title>Portes Nuevos Recibidos</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="header.css">
+  <script src="header.js"></script>
   <script>
     function showSection(sectionId){
       const allTabs=document.querySelectorAll('.tabs li');
@@ -1215,7 +1217,4 @@ $num_portes_en_tren = count($portesEnTren);
       </table>
     </div>
   </div>
-</main>
-
-</body>
-</html>
+<?php include 'footer.php'; ?>
