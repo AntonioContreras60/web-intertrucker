@@ -288,6 +288,8 @@ $num_tren = $res_tren->num_rows;
   <title>Portes Nuevos (Compañeros)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="header.css">
+  <script src="header.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded',function(){
       // Collapsibles => mobile
@@ -974,7 +976,4 @@ $num_tren = $res_tren->num_rows;
     </div><!-- fin trenTab -->
   </div><!-- Fin desktop-only -->
 
-</main>
-
-</body>
-</html>
+<?php include 'footer.php'; ?>

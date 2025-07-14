@@ -321,6 +321,8 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
   <title>Portes Nuevos (Creados)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="header.css">
+  <script src="header.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       // Collapsibles => mobile
@@ -909,7 +911,4 @@ $num_rows_trenes = $result_trenes ? $result_trenes->num_rows : 0;
       </table>
     </div><!-- fin trenesTab -->
   </div><!-- Fin .desktop-only -->
-</main>
-
-</body>
-</html>
+<?php include 'footer.php'; ?>
