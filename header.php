@@ -1,303 +1,107 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Header InterTrucker</title>
-    <style>
-        /* Estilo general del header */
-        header {
-            background-color: #001c7d;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            /* Ajusta la altura mínima */
-            min-height: 70px;
-            /* Si deseas quitar cualquier límite de altura máxima, simplemente comenta o elimina esta línea */
-            /* max-height: 200px; */
-            /* Ajusta el padding para reducir o ampliar la distancia interior */
-            padding: 5px 20px;
-        }
-
-        /* Estilo del botón (Menú, etc.) */
-        button:hover {
-            color: #ffc107;
-        }
-
-        /* Media query para ocultar solo la imagen del logo en pantallas pequeñas (por debajo de 600px) */
-        @media (max-width: 600px) {
-            #logo img {
-                display: none;
-            }
-        }
-
-        /*
-         * NUEVA media query para ajustar el tamaño de letra en móviles
-         * Con !important para que sobrescriba los estilos en línea.
-         */
-        @media (max-width: 600px) {
-            button {
-                font-size: 1.2em !important;
-            }
-            #menuDropdown a {
-                font-size: 1.2em !important;
-            }
-        }
-    </style>
-</head>
-<body>
 <?php
-/* Arranca sesión solo si aún no lo han hecho */
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
-/* Banner solo cuando vienes de impersonar */
+if (session_status() === PHP_SESSION_NONE) session_start();
 if (!empty($_SESSION['impersonador_id'])) {
     echo '
-    <div style="
-        background:#ffc107;
-        color:#000;
-        padding:8px 14px;
-        text-align:center;
-        font-weight:bold;
-        position:sticky;
-        top:0;left:0;right:0;
-        z-index:1000;">
-        ⚠️  Modo impersonación activo — Estás viendo la cuenta de
-        <strong>'.htmlspecialchars($_SESSION["nombre_usuario"]).'</strong>.
-        <a href="/s14_ctrl/salir_impersonar.php"
-           style="margin-left:20px;
-                  background:#d00;color:#fff;
-                  padding:6px 10px;border-radius:4px;
-                  text-decoration:none;">
-           Salir
-        </a>
+    <div style="background:#ffc107;color:#000;padding:8px 14px;text-align:center;font-weight:bold;position:sticky;top:0;left:0;right:0;z-index:1000;">
+      ⚠️  Modo impersonación activo — Estás viendo la cuenta de
+      <strong>'.htmlspecialchars($_SESSION["nombre_usuario"]).'</strong>.
+      <a href="/s14_ctrl/salir_impersonar.php" style="margin-left:20px;background:#d00;color:#fff;padding:6px 10px;border-radius:4px;text-decoration:none;">Salir</a>
     </div>';
 }
-?>
+?><!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>Header</title>
+<style>
+header{background:#001c7d;display:flex;align-items:center;justify-content:space-between;min-height:70px;padding:5px 20px;}
+button:hover{color:#ffc107;}
+#menuDropdown{display:none;position:absolute;top:100%;left:0;width:360px;max-height:72vh;overflow-y:auto;background:#fff;border-radius:8px;box-shadow:0 8px 22px rgba(0,0,0,.18);z-index:9999;}
+.dp-item,.dp-subbtn{display:flex;align-items:center;gap:14px;padding:15px 24px;font-size:1.22em;font-weight:600;text-decoration:none;border:0;cursor:pointer;}
+.dp-item{color:#0d0f12;background:#fff;}
+.dp-item:hover,.dp-subbtn:hover{background:#f3f4f6;}
+.dp-ico{width:26px;height:26px;filter:grayscale(1) brightness(0) invert(0);}
+.dp-subbtn{
+  width:100%;
+  background:#f5f6f7;
+  color:#0d0f12 !important;          /* ←– fuerza negro y visible   */
+  border-radius:8px;margin:6px 0 0 0;
+  text-align:left;outline:0;
+}
+.dp-arr{margin-left:auto;color:inherit;}
+.dp-sub{
+  display:none;flex-direction:column;
+  background:#fff;border-left:3px solid #e2e3e6;border-radius:0 0 8px 8px;
+  padding:0 0 6px 10px;
+}
+.dp-sub a{display:block;padding:10px 12px;font-size:1.05em;font-weight:500;color:#0d0f12;text-decoration:none;}
+.dp-sub a:hover{background:#eef0f4;}
+@media(max-width:600px){#logo img{display:none;} .dp-item,.dp-subbtn{font-size:1.2em!important;}}
+</style>
+</head><body>
 
-<header style="background-color:#001c7d; display: flex; align-items: center; justify-content: space-between; padding: 0px 10px;">
-    <nav style="display: flex; align-items: center; flex-wrap: wrap;">
-        <!-- Botón desplegable Menú -->
-        <div style="position: relative;">
-            <button onclick="toggleDropdown('menuDropdown')" 
-                    style="padding: 10px 16px; 
-                           background-color: rgba(0, 0, 0, 0.6); 
-                           color: white; 
-                           border-radius: 5px; 
-                           font-weight: bold; 
-                           font-size: 1em; 
-                           border: none;">
-                Menú
-            </button>
+<header>
+  <!-- BOTÓN MENÚ -->
+  <nav style="display:flex;align-items:center;position:relative;">
+    <button onclick="toggleDropdown('menuDropdown')" style="padding:9px 16px;background:#0d1117;color:#fff;border:none;border-radius:6px;font-weight:bold;cursor:pointer;">Menú</button>
 
-            <div id="menuDropdown" 
-                 style="display: none; 
-                        position: absolute; 
-                        top: 100%; 
-                        left: 0; 
-                        background-color: #f1f1f1; 
-                        min-width: 345px; 
-                        box-shadow: 0px 8px 16px rgba(0,0,0,0.2); 
-                        z-index: 9999; 
-                        max-height: 70vh; 
-                        overflow-y: auto;">
-                <a href="/portes_nuevos_recibidos.php" 
-                   style="display: block; 
-                          padding: 16px 24px; 
-                          color: black; 
-                          font-size: 1em; 
-                          text-decoration: none;">
-                    <img src="/imagenes/iconos/paquete.svg" alt="Portes Nuevos" 
-                         style="width: 24px; 
-                                height: 24px; 
-                                vertical-align: middle; 
-                                margin-right: 12px;">
-                    Portes Nuevos
-                </a>
-                <a href="/portes_cedidos.php" 
-                   style="display: block; 
-                          padding: 16px 24px; 
-                          color: black; 
-                          font-size: 1em; 
-                          text-decoration: none;">
-                    <img src="/imagenes/iconos/transferidos.svg" alt="Portes Transferidos" 
-                         style="width: 24px; 
-                                height: 24px; 
-                                vertical-align: middle; 
-                                margin-right: 12px;">
-                    Portes Transferidos
-                </a>
-                <a href="/portes_trucks.php" 
-                   style="display: block; 
-                          padding: 16px 24px; 
-                          color: black; 
-                          font-size: 1em; 
-                          text-decoration: none;">
-                    <img src="/imagenes/iconos/portes_camiones.svg" alt="Portes a Camiones" 
-                         style="width: 24px; 
-                                height: 24px; 
-                                vertical-align: middle; 
-                                margin-right: 12px;">
-                    Portes a Camiones
-                </a>
-                <a href="/listado_expedidor.php" 
-                   style="display: block; 
-                          padding: 16px 24px; 
-                          color: black; 
-                          font-size: 1em; 
-                          text-decoration: none;">
-                    <img src="/imagenes/iconos/package_truck_ramp.svg?v=1" alt="Expedidor Destinatario" 
-                         style="width: 24px; 
-                                height: 24px; 
-                                vertical-align: middle; 
-                                margin-right: 12px;">
-                    Salida-Entrada Almacén
-                </a>
-                <a href="/facturas.php" 
-                   style="display: block; 
-                          padding: 16px 24px; 
-                          color: black; 
-                          font-size: 1em; 
-                          text-decoration: none;">
-                    <img src="/imagenes/iconos/facturas.svg" alt="Facturas" 
-                         style="width: 24px; 
-                                height: 24px; 
-                                vertical-align: middle; 
-                                margin-right: 12px;">
-                    Facturas
-                </a>
-                <a href="/my_network.php" 
-                   style="display: block; 
-                          padding: 16px 24px; 
-                          color: black; 
-                          font-size: 1em; 
-                          text-decoration: none;">
-                    <img src="/imagenes/iconos/mis_contactos.svg" alt="Mis contactos" 
-                         style="width: 24px; 
-                                height: 24px; 
-                                vertical-align: middle; 
-                                margin-right: 12px;">
-                    Mis contactos
-                </a>
-                <a href="/my_trucks.php" 
-                   style="display: block; 
-                          padding: 16px 24px; 
-                          color: black; 
-                          font-size: 1em; 
-                          text-decoration: none;">
-                    <img src="/imagenes/iconos/mis_vehiculos.svg" alt="Mis Vehículos" 
-                         style="width: 24px; 
-                                height: 24px; 
-                                vertical-align: middle; 
-                                margin-right: 12px;">
-                    Mis Vehículos
-                </a>
-                <a href="/my_truckers.php" 
-                   style="display: block; 
-                          padding: 16px 24px; 
-                          color: black; 
-                          font-size: 1em; 
-                          text-decoration: none;">
-                    <img src="/imagenes/iconos/mis_conductores.svg" alt="Mis Conductores" 
-                         style="width: 24px; 
-                                height: 24px; 
-                                vertical-align: middle; 
-                                margin-right: 12px;">
-                    Mis Conductores
-                </a>
-                <a href="/gestionar_colaboradores.php" 
-                   style="display: block; 
-                          padding: 16px 24px; 
-                          color: black; 
-                          font-size: 1em; 
-                          text-decoration: none;">
-                    <img src="/imagenes/iconos/icono_computador.svg" alt="Gestores" 
-                         style="width: 24px; 
-                                height: 24px; 
-                                vertical-align: middle; 
-                                margin-right: 12px;">
-                    Mis Gestores
-                </a>
-                <a href="/mis_asociados.php" 
-                   style="display: block; 
-                          padding: 16px 24px; 
-                          color: black; 
-                          font-size: 1em; 
-                          text-decoration: none;">
-                    <img src="/imagenes/iconos/mis_conductores.svg" alt="Mis Conductores" 
-                         style="width: 24px; 
-                                height: 24px; 
-                                vertical-align: middle; 
-                                margin-right: 12px;">
-                    Mis Conductores Asociados
-                </a>
-                <a href="https://intertrucker.net/Perfil/perfil_usuario.php" 
-                style="display: block; 
-                          padding: 16px 24px; 
-                          color: black; 
-                          font-size: 1em; 
-                          text-decoration: none;">
-                    <img src="/imagenes/iconos/perfil.svg" alt="Mi Perfil" 
-                         style="width: 24px; 
-                                height: 24px; 
-                                vertical-align: middle; 
-                                margin-right: 12px;">
-                    Gestión
-                </a>
-                <a href="https://intertrucker.net/Perfil/logout.php" 
-                   style="display: block; 
-                          padding: 16px 24px; 
-                          color: black; 
-                          font-size: 1em; 
-                          text-decoration: none;">
-                    <img src="/imagenes/iconos/cerrar_sesion.svg" alt="Cerrar sesión" 
-                         style="width: 24px; 
-                                height: 24px; 
-                                vertical-align: middle; 
-                                margin-right: 12px;">
-                    Cerrar sesión
-                </a>
-            </div>
-        </div>
-    </nav>
+    <div id="menuDropdown">
+      <a class="dp-item" href="/portes_nuevos_recibidos.php"><img class="dp-ico" src="/imagenes/iconos/paquete.svg">Portes Nuevos</a>
+      <a class="dp-item" href="/portes_cedidos.php"><img class="dp-ico" src="/imagenes/iconos/transferidos.svg">Portes Transferidos</a>
+      <a class="dp-item" href="/portes_trucks.php"><img class="dp-ico" src="/imagenes/iconos/portes_camiones.svg">Portes a Camiones</a>
+      <a class="dp-item" href="/listado_expedidor.php"><img class="dp-ico" src="/imagenes/iconos/package_truck_ramp.svg?v=1">Salida-Entrada Almacén</a>
+      <a class="dp-item" href="/facturas.php"><img class="dp-ico" src="/imagenes/iconos/facturas.svg">Crear Facturas</a>
+      <a class="dp-item" href="/my_network.php"><img class="dp-ico" src="/imagenes/iconos/mis_contactos.svg">Mis contactos</a>
 
-    <!-- Espaciador para separar menú y logo -->
-    <div style="flex-grow: 1;"></div>
+      <!-- Gestión Interna -->
+      <button class="dp-subbtn" onclick="toggleSub('giSub')"><img class="dp-ico" src="/imagenes/iconos/gestion_interna.svg">Gestión Interna<span class="dp-arr">▾</span></button>
+      <div id="giSub" class="dp-sub">
+        <a href="/my_truckers.php">Camioneros</a>
+        <a href="/mis_asociados.php">Asociados</a>
+        <a href="/my_trucks.php">Vehículos</a>
+<?php if(!empty($_SESSION['rol']) && $_SESSION['rol']==='administrador'):?>
+        <a href="/gestionar_colaboradores.php">Gestores</a>
+<?php endif;?>
+        <a href="/Perfil/gestionar_direcciones_empresa.php">Direcciones empresa</a>
+      </div>
 
-    <!-- Contenedor del Logo y el nombre del usuario -->
-    <div id="logo" style="text-align: center;">
-        <a href="/portes_nuevos_recibidos.php" style="max-width: 1000px;">
-            <img src="/imagenes/logos/intertrucker_chato.jpg" 
-                 alt="InterTrucker Logo" 
-                 style="max-height: 100px; 
-                        width: auto; 
-                        height: auto; 
-                        max-width: 100%;">
-        </a>
-        <div style="background: #001c7d; padding: 3px; color: white; font-size: 20px;">
-            <!-- Muestra el nombre del usuario -->
-            <?php echo $_SESSION['nombre_usuario']; ?>
-        </div>
+      <!-- Gestión Económica -->
+      <button class="dp-subbtn" onclick="toggleSub('geSub')"><img class="dp-ico" src="/imagenes/iconos/gestion_economica.svg">Gestión Económica<span class="dp-arr">▾</span></button>
+      <div id="geSub" class="dp-sub">
+        <a href="/Perfil/portes_consumo_mensual.php">Consultar consumo mensual</a>
+        <a href="/facturas_intertrucker.php">Facturas</a>
+        <a href="/datos_facturacion.php">Datos de facturación</a>
+      </div>
+
+      <a class="dp-item" href="/Perfil/perfil_usuario.php"><img class="dp-ico" src="/imagenes/iconos/perfil.svg">Perfil</a>
+      <a class="dp-item" href="/Perfil/logout.php"><img class="dp-ico" src="/imagenes/iconos/cerrar_sesion.svg">Cerrar sesión</a>
     </div>
+  </nav>
 
-    <!-- Espaciador para alinear la lupa a la derecha -->
-    <div style="flex-grow: 1;"></div>
+  <!-- LOGO + USUARIO -->
+  <div id="logo" style="text-align:center;">
+     <a href="/portes_nuevos_recibidos.php"><img src="/imagenes/logos/intertrucker_chato.jpg" style="max-height:100px;width:auto;"></a>
+     <div style="background:#001c7d;color:#fff;font-size:20px;"><?php echo $_SESSION['nombre_usuario']; ?></div>
+  </div>
 
-    <!-- Enlace simple a buscador_general.php al pulsar la lupa -->
-    <a href="https://intertrucker.net/buscador_general.php" 
-       style="font-size:2rem; color:white; text-decoration:none;">
-       🔍
-    </a>
+  <!-- LUPA -->
+  <a href="/buscador_general.php" style="font-size:2rem;color:#fff;text-decoration:none;">🔍</a>
 </header>
 
-<!-- ========= SCRIPT para MENÚ DESPLEGABLE (mantenemos solo esto) ========= -->
 <script>
-function toggleDropdown(id) {
-    const d = document.getElementById(id);
-    d.style.display = (d.style.display === 'block') ? 'none' : 'block';
+function toggleDropdown(id){
+  const m=document.getElementById(id);
+  m.style.display=(m.style.display==='block')?'none':'block';
+  if(m.style.display==='none') document.querySelectorAll('.dp-sub').forEach(s=>s.style.display='none');
 }
+function toggleSub(id){
+  const s=document.getElementById(id);
+  s.style.display=(s.style.display==='block')?'none':'block';
+  document.querySelectorAll('.dp-sub').forEach(o=>{if(o.id!==id) o.style.display='none';});
+}
+document.addEventListener('click',e=>{
+  const m=document.getElementById('menuDropdown');
+  const btn=document.querySelector('button[onclick^="toggleDropdown"]');
+  if(m.style.display==='block' && !m.contains(e.target) && !btn.contains(e.target)){
+      m.style.display='none';
+      document.querySelectorAll('.dp-sub').forEach(s=>s.style.display='none');
+  }
+});
 </script>
-
-</body>
-</html>
+</body></html>
