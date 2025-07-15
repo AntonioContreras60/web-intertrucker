@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: db5016197746.hosting-data.io
--- Tiempo de generación: 26-06-2025 a las 04:45:47
+-- Tiempo de generación: 15-07-2025 a las 12:13:20
 -- Versión del servidor: 10.11.7-MariaDB-log
 -- Versión de PHP: 7.4.33
 
@@ -510,6 +510,45 @@ CREATE TRIGGER `crear_seleccionados_oferta` AFTER UPDATE ON `ofertas_varios` FOR
 END
 $$
 DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `trg_oferta_update_contactos` AFTER INSERT ON `ofertas_varios` FOR EACH ROW BEGIN
+  DECLARE admin_origen INT;
+  DECLARE admin_destino INT;
+
+  -- 1) Administrador del ofertante
+  SELECT COALESCE(admin_id, id)
+    INTO admin_origen
+    FROM usuarios
+   WHERE id = NEW.ofertante_id
+   LIMIT 1;
+
+  -- 2) Administrador del destinatario
+  SELECT COALESCE(admin_id, id)
+    INTO admin_destino
+    FROM usuarios
+   WHERE id = NEW.usuario_id
+   LIMIT 1;
+
+  -- 3) UPDATE / INSERT en contactos
+  IF EXISTS(
+    SELECT 1
+      FROM contactos
+     WHERE usuario_id = admin_destino
+       AND contacto_usuario_id = admin_origen
+  ) THEN
+    UPDATE contactos
+       SET visibilidad = 'completo'
+     WHERE usuario_id = admin_destino
+       AND contacto_usuario_id = admin_origen;
+  ELSE
+    INSERT INTO contactos
+      (usuario_id, contacto_usuario_id, visibilidad)
+    VALUES
+      (admin_destino, admin_origen, 'completo');
+  END IF;
+END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -631,6 +670,46 @@ DELIMITER $$
 CREATE TRIGGER `insertar_fecha_seleccion` BEFORE INSERT ON `seleccionados_oferta` FOR EACH ROW BEGIN
     -- Establecer la fecha actual en el campo fecha_seleccion antes de la inserción
     SET NEW.fecha_seleccion = NOW();
+END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `trg_sel_oferta_update_contactos` AFTER INSERT ON `seleccionados_oferta` FOR EACH ROW BEGIN
+  DECLARE admin_origen INT;
+  DECLARE admin_destino INT;
+
+  -- 1) Calcular administrador del ofertante
+  SELECT COALESCE(admin_id, id)
+    INTO admin_origen
+    FROM usuarios
+   WHERE id = NEW.ofertante_id
+   LIMIT 1;
+
+  -- 2) Calcular administrador del aceptante
+  SELECT COALESCE(admin_id, id)
+    INTO admin_destino
+    FROM usuarios
+   WHERE id = NEW.usuario_id
+   LIMIT 1;
+
+  -- 3) INSERT/UPDATE en contactos para ofertante → aceptante
+  IF EXISTS (
+    SELECT 1
+      FROM contactos
+     WHERE usuario_id = admin_origen
+       AND contacto_usuario_id = admin_destino
+  ) THEN
+    UPDATE contactos
+       SET visibilidad = 'completo'
+     WHERE usuario_id = admin_origen
+       AND contacto_usuario_id = admin_destino;
+  ELSE
+    INSERT INTO contactos
+      (usuario_id, contacto_usuario_id, visibilidad)
+    VALUES
+      (admin_origen, admin_destino, 'completo');
+  END IF;
+
 END
 $$
 DELIMITER ;
@@ -925,7 +1004,8 @@ ALTER TABLE `camioneros`
 --
 ALTER TABLE `contactos`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `usuario_id` (`usuario_id`),
+  ADD UNIQUE KEY `uniq_usuario_contacto` (`usuario_id`,`contacto_usuario_id`),
+  ADD UNIQUE KEY `usuario_contacto_unique` (`usuario_id`,`contacto_usuario_id`),
   ADD KEY `contacto_usuario_id` (`contacto_usuario_id`) USING BTREE;
 
 --
@@ -941,7 +1021,7 @@ ALTER TABLE `direcciones`
 --
 ALTER TABLE `documentos_camioneros`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `camionero_id` (`camionero_id`);
+  ADD UNIQUE KEY `camionero_doc_unique` (`camionero_id`,`tipo_documento`);
 
 --
 -- Indices de la tabla `documentos_usuarios`
@@ -974,7 +1054,8 @@ ALTER TABLE `entidad_cedente`
 --
 ALTER TABLE `eventos`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `unique_evento` (`porte_id`,`tipo_evento`) USING BTREE;
+  ADD UNIQUE KEY `unique_evento` (`porte_id`,`tipo_evento`) USING BTREE,
+  ADD UNIQUE KEY `evento_unico` (`porte_id`,`tipo_evento`);
 
 --
 -- Indices de la tabla `facturas`
@@ -1007,7 +1088,7 @@ ALTER TABLE `grupos`
 --
 ALTER TABLE `grupo_contactos`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `grupo_id` (`grupo_id`),
+  ADD UNIQUE KEY `grupo_contacto_unique` (`grupo_id`,`contacto_id`,`entidad_id`),
   ADD KEY `contacto_id` (`contacto_id`);
 
 --
@@ -1122,7 +1203,7 @@ ALTER TABLE `tren`
 --
 ALTER TABLE `tren_camionero`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `tren_id` (`tren_id`),
+  ADD UNIQUE KEY `tren_camionero_activo_unique` (`tren_id`,`fin_tren_camionero`),
   ADD KEY `camionero_id` (`camionero_id`);
 
 --
