@@ -20,11 +20,11 @@ if ($usuarioId < 1) {
     exit;
 }
 
-// --- 2) Conectar a la base de datos (ajusta credenciales) ---
-$dbHost = "db5016197746.hosting-data.io";
-$dbUser = "dbu4085097";
-$dbPass = "123intertruckerya";
-$dbName = "dbs13181300";
+// --- 2) Conectar a la base de datos usando variables de entorno ---
+$dbHost = getenv('DB_HOST');
+$dbUser = getenv('DB_USER');
+$dbPass = getenv('DB_PASS');
+$dbName = getenv('DB_NAME');
 
 try {
     $pdo = new PDO(

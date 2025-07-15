@@ -10,11 +10,11 @@ ini_set('display_errors', 0);
 ini_set('display_startup_errors', 0);
 error_reporting(0);
 
-// Conexión a la base de datos
-$servername = "db5016197746.hosting-data.io";
-$username   = "dbu4085097";
-$password   = "123intertruckerya";
-$dbname     = "dbs13181300";
+// Conexión a la base de datos usando variables de entorno
+$servername = getenv('DB_HOST');
+$username   = getenv('DB_USER');
+$password   = getenv('DB_PASS');
+$dbname     = getenv('DB_NAME');
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {

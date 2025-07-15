@@ -10,10 +10,10 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
-$servername = "db5016197746.hosting-data.io";
-$username   = "dbu4085097";
-$password   = "123intertruckerya";
-$dbname     = "dbs13181300";
+$servername = getenv('DB_HOST');
+$username   = getenv('DB_USER');
+$password   = getenv('DB_PASS');
+$dbname     = getenv('DB_NAME');
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {

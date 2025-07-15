@@ -61,10 +61,10 @@ if (isset($_POST['importar']) && isset($_FILES['fichero_datos'])) {
     // ------------------------------------------------
     // 2.4. Conexión PDO + transacción
     // ------------------------------------------------
-    $dbHost = "db5016197746.hosting-data.io";
-    $dbUser = "dbu4085097";
-    $dbPass = "123intertruckerya";
-    $dbName = "dbs13181300";
+    $dbHost = getenv('DB_HOST');
+    $dbUser = getenv('DB_USER');
+    $dbPass = getenv('DB_PASS');
+    $dbName = getenv('DB_NAME');
     $dsn = "mysql:host=$dbHost;dbname=$dbName;charset=utf8mb4";
 
     try {
@@ -292,7 +292,7 @@ function parseRow(array $header, array $row): array {
                 break;
 
             case 'adr':
-                $data['adr'] = boolVal($val);
+                $data['adr'] = boolTextToInt($val);
                 break;
 
             default:
@@ -352,7 +352,7 @@ function parseXmlNode(SimpleXMLElement $nodo): array {
                 processFechaHoraLoc($data, $val, 'entrega');
                 break;
             case 'adr':
-                $data['adr'] = boolVal($val);
+                $data['adr'] = boolTextToInt($val);
                 break;
             default:
                 if ($val !== '') {
@@ -494,10 +494,10 @@ function fixHora(string $val): string {
 }
 
 /**
- * boolVal()
+ * boolTextToInt()
  * Convierte “sí”, “yes”, “true”, etc. a 1 y “no”, “false” a 0
  */
-function boolVal(string $s): int {
+function boolTextToInt(string $s): int {
     $s = mb_strtolower(trim($s));
     $yes = ["si","sí","yes","oui","ja","sim","true","1"];
     $no  = ["no","false","nein","non","nao","não","0"];
