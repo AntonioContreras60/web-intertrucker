@@ -281,7 +281,7 @@ $stmt_salida->close();
         <h1>Gestión de Recogida - Porte ID: <?php echo $porte_id; ?></h1>
         <?php if ($porte_info): ?>
             <p><strong>Mercancía:</strong> <?php echo $porte_info['mercancia']; ?></p>
-            <p><strong>Cantidad:</strong> <?php echo $porte_info['cantidad']; ?></p>
+            <p><strong>Nº Palets:</strong> <?php echo $porte_info['cantidad']; ?></p>
             <p><strong>Origen:</strong> <?php echo $porte_info['origen']; ?></p>
             <p><strong>Destino:</strong> <?php echo $porte_info['destino']; ?></p>
             <p><strong>Fecha de Recogida:</strong> <?php echo $porte_info['fecha_recogida']; ?></p>

@@ -242,7 +242,7 @@ foreach ($portes as $p) {
                         <th>ID Porte</th>
                         <th>Mercancía</th>
                         <th>Tipo de Palet</th>
-                        <th>Cantidad</th>
+                        <th>Nº Palets</th>
                         <th>Peso Total</th>
                         <th>Volumen Total</th>
                         <th>Estado</th>
@@ -311,7 +311,7 @@ foreach ($portes as $p) {
                     <h3>ID Porte: <?php echo htmlspecialchars($porte['porte_id']); ?></h3>
                     <p><strong>Mercancía:</strong> <?php echo htmlspecialchars($porte['mercancia_descripcion']); ?></p>
                     <p><strong>Tipo de Palet:</strong> <?php echo htmlspecialchars($porte['tipo_palet']); ?></p>
-                    <p><strong>Cantidad:</strong> <?php echo htmlspecialchars($porte['cantidad']); ?></p>
+                    <p><strong>Nº Palets:</strong> <?php echo htmlspecialchars($porte['cantidad']); ?></p>
                     <p><strong>Peso Total:</strong> <?php echo htmlspecialchars($porte['peso_total']); ?></p>
                     <p><strong>Volumen Total:</strong> <?php echo htmlspecialchars($porte['volumen_total']); ?></p>
                     <p><strong>Estado:</strong> <?php echo htmlspecialchars($porte['estado_recogida_entrega']); ?></p>
