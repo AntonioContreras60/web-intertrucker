@@ -375,7 +375,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php endif; ?>
 
 <p>
-  <button type="button" onclick="history.back()">Volver atrás</button>
+  <button type="button" onclick="window.location.href='my_truckers.php'">Volver atrás</button>
 </p>
 
 </body>

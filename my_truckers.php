@@ -190,10 +190,9 @@ if (isset($_GET['toggle_id']) && isset($_GET['estado'])) {
                     <td><?= htmlspecialchars($camionero['fecha_nacimiento']) ?></td>
                     <td><?= htmlspecialchars($camionero['fecha_contratacion']) ?></td>
                     <td>
-                        <a href="my_truckers.php?toggle_id=<?= $camionero['camionero_id'] ?>&estado=<?= $camionero['activo'] ?>"
-                           class="toggle-button <?= $camionero['activo'] ? 'activo' : 'no-activo' ?>">
+                        <span class="toggle-button <?= $camionero['activo'] ? 'activo' : 'no-activo' ?>">
                             <?= $camionero['activo'] ? 'Activo' : 'No Activo' ?>
-                        </a>
+                        </span>
                     </td>
                     <td>
                         <a href="editar_camionero.php?id=<?= $camionero['camionero_id'] ?>">Detalles</a>
