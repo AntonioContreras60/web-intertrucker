@@ -13,9 +13,9 @@ if ($user_id <= 0 || empty($token_sesion)) {
 // 3) Conexión a la BD (ajusta tus credenciales si cambian)
 try {
     $pdo = new PDO(
-        "mysql:host=db5016197746.hosting-data.io;dbname=dbs13181300;charset=utf8mb4",
-        "dbu4085097",
-        "123intertruckerya"
+        "mysql:host=".getenv('DB_HOST').";dbname=".getenv('DB_NAME').";charset=utf8mb4",
+        getenv('DB_USER'),
+        getenv('DB_PASS')
     );
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (Exception $e) {
