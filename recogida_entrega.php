@@ -105,7 +105,7 @@ if ($result_simple_porte && $result_simple_porte->num_rows > 0) {
     echo "<h2>Información básica del porte:</h2>";
     echo "<strong>Mercancía:</strong> " . $porte_info_simple['mercancia_descripcion'] . "<br>";
     echo "<strong>Tipo de palet:</strong> " . $porte_info_simple['tipo_palet'] . "<br>"; // Añadido tipo de porte
-    echo "<strong>Cantidad:</strong> " . $porte_info_simple['cantidad'] . "<br>";
+    echo "<strong>Nº Palets:</strong> " . $porte_info_simple['cantidad'] . "<br>";
     echo "<strong>Origen:</strong> " . $porte_info_simple['localizacion_recogida'] . "<br>";
     echo "<strong>Fecha de Recogida:</strong> " . $porte_info_simple['fecha_recogida'] . "<br>";
     echo "<strong>Destino:</strong> " . $porte_info_simple['localizacion_entrega'] . "<br>";

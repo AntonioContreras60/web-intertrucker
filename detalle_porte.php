@@ -202,7 +202,7 @@ if ($result_tren_camionero->num_rows > 0) {
             <strong>Lugar de entrega:</strong> <?php echo $porte['localizacion_entrega']; ?>
         </div>
         <div class="detail-item">
-            <strong>Cantidad:</strong> <?php echo $porte['cantidad']; ?>
+            <strong>Nº Palets:</strong> <?php echo $porte['cantidad']; ?>
         </div>
         <div class="detail-item">
             <strong>Peso total:</strong> <?php echo $porte['peso_total']; ?> kg

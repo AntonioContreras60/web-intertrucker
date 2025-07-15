@@ -97,7 +97,7 @@ $stmt_evento->close();
 if (!empty($porte_info)) {
     echo "<h3>Detalles del Porte</h3>";
     echo "<p><strong>Mercancía:</strong> " . $porte_info['mercancia'] . "</p>";
-    echo "<p><strong>Cantidad:</strong> " . $porte_info['cantidad'] . "</p>";
+    echo "<p><strong>Nº Palets:</strong> " . $porte_info['cantidad'] . "</p>";
     echo "<p><strong>Origen:</strong> " . $porte_info['origen'] . "</p>";
     echo "<p><strong>Destino:</strong> " . $porte_info['destino'] . "</p>";
     echo "<p><strong>Fecha de recogida:</strong> " . $porte_info['fecha_recogida'] . "</p>";

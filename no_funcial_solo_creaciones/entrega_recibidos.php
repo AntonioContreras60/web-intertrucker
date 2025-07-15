@@ -495,7 +495,7 @@ mysqli_close($conn);
         <?php if ($porte_info): ?>
             <p><strong>Mercancía:</strong> <?php echo $porte_info['mercancia']; ?></p>
             <p><strong>tipo palet:</strong> <?php echo $porte_info['tipo_palet']; ?></p>
-            <p><strong>Cantidad:</strong> <?php echo $porte_info['cantidad']; ?></p>
+            <p><strong>Nº Palets:</strong> <?php echo $porte_info['cantidad']; ?></p>
             <p><strong>Peso:</strong> <?php echo $porte_info['peso_total']; ?></p>    
             <p><strong>Volumen:</strong> <?php echo $porte_info['volumen_total']; ?></p>
             <p><strong>Origen:</strong> <?php echo $porte_info['origen']; ?></p>

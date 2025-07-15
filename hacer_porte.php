@@ -146,7 +146,7 @@ $stmt_admin->close();
           echo "<p><strong>Tipo Palet:</strong> " . htmlspecialchars($row_porte['tipo_palet']) . "</p>";
       }
       if (!empty($row_porte['cantidad'])) {
-          echo "<p><strong>Cantidad:</strong> " . htmlspecialchars($row_porte['cantidad']) . "</p>";
+          echo "<p><strong>Nº Palets:</strong> " . htmlspecialchars($row_porte['cantidad']) . "</p>";
       }
       if (!empty($row_porte['peso_total'])) {
           echo "<p><strong>Peso Total:</strong> " . htmlspecialchars($row_porte['peso_total']) . " kg</p>";

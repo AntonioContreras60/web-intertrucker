@@ -251,7 +251,7 @@ mysqli_close($conn);
         <h1>Gestión de Recogida - Porte ID: <?php echo htmlspecialchars($porte_id); ?></h1>
         <?php if ($porte_info): ?>
             <p><strong>Mercancía:</strong> <?php echo htmlspecialchars($porte_info['mercancia']); ?></p>
-            <p><strong>Cantidad:</strong> <?php echo htmlspecialchars($porte_info['cantidad']); ?></p>
+            <p><strong>Nº Palets:</strong> <?php echo htmlspecialchars($porte_info['cantidad']); ?></p>
             <p><strong>Origen:</strong> <?php echo htmlspecialchars($porte_info['origen']); ?></p>
             <p><strong>Destino:</strong> <?php echo htmlspecialchars($porte_info['destino']); ?></p>
             <p><strong>Fecha de Recogida:</strong> <?php echo htmlspecialchars($porte_info['fecha_recogida']); ?></p>

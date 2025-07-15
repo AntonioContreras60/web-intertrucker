@@ -176,7 +176,7 @@ $conn->close();
 </select>
 
 
-                <label for="cantidad">Cantidad:</label>
+                <label for="cantidad">Nº Palets:</label>
                 <input type="text" id="cantidad" name="cantidad"><br>
 
                 <label for="peso_total">Peso Total (kg):</label>

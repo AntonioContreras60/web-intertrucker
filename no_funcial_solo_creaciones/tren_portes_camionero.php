@@ -141,7 +141,7 @@ $nombre_camionero = $camionero ? $camionero['nombre'] . " " . $camionero['apelli
             <div class="card">
                 <h3>Mercancía: <?php echo htmlspecialchars($row['mercancia_descripcion']); ?></h3>
                 <p><strong>Tipo de Palet:</strong> <?php echo htmlspecialchars($row['tipo_palet']); ?></p>
-                <p><strong>Cantidad:</strong> <?php echo htmlspecialchars($row['cantidad']); ?></p>
+                <p><strong>Nº Palets:</strong> <?php echo htmlspecialchars($row['cantidad']); ?></p>
                 <p><strong>Peso Total:</strong> <?php echo htmlspecialchars($row['peso_total']); ?></p>
                 <p><strong>Volumen Total:</strong> <?php echo htmlspecialchars($row['volumen_total']); ?></p>
                 <p><strong>Estado:</strong> <?php echo htmlspecialchars($row['estado_recogida_entrega']); ?></p>
