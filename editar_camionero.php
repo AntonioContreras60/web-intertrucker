@@ -381,7 +381,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <td><?= htmlspecialchars($doc['nombre_archivo']) ?></td>
           <td><?= htmlspecialchars($doc['fecha_subida']) ?></td>
           <td>
-            <a href="<?= htmlspecialchars($doc['ruta_archivo']) ?>" target="_blank">Ver</a>
+            <a href="descargar_documento.php?id=<?= $doc['id'] ?>&tipo=camionero" target="_blank">Ver</a>
             <!-- Aquí podrías añadir un botón para eliminar el documento si quieres -->
           </td>
         </tr>
