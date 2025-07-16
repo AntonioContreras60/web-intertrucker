@@ -280,6 +280,12 @@ main nav {
     margin-bottom: var(--spacing-base);
 }
 
+/* Resaltar títulos de apartados en formularios */
+legend {
+    font-weight: bold;
+    color: var(--color-primary-hover);
+}
+
 /* ==============================
    PIE DE PÁGINA (FLEX)
 ============================== */
