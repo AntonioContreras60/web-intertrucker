@@ -93,8 +93,10 @@ function buscar_o_guardar_empresa($conn, $nombre, $direccion, $telefono, $email,
             } else {
                 die("Error al insertar entidad: " . $conn->error);
             }
+
         }
     }
+
 }
 
 // Procesar la solicitud POST
@@ -302,8 +304,62 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Error al ejecutar la consulta: " . $stmt->error);
     }
 
+    $porte_id = $stmt->insert_id;
+
     // Aquí se ha creado el porte sin problemas
     echo "Porte creado correctamente.";
+
+    /* ---------------------- Subir documentos adjuntos ---------------------- */
+    $uploadDir = __DIR__ . '/uploads/portes/';
+    if (!is_dir($uploadDir)) {
+        mkdir($uploadDir, 0777, true);
+    }
+
+    $maxSize = 500 * 1024 * 1024; // 500 MB
+    $allowed = ['pdf', 'jpg', 'jpeg', 'png'];
+    $docErrors = [];
+
+    if (!empty($_FILES['documentos_porte']['name'][0])) {
+        foreach ($_FILES['documentos_porte']['name'] as $i => $nombre) {
+            $tmp  = $_FILES['documentos_porte']['tmp_name'][$i];
+            $size = $_FILES['documentos_porte']['size'][$i];
+            $err  = $_FILES['documentos_porte']['error'][$i];
+            $ext  = strtolower(pathinfo($nombre, PATHINFO_EXTENSION));
+
+            if ($err !== UPLOAD_ERR_OK) {
+                $docErrors[] = "$nombre: error al subir";
+                continue;
+            }
+            if ($size > $maxSize) {
+                $docErrors[] = "$nombre supera el tamaño máximo";
+                continue;
+            }
+            if (!in_array($ext, $allowed)) {
+                $docErrors[] = "$nombre tiene una extensión no permitida";
+                continue;
+            }
+
+            $unique = time() . '_' . bin2hex(random_bytes(3)) . '.' . $ext;
+            if (move_uploaded_file($tmp, $uploadDir . $unique)) {
+                $ruta = 'uploads/portes/' . $unique;
+                $tipo = $ext;
+                $qi = $conn->prepare("INSERT INTO documentos_portes (porte_id, nombre_archivo, ruta_archivo, tipo_documento, fecha_subida) VALUES (?,?,?,?,NOW())");
+                $qi->bind_param("isss", $porte_id, $nombre, $ruta, $tipo);
+                $qi->execute();
+                $qi->close();
+            } else {
+                $docErrors[] = "No se pudo mover $nombre";
+            }
+        }
+    }
+
+    if ($docErrors) {
+        echo "<div class='error-documentos'><p>Errores al subir documentos:</p><ul>";
+        foreach ($docErrors as $e) {
+            echo '<li>'.htmlspecialchars($e).'</li>';
+        }
+        echo '</ul></div>';
+    }
 
     // Validar y crear cliente solo si tiene nombre y email
     if (!empty($_POST['cliente_nombre']) && !empty($_POST['cliente_email'])) {
