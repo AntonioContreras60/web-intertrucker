@@ -191,8 +191,8 @@ if ($rol === 'administrador' || $rol === 'gestor') {
             </select>
 
             <!-- FOTO -->
-            <label for="foto">Tomar Foto:</label>
-            <input type="file" id="foto" name="foto" accept="image/*" capture="camera">
+            <label for="foto">Adjuntar Factura (PDF o imagen, máx 20 MB):</label>
+            <input type="file" id="foto" name="foto" accept="application/pdf,image/*">
 
             <!-- OBSERVACIONES -->
             <label for="observaciones">Observaciones:</label>

@@ -4,6 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 include 'conexion.php'; // Conexión a la base de datos
+include 'funciones_subida.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
@@ -54,47 +55,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo "Vehículo añadido exitosamente.";
 
                 // ---------- Procesar subida de documentos ----------
-                $uploadDir = __DIR__ . '/uploads/vehiculos/';
-                if (!is_dir($uploadDir)) {
-                    mkdir($uploadDir, 0777, true);
-                }
-
-                function procesarArchivoVeh($fileArray, $vehiculoId, $conn) {
-                    global $uploadDir;
-                    if ($fileArray['error'] === UPLOAD_ERR_OK) {
-                        $tmpName      = $fileArray['tmp_name'];
-                        $originalName = basename($fileArray['name']);
-                        $uniqueName   = time() . '_' . $originalName;
-                        $destPath     = $uploadDir . $uniqueName;
-
-                        if (move_uploaded_file($tmpName, $destPath)) {
-                            $rutaBD   = 'uploads/vehiculos/' . $uniqueName;
-                            $tipoMime = $fileArray['type'];
-                            $tamKB    = round(filesize($destPath) / 1024);
-
-                            $sqlDoc = "INSERT INTO documentos_vehiculos (vehiculo_id, nombre_archivo, ruta_archivo, tipo_mime, tamano_kb) VALUES (?, ?, ?, ?, ?)";
-                            $stmtDoc = $conn->prepare($sqlDoc);
-                            if ($stmtDoc) {
-                                $stmtDoc->bind_param('isssi', $vehiculoId, $originalName, $rutaBD, $tipoMime, $tamKB);
-                                $stmtDoc->execute();
-                                $stmtDoc->close();
-                            }
-                        }
-                    }
-                }
-
                 if (!empty($_FILES['documentosVehiculo']['name'][0])) {
                     $docs = $_FILES['documentosVehiculo'];
                     for ($i = 0; $i < count($docs['name']); $i++) {
-                        if ($docs['error'][$i] === UPLOAD_ERR_OK) {
-                            $f = [
-                                'name'     => $docs['name'][$i],
-                                'type'     => $docs['type'][$i],
-                                'tmp_name' => $docs['tmp_name'][$i],
-                                'error'    => $docs['error'][$i],
-                                'size'     => $docs['size'][$i]
-                            ];
-                            procesarArchivoVeh($f, $nuevo_vehiculo_id, $conn);
+                        $f = [
+                            'name'     => $docs['name'][$i],
+                            'type'     => $docs['type'][$i],
+                            'tmp_name' => $docs['tmp_name'][$i],
+                            'error'    => $docs['error'][$i],
+                            'size'     => $docs['size'][$i]
+                        ];
+
+                        $resultado = subir_archivo($f, 'uploads/vehiculos', 'vehiculo');
+                        if (str_starts_with($resultado, 'Error')) {
+                            echo "<p>{$resultado}</p>";
+                            continue;
+                        }
+
+                        $rutaBD   = $resultado;
+                        $tipoMime = $f['type'];
+                        $tamKB    = round(filesize(__DIR__ . '/' . $rutaBD) / 1024);
+
+                        $sqlDoc = "INSERT INTO documentos_vehiculos (vehiculo_id, nombre_archivo, ruta_archivo, tipo_mime, tamano_kb) VALUES (?, ?, ?, ?, ?)";
+                        $stmtDoc = $conn->prepare($sqlDoc);
+                        if ($stmtDoc) {
+                            $stmtDoc->bind_param('isssi', $nuevo_vehiculo_id, $f['name'], $rutaBD, $tipoMime, $tamKB);
+                            $stmtDoc->execute();
+                            $stmtDoc->close();
                         }
                     }
                 }
