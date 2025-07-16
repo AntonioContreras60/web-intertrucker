@@ -30,15 +30,26 @@ if(!is_dir($uploadDir)) mkdir($uploadDir,0777,true);
 /*– Subir documento –*/
 if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['subir_doc'])){
    if(isset($_FILES['archivo']) && $_FILES['archivo']['error']===UPLOAD_ERR_OK){
-       $tipoDoc = $_POST['tipo_documento'];
-       $tmp     = $_FILES['archivo']['tmp_name'];
-       $orig    = basename($_FILES['archivo']['name']);
-       $dest    = $uploadDir.time().'_'.$orig;
-       if(move_uploaded_file($tmp,$dest)){
-          $rutaBD = 'uploads/usuarios/'.basename($dest);
-          $in  = $conn->prepare("INSERT INTO documentos_usuarios(usuario_id,tipo_documento,nombre_archivo,ruta_archivo) VALUES (?,?,?,?)");
-          $in->bind_param("isss",$colab_id,$tipoDoc,$orig,$rutaBD);
-          $in->execute();
+       $maxSize = 20 * 1024 * 1024; // 20MB
+       $allowed = ['pdf','jpg','jpeg','png'];
+       $ext     = strtolower(pathinfo($_FILES['archivo']['name'],PATHINFO_EXTENSION));
+
+       if($_FILES['archivo']['size'] > $maxSize){
+           echo "<p style='color:red;'>El archivo excede el tamaño máximo de 20MB.</p>";
+       } elseif(!in_array($ext,$allowed)){
+           echo "<p style='color:red;'>Formato de archivo no permitido.</p>";
+       } else {
+           $tipoDoc = $_POST['tipo_documento'];
+           $orig    = basename($_FILES['archivo']['name']);
+           $dest    = $uploadDir . uniqid('', true) . '.' . $ext;
+           if(move_uploaded_file($_FILES['archivo']['tmp_name'],$dest)){
+              $rutaBD = 'uploads/usuarios/'.basename($dest);
+              $in  = $conn->prepare("INSERT INTO documentos_usuarios(usuario_id,tipo_documento,nombre_archivo,ruta_archivo) VALUES (?,?,?,?)");
+              $in->bind_param("isss",$colab_id,$tipoDoc,$orig,$rutaBD);
+              $in->execute();
+           } else {
+              echo "<p style='color:red;'>Error subiendo archivo.</p>";
+           }
        }
    }
    header("Location: detalles_colaborador.php?id=".$colab_id); exit();

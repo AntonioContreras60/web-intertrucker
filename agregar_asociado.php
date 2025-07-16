@@ -129,38 +129,54 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Función para procesar el archivo y guardarlo en `documentos_camioneros`
     function procesarArchivo($fileArray, $tipoDocumento, $camioneroId, $conn) {
         global $uploadDir;
-        if ($fileArray['error'] === UPLOAD_ERR_OK) {
-            $tmpName      = $fileArray['tmp_name'];
-            $originalName = basename($fileArray['name']);
-            $uniqueName   = time() . '_' . $originalName;
-            $destPath     = $uploadDir . $uniqueName;
 
-            if (move_uploaded_file($tmpName, $destPath)) {
-                $rutaBD = 'uploads/camioneros/' . $uniqueName;
-                $sqlDoc = "
-                    INSERT INTO documentos_camioneros (
-                        camionero_id,
-                        tipo_documento,
-                        nombre_archivo,
-                        ruta_archivo
-                    ) 
-                    VALUES (?, ?, ?, ?)
-                ";
-                $stmtDoc = $conn->prepare($sqlDoc);
-                if ($stmtDoc) {
-                    $stmtDoc->bind_param(
-                        "isss",
-                        $camioneroId,
-                        $tipoDocumento,
-                        $originalName,
-                        $rutaBD
-                    );
-                    $stmtDoc->execute();
-                }
-            } else {
-                echo "<p style='color:red;'>Error subiendo archivo ($tipoDocumento): "
-                     . htmlspecialchars($originalName) . "</p>";
+        if ($fileArray['error'] !== UPLOAD_ERR_OK) {
+            return;
+        }
+
+        $maxSize      = 20 * 1024 * 1024; // 20MB
+        $allowedExt   = ['pdf', 'jpg', 'jpeg', 'png'];
+        $extension    = strtolower(pathinfo($fileArray['name'], PATHINFO_EXTENSION));
+
+        if ($fileArray['size'] > $maxSize) {
+            echo "<p style='color:red;'>El archivo excede el tamaño máximo de 20MB.</p>";
+            return;
+        }
+
+        if (!in_array($extension, $allowedExt)) {
+            echo "<p style='color:red;'>Formato de archivo no permitido.</p>";
+            return;
+        }
+
+        $originalName = basename($fileArray['name']);
+        $uniqueName   = uniqid('', true) . '.' . $extension;
+        $destPath     = $uploadDir . $uniqueName;
+
+        if (move_uploaded_file($fileArray['tmp_name'], $destPath)) {
+            $rutaBD = 'uploads/camioneros/' . $uniqueName;
+            $sqlDoc = "
+                INSERT INTO documentos_camioneros (
+                    camionero_id,
+                    tipo_documento,
+                    nombre_archivo,
+                    ruta_archivo
+                )
+                VALUES (?, ?, ?, ?)
+            ";
+            $stmtDoc = $conn->prepare($sqlDoc);
+            if ($stmtDoc) {
+                $stmtDoc->bind_param(
+                    "isss",
+                    $camioneroId,
+                    $tipoDocumento,
+                    $originalName,
+                    $rutaBD
+                );
+                $stmtDoc->execute();
             }
+        } else {
+            echo "<p style='color:red;'>Error subiendo archivo ($tipoDocumento): "
+                 . htmlspecialchars($originalName) . "</p>";
         }
     }
 

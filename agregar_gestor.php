@@ -60,15 +60,30 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
   if(!is_dir($uploadDir)) mkdir($uploadDir,0777,true);
 
   function saveDoc($fileArr,$tipo,$uid,$dir,$conn){
-       if($fileArr['error']===UPLOAD_ERR_OK){
-          $orig = basename($fileArr['name']);
-          $dest = $dir.time().'_'.$orig;
-          if(move_uploaded_file($fileArr['tmp_name'],$dest)){
-             $ruta = 'uploads/usuarios/'.basename($dest);
-             $q=$conn->prepare("INSERT INTO documentos_usuarios (usuario_id,tipo_documento,nombre_archivo,ruta_archivo) VALUES (?,?,?,?)");
-             $q->bind_param("isss",$uid,$tipo,$orig,$ruta);
-             $q->execute();
-          }
+       if($fileArr['error']!==UPLOAD_ERR_OK) return;
+
+       $maxSize  = 20 * 1024 * 1024; // 20MB
+       $allowed  = ['pdf','jpg','jpeg','png'];
+       $ext      = strtolower(pathinfo($fileArr['name'],PATHINFO_EXTENSION));
+
+       if($fileArr['size'] > $maxSize){
+          echo "<p style='color:red;'>El archivo excede el tamaño máximo de 20MB.</p>";
+          return;
+       }
+       if(!in_array($ext,$allowed)){
+          echo "<p style='color:red;'>Formato de archivo no permitido.</p>";
+          return;
+       }
+
+       $orig = basename($fileArr['name']);
+       $dest = $dir . uniqid('', true) . '.' . $ext;
+       if(move_uploaded_file($fileArr['tmp_name'],$dest)){
+          $ruta = 'uploads/usuarios/'.basename($dest);
+          $q=$conn->prepare("INSERT INTO documentos_usuarios (usuario_id,tipo_documento,nombre_archivo,ruta_archivo) VALUES (?,?,?,?)");
+          $q->bind_param("isss",$uid,$tipo,$orig,$ruta);
+          $q->execute();
+       }else{
+          echo "<p style='color:red;'>Error subiendo archivo ($tipo).</p>";
        }
   }
 
