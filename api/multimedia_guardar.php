@@ -66,9 +66,9 @@ if (
 $nombreOriginal = basename($_FILES['archivo']['name']);
 $extension      = strtolower(pathinfo($nombreOriginal, PATHINFO_EXTENSION));
 
-$tipoArchivo = in_array($extension, ['jpg', 'jpeg', 'png', 'gif'])
+$tipoArchivo = in_array($extension, ['jpg', 'jpeg', 'png'])
              ? 'foto'
-             : (in_array($extension, ['mp4', 'mov', 'avi']) ? 'video' : 'desconocido');
+             : ($extension === 'mp4' ? 'video' : 'desconocido');
 
 if ($tipoArchivo === 'desconocido') {
     echo json_encode([
