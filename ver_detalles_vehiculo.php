@@ -219,7 +219,7 @@ $documentos = $res_docs->fetch_all(MYSQLI_ASSOC);
         <tr>
             <td><?= htmlspecialchars($doc['nombre_archivo']) ?></td>
             <td><?= htmlspecialchars($doc['fecha_subida']) ?></td>
-            <td><a href="<?= htmlspecialchars($doc['ruta_archivo']) ?>" target="_blank">Ver / Descargar</a></td>
+            <td><a href="descargar_documento.php?id=<?= $doc['id'] ?>&tipo=vehiculo" target="_blank">Ver / Descargar</a></td>
         </tr>
     <?php endforeach; ?>
     </tbody>

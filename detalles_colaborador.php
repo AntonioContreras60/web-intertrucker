@@ -159,7 +159,7 @@ function toggleCamioneroFields(){
 <tr>
   <td><?=$d['id']?></td>
   <td><?=$d['tipo_documento']?></td>
-  <td><a href="/<?=$d['ruta_archivo']?>" target="_blank"><?=htmlspecialchars($d['nombre_archivo'])?></a></td>
+  <td><a href="descargar_documento.php?id=<?=$d['id']?>&tipo=usuario" target="_blank"><?=htmlspecialchars($d['nombre_archivo'])?></a></td>
   <td><?=$d['fecha_subida']?></td>
   <td>
      <form method="POST" style="display:inline">
