@@ -156,33 +156,51 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     function subirDocumento($fileData, $tipoDocumento, $camioneroId, $conn) {
         global $uploadDir;
-        if ($fileData['error'] === UPLOAD_ERR_OK) {
-            $tmpName      = $fileData['tmp_name'];
-            $originalName = basename($fileData['name']);
-            $uniqueName   = time() . '_' . $originalName;
-            $destPath     = $uploadDir . $uniqueName;
 
-            if (move_uploaded_file($tmpName, $destPath)) {
-                $rutaBD = 'uploads/camioneros/' . $uniqueName;
-                $insDoc = "
-                    INSERT INTO documentos_camioneros (
-                        camionero_id,
-                        tipo_documento,
-                        nombre_archivo,
-                        ruta_archivo
-                    ) VALUES (?, ?, ?, ?)
-                ";
-                $stmtDoc = $conn->prepare($insDoc);
-                $stmtDoc->bind_param(
-                    "isss",
-                    $camioneroId,
-                    $tipoDocumento,
-                    $originalName,
-                    $rutaBD
-                );
-                $stmtDoc->execute();
-                $stmtDoc->close();
-            }
+        if ($fileData['error'] !== UPLOAD_ERR_OK) {
+            return;
+        }
+
+        $maxSize    = 20 * 1024 * 1024; // 20MB
+        $allowedExt = ['pdf', 'jpg', 'jpeg', 'png'];
+        $extension  = strtolower(pathinfo($fileData['name'], PATHINFO_EXTENSION));
+
+        if ($fileData['size'] > $maxSize) {
+            echo "<p style='color:red;'>El archivo excede el tamaño máximo de 20MB.</p>";
+            return;
+        }
+
+        if (!in_array($extension, $allowedExt)) {
+            echo "<p style='color:red;'>Formato de archivo no permitido.</p>";
+            return;
+        }
+
+        $originalName = basename($fileData['name']);
+        $uniqueName   = uniqid('', true) . '.' . $extension;
+        $destPath     = $uploadDir . $uniqueName;
+
+        if (move_uploaded_file($fileData['tmp_name'], $destPath)) {
+            $rutaBD = 'uploads/camioneros/' . $uniqueName;
+            $insDoc = "
+                INSERT INTO documentos_camioneros (
+                    camionero_id,
+                    tipo_documento,
+                    nombre_archivo,
+                    ruta_archivo
+                ) VALUES (?, ?, ?, ?)
+            ";
+            $stmtDoc = $conn->prepare($insDoc);
+            $stmtDoc->bind_param(
+                "isss",
+                $camioneroId,
+                $tipoDocumento,
+                $originalName,
+                $rutaBD
+            );
+            $stmtDoc->execute();
+            $stmtDoc->close();
+        } else {
+            echo "<p style='color:red;'>Error subiendo archivo ($tipoDocumento).</p>";
         }
     }
 
