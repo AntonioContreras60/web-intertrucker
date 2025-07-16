@@ -121,7 +121,7 @@ $conn->close();
         <h1>Crear Nuevo Porte</h1>
         <form action="guardar_porte.php" method="POST" enctype="multipart/form-data">
             <fieldset>
-                <legend>La Mercancía</legend>
+                <legend class="section-title"><strong>La Mercancía</strong></legend>
                 <label for="descripcion_mercancia">Naturaleza y Embalaje:</label>
                 <textarea id="descripcion_mercancia" name="descripcion_mercancia" required></textarea><br>
 
@@ -194,10 +194,47 @@ $conn->close();
                 <label for="observaciones">Observaciones:</label>
                 <textarea id="observaciones" name="observaciones"></textarea><br>
             </fieldset>
+            <fieldset>
+                <legend class="section-title"><strong>Documentos adjuntos</strong></legend>
+                <input type="file" name="documentos_porte[]" multiple accept=".pdf,.jpg,.jpeg,.png">
+            </fieldset>
+            <!-- Opciones de Camión -->
+            <fieldset>
+                <legend class="section-title"><strong>Opciones de Camión</strong></legend>
+                <label for="tipo_camion_detalle">Detalle del Tipo de Camión:</label>
+                <select id="tipo_camion_detalle" name="tipo_camion_detalle" required>
+                    <option value="camión cerrado">Camión Cerrado</option>
+                    <option value="camión abierto">Camión Abierto</option>
+                    <option value="camión frigorífico">Camión Frigorífico</option>
+                    <option value="camión cisterna">Camión Cisterna</option>
+                    <option value="camión de animales">Camión de Animales</option>
+                    <option value="camión de plataforma">Camión de Plataforma</option>
+                    <option value="camión de lona">Camión de Lona</option>
+                </select><br>
+
+                <label for="dimensiones_maximas">Dimensiones Máximas (Largo x Ancho x Alto en metros):</label>
+                <input type="text" id="dimensiones_maximas" name="dimensiones_maximas" placeholder="Ej: 12 x 2.5 x 3"><br>
+
+                <label for="intercambio_palets">Intercambio de Palets:</label>
+                <input type="checkbox" id="intercambio_palets" name="intercambio_palets"><br>
+
+                <label for="paletizado">Paletizado:</label>
+                <input type="checkbox" id="paletizado" name="paletizado"><br>
+                
+                <label for="no_transbordos">No Permito Transbordos:</label>
+                <input type="checkbox" id="no_transbordos" name="no_transbordos"><br>
+                
+                <label for="no_delegacion_transporte">No Permito Delegación de Transporte:</label>
+                <input type="checkbox" id="no_delegacion_transporte" name="no_delegacion_transporte"><br>
+                
+                <label for="no_se_puede_remontar">No Se Puede Remontar:</label>
+                <input type="checkbox" id="no_se_puede_remontar" name="no_se_puede_remontar"><br>
+            </fieldset>
+
 
             <!-- Sección de Recogida -->
             <fieldset>
-                <legend>Recogida</legend>
+                <legend class="section-title"><strong>Recogida</strong></legend>
                 <button type="submit" onclick="abrirVentanaBusqueda('expedidor')">Buscar Expedidor</button><br>
 
                 <label for="recogida_expedidor_nombre">Nombre del Expedidor:</label>
@@ -229,7 +266,7 @@ $conn->close();
 
             <!-- Sección de Entrega -->
             <fieldset>
-                <legend>Entrega</legend>
+                <legend class="section-title"><strong>Entrega</strong></legend>
                 <button type="submit" onclick="abrirVentanaBusqueda('receptor')">Buscar Receptor</button><br>
 
                 <label for="entrega_receptor_nombre">Nombre del Receptor:</label>
@@ -258,7 +295,7 @@ $conn->close();
 
             <!-- Sección de Cliente -->
             <fieldset>
-                <legend>Cliente</legend>
+                <legend class="section-title"><strong>Cliente (Opcional)</strong></legend>
                 <!-- Botón Buscar Cliente -->
                 <button type="button" onclick="abrirVentanaBusqueda('cliente')">Buscar Cliente</button><br>
 
@@ -276,44 +313,6 @@ $conn->close();
 
                 <label for="cliente_cif">CIF/NIF/NIE del Cliente:</label>
                 <input type="text" id="cliente_cif" name="cliente_cif"><br>
-            </fieldset>
-
-            <!-- Opciones de Camión -->
-            <fieldset>
-                <legend>Opciones de Camión</legend>
-                <label for="tipo_camion_detalle">Detalle del Tipo de Camión:</label>
-                <select id="tipo_camion_detalle" name="tipo_camion_detalle" required>
-                    <option value="camión cerrado">Camión Cerrado</option>
-                    <option value="camión abierto">Camión Abierto</option>
-                    <option value="camión frigorífico">Camión Frigorífico</option>
-                    <option value="camión cisterna">Camión Cisterna</option>
-                    <option value="camión de animales">Camión de Animales</option>
-                    <option value="camión de plataforma">Camión de Plataforma</option>
-                    <option value="camión de lona">Camión de Lona</option>
-                </select><br>
-
-                <label for="dimensiones_maximas">Dimensiones Máximas (Largo x Ancho x Alto en metros):</label>
-                <input type="text" id="dimensiones_maximas" name="dimensiones_maximas" placeholder="Ej: 12 x 2.5 x 3"><br>
-
-                <label for="intercambio_palets">Intercambio de Palets:</label>
-                <input type="checkbox" id="intercambio_palets" name="intercambio_palets"><br>
-
-                <label for="paletizado">Paletizado:</label>
-                <input type="checkbox" id="paletizado" name="paletizado"><br>
-                
-                <label for="no_transbordos">No Permito Transbordos:</label>
-                <input type="checkbox" id="no_transbordos" name="no_transbordos"><br>
-                
-                <label for="no_delegacion_transporte">No Permito Delegación de Transporte:</label>
-                <input type="checkbox" id="no_delegacion_transporte" name="no_delegacion_transporte"><br>
-                
-                <label for="no_se_puede_remontar">No Se Puede Remontar:</label>
-                <input type="checkbox" id="no_se_puede_remontar" name="no_se_puede_remontar"><br>
-            </fieldset>
-
-            <fieldset>
-                <legend>Documentos adjuntos</legend>
-                <input type="file" name="documentos_porte[]" multiple accept=".pdf,.jpg,.jpeg,.png">
             </fieldset>
 
             <!-- Campos ocultos para almacenar ID y tipo de cada entidad/usuario -->

@@ -487,3 +487,9 @@ main nav {
 .nav-subtitle {
     font-size: 1.2em;
 }
+
+.section-title {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: var(--color-primary-hover);
+}
