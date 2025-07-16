@@ -236,7 +236,7 @@ $conn->close();
             <!-- Sección de Recogida -->
             <fieldset>
                 <legend><strong>Recogida</strong></legend>
-                <button type="submit" onclick="abrirVentanaBusqueda('expedidor')">Buscar Expedidor</button><br>
+                <button type="button" onclick="abrirVentanaBusqueda('expedidor')">Buscar Expedidor</button><br>
 
                 <label for="recogida_expedidor_nombre">Nombre del Expedidor:</label>
                 <input type="text" id="recogida_expedidor_nombre" name="recogida_expedidor_nombre" required><br>
@@ -268,7 +268,7 @@ $conn->close();
             <!-- Sección de Entrega -->
             <fieldset>
                 <legend><strong>Entrega</strong></legend>
-                <button type="submit" onclick="abrirVentanaBusqueda('receptor')">Buscar Receptor</button><br>
+                <button type="button" onclick="abrirVentanaBusqueda('receptor')">Buscar Receptor</button><br>
 
                 <label for="entrega_receptor_nombre">Nombre del Receptor:</label>
                 <input type="text" id="entrega_receptor_nombre" name="entrega_receptor_nombre" required><br>
