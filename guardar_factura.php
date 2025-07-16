@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'conexion.php';
+include 'funciones_subida.php';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -38,23 +39,13 @@ if (empty($fecha) || empty($tipo) || empty($cantidad)) {
 // Manejo de la foto subida
 $foto = null;
 if (!empty($_FILES['foto']['name'])) {
-    $directorio_subida = 'uploads/facturas/';
-    $nombre_archivo = time() . "_" . basename($_FILES['foto']['name']);
-    $ruta_archivo = $directorio_subida . $nombre_archivo;
-
-    // Crear el directorio si no existe
-    if (!is_dir($directorio_subida)) {
-        mkdir($directorio_subida, 0755, true);
-    }
-
-    // Mover la foto al directorio de destino
-    if (move_uploaded_file($_FILES['foto']['tmp_name'], $ruta_archivo)) {
-        $foto = $ruta_archivo;
-    } else {
-        echo "<div class='mensaje-error'>Error al subir la foto. Verifica los permisos del servidor.</div>";
+    $resultado = subir_archivo($_FILES['foto'], 'uploads/facturas', 'factura');
+    if (str_starts_with($resultado, 'Error')) {
+        echo "<div class='mensaje-error'>{$resultado}</div>";
         echo "<div class='boton-volver'><a href='facturas.php'>Volver</a></div>";
         exit;
     }
+    $foto = $resultado;
 }
 
 // Insertar la factura en la base de datos
