@@ -176,6 +176,21 @@ CREATE TABLE `documentos_vehiculos` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `documentos_portes`
+--
+
+CREATE TABLE `documentos_portes` (
+  `id` int(11) NOT NULL,
+  `porte_id` int(11) NOT NULL,
+  `nombre_archivo` varchar(255) NOT NULL,
+  `ruta_archivo` varchar(255) NOT NULL,
+  `tipo_documento` varchar(50) NOT NULL,
+  `fecha_subida` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `entidades`
 --
 
@@ -1038,6 +1053,13 @@ ALTER TABLE `documentos_vehiculos`
   ADD KEY `vehiculo_id` (`vehiculo_id`);
 
 --
+-- Indices de la tabla `documentos_portes`
+--
+ALTER TABLE `documentos_portes`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `porte_id` (`porte_id`);
+
+--
 -- Indices de la tabla `entidades`
 --
 ALTER TABLE `entidades`
@@ -1291,6 +1313,12 @@ ALTER TABLE `documentos_vehiculos`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `documentos_portes`
+--
+ALTER TABLE `documentos_portes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `entidades`
 --
 ALTER TABLE `entidades`
@@ -1500,6 +1528,12 @@ ALTER TABLE `documentos_usuarios`
 --
 ALTER TABLE `documentos_vehiculos`
   ADD CONSTRAINT `documentos_vehiculos_ibfk_1` FOREIGN KEY (`vehiculo_id`) REFERENCES `vehiculos` (`id`) ON DELETE CASCADE;
+
+--
+-- Filtros para la tabla `documentos_portes`
+--
+ALTER TABLE `documentos_portes`
+  ADD CONSTRAINT `documentos_portes_ibfk_1` FOREIGN KEY (`porte_id`) REFERENCES `portes` (`id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `eventos`

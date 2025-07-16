@@ -119,7 +119,7 @@ $conn->close();
     
     <main>
         <h1>Crear Nuevo Porte</h1>
-        <form action="guardar_porte.php" method="POST">
+        <form action="guardar_porte.php" method="POST" enctype="multipart/form-data">
             <fieldset>
                 <legend>La Mercancía</legend>
                 <label for="descripcion_mercancia">Naturaleza y Embalaje:</label>
@@ -309,6 +309,11 @@ $conn->close();
                 
                 <label for="no_se_puede_remontar">No Se Puede Remontar:</label>
                 <input type="checkbox" id="no_se_puede_remontar" name="no_se_puede_remontar"><br>
+            </fieldset>
+
+            <fieldset>
+                <legend>Documentos adjuntos</legend>
+                <input type="file" name="documentos_porte[]" multiple accept=".pdf,.jpg,.jpeg,.png">
             </fieldset>
 
             <!-- Campos ocultos para almacenar ID y tipo de cada entidad/usuario -->
