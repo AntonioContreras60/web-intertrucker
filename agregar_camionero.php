@@ -1,11 +1,7 @@
 <?php
-session_start();
+require_once __DIR__.'/auth.php';
+require_login();
 include 'conexion.php';
-
-if (!isset($_SESSION['usuario_id'])) {
-    header('Location: /Perfil/inicio_sesion.php');
-    exit();
-}
 
 // Ajusta estos si quieres ver errores en local
 ini_set('display_errors', 1);

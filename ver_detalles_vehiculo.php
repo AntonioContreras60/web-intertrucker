@@ -1,16 +1,8 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
+require_once __DIR__.'/auth.php';
+require_login();
 include 'conexion.php'; // Ajusta la ruta si tu archivo de conexión está en otro directorio
 include 'funciones_subida.php';
-
-// Verificar si el usuario está autenticado (opcional, depende de tu app)
-if (!isset($_SESSION['usuario_id'])) {
-    header('Location: login.php');
-    exit();
-}
 
 // Verificar si llega vehiculo_id por GET
 if (!isset($_GET['vehiculo_id'])) {

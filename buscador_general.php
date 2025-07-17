@@ -5,10 +5,9 @@
  *  Requiere: PHP ≥7.4 y las tablas del esquema InterTrucker.
  */
 
-session_start();
+require_once __DIR__.'/auth.php';
+require_login();
 require_once 'conexion.php';
-
-if (!isset($_SESSION['usuario_id'])) { header('Location: login.php'); exit(); }
 $usuario_id = (int)$_SESSION['usuario_id'];
 
 /*--------------------------------------------------
