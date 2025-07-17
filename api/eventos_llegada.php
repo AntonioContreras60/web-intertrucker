@@ -1,4 +1,7 @@
 <?php
+require_once __DIR__ . "/api_auth.php";
+require_api_login();
+header("Access-Control-Allow-Origin: https://www.intertrucker.net");
 // eventos_llegada.php
 
 // Mostrar errores para depuración (desactivar en producción)
@@ -8,7 +11,7 @@ error_reporting(E_ALL);
 
 // Configurar headers para JSON y seguridad
 header("Content-Type: application/json");
-header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: https://www.intertrucker.net");
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
