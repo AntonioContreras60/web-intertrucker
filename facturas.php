@@ -1,5 +1,6 @@
 <?php
-session_start();
+require_once __DIR__.'/auth.php';
+require_login();
 include 'conexion.php';
 
 ini_set('display_errors',1);
@@ -7,9 +8,6 @@ ini_set('display_startup_errors',1);
 error_reporting(E_ALL);
 
 /* ---------- comprobación de sesión ---------- */
-if (!isset($_SESSION['usuario_id'], $_SESSION['rol'], $_SESSION['admin_id'])) {
-    header('Location: /Perfil/inicio_sesion.php'); exit();
-}
 $usuario_id = $_SESSION['usuario_id'];
 $rol        = $_SESSION['rol'];
 $admin_id   = $_SESSION['admin_id'];

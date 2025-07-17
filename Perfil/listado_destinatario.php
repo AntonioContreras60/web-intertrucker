@@ -1,11 +1,7 @@
-<?php
-session_start();
-include 'conexion.php';
-
-if (!isset($_SESSION['usuario_id'])) {
-    header("Location: login.php");
-    exit();
-}
+$baseDir = dirname(__DIR__);
+require_once $baseDir.'/auth.php';
+require_login();
+include $baseDir.'/conexion.php';
 $usuario_id = (int)$_SESSION['usuario_id'];
 
 // Recoger filtros de la URL

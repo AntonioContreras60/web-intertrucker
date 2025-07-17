@@ -4,8 +4,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Iniciar sesión
-session_start();
+require_once __DIR__.'/auth.php';
+require_login();
 
 // Conexión a la base de datos
 include 'conexion.php';
@@ -16,11 +16,8 @@ if (isset($_SESSION['mensaje'])) {
     unset($_SESSION['mensaje']); // Limpiar el mensaje después de mostrarlo
 }
 
-// Verificar si el usuario está autenticado
-if (!isset($_SESSION['usuario_id'])) {
-    die("Error: Usuario no autenticado. <a href='login.php'>Iniciar sesión</a>");
-}
-$usuario_id = $_SESSION['usuario_id']; // ID del usuario autenticado
+// ID del usuario autenticado
+$usuario_id = $_SESSION['usuario_id'];
 
 // Identificar al administrador principal
 $sql_administrador = "SELECT admin_id FROM usuarios WHERE id = ?";

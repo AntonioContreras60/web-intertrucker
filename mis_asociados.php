@@ -1,15 +1,7 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-
+require_once __DIR__.'/auth.php';
+require_login();
 include 'conexion.php'; // Conexión a la base de datos
-
-// Verificar si el usuario está autenticado
-if (!isset($_SESSION['usuario_id'])) {
-    header('Location: /Perfil/inicio_sesion.php');
-    exit();
-}
 
 $usuario_id = $_SESSION['usuario_id']; // Usuario en sesión
 

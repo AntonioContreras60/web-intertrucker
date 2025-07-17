@@ -1,5 +1,6 @@
 <?php
-session_start();
+require_once __DIR__.'/auth.php';
+require_login();
 include 'conexion.php'; // Conexión a la base de datos
 
 // ======================================================
@@ -14,11 +15,6 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// Verificar si el usuario está autenticado
-if (!isset($_SESSION['usuario_id'])) {
-    header("Location: inicio_sesion.php");
-    exit();
-}
 
 // Verificar que llega por POST (y que hay porte_id)
 if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($_POST['porte_id'])) {

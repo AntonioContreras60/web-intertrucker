@@ -3,11 +3,8 @@
  *  Cabecera común – Panel Super-Admin  •  InterTrucker
  *  Fecha: 2025-05-12
  * ----------------------------------------------------------- */
-session_start();
-if (($_SESSION['rol'] ?? '') !== 'superadmin') {
-    header('Location: login.php');
-    exit();
-}
+require_once dirname(__DIR__).'/auth.php';
+require_role('superadmin');
 ?>
 <!DOCTYPE html>
 <html lang="es">

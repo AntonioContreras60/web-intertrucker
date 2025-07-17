@@ -1,15 +1,11 @@
 <?php
-session_start();
+require_once __DIR__.'/auth.php';
+require_login();
 include 'conexion.php';
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
-if (!isset($_SESSION['usuario_id'])) {
-    header('Location: login.php');
-    exit();
-}
 
 $usuario_id = $_SESSION['usuario_id'];
 $porte_id   = $_POST['porte_id'] ?? null;

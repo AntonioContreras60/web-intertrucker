@@ -1,5 +1,6 @@
 <?php
-if (session_status() === PHP_SESSION_NONE) session_start();
+require_once __DIR__.'/auth.php';
+require_login();
 if (!empty($_SESSION['impersonador_id'])) {
     echo '
     <div style="background:#ffc107;color:#000;padding:8px 14px;text-align:center;font-weight:bold;position:sticky;top:0;left:0;right:0;z-index:1000;">

@@ -1,5 +1,6 @@
 <?php
-session_start();
+require_once __DIR__.'/auth.php';
+require_login();
 include 'conexion.php'; // Ajusta la ruta a tu archivo de conexión
 
 // ======================================================
@@ -7,12 +8,6 @@ include 'conexion.php'; // Ajusta la ruta a tu archivo de conexión
 // ======================================================
 if (!isset($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-}
-
-// Verificar si el usuario ha iniciado sesión
-if (!isset($_SESSION['usuario_id'])) {
-    header('Location: /Perfil/inicio_sesion.php');
-    exit();
 }
 
 $usuario_sesion_id = $_SESSION['usuario_id'];
