@@ -22,6 +22,9 @@ $dbname     = getenv('DB_NAME');
 // Conectar a la base de datos
 $conn = new mysqli($servername, $username, $password, $dbname);
 
+$sessionUser  = $_SESSION['usuario_id'] ?? 0;
+$sessionAdmin = $_SESSION['admin_id']  ?? 0;
+
 // Verificar conexión
 if ($conn->connect_error) {
     echo json_encode([
@@ -44,16 +47,19 @@ $tren_id = intval($_GET['tren_id']);
 
 try {
     // Consultar portes asociados al tren
-    $sqlPortesTren = "SELECT id, porte_id, usuario_id, inicio_tren, fin_tren 
-                      FROM porte_tren 
-                      WHERE tren_id = ?";
+    $sqlPortesTren = "SELECT pt.id, pt.porte_id, pt.usuario_id, pt.inicio_tren, pt.fin_tren
+                      FROM porte_tren pt
+                      JOIN portes p ON pt.porte_id = p.id
+                      JOIN usuarios u ON p.usuario_creador_id = u.id
+                      WHERE pt.tren_id = ?
+                        AND (u.admin_id = ? OR u.id = ?)";
     $stmtPortesTren = $conn->prepare($sqlPortesTren);
 
     if (!$stmtPortesTren) {
         throw new Exception("Error al preparar la consulta de porte_tren: " . $conn->error);
     }
 
-    $stmtPortesTren->bind_param("i", $tren_id);
+    $stmtPortesTren->bind_param("iii", $tren_id, $sessionAdmin, $sessionUser);
     $stmtPortesTren->execute();
     $resultPortesTren = $stmtPortesTren->get_result();
     $portes = $resultPortesTren->fetch_all(MYSQLI_ASSOC);

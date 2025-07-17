@@ -22,6 +22,9 @@ $dbname     = getenv('DB_NAME');
 // Conectar a la base de datos
 $conn = new mysqli($servername, $username, $password, $dbname);
 
+$sessionUser  = $_SESSION['usuario_id'] ?? 0;
+$sessionAdmin = $_SESSION['admin_id']  ?? 0;
+
 // Verificar conexión
 if ($conn->connect_error) {
     echo json_encode([
@@ -44,14 +47,16 @@ $usuario_id = intval($_GET['id']);
 
 try {
     // Consultar los datos del usuario
-    $sqlUsuario = "SELECT id AS usuario_id, email, nombre_usuario AS nombre, rol, estado FROM usuarios WHERE id = ?";
+    $sqlUsuario = "SELECT id AS usuario_id, email, nombre_usuario AS nombre, rol, estado
+                   FROM usuarios
+                   WHERE id = ? AND (admin_id = ? OR id = ?)";
     $stmtUsuario = $conn->prepare($sqlUsuario);
 
     if (!$stmtUsuario) {
         throw new Exception("Error al preparar la consulta del usuario: " . $conn->error);
     }
 
-    $stmtUsuario->bind_param("i", $usuario_id);
+    $stmtUsuario->bind_param("iii", $usuario_id, $sessionAdmin, $sessionUser);
     $stmtUsuario->execute();
     $resultUsuario = $stmtUsuario->get_result();
     $usuario = $resultUsuario->fetch_assoc();
@@ -65,15 +70,17 @@ try {
     }
 
     // Consultar si el usuario está en la tabla camioneros
-    $sqlCamionero = "SELECT id, usuario_id, tipo_carnet, num_licencia, fecha_caducidad, caducidad_profesional, fecha_nacimiento, fecha_contratacion, activo 
-                     FROM camioneros WHERE usuario_id = ?";
+    $sqlCamionero = "SELECT c.id, c.usuario_id, c.tipo_carnet, c.num_licencia, c.fecha_caducidad, c.caducidad_profesional, c.fecha_nacimiento, c.fecha_contratacion, c.activo
+                     FROM camioneros c
+                     JOIN usuarios u ON c.usuario_id = u.id
+                     WHERE c.usuario_id = ? AND (u.admin_id = ? OR u.id = ?)";
     $stmtCamionero = $conn->prepare($sqlCamionero);
 
     if (!$stmtCamionero) {
         throw new Exception("Error al preparar la consulta del camionero: " . $conn->error);
     }
 
-    $stmtCamionero->bind_param("i", $usuario_id);
+    $stmtCamionero->bind_param("iii", $usuario_id, $sessionAdmin, $sessionUser);
     $stmtCamionero->execute();
     $resultCamionero = $stmtCamionero->get_result();
     $camionero = $resultCamionero->fetch_assoc();

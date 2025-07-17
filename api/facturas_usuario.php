@@ -20,6 +20,9 @@ $password   = getenv('DB_PASS');
 $dbname     = getenv('DB_NAME');
 
 $conn = new mysqli($servername, $username, $password, $dbname);
+
+$sessionUser  = $_SESSION['usuario_id'] ?? 0;
+$sessionAdmin = $_SESSION['admin_id']  ?? 0;
 if ($conn->connect_error) {
     echo json_encode([
         "success" => false,
@@ -40,17 +43,19 @@ if (!isset($_GET['usuario_id']) || empty($_GET['usuario_id'])) {
 $usuario_id = intval($_GET['usuario_id']);
 
 // Consulta para obtener las facturas del usuario
-$sqlFacturas = "SELECT 
-                    id,
-                    usuario_id,
-                    tren_id,
-                    fecha,
-                    tipo,
-                    cantidad,
-                    foto,
-                    observaciones
-                FROM facturas
-                WHERE usuario_id = ?";
+$sqlFacturas = "SELECT
+                    f.id,
+                    f.usuario_id,
+                    f.tren_id,
+                    f.fecha,
+                    f.tipo,
+                    f.cantidad,
+                    f.foto,
+                    f.observaciones
+                FROM facturas f
+                JOIN usuarios u ON f.usuario_id = u.id
+                WHERE f.usuario_id = ?
+                  AND (u.admin_id = ? OR u.id = ?)";
 
 $stmt = $conn->prepare($sqlFacturas);
 if (!$stmt) {
@@ -61,7 +66,7 @@ if (!$stmt) {
     exit;
 }
 
-$stmt->bind_param("i", $usuario_id);
+$stmt->bind_param("iii", $usuario_id, $sessionAdmin, $sessionUser);
 $stmt->execute();
 $resultFacturas = $stmt->get_result();
 $facturas = [];

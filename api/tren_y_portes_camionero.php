@@ -21,6 +21,9 @@ $dbname     = getenv('DB_NAME');
 
 // Conectar al servidor
 $conn = new mysqli($servername, $username, $password, $dbname);
+
+$sessionUser  = $_SESSION['usuario_id'] ?? 0;
+$sessionAdmin = $_SESSION['admin_id']  ?? 0;
 if ($conn->connect_error) {
     echo json_encode([
         "success" => false,
@@ -44,12 +47,16 @@ $fechaLimite = date('Y-m-d', strtotime('-7 days'));
 
 try {
     // 1) Obtener camionero.id a partir de usuario_id
-    $sqlCamionero = "SELECT id FROM camioneros WHERE usuario_id = ?";
+    $sqlCamionero = "SELECT c.id
+                      FROM camioneros c
+                      JOIN usuarios u ON c.usuario_id = u.id
+                     WHERE c.usuario_id = ?
+                       AND (u.admin_id = ? OR u.id = ?)";
     $stmtCamionero = $conn->prepare($sqlCamionero);
     if (!$stmtCamionero) {
         throw new Exception("Error al preparar consulta de camionero: " . $conn->error);
     }
-    $stmtCamionero->bind_param("i", $usuario_id);
+    $stmtCamionero->bind_param("iii", $usuario_id, $sessionAdmin, $sessionUser);
     $stmtCamionero->execute();
     $resultCamionero = $stmtCamionero->get_result();
     $rowCamionero = $resultCamionero->fetch_assoc();
@@ -73,14 +80,17 @@ try {
        SELECT t.id AS tren_id, t.tren_nombre
          FROM tren_camionero AS tc
          INNER JOIN tren AS t ON tc.tren_id = t.id
+         INNER JOIN camioneros c ON tc.camionero_id = c.id
+         INNER JOIN usuarios u ON c.usuario_id = u.id
         WHERE tc.camionero_id = ?
+          AND (u.admin_id = ? OR u.id = ?)
         LIMIT 1
     ";
     $stmtTren = $conn->prepare($sqlTren);
     if (!$stmtTren) {
         throw new Exception("Error al preparar consulta de tren: " . $conn->error);
     }
-    $stmtTren->bind_param("i", $camionero_id);
+    $stmtTren->bind_param("iii", $camionero_id, $sessionAdmin, $sessionUser);
     $stmtTren->execute();
     $resultTren = $stmtTren->get_result();
     $rowTren = $resultTren->fetch_assoc();
@@ -122,18 +132,20 @@ try {
               p.tipo_palet, p.estado_recogida_entrega
          FROM portes AS p
          INNER JOIN porte_tren AS pt ON p.id = pt.porte_id
+         INNER JOIN usuarios u ON p.usuario_creador_id = u.id
         WHERE pt.tren_id = ?
           AND (
             p.fecha_recogida >= ? OR
             p.fecha_entrega >= ?
           )
+          AND (u.admin_id = ? OR u.id = ?)
     ";
     $stmtPortes = $conn->prepare($sqlPortes);
     if (!$stmtPortes) {
         throw new Exception("Error al preparar consulta de portes: " . $conn->error);
     }
     // tren_id es entero, fechaLimite es string
-    $stmtPortes->bind_param("iss", $tren_id, $fechaLimite, $fechaLimite);
+    $stmtPortes->bind_param("issii", $tren_id, $fechaLimite, $fechaLimite, $sessionAdmin, $sessionUser);
     $stmtPortes->execute();
     $resultPortes = $stmtPortes->get_result();
     $portes = $resultPortes->fetch_all(MYSQLI_ASSOC);

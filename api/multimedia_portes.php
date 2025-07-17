@@ -22,6 +22,9 @@ $dbname     = getenv('DB_NAME');
 // Conectar a la base de datos
 $conn = new mysqli($servername, $username, $password, $dbname);
 
+$sessionUser  = $_SESSION['usuario_id'] ?? 0;
+$sessionAdmin = $_SESSION['admin_id']  ?? 0;
+
 // Verificar conexión
 if ($conn->connect_error) {
     echo json_encode([
@@ -44,18 +47,21 @@ $porte_id = intval($_GET['porte_id']);
 
 try {
     // Consultar archivos multimedia relacionados con el porte
-    $sqlMultimedia = "SELECT 
-                        id,
-                        nombre_archivo,
-                        tipo_archivo,
-                        url_archivo,
-                        geolocalizacion,
-                        timestamp,
-                        tamano,
-                        categoria,
-                        tipo_evento
-                      FROM multimedia_recogida_entrega
-                      WHERE porte_id = ?";
+    $sqlMultimedia = "SELECT
+                        m.id,
+                        m.nombre_archivo,
+                        m.tipo_archivo,
+                        m.url_archivo,
+                        m.geolocalizacion,
+                        m.timestamp,
+                        m.tamano,
+                        m.categoria,
+                        m.tipo_evento
+                      FROM multimedia_recogida_entrega m
+                      JOIN portes p ON m.porte_id = p.id
+                      JOIN usuarios u ON p.usuario_creador_id = u.id
+                      WHERE m.porte_id = ?
+                        AND (u.admin_id = ? OR u.id = ?)";
     
     $stmtMultimedia = $conn->prepare($sqlMultimedia);
 
@@ -63,7 +69,7 @@ try {
         throw new Exception("Error al preparar la consulta de multimedia: " . $conn->error);
     }
 
-    $stmtMultimedia->bind_param("i", $porte_id);
+    $stmtMultimedia->bind_param("iii", $porte_id, $sessionAdmin, $sessionUser);
     $stmtMultimedia->execute();
     $resultMultimedia = $stmtMultimedia->get_result();
     $archivos = $resultMultimedia->fetch_all(MYSQLI_ASSOC);

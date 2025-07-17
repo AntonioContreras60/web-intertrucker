@@ -25,6 +25,9 @@ header("Access-Control-Allow-Headers: Content-Type");
 // Incluir la conexión (ajusta la ruta si es distinto tu árbol de directorios)
 require_once(__DIR__ . '/../conexion.php');
 
+$sessionUser  = $_SESSION['usuario_id'] ?? 0;
+$sessionAdmin = $_SESSION['admin_id']  ?? 0;
+
 /**
  * Asumiendo que en `conexion.php` has algo así:
  *
@@ -57,26 +60,29 @@ if (!isset($_GET["porte_id"]) || empty($_GET["porte_id"])) {
 $porte_id = intval($_GET["porte_id"]);
 
 // Construir la consulta para traer datos de `eventos`
-$sql = "SELECT 
-    porte_id,
-    tipo_evento,
-    hora_llegada,
-    geolocalizacion_llegada,
-    hora_salida,
-    geolocalizacion_salida,
-    estado_mercancia,
-    observaciones,
-    fecha_observaciones,
-    firma,
-    fecha_firma,
-    nombre_firmante,
-    identificacion_firmante
-  FROM eventos
-  WHERE porte_id = $porte_id";
+$sql = "SELECT
+    e.porte_id,
+    e.tipo_evento,
+    e.hora_llegada,
+    e.geolocalizacion_llegada,
+    e.hora_salida,
+    e.geolocalizacion_salida,
+    e.estado_mercancia,
+    e.observaciones,
+    e.fecha_observaciones,
+    e.firma,
+    e.fecha_firma,
+    e.nombre_firmante,
+    e.identificacion_firmante
+  FROM eventos e
+  JOIN portes p ON e.porte_id = p.id
+  JOIN usuarios u ON p.usuario_creador_id = u.id
+  WHERE e.porte_id = ?
+    AND (u.admin_id = ? OR u.id = ?)";
 
 // Ejecutar la consulta
-$result = $conn->query($sql);
-if (!$result) {
+$stmt = $conn->prepare($sql);
+if (!$stmt) {
     echo json_encode([
         "success" => false,
         "message" => "Error en la consulta: " . $conn->error
@@ -84,11 +90,16 @@ if (!$result) {
     exit;
 }
 
+$stmt->bind_param('iii', $porte_id, $sessionAdmin, $sessionUser);
+$stmt->execute();
+$result = $stmt->get_result();
+
 // Recopilar los registros
 $rows = [];
 while ($row = $result->fetch_assoc()) {
     $rows[] = $row;
 }
+$stmt->close();
 
 // Devolver la respuesta en formato JSON
 echo json_encode([
