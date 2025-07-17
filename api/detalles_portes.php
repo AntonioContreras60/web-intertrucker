@@ -18,6 +18,9 @@ $dbname     = getenv('DB_NAME');
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
+$sessionUser  = $_SESSION['usuario_id'] ?? 0;
+$sessionAdmin = $_SESSION['admin_id']  ?? 0;
+
 if ($conn->connect_error) {
     echo json_encode(["success" => false, "message" => "Error de conexión: " . $conn->connect_error]);
     exit;
@@ -77,7 +80,9 @@ try {
             portes.estado_recogida_entrega
         FROM portes
         INNER JOIN porte_tren ON portes.id = porte_tren.porte_id
+        INNER JOIN usuarios u ON portes.usuario_creador_id = u.id
         WHERE porte_tren.tren_id = ?
+          AND (u.admin_id = ? OR u.id = ?)
     ";
 
     $stmt = $conn->prepare($sql);
@@ -85,7 +90,7 @@ try {
         throw new Exception("Error al preparar la consulta: " . $conn->error);
     }
 
-    $stmt->bind_param("i", $tren_id);
+    $stmt->bind_param("iii", $tren_id, $sessionAdmin, $sessionUser);
     $stmt->execute();
     $result = $stmt->get_result();
     $portes = $result->fetch_all(MYSQLI_ASSOC);

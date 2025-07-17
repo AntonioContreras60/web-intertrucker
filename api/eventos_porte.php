@@ -22,6 +22,9 @@ $dbname     = getenv('DB_NAME');
 // Conectar a la base de datos
 $conn = new mysqli($servername, $username, $password, $dbname);
 
+$sessionUser  = $_SESSION['usuario_id'] ?? 0;
+$sessionAdmin = $_SESSION['admin_id']  ?? 0;
+
 // Verificar conexión
 if ($conn->connect_error) {
     echo json_encode([
@@ -44,23 +47,26 @@ $porte_id = intval($_GET['porte_id']);
 
 try {
     // Consultar eventos relacionados con el porte
-    $sqlEventos = "SELECT 
-                        id,
-                        porte_id,
-                        tipo_evento,
-                        hora_llegada,
-                        geolocalizacion_llegada,
-                        hora_salida,
-                        geolocalizacion_salida,
-                        estado_mercancia,
-                        firma,
-                        observaciones,
-                        nombre_firmante,
-                        identificacion_firmante,
-                        fecha_observaciones,
-                        fecha_firma
-                    FROM eventos
-                    WHERE porte_id = ?";
+    $sqlEventos = "SELECT
+                        e.id,
+                        e.porte_id,
+                        e.tipo_evento,
+                        e.hora_llegada,
+                        e.geolocalizacion_llegada,
+                        e.hora_salida,
+                        e.geolocalizacion_salida,
+                        e.estado_mercancia,
+                        e.firma,
+                        e.observaciones,
+                        e.nombre_firmante,
+                        e.identificacion_firmante,
+                        e.fecha_observaciones,
+                        e.fecha_firma
+                    FROM eventos e
+                    JOIN portes p ON e.porte_id = p.id
+                    JOIN usuarios u ON p.usuario_creador_id = u.id
+                    WHERE e.porte_id = ?
+                      AND (u.admin_id = ? OR u.id = ?)";
     
     $stmtEventos = $conn->prepare($sqlEventos);
 
@@ -68,7 +74,7 @@ try {
         throw new Exception("Error al preparar la consulta de eventos: " . $conn->error);
     }
 
-    $stmtEventos->bind_param("i", $porte_id);
+    $stmtEventos->bind_param("iii", $porte_id, $sessionAdmin, $sessionUser);
     $stmtEventos->execute();
     $resultEventos = $stmtEventos->get_result();
     $eventos = $resultEventos->fetch_all(MYSQLI_ASSOC);

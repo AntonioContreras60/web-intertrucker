@@ -18,6 +18,9 @@ $dbname     = getenv('DB_NAME');
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
+$sessionUser  = $_SESSION['usuario_id'] ?? 0;
+$sessionAdmin = $_SESSION['admin_id']  ?? 0;
+
 if ($conn->connect_error) {
     echo json_encode(["success" => false, "message" => "Error de conexión: " . $conn->connect_error]);
     exit;
@@ -35,13 +38,16 @@ try {
         SELECT t.id, t.tren_nombre
         FROM tren AS t
         INNER JOIN tren_camionero AS tc ON t.id = tc.tren_id
+        INNER JOIN camioneros c ON tc.camionero_id = c.id
+        INNER JOIN usuarios u ON c.usuario_id = u.id
         WHERE tc.camionero_id = ?
+          AND (u.admin_id = ? OR u.id = ?)
     ";
     $stmtTrenes = $conn->prepare($sqlTrenes);
     if (!$stmtTrenes) {
         throw new Exception("Error al preparar la consulta: " . $conn->error);
     }
-    $stmtTrenes->bind_param("i", $camionero_id);
+    $stmtTrenes->bind_param("iii", $camionero_id, $sessionAdmin, $sessionUser);
     $stmtTrenes->execute();
     $resultTrenes = $stmtTrenes->get_result();
     $trenes = $resultTrenes->fetch_all(MYSQLI_ASSOC);
