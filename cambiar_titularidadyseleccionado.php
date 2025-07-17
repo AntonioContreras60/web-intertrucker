@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__.'/auth.php';
 require_login();
+require_role(["administrador","gestor"]);
 include 'conexion.php'; // Conexión a la base de datos
 
 // ======================================================
@@ -36,6 +37,15 @@ $usuario_id = $_SESSION['usuario_id'];
 $porte_id = (int)$_POST['porte_id'];
 
 try {
+$admin_id = $_SESSION["admin_id"] ?? 0;
+$chk = $conn->prepare("SELECT p.id FROM portes p JOIN usuarios u ON p.usuario_creador_id=u.id WHERE p.id=? AND u.admin_id=? LIMIT 1");
+$chk->bind_param("ii", $porte_id, $admin_id);
+$chk->execute();
+if ($chk->get_result()->num_rows === 0) {
+    http_response_code(403);
+    exit("Acceso denegado");
+}
+$chk->close();
     // Iniciar una transacción
     $conn->begin_transaction();
 

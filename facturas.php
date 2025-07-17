@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__.'/auth.php';
 require_login();
+require_role(["administrador","gestor"]);
 include 'conexion.php';
 
 ini_set('display_errors',1);

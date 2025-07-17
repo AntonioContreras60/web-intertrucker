@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__.'/auth.php';
 require_login();
+require_role(["administrador","gestor"]);
 include 'conexion.php'; // Conexión a la base de datos
 
 $usuario_id = $_SESSION['usuario_id']; // Usuario en sesión

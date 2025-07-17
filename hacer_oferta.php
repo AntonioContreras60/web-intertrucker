@@ -6,6 +6,7 @@ error_reporting(E_ALL);
 
 require_once __DIR__.'/auth.php';
 require_login();
+require_role(["administrador","gestor","camionero","asociado"]);
 
 // Conexión a la base de datos
 include 'conexion.php';

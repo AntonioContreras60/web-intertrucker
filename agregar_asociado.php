@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__.'/auth.php';
 require_login();
+require_role(["administrador","gestor"]);
 include 'conexion.php'; // Conexión a la base de datos
 
 // Para ver errores en modo desarrollo (opcional)

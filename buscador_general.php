@@ -7,6 +7,7 @@
 
 require_once __DIR__.'/auth.php';
 require_login();
+require_role(["administrador","gestor","camionero","asociado"]);
 require_once 'conexion.php';
 $usuario_id = (int)$_SESSION['usuario_id'];
 
