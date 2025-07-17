@@ -1,5 +1,7 @@
 <?php
-// Conexión a la base de datos
+require_once __DIR__.'/auth.php';
+require_login();
+require_role(['administrador','gestor','camionero','asociado']);
 include('conexion.php');
 
 // Obtener datos del formulario
@@ -9,6 +11,17 @@ $nombre_firmante = $_POST['nombre_firmante'];
 $identificacion_firmante = $_POST['identificacion_firmante'];
 $firma = $_POST['firma'];  // Firma en base64
 $fecha_firma = date('Y-m-d H:i:s');
+
+// Validar que el porte pertenece al admin actual
+$admin_id = $_SESSION['admin_id'] ?? 0;
+$chk = $conn->prepare("SELECT p.id FROM portes p JOIN usuarios u ON p.usuario_creador_id=u.id WHERE p.id=? AND u.admin_id=? LIMIT 1");
+$chk->bind_param('ii', $porte_id, $admin_id);
+$chk->execute();
+if ($chk->get_result()->num_rows === 0) {
+    header('Location: error.php?error=acceso_no_autorizado');
+    exit;
+}
+$chk->close();
 
 // Verificar si se recibió la firma
 if (!empty($firma)) {
@@ -28,13 +41,7 @@ if (!empty($firma)) {
     }
 
     // Guardar la imagen en el servidor
-    if (file_put_contents($firma_path, $firma) !== false) {
-        echo "Firma guardada correctamente en: $firma_path";
-    } else {
-        echo "Error al guardar la firma en el servidor.";
-    }
-} else {
-    echo "No se recibió la firma.";
+    file_put_contents($firma_path, $firma);
 }
 
 // Actualizar los datos en la base de datos
@@ -47,7 +54,8 @@ if ($stmt->execute()) {
     header("Location: recogida_recibidos.php?porte_id=$porte_id&tipo_evento=$tipo_evento&success=1");
     exit();
 } else {
-    echo "Error al actualizar los datos: " . $stmt->error;
+    header('Location: error.php?error=error_generico');
+    exit();
 }
 
 $stmt->close();

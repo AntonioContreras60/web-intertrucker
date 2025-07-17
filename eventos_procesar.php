@@ -1,5 +1,8 @@
 <?php
 session_start();
+require_once __DIR__.'/auth.php';
+require_login();
+require_role(['administrador','gestor','camionero','asociado']);
 
 // Mostrar errores para depuración
 ini_set('display_errors', 1);
@@ -11,25 +14,33 @@ include('conexion.php');
 // Verificar la conexión a la base de datos
 if (!$conn) {
     die("Error en la conexión a la base de datos: " . mysqli_connect_error());
-} else {
-    echo "Conexión a la base de datos exitosa.<br>";
 }
 
-// Comprobar que las variables necesarias se envían correctamente
+header('Content-Type: application/json');
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Depuración inicial para ver qué datos están llegando
-    echo "<strong>Datos recibidos en POST:</strong><br>";
-    echo "Porte ID: " . (isset($_POST['porte_id']) ? $_POST['porte_id'] : "No proporcionado") . "<br>";
-    echo "Tipo de Evento: " . (isset($_POST['tipo_evento']) ? $_POST['tipo_evento'] : "No proporcionado") . "<br>";
-    echo "Acción: " . (isset($_POST['accion']) ? $_POST['accion'] : "No proporcionado") . "<br>";
 
     $porte_id = isset($_POST['porte_id']) ? intval($_POST['porte_id']) : null;
     $tipo_evento = isset($_POST['tipo_evento']) ? $_POST['tipo_evento'] : null;
 
     // Validar que se recibió el porte_id y tipo_evento
     if (!$porte_id || !$tipo_evento) {
-        die("Datos insuficientes proporcionados.");
+        echo json_encode(['success'=>false,'messages'=>['Datos insuficientes']]);
+        exit;
     }
+
+    // Validar porte pertenece al admin
+    $admin_id = $_SESSION['admin_id'] ?? 0;
+    $chk = $conn->prepare("SELECT p.id FROM portes p JOIN usuarios u ON p.usuario_creador_id=u.id WHERE p.id=? AND u.admin_id=? LIMIT 1");
+    $chk->bind_param('ii', $porte_id, $admin_id);
+    $chk->execute();
+    if ($chk->get_result()->num_rows === 0) {
+        echo json_encode(['success'=>false,'messages'=>['acceso denegado']]);
+        exit;
+    }
+    $chk->close();
+
+    $messages = [];
 
     // Registrar la llegada
     if (isset($_POST['registrar_llegada']) && $_POST['registrar_llegada'] == true) {
@@ -38,22 +49,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Verificar que se recibieron las variables correctamente
         if (empty($geolocalizacion_llegada) || empty($hora_llegada)) {
-            die("Datos de llegada incompletos: geolocalización o hora de llegada no proporcionada.");
+            echo json_encode(['success'=>false,'messages'=>['Datos de llegada incompletos']]);
+            exit;
         }
 
         // Consulta SQL para actualizar la llegada
         $sql_llegada = "UPDATE eventos SET geolocalizacion_llegada = ?, hora_llegada = ? WHERE porte_id = ? AND tipo_evento = ?";
         $stmt_llegada = $conn->prepare($sql_llegada);
         if (!$stmt_llegada) {
-            die("Error al preparar la consulta de llegada: " . $conn->error);
+            echo json_encode(['success'=>false,'messages'=>['Error prepare llegada']]);
+            exit;
         }
         $stmt_llegada->bind_param("ssis", $geolocalizacion_llegada, $hora_llegada, $porte_id, $tipo_evento);
 
         // Ejecutar la consulta y verificar el resultado
         if ($stmt_llegada->execute()) {
-            echo "Llegada registrada correctamente.<br>";
+            $messages[] = 'Llegada registrada';
         } else {
-            echo "Error al registrar la llegada: " . $stmt_llegada->error . "<br>";
+            $messages[] = 'Error al registrar la llegada: ' . $stmt_llegada->error;
         }
         $stmt_llegada->close();
     }
@@ -69,12 +82,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $sql_salida = "UPDATE eventos SET geolocalizacion_salida = ?, hora_salida = ? WHERE porte_id = ? AND tipo_evento = ?";
             $stmt_salida = $conn->prepare($sql_salida);
             if (!$stmt_salida) {
-                die("Error al preparar la consulta de salida: " . $conn->error);
+                echo json_encode(['success'=>false,'messages'=>['Error prepare salida']]);
+                exit;
             }
             $stmt_salida->bind_param("ssis", $geolocalizacion_salida, $hora_salida, $porte_id, $tipo_evento);
 
             if ($stmt_salida->execute()) {
-                echo "Salida registrada correctamente.<br>";
+                $messages[] = 'Salida registrada';
 
                 // Actualizar el estado en la tabla portes dependiendo del tipo de evento
                 $estado_recogida_entrega = '';
@@ -89,24 +103,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $sql_update_estado = "UPDATE portes SET estado_recogida_entrega = ? WHERE id = ?";
                     $stmt_estado = $conn->prepare($sql_update_estado);
                     if (!$stmt_estado) {
-                        die("Error al preparar la consulta de actualización de estado: " . $conn->error);
+                        echo json_encode(['success'=>false,'messages'=>['Error prepare estado']]);
+                        exit;
                     }
                     $stmt_estado->bind_param("si", $estado_recogida_entrega, $porte_id);
 
                     if ($stmt_estado->execute()) {
-                        echo "Estado actualizado correctamente a: " . $estado_recogida_entrega . "<br>";
+                        $messages[] = 'Estado actualizado a ' . $estado_recogida_entrega;
                     } else {
-                        echo "Error al actualizar el estado: " . $stmt_estado->error . "<br>";
+                        $messages[] = 'Error al actualizar el estado: ' . $stmt_estado->error;
                     }
                     $stmt_estado->close();
                 }
 
             } else {
-                echo "Error al registrar la salida: " . $stmt_salida->error . "<br>";
+                $messages[] = 'Error al registrar la salida: ' . $stmt_salida->error;
             }
             $stmt_salida->close();
         } else {
-            echo "Datos incompletos para registrar la salida.<br>";
+            $messages[] = 'Datos incompletos para registrar la salida.';
         }
     }
 
@@ -115,14 +130,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $sql_eliminar_llegada = "UPDATE eventos SET geolocalizacion_llegada = '', hora_llegada = '' WHERE porte_id = ? AND tipo_evento = ?";
         $stmt_eliminar_llegada = $conn->prepare($sql_eliminar_llegada);
         if (!$stmt_eliminar_llegada) {
-            die("Error al preparar la consulta de eliminación de llegada: " . $conn->error);
+            echo json_encode(['success'=>false,'messages'=>['Error prepare eliminar llegada']]);
+            exit;
         }
         $stmt_eliminar_llegada->bind_param("is", $porte_id, $tipo_evento);
 
         if ($stmt_eliminar_llegada->execute()) {
-            echo "Registro de llegada eliminado correctamente.<br>";
+            $messages[] = 'Registro de llegada eliminado';
         } else {
-            echo "Error al eliminar el registro de llegada: " . $stmt_eliminar_llegada->error . "<br>";
+            $messages[] = 'Error al eliminar llegada: ' . $stmt_eliminar_llegada->error;
         }
         $stmt_eliminar_llegada->close();
     }
@@ -132,19 +148,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $sql_eliminar_salida = "UPDATE eventos SET geolocalizacion_salida = '', hora_salida = '' WHERE porte_id = ? AND tipo_evento = ?";
         $stmt_eliminar_salida = $conn->prepare($sql_eliminar_salida);
         if (!$stmt_eliminar_salida) {
-            die("Error al preparar la consulta de eliminación de salida: " . $conn->error);
+            echo json_encode(['success'=>false,'messages'=>['Error prepare eliminar salida']]);
+            exit;
         }
         $stmt_eliminar_salida->bind_param("is", $porte_id, $tipo_evento);
 
         if ($stmt_eliminar_salida->execute()) {
-            echo "Registro de salida eliminado correctamente.<br>";
+            $messages[] = 'Registro de salida eliminado';
         } else {
-            echo "Error al eliminar el registro de salida: " . $stmt_eliminar_salida->error . "<br>";
+            $messages[] = 'Error al eliminar salida: ' . $stmt_eliminar_salida->error;
         }
         $stmt_eliminar_salida->close();
     }
+    echo json_encode(['success' => true, 'messages' => $messages]);
+    exit;
 }
 
 // Cerrar la conexión a la base de datos
 mysqli_close($conn);
+echo json_encode(['success' => false, 'messages' => ['Método no permitido']]);
 ?>
