@@ -1,5 +1,6 @@
 <IfModule mod_headers.c>
-    Header set Access-Control-Allow-Origin "*"
+    # Restrict cross-origin requests to the main site
+    Header set Access-Control-Allow-Origin "https://www.intertrucker.net"
     Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
     Header set Access-Control-Allow-Headers "Content-Type, Authorization"
 </IfModule>

@@ -1,4 +1,7 @@
 <?php
+require_once __DIR__ . "/api_auth.php";
+require_api_login();
+header("Access-Control-Allow-Origin: https://www.intertrucker.net");
 /****************************************************
  * autologin.php
  * ---------------------------------

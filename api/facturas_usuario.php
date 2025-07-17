@@ -1,7 +1,10 @@
 <?php
+require_once __DIR__ . "/api_auth.php";
+require_api_login();
+header("Access-Control-Allow-Origin: https://www.intertrucker.net");
 // Asegurar que se devuelve solo JSON
 header("Content-Type: application/json; charset=UTF-8");
-header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Origin: https://www.intertrucker.net");
 header("Access-Control-Allow-Methods: GET");
 header("Access-Control-Allow-Headers: Content-Type");
 
