@@ -1,5 +1,7 @@
 <?php
-session_start();
+require_once __DIR__.'/auth.php';
+require_login();
+require_role(['administrador','gestor']);
 include 'conexion.php'; // Conexión a la base de datos
 
 // Verificar si los parámetros necesarios están presentes
@@ -7,9 +9,36 @@ if (!isset($_GET['tren_id']) || !isset($_GET['camionero_anterior_id']) || !isset
     die("Error: No se recibieron los parámetros necesarios.");
 }
 
-$tren_id = $_GET['tren_id'];
-$camionero_anterior_id = $_GET['camionero_anterior_id'];
-$nuevo_camionero_id = $_GET['nuevo_camionero_id'];
+$tren_id = (int)$_GET['tren_id'];
+$camionero_anterior_id = (int)$_GET['camionero_anterior_id'];
+$nuevo_camionero_id = (int)$_GET['nuevo_camionero_id'];
+$admin_id = $_SESSION['admin_id'] ?? 0;
+
+// Verificar que el tren pertenece a la empresa
+$chk = $conn->prepare(
+    "SELECT t.id FROM tren t
+     JOIN tren_vehiculos tv ON tv.tren_id = t.id
+     JOIN vehiculos v ON tv.vehiculo_id = v.id
+     JOIN usuarios u ON v.usuario_id = u.id
+    WHERE t.id = ? AND u.admin_id = ? LIMIT 1"
+);
+$chk->bind_param('ii', $tren_id, $admin_id);
+$chk->execute();
+if ($chk->get_result()->num_rows === 0) {
+    die('Acceso denegado');
+}
+$chk->close();
+
+// Verificar que el nuevo camionero pertenece a la empresa
+$chk = $conn->prepare(
+    "SELECT c.id FROM camioneros c JOIN usuarios u ON c.usuario_id=u.id WHERE c.id=? AND u.admin_id=?"
+);
+$chk->bind_param('ii', $nuevo_camionero_id, $admin_id);
+$chk->execute();
+if ($chk->get_result()->num_rows === 0) {
+    die('Acceso denegado');
+}
+$chk->close();
 $fecha_actual = date("Y-m-d H:i:s"); // Fecha actual
 
 // --- Actualizar el camionero anterior poniendo la fecha de fin ---
