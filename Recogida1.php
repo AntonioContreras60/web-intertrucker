@@ -1,5 +1,8 @@
 <?php
 session_start();
+require_once __DIR__.'/auth.php';
+require_login();
+require_role(['administrador','gestor','camionero','asociado']);
 include('conexion.php');
 
 // Obtener el ID del usuario desde la sesión
@@ -16,6 +19,17 @@ if (!$porte_id) {
 if (!$conn) {
     die("Error en la conexión a la base de datos: " . mysqli_connect_error());
 }
+
+// Validar que el porte pertenece al admin actual
+$admin_id = $_SESSION['admin_id'] ?? 0;
+$chk = $conn->prepare("SELECT p.id FROM portes p JOIN usuarios u ON p.usuario_creador_id = u.id WHERE p.id = ? AND u.admin_id = ? LIMIT 1");
+$chk->bind_param('ii', $porte_id, $admin_id);
+$chk->execute();
+if ($chk->get_result()->num_rows === 0) {
+    header('Location: error.php?error=acceso_no_autorizado');
+    exit;
+}
+$chk->close();
 
 // Consulta para obtener el `evento_id` asociado al `porte_id`
 $sql_evento = "SELECT id FROM eventos WHERE porte_id = ? LIMIT 1";
