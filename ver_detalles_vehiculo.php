@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__.'/auth.php';
 require_login();
+require_role(["administrador","gestor"]);
 include 'conexion.php'; // Ajusta la ruta si tu archivo de conexión está en otro directorio
 include 'funciones_subida.php';
 
@@ -9,6 +10,15 @@ if (!isset($_GET['vehiculo_id'])) {
     die("Falta el vehiculo_id en la URL (ej: ver_detalles_vehiculo.php?vehiculo_id=XX).");
 }
 $vehiculo_id = intval($_GET['vehiculo_id']);
+$admin_id = $_SESSION["admin_id"] ?? 0;
+$chk = $conn->prepare("SELECT v.id FROM vehiculos v JOIN usuarios u ON v.usuario_id=u.id WHERE v.id=? AND u.admin_id=? LIMIT 1");
+$chk->bind_param("ii", $vehiculo_id, $admin_id);
+$chk->execute();
+if ($chk->get_result()->num_rows === 0) {
+    http_response_code(403);
+    exit("Acceso denegado");
+}
+$chk->close();
 
 // Ruta para documentos manejada por la función de subida
 

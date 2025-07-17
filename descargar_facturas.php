@@ -1,4 +1,7 @@
 <?php
+require_once __DIR__.'/auth.php';
+require_login();
+require_role(["administrador","gestor"]);
 include 'conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['facturas']) && isset($_POST['formato'])) {
@@ -12,9 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['facturas']) && isset(
     if (count($facturas) > 0) {
         // Consulta para obtener las facturas seleccionadas
         $placeholders = implode(',', array_fill(0, count($facturas), '?'));
-        $sql = "SELECT * FROM facturas WHERE id IN ($placeholders)";
+        $admin_id = $_SESSION['admin_id'] ?? 0;
+        $sql = "SELECT f.* FROM facturas f JOIN usuarios u ON f.usuario_id=u.id WHERE f.id IN ($placeholders) AND u.admin_id=?";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param(str_repeat('i', count($facturas)), ...$facturas);
+        $types = str_repeat('i', count($facturas)) . 'i';
+        $stmt->bind_param($types, ...array_merge($facturas, [$admin_id]));
         $stmt->execute();
         $result = $stmt->get_result();
 

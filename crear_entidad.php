@@ -1,6 +1,10 @@
 <?php
+require_once __DIR__.'/auth.php';
+require_login();
+require_role(["administrador","gestor"]);
 // Asegúrate de incluir la conexión a la base de datos
 include 'conexion.php';
+$usuario_id = $_SESSION["usuario_id"];
 
 // Verificar si se ha enviado el formulario
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -14,13 +18,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $observaciones = isset($_POST['observaciones']) ? $conn->real_escape_string($_POST['observaciones']) : null;
 
     // Insertar los datos en la tabla 'entidades'
-    $sql = "INSERT INTO entidades (nombre, direccion, telefono, email, cif, tipo, observaciones) 
-            VALUES ('$nombre', '$direccion', '$telefono', '$email', '$cif', '$tipo', '$observaciones')";
-
-    if ($conn->query($sql) === TRUE) {
-        echo "Entidad creada correctamente.";
+    $sql = "INSERT INTO entidades (nombre, direccion, telefono, email, cif, tipo, observaciones, usuario_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    $stmt = $conn->prepare($sql);
+    if ($stmt) {
+        $stmt->bind_param("sssssssi", $nombre, $direccion, $telefono, $email, $cif, $tipo, $observaciones, $usuario_id);
+        if ($stmt->execute()) {
+            echo "Entidad creada correctamente.";
+        } else {
+            echo "Error al crear la entidad: " . $stmt->error;
+        }
+        $stmt->close();
     } else {
-        echo "Error al crear la entidad: " . $conn->error;
+        echo "Error en la preparación de la consulta: " . $conn->error;
     }
 
     // Cerrar la conexión
