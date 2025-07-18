@@ -2,6 +2,11 @@
 function subir_archivo($fileEntry, $carpetaObjetivo, $tipoDocumento = '') {
     $maxSize = 20 * 1024 * 1024; // 20 MB
     $permitidas = ['pdf', 'jpg', 'jpeg', 'png'];
+    $mimesPermitidos = [
+        'application/pdf',
+        'image/jpeg',
+        'image/png'
+    ];
 
     if (!isset($fileEntry['error']) || $fileEntry['error'] !== UPLOAD_ERR_OK) {
         return "Error al subir el archivo.";
@@ -14,6 +19,12 @@ function subir_archivo($fileEntry, $carpetaObjetivo, $tipoDocumento = '') {
     $extension = strtolower(pathinfo($fileEntry['name'], PATHINFO_EXTENSION));
     if (!in_array($extension, $permitidas)) {
         return "Extensión de archivo no permitida.";
+    }
+
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    $mime  = $finfo->file($fileEntry['tmp_name']);
+    if (!in_array($mime, $mimesPermitidos)) {
+        return "Tipo MIME no permitido.";
     }
 
     $carpetaObjetivo = trim($carpetaObjetivo, '/');

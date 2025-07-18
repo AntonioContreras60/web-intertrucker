@@ -192,7 +192,7 @@ if ($rol === 'administrador' || $rol === 'gestor') {
 
             <!-- FOTO -->
             <label for="foto">Adjuntar Factura (PDF o imagen, máx 20 MB):</label>
-            <input type="file" id="foto" name="foto" accept="application/pdf,image/*">
+            <input type="file" id="foto" name="foto" accept=".pdf,.jpg,.jpeg,.png">
 
             <!-- OBSERVACIONES -->
             <label for="observaciones">Observaciones:</label>

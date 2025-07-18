@@ -64,13 +64,16 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
 
        $maxSize  = 20 * 1024 * 1024; // 20MB
        $allowed  = ['pdf','jpg','jpeg','png'];
+       $mimeAllowed = ['application/pdf','image/jpeg','image/png'];
        $ext      = strtolower(pathinfo($fileArr['name'],PATHINFO_EXTENSION));
+       $finfo    = new finfo(FILEINFO_MIME_TYPE);
+       $mime     = $finfo->file($fileArr['tmp_name']);
 
        if($fileArr['size'] > $maxSize){
           echo "<p style='color:red;'>El archivo excede el tamaño máximo de 20MB.</p>";
           return;
        }
-       if(!in_array($ext,$allowed)){
+       if(!in_array($ext,$allowed) || !in_array($mime,$mimeAllowed)){
           echo "<p style='color:red;'>Formato de archivo no permitido.</p>";
           return;
        }
@@ -148,9 +151,9 @@ section{background:#f7f7f7;padding:14px;border:1px solid #ccc;border-radius:8px;
 
 <section>
   <h3>Subir documentos (opcional)</h3>
-  DNI: <input type="file" name="doc_dni" accept="image/*,application/pdf"><br>
-  Contrato laboral: <input type="file" name="doc_contrato" accept="image/*,application/pdf"><br>
-  Otros archivos (múltiples): <input type="file" name="doc_otros[]" multiple accept="image/*,application/pdf">
+  DNI: <input type="file" name="doc_dni" accept=".pdf,.jpg,.jpeg,.png"><br>
+  Contrato laboral: <input type="file" name="doc_contrato" accept=".pdf,.jpg,.jpeg,.png"><br>
+  Otros archivos (múltiples): <input type="file" name="doc_otros[]" multiple accept=".pdf,.jpg,.jpeg,.png">
 </section>
 
 <button type="submit">Añadir Gestor y Enviar Enlace</button>

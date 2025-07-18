@@ -50,13 +50,17 @@ if (isset($_POST['importar']) && isset($_FILES['fichero_datos'])) {
         die("Archivo no válido");
     }
 
-    // Solo permitimos CSV o XML basándonos en la extensión
+    // Solo permitimos PDF o imágenes
     $ext = strtolower(pathinfo($name, PATHINFO_EXTENSION));
-    if (!in_array($ext, ['csv','xml'])) {
-        die("Formato de fichero no admitido. Sube un .csv o .xml");
+    if (!in_array($ext, ['pdf','jpg','jpeg','png'])) {
+        die("Formato de fichero no admitido");
     }
 
-    // (Opcional) Podríamos chequear MIME real, p.ej. con finfo_file().
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    $mime = $finfo->file($tmp);
+    if (!in_array($mime, ['application/pdf','image/jpeg','image/png'])) {
+        die("Tipo MIME no permitido");
+    }
 
     // ------------------------------------------------
     // 2.4. Conexión PDO + transacción
@@ -205,8 +209,8 @@ if (isset($_POST['importar']) && isset($_FILES['fichero_datos'])) {
   <!-- Para limitar a 5MB en el lado del cliente -->
   <input type="hidden" name="MAX_FILE_SIZE" value="5242880">
 
-  <label>Archivo (CSV o XML):</label><br>
-  <input type="file" name="fichero_datos" required><br><br>
+  <label>Archivo (PDF o imagen):</label><br>
+  <input type="file" name="fichero_datos" accept=".pdf,.jpg,.jpeg,.png" required><br><br>
 
   <label>Tipo de porte:</label><br>
   <input type="radio" name="tipo_porte" value="propio"  id="tProp" checked> Propio<br>

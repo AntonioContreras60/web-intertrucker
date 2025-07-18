@@ -32,11 +32,14 @@ if($_SERVER['REQUEST_METHOD']==='POST' && isset($_POST['subir_doc'])){
    if(isset($_FILES['archivo']) && $_FILES['archivo']['error']===UPLOAD_ERR_OK){
        $maxSize = 20 * 1024 * 1024; // 20MB
        $allowed = ['pdf','jpg','jpeg','png'];
+       $mimeAllowed = ['application/pdf','image/jpeg','image/png'];
        $ext     = strtolower(pathinfo($_FILES['archivo']['name'],PATHINFO_EXTENSION));
+       $finfo   = new finfo(FILEINFO_MIME_TYPE);
+       $mime    = $finfo->file($_FILES['archivo']['tmp_name']);
 
        if($_FILES['archivo']['size'] > $maxSize){
            echo "<p style='color:red;'>El archivo excede el tamaño máximo de 20MB.</p>";
-       } elseif(!in_array($ext,$allowed)){
+       } elseif(!in_array($ext,$allowed) || !in_array($mime,$mimeAllowed)){
            echo "<p style='color:red;'>Formato de archivo no permitido.</p>";
        } else {
            $tipoDoc = $_POST['tipo_documento'];
@@ -144,7 +147,7 @@ function toggleCamioneroFields(){
   <option value="contrato">Contrato</option>
   <option value="otros">Otros</option>
 </select></label>
-<input type="file" name="archivo" required>
+<input type="file" name="archivo" accept=".pdf,.jpg,.jpeg,.png" required>
 <button type="submit">Subir</button>
 </form>
 

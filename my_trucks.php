@@ -173,7 +173,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['vehiculo_id'], $_POST
             <input type="text" name="telefono" placeholder="Teléfono de Contacto"><br><br>
             <textarea name="observaciones" placeholder="Observaciones (Opcional)" rows="4" cols="50"></textarea><br><br>
             <label>Documentos del Vehículo:</label>
-            <input type="file" name="documentosVehiculo[]" multiple accept="image/*,application/pdf"><br><br>
+            <input type="file" name="documentosVehiculo[]" multiple accept=".pdf,.jpg,.jpeg,.png"><br><br>
             <button type="submit">Guardar Vehículo</button>
             <br>
         </form>

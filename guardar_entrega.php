@@ -18,8 +18,11 @@ if (isset($_FILES['foto_entrega'])) {
     $target_dir = "uploads/";
     $file_name = basename($_FILES['foto_entrega']['name']);
     $target_file = $target_dir . $file_name;
+    $ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    $mime = $finfo->file($_FILES['foto_entrega']['tmp_name']);
 
-    if (move_uploaded_file($_FILES['foto_entrega']['tmp_name'], $target_file)) {
+    if (in_array($ext, ['pdf','jpg','jpeg','png']) && in_array($mime, ['application/pdf','image/jpeg','image/png']) && move_uploaded_file($_FILES['foto_entrega']['tmp_name'], $target_file)) {
         // Usar prepared statement en lugar de concatenación
         $sql = "INSERT INTO archivos_entrega_recogida (porte_id, tipo, archivo_nombre)
                 VALUES (?, 'foto', ?)";
@@ -42,8 +45,11 @@ if (isset($_FILES['video_entrega'])) {
     $target_dir = "uploads/";
     $file_name = basename($_FILES['video_entrega']['name']);
     $target_file = $target_dir . $file_name;
+    $ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    $mime = $finfo->file($_FILES['video_entrega']['tmp_name']);
 
-    if (move_uploaded_file($_FILES['video_entrega']['tmp_name'], $target_file)) {
+    if (in_array($ext, ['pdf','jpg','jpeg','png']) && in_array($mime, ['application/pdf','image/jpeg','image/png']) && move_uploaded_file($_FILES['video_entrega']['tmp_name'], $target_file)) {
         $sql = "INSERT INTO archivos_entrega_recogida (porte_id, tipo, archivo_nombre)
                 VALUES (?, 'video', ?)";
         $stmt = $conn->prepare($sql);
