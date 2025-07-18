@@ -12,3 +12,13 @@ DB_NAME=your-database-name
 ```
 
 An example file is provided as `.env.example`.
+
+## Autologin desde la app
+
+Para permitir que gestores y administradores accedan a la web sin volver a introducir credenciales, la app puede solicitar un token temporal a `/api/autologin.php`:
+
+1. Realiza una petición `POST` con el parámetro `usuario_id` y encabezado `Authorization: Bearer <token_sesion>`.
+2. La respuesta incluye una URL de autologin que contiene el token seguro.
+3. Abre esa URL en el navegador del dispositivo para iniciar sesión en la web.
+
+El token es válido durante un minuto y solo puede usarse una vez. Al visitarlo, `autologin_mecanismo.php` valida el token, crea la sesión PHP y redirige a la página principal. Si el usuario cierra la sesión web, simplemente solicita un nuevo token desde la app y abra la URL resultante.

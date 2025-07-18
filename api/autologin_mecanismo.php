@@ -92,6 +92,27 @@ try {
         }
 
         session_start();
+
+        // -- Ensure the session cookie is available for the whole site
+        if (isset($_COOKIE[session_name()])) {
+            if (PHP_VERSION_ID >= 70300) {
+                setcookie(session_name(), session_id(), [
+                    'expires'  => 0,
+                    'path'     => '/',
+                    'domain'   => $_SERVER['HTTP_HOST'],
+                    'secure'   => !empty($_SERVER['HTTPS']),
+                    'httponly' => true,
+                    'samesite' => 'Lax'
+                ]);
+            } else {
+                // Compatibility with PHP < 7.3
+                setcookie(session_name(), session_id(), 0, '/');
+            }
+
+            // Remove potential previous cookie scoped to /api
+            setcookie(session_name(), '', time() - 3600, '/api');
+        }
+
         $_SESSION['usuario_id']    = $usuarioId;
         $_SESSION['admin_id']      = (int)$usrData['admin_id'];
         $_SESSION['nombre_usuario'] = $usrData['nombre_usuario'] ?? '';
