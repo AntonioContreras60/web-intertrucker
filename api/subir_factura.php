@@ -27,12 +27,8 @@ header('Access-Control-Allow-Headers: Content-Type, Authorization');
 /* --------------------------------------------------------------
  * 0) Conexión a la base de datos
  * ------------------------------------------------------------*/
-$servername = getenv('DB_HOST');
-$username   = getenv('DB_USER');
-$password   = getenv('DB_PASS');
-$dbname     = getenv('DB_NAME');
-
-$conn = new mysqli($servername, $username, $password, $dbname);
+include_once __DIR__ . '/../conexion.php';
+// $conn se define en conexion.php
 if ($conn->connect_error) {
     echo json_encode([
         'success' => false,
