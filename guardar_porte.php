@@ -317,6 +317,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $maxSize = 500 * 1024 * 1024; // 500 MB
     $allowed = ['pdf', 'jpg', 'jpeg', 'png'];
+    $mimeAllowed = ['application/pdf','image/jpeg','image/png'];
     $docErrors = [];
 
     if (!empty($_FILES['documentos_porte']['name'][0])) {
@@ -336,6 +337,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             if (!in_array($ext, $allowed)) {
                 $docErrors[] = "$nombre tiene una extensión no permitida";
+                continue;
+            }
+            $finfo = new finfo(FILEINFO_MIME_TYPE);
+            $mime = $finfo->file($tmp);
+            if (!in_array($mime, $mimeAllowed)) {
+                $docErrors[] = "$nombre tiene un tipo MIME no permitido";
                 continue;
             }
 

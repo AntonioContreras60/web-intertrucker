@@ -23,7 +23,10 @@ if (isset($_FILES['foto_recogida'])) {
     $target_dir = "uploads/";
     $file_name = basename($_FILES['foto_recogida']['name']);
     $target_file = $target_dir . $file_name;
-    if (move_uploaded_file($_FILES['foto_recogida']['tmp_name'], $target_file)) {
+    $ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    $mime = $finfo->file($_FILES['foto_recogida']['tmp_name']);
+    if (in_array($ext, ['pdf','jpg','jpeg','png']) && in_array($mime, ['application/pdf','image/jpeg','image/png']) && move_uploaded_file($_FILES['foto_recogida']['tmp_name'], $target_file)) {
         $sql = "INSERT INTO archivos_entrega_recogida (porte_id, tipo, archivo_nombre) VALUES ($porte_id, 'foto', '$file_name')";
         mysqli_query($conn, $sql);
         $messages[] = 'foto subida';
@@ -36,7 +39,10 @@ if (isset($_FILES['video_recogida'])) {
     $target_dir = "uploads/";
     $file_name = basename($_FILES['video_recogida']['name']);
     $target_file = $target_dir . $file_name;
-    if (move_uploaded_file($_FILES['video_recogida']['tmp_name'], $target_file)) {
+    $ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    $mime = $finfo->file($_FILES['video_recogida']['tmp_name']);
+    if (in_array($ext, ['pdf','jpg','jpeg','png']) && in_array($mime, ['application/pdf','image/jpeg','image/png']) && move_uploaded_file($_FILES['video_recogida']['tmp_name'], $target_file)) {
         $sql = "INSERT INTO archivos_entrega_recogida (porte_id, tipo, archivo_nombre) VALUES ($porte_id, 'video', '$file_name')";
         mysqli_query($conn, $sql);
         $messages[] = 'video subido';

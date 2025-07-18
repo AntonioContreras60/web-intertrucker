@@ -232,7 +232,7 @@ $documentos = $res_docs->fetch_all(MYSQLI_ASSOC);
 
 <h3>Subir nuevos documentos</h3>
 <form method="POST" enctype="multipart/form-data">
-    <input type="file" name="nuevos_docs[]" multiple accept="image/*,application/pdf">
+    <input type="file" name="nuevos_docs[]" multiple accept=".pdf,.jpg,.jpeg,.png">
     <button type="submit">Subir</button>
 </form>
 

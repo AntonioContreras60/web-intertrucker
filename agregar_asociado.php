@@ -133,14 +133,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $maxSize      = 20 * 1024 * 1024; // 20MB
         $allowedExt   = ['pdf', 'jpg', 'jpeg', 'png'];
+        $mimeAllowed  = ['application/pdf','image/jpeg','image/png'];
         $extension    = strtolower(pathinfo($fileArray['name'], PATHINFO_EXTENSION));
+        $finfo        = new finfo(FILEINFO_MIME_TYPE);
+        $mime         = $finfo->file($fileArray['tmp_name']);
 
         if ($fileArray['size'] > $maxSize) {
             echo "<p style='color:red;'>El archivo excede el tamaño máximo de 20MB.</p>";
             return;
         }
 
-        if (!in_array($extension, $allowedExt)) {
+        if (!in_array($extension, $allowedExt) || !in_array($mime, $mimeAllowed)) {
             echo "<p style='color:red;'>Formato de archivo no permitido.</p>";
             return;
         }
@@ -295,16 +298,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   <h2>Documentos obligatorios</h2>
   <label>Archivo DNI:</label>
-  <input type="file" name="documentoDNI" accept="image/*,application/pdf"><br>
+  <input type="file" name="documentoDNI" accept=".pdf,.jpg,.jpeg,.png"><br>
 
   <label>Archivo Carnet de Conducir:</label>
-  <input type="file" name="documentoCarnet" accept="image/*,application/pdf"><br>
+  <input type="file" name="documentoCarnet" accept=".pdf,.jpg,.jpeg,.png"><br>
 
   <label>Archivo Competencia Profesional:</label>
-  <input type="file" name="documentoCompetencia" accept="image/*,application/pdf"><br><br>
+  <input type="file" name="documentoCompetencia" accept=".pdf,.jpg,.jpeg,.png"><br><br>
 
   <h2>Otros Documentos (opcionales)</h2>
-  <input type="file" name="documentosExtras[]" multiple accept="image/*,application/pdf"><br><br>
+  <input type="file" name="documentosExtras[]" multiple accept=".pdf,.jpg,.jpeg,.png"><br><br>
 
   <button type="submit">Guardar Asociado</button>
 </form>

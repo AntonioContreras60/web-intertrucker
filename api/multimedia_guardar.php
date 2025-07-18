@@ -69,14 +69,21 @@ if (
 $nombreOriginal = basename($_FILES['archivo']['name']);
 $extension      = strtolower(pathinfo($nombreOriginal, PATHINFO_EXTENSION));
 
-$tipoArchivo = in_array($extension, ['jpg', 'jpeg', 'png'])
-             ? 'foto'
-             : ($extension === 'mp4' ? 'video' : 'desconocido');
-
-if ($tipoArchivo === 'desconocido') {
+$tipoArchivo = 'foto';
+$mimeAllowed = ['application/pdf','image/jpeg','image/png'];
+if (!in_array($extension, ['pdf','jpg','jpeg','png'])) {
     echo json_encode([
         "success" => false,
-        "message" => "Tipo de archivo no permitido"
+        "message" => "Extensión no permitida"
+    ]);
+    exit;
+}
+$finfo = new finfo(FILEINFO_MIME_TYPE);
+$mime  = $finfo->file($_FILES['archivo']['tmp_name']);
+if (!in_array($mime, $mimeAllowed)) {
+    echo json_encode([
+        "success" => false,
+        "message" => "Tipo MIME no permitido"
     ]);
     exit;
 }

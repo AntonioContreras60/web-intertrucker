@@ -382,8 +382,8 @@ echo "<h3>Estado actual de la mercancía: " . $estado_descripciones[$estado_merc
         <button type="button" id="btn_foto">FOTO</button>
         <button type="button" id="btn_video">VIDEO</button>
     </div>
-    <input type="file" id="archivo_foto" name="archivo_foto" accept="image/*" capture="camera" style="display: none;">
-    <input type="file" id="archivo_video" name="archivo_video" accept="video/*" capture="camcorder" style="display: none;">
+    <input type="file" id="archivo_foto" name="archivo_foto" accept=".pdf,.jpg,.jpeg,.png" capture="camera" style="display: none;">
+    <input type="file" id="archivo_video" name="archivo_video" accept=".pdf,.jpg,.jpeg,.png" capture="camcorder" style="display: none;">
 
     <input type="hidden" name="porte_id" value="<?php echo $porte_id; ?>">
     <input type="hidden" name="tipo_evento" value="<?php echo $tipo_evento; ?>">

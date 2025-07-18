@@ -27,19 +27,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $chk->close();
 
     // Obtener los archivos subidos
-    $archivo_foto = $_FILES['archivo_foto'] ?? null;
-    $archivo_video = $_FILES['archivo_video'] ?? null;
-
-    // Verificar si es una foto o un video
-    if ($archivo_foto) {
-        $archivo = $archivo_foto;
-        $tipo_archivo = 'foto';
-    } elseif ($archivo_video) {
-        $archivo = $archivo_video;
-        $tipo_archivo = 'video';
-    } else {
-        die("No se ha seleccionado ni foto ni video.");
+    $archivo = $_FILES['archivo_foto'] ?? $_FILES['archivo_video'] ?? null;
+    if (!$archivo) {
+        die("No se ha seleccionado ningún archivo válido.");
     }
+
+    $extPermitidas = ['pdf', 'jpg', 'jpeg', 'png'];
+    $mimesPermitidos = [
+        'application/pdf',
+        'image/jpeg',
+        'image/png'
+    ];
+
+    $extension = strtolower(pathinfo($archivo['name'], PATHINFO_EXTENSION));
+    $finfo = new finfo(FILEINFO_MIME_TYPE);
+    $mime  = $finfo->file($archivo['tmp_name']);
+    if (!in_array($extension, $extPermitidas) || !in_array($mime, $mimesPermitidos)) {
+        echo json_encode(['success'=>false,'message'=>'Formato de archivo no permitido']);
+        exit;
+    }
+
+    $tipo_archivo = 'foto';
 
     // Generar nuevo nombre del archivo basado en porte_id, tipo_evento, fecha y hora
     $extension = pathinfo($archivo['name'], PATHINFO_EXTENSION); // Obtener la extensión original

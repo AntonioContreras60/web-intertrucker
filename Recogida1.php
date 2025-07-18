@@ -152,10 +152,10 @@ mysqli_close($conn);
             </select><br><br>
 
             <label for="archivoFoto">Capturar Foto:</label>
-            <input type="file" id="archivoFoto" accept="image/*" capture="camera" onchange="subirAutomaticamente('Foto')"><br><br>
+            <input type="file" id="archivoFoto" accept=".pdf,.jpg,.jpeg,.png" capture="camera" onchange="subirAutomaticamente('Foto')"><br><br>
 
             <label for="archivoVideo">Grabar Video:</label>
-            <input type="file" id="archivoVideo" accept="video/*" capture="camera" onchange="subirAutomaticamente('Video')"><br><br>
+            <input type="file" id="archivoVideo" accept=".pdf,.jpg,.jpeg,.png" capture="camera" onchange="subirAutomaticamente('Video')"><br><br>
         </form>
 
         <!-- Mostrar los archivos subidos con enlaces -->
