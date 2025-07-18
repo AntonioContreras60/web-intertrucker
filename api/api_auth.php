@@ -11,12 +11,7 @@ function require_api_login() {
     if (preg_match('/Bearer\s+(\S+)/i', $authHeader, $matches)) {
         $token = $matches[1];
 
-        $conn = new mysqli(
-            getenv('DB_HOST'),
-            getenv('DB_USER'),
-            getenv('DB_PASS'),
-            getenv('DB_NAME')
-        );
+        include_once __DIR__ . '/../conexion.php';
         if (!$conn->connect_error) {
             $stmt = $conn->prepare('SELECT id, rol, admin_id, nombre_usuario FROM usuarios WHERE token_sesion = ? LIMIT 1');
             if ($stmt) {

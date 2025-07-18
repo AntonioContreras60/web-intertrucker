@@ -17,21 +17,10 @@ if (empty($token)) {
     exit;
 }
 
-// 2) Conectar a la base de datos usando variables de entorno
-$dbHost = getenv('DB_HOST');
-$dbUser = getenv('DB_USER');
-$dbPass = getenv('DB_PASS');
-$dbName = getenv('DB_NAME');
-
-try {
-    $pdo = new PDO(
-        "mysql:host=$dbHost;dbname=$dbName;charset=utf8",
-        $dbUser,
-        $dbPass,
-        [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
-    );
-} catch (Exception $e) {
-    echo "Error de conexión a la BD: " . $e->getMessage();
+// 2) Conectar a la base de datos
+include_once __DIR__ . '/../conexion.php';
+if (!$pdo) {
+    echo "Error de conexión a la BD";
     exit;
 }
 

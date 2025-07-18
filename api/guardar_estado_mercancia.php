@@ -13,14 +13,8 @@ header("Access-Control-Allow-Origin: https://www.intertrucker.net");
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Allow-Headers: Content-Type, Authorization");
 
-// Credenciales de la base de datos obtenidas de variables de entorno
-$servername = getenv('DB_HOST');
-$username   = getenv('DB_USER');
-$password   = getenv('DB_PASS');
-$dbname     = getenv('DB_NAME');
-
 // Conectar a la base de datos
-$conn = new mysqli($servername, $username, $password, $dbname);
+include_once __DIR__ . '/../conexion.php';
 if ($conn->connect_error) {
     echo json_encode(["success" => false, "message" => "Error de conexión: " . $conn->connect_error]);
     exit;

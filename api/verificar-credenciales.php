@@ -33,24 +33,12 @@ if (empty($email) || empty($contrasena)) {
     exit;
 }
 
-// 3) Datos de conexión obtenidos de variables de entorno
-$servername = getenv('DB_HOST');
-$username   = getenv('DB_USER');
-$password   = getenv('DB_PASS');
-$dbname     = getenv('DB_NAME');
-
-// 4) Conexión PDO
-try {
-    $pdo = new PDO(
-        "mysql:host=$servername;dbname=$dbname;charset=utf8mb4",
-        $username,
-        $password
-    );
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (Exception $e) {
+// 3) Conexión PDO
+include_once __DIR__ . '/../conexion.php';
+if (!$pdo) {
     echo json_encode([
         "success" => false,
-        "message" => "Error de conexión a la base de datos: " . $e->getMessage()
+        "message" => "Error de conexión a la base de datos"
     ]);
     exit;
 }

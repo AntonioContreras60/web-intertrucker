@@ -13,13 +13,8 @@ ini_set('display_errors', 0);
 ini_set('display_startup_errors', 0);
 error_reporting(0);
 
-// Conexión a la base de datos usando variables de entorno
-$servername = getenv('DB_HOST');
-$username   = getenv('DB_USER');
-$password   = getenv('DB_PASS');
-$dbname     = getenv('DB_NAME');
-
-$conn = new mysqli($servername, $username, $password, $dbname);
+// Conexión a la base de datos
+include_once __DIR__ . '/../conexion.php';
 
 $sessionUser  = $_SESSION['usuario_id'] ?? 0;
 $sessionAdmin = $_SESSION['admin_id']  ?? 0;
