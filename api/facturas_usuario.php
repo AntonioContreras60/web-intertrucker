@@ -67,6 +67,11 @@ $resultFacturas = $stmt->get_result();
 $facturas = [];
 
 while ($row = $resultFacturas->fetch_assoc()) {
+    foreach (['id','usuario_id','tren_id'] as $f) {
+        if (isset($row[$f])) {
+            $row[$f] = (int)$row[$f];
+        }
+    }
     $facturas[] = $row;
 }
 

@@ -54,6 +54,10 @@ try {
     $stmtUsuario->execute();
     $resultUsuario = $stmtUsuario->get_result();
     $usuario = $resultUsuario->fetch_assoc();
+    if ($usuario) {
+        $usuario['usuario_id'] = (int)$usuario['usuario_id'];
+        $usuario['estado'] = isset($usuario['estado']) ? (int)$usuario['estado'] : 0;
+    }
 
     if (!$usuario) {
         echo json_encode([
@@ -78,6 +82,11 @@ try {
     $stmtCamionero->execute();
     $resultCamionero = $stmtCamionero->get_result();
     $camionero = $resultCamionero->fetch_assoc();
+    if ($camionero) {
+        $camionero['id'] = (int)$camionero['id'];
+        $camionero['usuario_id'] = (int)$camionero['usuario_id'];
+        $camionero['activo'] = isset($camionero['activo']) ? (int)$camionero['activo'] : 0;
+    }
 
     // Respuesta con los datos del usuario y camionero (si aplica)
     echo json_encode([

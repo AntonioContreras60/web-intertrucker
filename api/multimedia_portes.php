@@ -67,6 +67,14 @@ try {
     $stmtMultimedia->execute();
     $resultMultimedia = $stmtMultimedia->get_result();
     $archivos = $resultMultimedia->fetch_all(MYSQLI_ASSOC);
+    foreach ($archivos as &$a) {
+        if (isset($a['id'])) {
+            $a['id'] = (int)$a['id'];
+        }
+        if (isset($a['tamano'])) {
+            $a['tamano'] = (float)$a['tamano'];
+        }
+    }
 
     if (empty($archivos)) {
         echo json_encode([
