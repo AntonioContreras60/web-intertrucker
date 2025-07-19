@@ -108,6 +108,9 @@ $res = $conn->query("
 ");
 
 $row = $res ? $res->fetch_assoc() : null;
+if ($row) {
+    $row['porte_id'] = (int)$row['porte_id'];
+}
 
 echo json_encode([
     "success" => true,

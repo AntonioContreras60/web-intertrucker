@@ -72,6 +72,14 @@ try {
     $stmtEventos->execute();
     $resultEventos = $stmtEventos->get_result();
     $eventos = $resultEventos->fetch_all(MYSQLI_ASSOC);
+    foreach ($eventos as &$e) {
+        if (isset($e['id'])) {
+            $e['id'] = (int)$e['id'];
+        }
+        if (isset($e['porte_id'])) {
+            $e['porte_id'] = (int)$e['porte_id'];
+        }
+    }
 
     if (empty($eventos)) {
         echo json_encode([

@@ -89,6 +89,17 @@ try {
     $stmt->execute();
     $result = $stmt->get_result();
     $portes = $result->fetch_all(MYSQLI_ASSOC);
+    foreach ($portes as &$p) {
+        $intFields = [
+            'id','usuario_creador_id','destinatario_usuario_id','destinatario_entidad_id',
+            'expedidor_usuario_id','expedidor_entidad_id','cliente_usuario_id','cliente_entidad_id'
+        ];
+        foreach ($intFields as $f) {
+            if (isset($p[$f])) {
+                $p[$f] = (int)$p[$f];
+            }
+        }
+    }
 
     if (empty($portes)) {
         echo json_encode([

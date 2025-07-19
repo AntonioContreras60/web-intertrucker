@@ -57,6 +57,13 @@ try {
     $stmtPortesTren->execute();
     $resultPortesTren = $stmtPortesTren->get_result();
     $portes = $resultPortesTren->fetch_all(MYSQLI_ASSOC);
+    foreach ($portes as &$p) {
+        foreach (['id','porte_id','usuario_id'] as $f) {
+            if (isset($p[$f])) {
+                $p[$f] = (int)$p[$f];
+            }
+        }
+    }
 
     if (empty($portes)) {
         echo json_encode([
