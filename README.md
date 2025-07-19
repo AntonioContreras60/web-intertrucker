@@ -22,3 +22,6 @@ Para permitir que gestores y administradores accedan a la web sin volver a intro
 3. Abre esa URL en el navegador del dispositivo para iniciar sesión en la web.
 
 El token es válido durante un minuto y solo puede usarse una vez. Al visitarlo, `autologin_mecanismo.php` valida el token, crea la sesión PHP y redirige a la página principal. Si el usuario cierra la sesión web, simplemente solicita un nuevo token desde la app y abra la URL resultante.
+
+> **Note**
+> El script `login_directo.php` se ha eliminado. Utiliza siempre la URL devuelta por `/api/autologin.php`, que redirige a `api/autologin_mecanismo.php` para completar el inicio de sesión.
