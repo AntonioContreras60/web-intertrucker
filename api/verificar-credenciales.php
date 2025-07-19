@@ -139,15 +139,27 @@ try {
         ':uid' => $usuarioId
     ]);
 
+    // Mapear rol a un identificador numérico para la app
+    $rolMap = [
+        'administrador' => 1,
+        'gestor'        => 2,
+        'camionero'     => 3,
+        'asociado'      => 4,
+        'superadmin'    => 5
+    ];
+    $rolNombre = $row['rol'] ?? '';
+    $rolId = $rolMap[$rolNombre] ?? 0;
+
     // Respuesta final
     echo json_encode([
         "success" => true,
         "message" => "Credenciales válidas",
         "data" => [
-            "usuario_id"   => $usuarioId,
-            "rol"          => $row['rol'] ?? '',
-            "camionero_id" => $camioneroId,
-            "tren_id"      => $trenId,
+            "usuario_id"   => (int)$usuarioId,
+            "rol"          => $rolNombre,
+            "rol_id"       => $rolId,
+            "camionero_id" => (int)$camioneroId,
+            "tren_id"      => (int)$trenId,
             "tren_nombre"  => $trenNombre,
             "email"        => $row['email'] ?? '',
             "nombre"       => $row['nombre_usuario'] ?? '',
