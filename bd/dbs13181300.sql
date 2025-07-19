@@ -996,7 +996,8 @@ ALTER TABLE `archivos_entrega_recogida`
 -- Indices de la tabla `autologin_tokens`
 --
 ALTER TABLE `autologin_tokens`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `token` (`token`);
 
 --
 -- Indices de la tabla `cambios_titularidad`
