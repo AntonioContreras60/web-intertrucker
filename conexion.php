@@ -1,8 +1,8 @@
 <?php
-$servername = "db5016197746.hosting-data.io";
-$username   = "dbu4085097";
-$password   = "123intertruckerya";
-$dbname     = "dbs13181300";
+$servername = getenv('DB_HOST') ?: 'db5016197746.hosting-data.io';
+$username   = getenv('DB_USER') ?: 'dbu4085097';
+$password   = getenv('DB_PASS') ?: '123intertruckerya';
+$dbname     = getenv('DB_NAME') ?: 'dbs13181300';
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
