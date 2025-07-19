@@ -42,3 +42,12 @@ Puedes programar su ejecución periódica mediante `cron`. Por ejemplo, para eje
 0 * * * * /usr/bin/php /ruta/a/web-intertrucker/cleanup_autologin.php >/dev/null 2>&1
 ```
 
+## Actualización de la base de datos
+
+Se ha añadido un índice único sobre el campo `token` de la tabla `autologin_tokens`.
+Para actualizar una instalación existente ejecuta el siguiente comando SQL:
+
+```sql
+ALTER TABLE autologin_tokens ADD UNIQUE KEY `token` (`token`);
+```
+
