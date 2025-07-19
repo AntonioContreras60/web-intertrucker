@@ -46,6 +46,11 @@ try {
     $stmtTrenes->execute();
     $resultTrenes = $stmtTrenes->get_result();
     $trenes = $resultTrenes->fetch_all(MYSQLI_ASSOC);
+    foreach ($trenes as &$t) {
+        if (isset($t['id'])) {
+            $t['id'] = (int)$t['id'];
+        }
+    }
 
     echo json_encode(["success" => true, "data" => $trenes]);
 } catch (Exception $e) {

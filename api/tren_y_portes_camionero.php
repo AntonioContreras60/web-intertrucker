@@ -88,6 +88,9 @@ try {
     $stmtTren->execute();
     $resultTren = $stmtTren->get_result();
     $rowTren = $resultTren->fetch_assoc();
+    if ($rowTren) {
+        $rowTren['tren_id'] = (int)$rowTren['tren_id'];
+    }
 
     if (!$rowTren) {
         // Camionero no tiene tren
@@ -143,6 +146,17 @@ try {
     $stmtPortes->execute();
     $resultPortes = $stmtPortes->get_result();
     $portes = $resultPortes->fetch_all(MYSQLI_ASSOC);
+    foreach ($portes as &$p) {
+        $intFields = [
+            'id','usuario_creador_id','destinatario_usuario_id','destinatario_entidad_id',
+            'expedidor_usuario_id','expedidor_entidad_id','cliente_usuario_id','cliente_entidad_id'
+        ];
+        foreach ($intFields as $f) {
+            if (isset($p[$f])) {
+                $p[$f] = (int)$p[$f];
+            }
+        }
+    }
 
     // Respuesta final
     echo json_encode([

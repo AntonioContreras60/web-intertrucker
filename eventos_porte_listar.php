@@ -84,6 +84,9 @@ if (!$result) {
 // Recopilar los registros
 $rows = [];
 while ($row = $result->fetch_assoc()) {
+    if (isset($row['porte_id'])) {
+        $row['porte_id'] = (int)$row['porte_id'];
+    }
     $rows[] = $row;
 }
 
